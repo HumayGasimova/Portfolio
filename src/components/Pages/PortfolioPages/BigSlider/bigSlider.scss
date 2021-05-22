@@ -1,0 +1,72 @@
+.big-slider {
+    width: calc(100% + 18px);
+    .big-slider-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .big-slider-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 130px 70px 130px;
+        .big-slider-content {
+            .big-slider-content-info {
+                display: flex;
+                flex-wrap: wrap;
+                .big-slider-text-wrapper {
+                    width: calc(70% - 60px);
+                    padding-right: 60px;
+                }
+                .big-slider-category-date-tags-wrapper {
+                    width: 30%;
+                    flex-direction: column;
+                    .big-slider-categories {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .big-slider-category {
+                            padding-right: 10px;
+                        }
+                    }
+                    .big-slider-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .big-slider-tag {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .big-slider {
+        .big-slider-wrapper {
+            .big-slider-content {
+                .big-slider-content-info {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .big-slider-text-wrapper {
+                        width: calc(100% - 60px);
+                    }
+                    .big-slider-category-date-tags-wrapper {
+                        width: 100%;
+                        padding-top: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .big-slider {
+        .big-slider-wrapper {
+            padding: 70px 30px 70px 30px;
+        }
+    }
+}

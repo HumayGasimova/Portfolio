@@ -1,0 +1,83 @@
+.big-images {
+    width: calc(100% + 18px);
+    .big-images-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .big-images-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 130px 70px 130px;
+        .big-images-content {
+            .big-images-content-info {
+                display: flex;
+                flex-wrap: wrap;
+                .big-images-portfolio-images {
+                    width: 100%;
+                    .big-images-portfolio-image {
+                        cursor: pointer;
+                        >img {
+                            width: 100%;
+                        }
+                    }
+                }
+                .big-images-text-wrapper {
+                    width: calc(70% - 60px);
+                    padding-right: 60px;
+                }
+                .big-images-category-date-tags-wrapper {
+                    width: 30%;
+                    flex-direction: column;
+                    .big-images-categories {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .big-images-category {
+                            padding-right: 10px;
+                        }
+                    }
+                    .big-images-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .big-images-tag {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .big-images {
+        .big-images-wrapper {
+            .big-images-content {
+                .big-images-content-info {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .big-images-text-wrapper {
+                        width: calc(100% - 60px);
+                        padding-right: 60px;
+                    }
+                    .big-images-category-date-tags-wrapper {
+                        width: 100%;
+                        flex-direction: column;
+                        padding-top: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .big-images {
+        .big-images-wrapper {
+            padding: 70px 30px 70px 30px;
+        }
+    }
+}

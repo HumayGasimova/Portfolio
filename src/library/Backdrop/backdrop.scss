@@ -1,0 +1,19 @@
+.backdrop-home {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 650;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-photo-viewer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 700;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.1);
+}

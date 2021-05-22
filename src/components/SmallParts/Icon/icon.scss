@@ -1,0 +1,393 @@
+.plus-icon {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:black;
+    }
+    .plus-vertical-line {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        transform: rotate(90deg);
+        width: 11px;
+        height: 1.5px;
+        background:black;
+    }
+}
+
+.plus-icon-hover-on {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:white;
+    }
+    .plus-vertical-line {
+      display: none;
+    }
+}
+
+.plus-icon-hover-off {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:black;
+    }
+    .plus-vertical-line {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        transform: rotate(90deg);
+        width: 11px;
+        height: 1.5px;
+        background:black;
+    }
+}
+
+.soc-med-icon {
+    color: white;
+    cursor: pointer;
+}
+.soc-med-icon-hover-on {
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+    -webkit-animation: socMedIconHoverOn .3s linear;
+    -moz-animation: socMedIconHoverOn .3s linear;
+    -o-animation: socMedIconHoverOn .3s linear;
+    animation: socMedIconHoverOn .3s linear;
+}
+.soc-med-icon-hover-off {
+    color: white;
+    cursor: pointer;
+    -webkit-animation: socMedIconHoverOff .3s linear;
+    -moz-animation: socMedIconHoverOff .3s linear;
+    -o-animation: socMedIconHoverOff .3s linear;
+    animation: socMedIconHoverOff .3s linear;
+}
+
+.background-for-blog-list-standard-page-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    .blog-list-standard-page-icon-background-curtain {
+        position: absolute;
+        width: 30px;
+        height: 0px;
+        z-index: -1;
+    }
+    .blog-list-standard-page-icon-background-curtain-hover-on {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: black;
+        z-index: 10;
+        -webkit-animation: blogListStandardPageIconBackgroundCurtainHoverOn .2s ease;
+        -moz-animation: blogListStandardPageIconBackgroundCurtainHoverOn .2s ease;
+        -o-animation: blogListStandardPageIconBackgroundCurtainHoverOn .2s ease;
+        animation: blogListStandardPageIconBackgroundCurtainHoverOn .2s ease;
+    }
+    .blog-list-standard-page-icon-background-curtain-hover-off {
+        position: absolute;
+        width: 30px;
+        height: 0px;
+        z-index: 10;
+        background: black;
+        -webkit-animation: blogListStandardPageIconBackgroundCurtainHoverOff .2s ease;
+        -moz-animation: blogListStandardPageIconBackgroundCurtainHoverOff .2s ease;
+        -o-animation: blogListStandardPageIconBackgroundCurtainHoverOff .2s ease;
+        animation: blogListStandardPageIconBackgroundCurtainHoverOff .2s ease;
+    }
+    .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        .soc-med-icon-for-blog {
+            color: black;
+            z-index: 20;
+        }
+        .soc-med-icon-for-blog-hover-on {
+            color: rgb(248, 248, 248);
+            z-index: 20;
+            -webkit-animation: socMedIconForBlogHoverOn .2s linear;
+            -moz-animation: socMedIconForBlogHoverOn .2s linear;
+            -o-animation: socMedIconForBlogHoverOn .2s linear;
+            animation: socMedIconForBlogHoverOn .2s linear;
+        }
+        .soc-med-icon-for-blog-hover-off {
+            color: black;
+            z-index: 20;
+            -webkit-animation: socMedIconForBlogHoverOff .2s linear;
+            -moz-animation: socMedIconForBlogHoverOff .2s linear;
+            -o-animation: socMedIconForBlogHoverOff .2s linear;
+            animation: socMedIconForBlogHoverOff .2s linear;
+        }
+    }
+}
+
+.blog-list-standard-page-search-icon {
+    color: rgb(155, 155, 155);
+}
+
+.blog-list-standard-page-search-icon-hover-on {
+    color: black;
+    -webkit-animation: blogListStandardPageSearchIconHoverOn .3s linear;
+    -moz-animation: blogListStandardPageSearchIconHoverOn .3s linear;
+    -o-animation: blogListStandardPageSearchIconHoverOn .3s linear;
+    animation: blogListStandardPageSearchIconHoverOn .3s linear;
+}
+
+.blog-list-standard-page-search-icon-hover-off {
+    color: rgb(155, 155, 155);
+    -webkit-animation: blogListStandardPageSearchIconHoverOff .3s linear;
+    -moz-animation: blogListStandardPageSearchIconHoverOff .3s linear;
+    -o-animation: blogListStandardPageSearchIconHoverOff .3s linear;
+    animation: blogListStandardPageSearchIconHoverOff .3s linear;
+}
+
+.icon-for-lists-page-section-1 {
+    color: black;
+}
+
+.icon-for-lists-page-section-2 {
+    color: rgb(218, 153, 83);
+}
+
+.icon-color-from-nobel-to-black {
+    color: rgb(155, 155, 155);
+    cursor: pointer;
+}
+.icon-color-from-nobel-to-black-hover-on {
+    color: black;
+    cursor: pointer;
+    -webkit-animation: iconColorFromNobelToBlackHoverOn .3s linear;
+    -moz-animation: iconColorFromNobelToBlackHoverOn .3s linear;
+    -o-animation: iconColorFromNobelToBlackHoverOn .3s linear;
+    animation: iconColorFromNobelToBlackHoverOn .3s linear;
+}
+.icon-color-from-nobel-to-black-hover-off {
+    color: rgb(155, 155, 155);
+    cursor: pointer;
+    -webkit-animation: iconColorFromNobelToBlackHoverOff .3s linear;
+    -moz-animation: iconColorFromNobelToBlackHoverOff .3s linear;
+    -o-animation: iconColorFromNobelToBlackHoverOff .3s linear;
+    animation: iconColorFromNobelToBlackHoverOff .3s linear;
+}
+
+.icon-color-nobel {
+    color: rgb(155, 155, 155);
+}
+
+.icon-color-white-smoke {
+    color: rgb(239, 239, 239);
+}
+
+.icon-color-white-smoke-2 {
+    color: rgb(248, 248, 248);
+}
+
+@-webkit-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@-moz-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@-o-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+
+@-webkit-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@-moz-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@-o-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+
+@-webkit-keyframes socMedIconForBlogHoverOn {
+    from{color: black;}
+    to{color: rgb(248, 248, 248);}
+}
+@-moz-keyframes socMedIconForBlogHoverOn {
+    from{color: black;}
+    to{color: rgb(248, 248, 248);}
+}
+@-o-keyframes socMedIconForBlogHoverOn {
+    from{color: black;}
+    to{color: rgb(248, 248, 248);}
+}
+@keyframes socMedIconForBlogHoverOn {
+    from{color: black;}
+    to{color: rgb(248, 248, 248);}
+}
+
+@-webkit-keyframes socMedIconForBlogHoverOff {
+    from{color: rgb(248, 248, 248);}
+    to{color: black;}
+}
+@-moz-keyframes socMedIconForBlogHoverOff {
+    from{color: rgb(248, 248, 248);}
+    to{color: black;}
+}
+@-o-keyframes socMedIconForBlogHoverOff {
+    from{color: rgb(248, 248, 248);}
+    to{color: black;}
+}
+@keyframes socMedIconForBlogHoverOff {
+    from{color: rgb(248, 248, 248);}
+    to{color: black;}
+}
+
+@-webkit-keyframes iconColorFromNobelToBlackHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-moz-keyframes iconColorFromNobelToBlackHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-o-keyframes iconColorFromNobelToBlackHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@keyframes iconColorFromNobelToBlackHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+
+@-webkit-keyframes iconColorFromNobelToBlackHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes iconColorFromNobelToBlackHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes iconColorFromNobelToBlackHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes iconColorFromNobelToBlackHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes blogListStandardPageSearchIconHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-moz-keyframes blogListStandardPageSearchIconHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-o-keyframes blogListStandardPageSearchIconHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@keyframes blogListStandardPageSearchIconHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+
+@-webkit-keyframes blogListStandardPageSearchIconHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes blogListStandardPageSearchIconHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes blogListStandardPageSearchIconHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes blogListStandardPageSearchIconHoverOff {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes blogListStandardPageIconBackgroundCurtainHoverOn {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 30px;
+    }
+}
+@-moz-keyframes blogListStandardPageIconBackgroundCurtainHoverOn {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 30px;
+    }
+}
+@-o-keyframes blogListStandardPageIconBackgroundCurtainHoverOn {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 30px;
+    }
+}
+@keyframes blogListStandardPageIconBackgroundCurtainHoverOn {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 30px;
+    }
+}
+
+@-webkit-keyframes blogListStandardPageIconBackgroundCurtainHoverOff {
+    from{
+        height: 30px;
+    }
+    to{
+        height: 0px;
+    }
+}
+@-moz-keyframes blogListStandardPageIconBackgroundCurtainHoverOff {
+    from{
+        height: 30px;
+    }
+    to{
+        height: 0px;
+    }
+}
+@-o-keyframes blogListStandardPageIconBackgroundCurtainHoverOff {
+    from{
+        height: 30px;
+    }
+    to{
+        height: 0px;
+    }
+}
+@keyframes blogListStandardPageIconBackgroundCurtainHoverOff {
+    from{
+        height: 30px;
+    }
+    to{
+        height: 0px;
+    }
+}

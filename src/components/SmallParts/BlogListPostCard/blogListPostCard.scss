@@ -1,0 +1,223 @@
+.blog-list-post-card {
+    >img {
+        width: 100%;
+        cursor: pointer;
+    }
+    .blog-list-post-card-date-and-header-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .blog-list-post-card-text {
+        line-height: 1.6;
+    }
+    .blog-list-post-card-info-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .blog-list-post-card-info-left-part-wrapper {
+            display: flex;
+            .blog-list-post-card-info-likes {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+            .blog-list-post-card-info-comments {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+            .blog-list-post-card-info-categories {
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+        .blog-list-post-card-info-soc-med-wrapper {
+            display: flex;
+            .blog-list-post-card-info-soc-med-icons {
+                display: flex;
+                margin-right: 5px;
+                .blog-list-post-card-info-soc-med-Instagram {
+                    display: flex;
+                    opacity: 0;
+                }
+                .blog-list-post-card-info-soc-med-Instagram-hover-on {
+                    display: flex;
+                    opacity: 1;
+                    -webkit-animation: blogListPostCardShareHoverOn .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOn .2s linear;
+                    -o-animation: blogListPostCardShareHoverOn .2s linear;
+                    animation: blogListPostCardShareHoverOn .2s linear;
+                    animation-delay: .6s;
+                    animation-fill-mode: both;
+                }
+                .blog-list-post-card-info-soc-med-Instagram-hover-off {
+                    display: flex;
+                    opacity: 0;
+                    -webkit-animation: blogListPostCardShareHoverOff .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOff .2s linear;
+                    -o-animation: blogListPostCardShareHoverOff .2s linear;
+                    animation: blogListPostCardShareHoverOff .2s linear;
+                }
+
+                .blog-list-post-card-info-soc-med-Twitter {
+                    display: flex;
+                    opacity: 0;
+                }
+                .blog-list-post-card-info-soc-med-Twitter-hover-on {
+                    display: flex;
+                    opacity: 1;
+                    -webkit-animation: blogListPostCardShareHoverOn .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOn .2s linear;
+                    -o-animation: blogListPostCardShareHoverOn .2s linear;
+                    animation: blogListPostCardShareHoverOn .2s linear;
+                    animation-delay: .5s;
+                    animation-fill-mode: both;         
+                }
+                .blog-list-post-card-info-soc-med-Twitter-hover-off {
+                    display: flex;
+                    opacity: 0;
+                    -webkit-animation: blogListPostCardShareHoverOff .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOff .2s linear;
+                    -o-animation: blogListPostCardShareHoverOff .2s linear;
+                    animation: blogListPostCardShareHoverOff .2s linear;
+                }
+
+                .blog-list-post-card-info-soc-med-Facebook {
+                    display: flex;
+                    opacity: 0;
+                }
+                .blog-list-post-card-info-soc-med-Facebook-hover-on {
+                    display: flex;
+                    opacity: 1;
+                    -webkit-animation: blogListPostCardShareHoverOn .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOn .2s linear;
+                    -o-animation: blogListPostCardShareHoverOn .2s linear;
+                    animation: blogListPostCardShareHoverOn .2s linear;
+                    animation-delay: .3s;
+                    animation-fill-mode: both;
+                }
+                .blog-list-post-card-info-soc-med-Facebook-hover-off {
+                    display: flex;
+                    opacity: 0;
+                    -webkit-animation: blogListPostCardShareHoverOff .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOff .2s linear;
+                    -o-animation: blogListPostCardShareHoverOff .2s linear;
+                    animation: blogListPostCardShareHoverOff .2s linear;
+                }
+
+                .blog-list-post-card-info-soc-med-Tumblr {
+                    display: flex;
+                    opacity: 0;
+                }
+                .blog-list-post-card-info-soc-med-Tumblr-hover-on {
+                    display: flex;
+                    opacity: 1;
+                    -webkit-animation: blogListPostCardShareHoverOn .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOn .2s linear;
+                    -o-animation: blogListPostCardShareHoverOn .2s linear;
+                    animation: blogListPostCardShareHoverOn .2s linear;
+                }
+                .blog-list-post-card-info-soc-med-Tumblr-hover-off {
+                    display: flex;
+                    opacity: 0;
+                    -webkit-animation: blogListPostCardShareHoverOff .2s linear;
+                    -moz-animation: blogListPostCardShareHoverOff .2s linear;
+                    -o-animation: blogListPostCardShareHoverOff .2s linear;
+                    animation: blogListPostCardShareHoverOff .2s linear;
+                }
+            }
+        }
+    }
+
+    .blog-list-post-card-link {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: rgb(37, 37, 37);
+        .blog-list-post-card-link-text-wrapper {
+            line-height: 1.5;
+            padding-right: 30px;
+        }
+        .blog-list-post-card-link-icon-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transform: rotate(90deg);
+        }
+    }
+    .blog-list-post-card-quote {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: white;
+        .blog-list-post-card-quote-text-wrapper {
+            line-height: 1.5;
+            padding-right: 30px;
+        }
+        .blog-list-post-card-quote-author-name-wrapper {
+            display: flex;
+            align-items: center;
+            .slide-dash {
+                border: 1.5px solid rgb(37, 37, 37);
+                background: rgb(37, 37, 37);
+                width: 10px;
+                margin-right: 5px;
+            }
+        }
+        .blog-list-post-card-quote-icon-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    }
+    .blog-list-post-card-audio-wrapper {
+        width: 100%;
+        position: relative;
+        >img {
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+    .blog-list-post-card-video-wrapper {
+        width: 100%;
+        position: relative;
+    }
+}
+
+@-webkit-keyframes blogListPostCardShareHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-moz-keyframes blogListPostCardShareHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-o-keyframes blogListPostCardShareHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes blogListPostCardShareHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes blogListPostCardShareHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes blogListPostCardShareHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes blogListPostCardShareHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes blogListPostCardShareHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}

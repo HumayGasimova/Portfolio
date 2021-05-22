@@ -1,0 +1,85 @@
+.google-maps-page {
+    width: calc(100% + 18px);
+    .google-maps-page-loading-error {
+        width: calc(50% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .google-maps-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        .google-maps-page-header {
+            padding: 90px 130px 90px 130px;
+        }
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .google-maps-page-section-1-data-wrapper {
+            width: calc(100% - 260px);
+            display: flex;
+            justify-content: space-between;
+            // flex-wrap: wrap;
+            background: rgb(248, 248, 248);
+            padding: 130px;
+            .google-maps-page-section1-column1-data {
+                position: relative;
+                width: 50%;
+                height: 400px;
+            }
+            .google-maps-page-section1-column2-data {
+                position: relative;
+                width: 50%;
+                height: 400px;
+            }
+        }
+        .google-maps-page-section-2-data-wrapper {
+            display: flex;
+            justify-content: center;
+            .google-maps-page-section2-data {
+                position: relative;
+                width: 100%;
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .google-maps-page {
+        .google-maps-page-wrapper {
+            .google-maps-page-header {
+                padding: 90px 40px 90px 40px;
+            }
+            .google-maps-page-section-1-data-wrapper {
+                width: calc(100% - 80px);
+                padding: 130px 40px 130px 40px;
+            }   
+        }
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .google-maps-page {
+        .google-maps-page-wrapper {
+            .google-maps-page-loading-error {
+                width: calc(100% - 40px);
+                height: 200px;
+            }
+            .google-maps-page-section-1-data-wrapper {
+                flex-direction: column;
+                padding: 90px 40px 90px 40px;
+                .google-maps-page-section1-column1-data {
+                    width: 100%;
+                }
+                .google-maps-page-section1-column2-data {
+                    width: 100%;
+                }
+            }   
+        }
+    }
+}

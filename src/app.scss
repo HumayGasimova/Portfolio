@@ -1,0 +1,35 @@
+b {
+    background: linear-gradient(
+        white,
+        black,
+        rgb(23, 23, 23),     /**Nero2**/
+        rgb(37, 37, 37),     /**Nero**/
+        rgb(59, 59, 59),     /** Eclipse**/
+        rgb(78, 78, 78),     /**Matterhorn**/
+        rgb(155, 155, 155),  /**Nobel**/
+        rgb(239, 239, 239),  /**White Smoke**/
+        rgb(248, 248, 248),  /**White Smoke2**/
+
+        rgb(218, 153, 83),   /**Porsche**/
+        rgb(86, 122, 84)     /** Glade Green**/
+    );
+
+    // font-size: 70px;
+    // font-size: 60px;   mediaScreen: 1120, 860, 730, 600
+    font-size: 180px; //  font-size: 150px, 130px, 120px, 100px
+    font-size: 130px;
+    font-size: 65px;  //  font-size: 55px, 45px, 35px,
+    font-size: 45px;
+    font-size: 19px;
+    font-size: 17px;
+    font-size: 15px;
+
+    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Lora', serif;
+    // font-family: 'Lalezar', cursive;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Days One', sans-serif;
+    font-family: 'Lustria', serif;
+    font-family: 'Poppins', sans-serif;
+}
+

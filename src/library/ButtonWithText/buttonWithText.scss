@@ -1,0 +1,296 @@
+.arrow-with-text {
+    width: 125px;
+    display: flex;
+    // justify-content: flex-start;
+    margin-top: 40px;
+    padding: 5px 20px 5px 5px;
+    cursor: pointer;
+    .arrow-wrapper {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 1.5px;
+            background: black;
+            width: 15px;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+            }
+        }
+    }
+    .arrow-wrapper-hover-on {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 1.5px;
+            background: black;
+            width: 25px;
+            -webkit-animation: lengthenHorizontalLineButtonWithText .1s linear;
+            -moz-animation: lengthenHorizontalLineButtonWithText .1s linear;
+            -o-animation: lengthenHorizontalLineButtonWithText .1s linear;
+            animation: lengthenHorizontalLineButtonWithText .1s linear;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 0px solid black;
+                background: black;
+                height: 10px;
+                transform: translate(-1px, 1.6px) rotate(-45deg);
+                -webkit-animation: lengthenArrowLineButtonWithText .1s linear;
+                -moz-animation: lengthenArrowLineButtonWithText .1s linear;
+                -o-animation: lengthenArrowLineButtonWithText .1s linear;
+                animation: lengthenArrowLineButtonWithText .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+            .arrow-bottom-line {
+                border: 0px solid black;
+                background: black;
+                height: 10px;
+                transform: translate(-1px, -1.6px) rotate(45deg);
+                -webkit-animation: lengthenArrowLineButtonWithText .1s linear;
+                -moz-animation: lengthenArrowLineButtonWithText .1s linear;
+                -o-animation: lengthenArrowLineButtonWithText .1s linear;
+                animation: lengthenArrowLineButtonWithText .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+        }
+    }
+    .arrow-wrapper-hover-off {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 1.5px;
+            background: black;
+            width: 15px;
+            -webkit-animation: shortenHorizontalLineButtonWithText .1s linear;
+            -moz-animation: shortenHorizontalLineButtonWithText .1s linear;
+            -o-animation: shortenHorizontalLineButtonWithText .1s linear;
+            animation: shortenHorizontalLineButtonWithText .1s linear;
+            animation-delay: .1s;
+            animation-fill-mode: both;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+                -webkit-animation: shortenArrowLineButtonWithText .1s linear;
+                -moz-animation: shortenArrowLineButtonWithText .1s linear;
+                -o-animation: shortenArrowLineButtonWithText .1s linear;
+                animation: shortenArrowLineButtonWithText .1s linear;
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+                -webkit-animation: shortenArrowLineButtonWithText .1s linear;
+                -moz-animation: shortenArrowLineButtonWithText .1s linear;
+                -o-animation: shortenArrowLineButtonWithText .1s linear;
+                animation: shortenArrowLineButtonWithText .1s linear;
+            }
+        }
+    }
+    .text {
+        transform: translateX(10px);
+    }
+    .text-hover-on {
+        transform: translateX(15px);
+        -webkit-animation: buttonTextHoverOn .4s ease;
+        -moz-animation: buttonTextHoverOn .4s ease;
+        -o-animation: buttonTextHoverOn .4s ease;
+        animation: buttonTextHoverOn .4s ease;
+    }
+    .text-hover-off {
+        transform: translateX(10px);
+        -webkit-animation: buttonTextHoverOff .4s ease;
+        -moz-animation: buttonTextHoverOff .4s ease;
+        -o-animation: buttonTextHoverOff .4s ease;
+        animation: buttonTextHoverOff .4s ease;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineButtonWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@-moz-keyframes lengthenHorizontalLineButtonWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@-o-keyframes lengthenHorizontalLineButtonWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@keyframes lengthenHorizontalLineButtonWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+
+@-webkit-keyframes lengthenArrowLineButtonWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLineButtonWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLineButtonWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLineButtonWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 10px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenHorizontalLineButtonWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@-moz-keyframes shortenHorizontalLineButtonWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@-o-keyframes shortenHorizontalLineButtonWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@keyframes shortenHorizontalLineButtonWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+
+@-webkit-keyframes shortenArrowLineButtonWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 10px;
+    }
+    to{
+        border: 0.5px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineButtonWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineButtonWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineButtonWithText {
+    from{
+        border: 0.5px solid black;
+        background: black;
+        height: 10px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes buttonTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@-moz-keyframes buttonTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@-o-keyframes buttonTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@keyframes buttonTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+
+@-webkit-keyframes buttonTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@-moz-keyframes buttonTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@-o-keyframes buttonTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@keyframes buttonTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}

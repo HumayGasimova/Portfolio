@@ -1,0 +1,72 @@
+.achievement-item {
+    width: 25%;
+    -webkit-animation: achievementItem 2s ease;
+    -moz-animation: achievementItem 2s ease;
+    -o-animation: achievementItem 2s ease;
+    animation: achievementItem 2s ease;
+    .achievement-item-number {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 170px;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        .achievement {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-family: 'Lustria', serif;
+            text-align: center;
+        }
+    }
+    .achievement-item-text {
+        padding: 0 20px 0 20px;
+        text-align: center;
+        line-height: 1.6;
+        transform: translateY(-25px);
+    }
+}
+
+@-webkit-keyframes achievementItem {
+    0% {opacity: .2;}
+    100% {opacity: 1;}
+}
+@-moz-keyframes achievementItem {
+    0% {opacity: .2;}
+    100% {opacity: 1;}
+}
+@-o-keyframes achievementItem {
+    0% {opacity: .2;}
+    100% {opacity: 1;}
+}
+@keyframes achievementItem {
+    0% {opacity: .2;}
+    100% {opacity: 1;}
+}
+
+@media only screen and (max-width: 1330px){
+    .achievement-item {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1025px){
+    .achievement-item {
+        .achievement-item-number {
+            font-size: 140px;
+            .achievement {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 990px){
+    .achievement-item {
+        width: 100%;
+    }
+}

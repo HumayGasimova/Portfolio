@@ -1,0 +1,144 @@
+.h35 {
+    font-size: 35px;
+    color: black;
+}
+
+.h35-nero-poppins {
+    font-size: 35px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h35-white-poppins {
+    font-size: 35px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h35-black-poppins {
+    font-size: 35px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h35-black-poppins-cursor {
+    font-size: 35px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.h35-white-poppins-animated-opacity-hover-on {
+    font-size: 35px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    opacity: 1;
+    -webkit-animation: h35OpacityHoverOn .1s linear;
+    -moz-animation: h35OpacityHoverOn .1s linear;
+    -o-animation: h35OpacityHoverOn .1s linear;
+    animation: h35OpacityHoverOn .1s linear;
+    animation-delay: .3s;
+    animation-fill-mode: both;
+}
+
+.h35-white-poppins-animated-opacity-hover-off {
+    font-size: 35px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    -webkit-animation: h35OpacityHoverOff .1s linear;
+    -moz-animation: h35OpacityHoverOff .1s linear;
+    -o-animation: h35OpacityHoverOff .1s linear;
+    animation: h35OpacityHoverOff .1s linear;
+}
+
+.h35-black-poppins-nobel-cursor-hover-on {
+    font-size: 35px;
+    color: rgb(155, 155, 155);
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    -webkit-animation: h35BlackNobelHoverOn .2s linear;
+    -moz-animation: h35BlackNobelHoverOn .2s linear;
+    -o-animation: h35BlackNobelHoverOn .2s linear;
+    animation: h35BlackNobelHoverOn .2s linear;
+}
+
+.h35-black-poppins-nobel-cursor-hover-off {
+    font-size: 35px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    -webkit-animation: h35BlackNobelHoverOff .2s linear;
+    -moz-animation: h35BlackNobelHoverOff .2s linear;
+    -o-animation: h35BlackNobelHoverOff .2s linear;
+    animation: h35BlackNobelHoverOff .2s linear;
+}
+
+@-webkit-keyframes h35BlackNobelHoverOn {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes h35BlackNobelHoverOn {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes h35BlackNobelHoverOn {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes h35BlackNobelHoverOn {
+    from{color: black;}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes h35BlackNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-moz-keyframes h35BlackNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@-o-keyframes h35BlackNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+@keyframes h35BlackNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: black;}
+}
+
+
+@-webkit-keyframes h35OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-moz-keyframes h35OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-o-keyframes h35OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes h35OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes h35OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes h35OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes h35OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes h35OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}

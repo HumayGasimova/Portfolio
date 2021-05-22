@@ -1,0 +1,459 @@
+.banner-image {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    .banner-image {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            filter: grayscale(35%);
+        }
+    }
+    .banner-image-hover-on {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            transform: scale(1.05);
+            filter: grayscale(35%);
+            -webkit-animation: bannerImageHoverOn .3s linear;
+            -moz-animation: bannerImageHoverOn .3s linear;
+            -o-animation: bannerImageHoverOn .3s linear;
+            animation: bannerImageHoverOn .3s linear;
+        }
+    }
+    .banner-image-hover-off {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            transform: scale(1);
+            filter: grayscale(35%);
+            -webkit-animation: bannerImageHoverOff .3s linear;
+            -moz-animation: bannerImageHoverOff .3s linear;
+            -o-animation: bannerImageHoverOff .3s linear;
+            animation: bannerImageHoverOff .3s linear;
+        }
+    }
+    .banner-cover-info {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        z-index: 10;
+    }
+    .banner-cover-info-hover-on {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        z-index: 10;
+        transform: translateY(-30px);
+        -webkit-animation: bannerHeaderHoverOn .2s linear;
+        -moz-animation: bannerHeaderHoverOn .2s linear;
+        -o-animation: bannerHeaderHoverOn .2s linear;
+        animation: bannerHeaderHoverOn .2s linear;
+        
+        .banner-cover-text-open {
+            width: 270px;
+            text-align: center;
+            max-height: 100px;
+            overflow: hidden;
+            transition: max-height 0.2s ease;
+        }
+        .arrow-wrapper {
+            display: flex;
+            justify-content: start;
+            width: 60px;
+            .banner-image-arrow-wrapper-lengthen {
+                display: flex;
+                margin-top: 10px;
+                align-items: center;
+                cursor: pointer;
+                .arrow-horizontal-line {
+                    width: 60px;
+                    height: 2px;
+                    background: white;
+                    -webkit-animation: lengthenHorizontalLineBannerImage .1s linear;
+                    -moz-animation: lengthenHorizontalLineBannerImage .1s linear;
+                    -o-animation: lengthenHorizontalLineBannerImage .1s linear;
+                    animation: lengthenHorizontalLineBannerImage .1s linear;
+                    animation-delay: .3s;
+                    animation-fill-mode: both;
+                }
+                .arrow-wrapper2 {
+                    transform: translate(-5px);
+                    height: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .arrow-top-line {
+                        border: 0px solid white;
+                        background: white;
+                        height: 15px;
+                        transform: translate(-1px, 2.7px) rotate(-45deg);
+                        -webkit-animation: lengthenArrowLineBannerImage .1s linear;
+                        -moz-animation: lengthenArrowLineBannerImage .1s linear;
+                        -o-animation: lengthenArrowLineBannerImage .1s linear;
+                        animation: lengthenArrowLineBannerImage .1s linear;
+                        animation-delay: .4s;
+                        animation-fill-mode: both;
+                    }
+                    .arrow-bottom-line {
+                        border: 0px solid white;
+                        background: white;
+                        height: 15px;
+                        transform: translate(-1px, -2.7px) rotate(45deg);
+                        -webkit-animation: lengthenArrowLineBannerImage .1s linear;
+                        -moz-animation: lengthenArrowLineBannerImage .1s linear;
+                        -o-animation: lengthenArrowLineBannerImage .1s linear;
+                        animation: lengthenArrowLineBannerImage .1s linear;
+                        animation-delay: .4s;
+                        animation-fill-mode: both;
+                    }
+                }
+            }
+        }        
+    }
+    .banner-cover-info-hover-off {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        z-index: 10;
+        transform: translateY(0px);
+        -webkit-animation: bannerHeaderHoverOff .2s linear;
+        -moz-animation: bannerHeaderHoverOff .2s linear;
+        -o-animation: bannerHeaderHoverOff .2s linear;
+        animation: bannerHeaderHoverOff .2s linear;
+        .banner-cover-text-close {
+            width: 270px;
+            text-align: center;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.2s ease;
+        }
+        .arrow-wrapper {
+            display: flex;
+            justify-content: start;
+            width: 60px;
+            .banner-image-arrow-wrapper-shorten {
+                display: flex;
+                margin-top: 10px;
+                align-items: center;
+                cursor: pointer;
+                .arrow-horizontal-line {
+                    width: 0px;
+                    height: 2px;
+                    background: white;
+                    animation-delay: .1s;
+                    animation-fill-mode: both;
+                }
+                .arrow-wrapper2 {
+                    transform: translate(-5px);
+                    height: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .arrow-top-line {
+                        border: 1px solid transparent;
+                        height: 0px;
+                        transform: translate(-1px, 1px) rotate(-45deg);
+                    }
+                    .arrow-bottom-line {
+                        border: 1px solid transparent;
+                        height: 0px;
+                        transform: translate(-1px, -1px) rotate(45deg);
+                    }
+                }
+            }
+        }
+        
+    }
+    .banner-curtain-hover-on {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background: rgba(0, 0, 0, 0.7);
+        filter: grayscale(35%);
+        width: 100%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 1;
+        -webkit-animation: bannerCurtainHoverOn 0.3s linear;
+        -moz-animation: bannerCurtainHoverOn 0.3s linear;
+        -o-animation: bannerCurtainHoverOn 0.3s linear;
+        animation: bannerCurtainHoverOn 0.3s linear;
+    }
+    .banner-curtain-hover-off {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background: rgba(0, 0, 0, 0.7);
+        filter: grayscale(35%);
+        position: absolute;
+        width: 100%;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 0;
+        -webkit-animation: bannerCurtainHoverOff .1s linear;
+        -moz-animation: bannerCurtainHoverOff .1s linear;
+        -o-animation: bannerCurtainHoverOff .1s linear;
+        animation: bannerCurtainHoverOff .1s linear;
+    }
+}
+
+.banner-cover-text {
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.display-none {
+    display: none;
+}
+
+@-webkit-keyframes bannerHeaderHoverOn {
+    from{transform: translateY(0px);}
+    to{transform: translateY(-30px);}
+}
+@-moz-keyframes bannerHeaderHoverOn {
+    from{transform: translateY(0px);}
+    to{transform: translateY(-30px);}
+}
+@-o-keyframes bannerHeaderHoverOn {
+    from{transform: translateY(0px);}
+    to{transform: translateY(-30px);}
+}
+@keyframes bannerHeaderHoverOn {
+    from{transform: translateY(0px);}
+    to{transform: translateY(-30px);}
+}
+
+@-webkit-keyframes bannerHeaderHoverOff {
+    from{transform: translateY(-30px);}
+    to{transform: translateY(0px);}
+}
+@-moz-keyframes bannerHeaderHoverOff {
+    from{transform: translateY(-30px);}
+    to{transform: translateY(0px);}
+}
+@-o-keyframes bannerHeaderHoverOff {
+    from{transform: translateY(-30px);}
+    to{transform: translateY(0px);}
+}
+@keyframes bannerHeaderHoverOff {
+    from{transform: translateY(-30px);}
+    to{transform: translateY(0px);}
+}
+
+@-webkit-keyframes lengthenArrowLineBannerImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-moz-keyframes lengthenArrowLineBannerImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-o-keyframes lengthenArrowLineBannerImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@keyframes lengthenArrowLineBannerImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineBannerImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineBannerImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineBannerImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineBannerImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineBannerImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineBannerImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineBannerImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineBannerImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineBannerImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@-moz-keyframes shortenHorizontalLineBannerImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@-o-keyframes shortenHorizontalLineBannerImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@keyframes shortenHorizontalLineBannerImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+
+@-webkit-keyframes bannerImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-moz-keyframes bannerImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-o-keyframes bannerImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@keyframes bannerImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+
+@-webkit-keyframes bannerImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-moz-keyframes bannerImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-o-keyframes bannerImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@keyframes bannerImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+
+@-webkit-keyframes bannerCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-moz-keyframes bannerCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-o-keyframes bannerCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@keyframes bannerCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+
+@-webkit-keyframes bannerCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-moz-keyframes bannerCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-o-keyframes bannerCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@keyframes bannerCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}

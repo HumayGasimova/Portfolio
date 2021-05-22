@@ -1,0 +1,24 @@
+.h130 {
+    font-size: 130px;
+    // font-family: 'Lalezar', cursive;
+    // color: white;
+}
+
+.h130-white-teko {
+    font-size: 130px;
+    font-family: 'Teko', sans-serif;
+    color: white;
+    height: 130px;
+}
+
+.h130-black-teko {
+    font-size: 130px;
+    font-family: 'Teko', sans-serif;
+    color: black;
+}
+
+@media only screen and (max-width: 530px){
+    .h130-white-teko {
+        font-size: 100px;
+    }
+}

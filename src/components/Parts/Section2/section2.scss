@@ -1,0 +1,122 @@
+.section-2 {
+    height: 2000px;
+    background-image: url('../../../images/background/augustine-wong-3Om4DHcaAc0-unsplash.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.section-2-picture-board-loading-error {
+    height: 1100px;
+    background-image: url('../../../images/background/augustine-wong-3Om4DHcaAc0-unsplash.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.section-2-our-process-loading-error {
+    height: 1920px;
+    background-image: url('../../../images/background/augustine-wong-3Om4DHcaAc0-unsplash.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.section-2-picture-board-and-our-process-loading-error {
+    height: 1030px;
+    background-image: url('../../../images/background/augustine-wong-3Om4DHcaAc0-unsplash.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.section-2-wrapper {
+    height: 475px;
+    padding: 80px;
+    text-align: center;
+    background: rgb(37, 37, 37);
+}
+
+@media only screen and (max-width: 1250px){
+    .section-2 {
+        height: 4290px;
+    }    
+    .section-2-our-process-loading-error {
+        height: 4210px;
+    }
+}
+
+@media only screen and (max-width: 945px){
+    .section-2 {
+        height: 4390px;
+    }
+    .section-2-picture-board-loading-error {
+        height: 1940px;
+    }
+    .section-2-our-process-loading-error {
+        height: 3450px;
+    }
+}
+
+@media only screen and (max-width: 775px){
+    .section-2 {
+        height: 9260px;
+    }
+    .section-2-our-process-loading-error {
+        height: 8340px;
+    }
+    .section-2-picture-board-and-our-process-loading-error {
+        height: 1070px;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .section-2 {
+        height: 7090px;
+    }
+    .section-2-our-process-loading-error {
+        height: 6140px;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .section-2 {
+        height: 7080px;
+    }
+    .section-2-picture-board-loading-error {
+        height: 1950px;
+    }
+    .section-2-our-process-loading-error {
+        height: 6280px;
+    }
+    .section-2-picture-board-and-our-process-loading-error {
+        height: 1100px;
+    }
+    .section-2-wrapper {
+        padding: 50px;
+    }
+}
+
+@media only screen and (max-width: 330px){
+    .section-2 {
+        height: 7100px;
+    }
+    .section-2-picture-board-loading-error {
+        height: 1940px;
+    }
+    .section-2-our-process-loading-error {
+        height: 6340px;
+    }
+    .section-2-picture-board-and-our-process-loading-error {
+        height: 1130px;
+    }
+    .section-2-wrapper {
+        padding: 30px;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .section-2 {
+        height: 7260px;
+    }
+    .section-2-our-process-loading-error {
+        height: 6370px;
+    }
+}

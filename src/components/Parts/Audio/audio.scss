@@ -1,0 +1,142 @@
+.audio-wrapper {
+    .audio {
+        width: 100%;
+        border-radius: 20px;
+        position: absolute;
+        width: 100%;
+        bottom: 0%;
+    }
+    .audio-copyrights {
+        position: absolute;
+        background-color: rgba(37, 37, 37, 0.8);
+        padding: 3px 10px 3px 10px;
+        top: 0%;
+        left: 0%;
+    }
+    audio:focus {
+        border-radius: 0px;
+        outline: 1px solid transparent;
+    }
+    audio:not(:focus) {
+        border-radius: 0px;
+    }
+    audio::-webkit-media-controls-enclosure {
+        border-radius: 0px;
+    }
+}
+
+audio::-webkit-media-controls {}
+
+audio::-webkit-media-controls-panel {}
+
+audio:-webkit-full-page-media {}
+
+audio::-webkit-media-controls-mute-button {}
+
+audio::-webkit-media-controls-play-button {}
+
+audio::-webkit-media-controls-timeline-container {}
+
+audio::-webkit-media-controls-current-time-display {}
+
+audio::-webkit-media-controls-time-remaining-display {}
+
+audio::-webkit-media-controls-timeline {}
+
+audio::-webkit-media-controls-volume-slider-container {}
+
+audio::-webkit-media-controls-volume-slider {}
+
+audio::-webkit-media-controls-seek-back-button {}
+
+audio::-webkit-media-controls-seek-forward-button {}
+
+audio::-webkit-media-controls-fullscreen-button {}
+
+audio::-webkit-media-controls-rewind-button {}
+
+audio::-webkit-media-controls-return-to-realtime-button {}
+
+audio::-webkit-media-controls-toggle-closed-captions-button {}
+
+// @-webkit-keyframes hoverPlayButtonOn {
+//     from{
+//         width: 100px;
+//         height: 100px;
+//     }
+//     to{
+//         width: 110px;
+//         height: 110px;
+//     }
+// }
+// @-moz-keyframes hoverPlayButtonOn {
+//     from{
+//         width: 100px;
+//         height: 100px;
+//     }
+//     to{
+//         width: 110px;
+//         height: 110px;
+//     }
+// }
+// @-o-keyframes hoverPlayButtonOn {
+//     from{
+//         width: 100px;
+//         height: 100px;
+//     }
+//     to{
+//         width: 110px;
+//         height: 110px;
+//     }
+// }
+// @keyframes hoverPlayButtonOn {
+//     from{
+//         width: 100px;
+//         height: 100px;
+//     }
+//     to{
+//         width: 110px;
+//         height: 110px;
+//     }
+// }
+
+// @-webkit-keyframes hoverPlayButtonOff {
+//     from{
+//         width: 110px;
+//         height: 110px;
+//     }
+//     to{
+//         width: 100px;
+//         height: 100px;
+//     }
+// }
+// @-moz-keyframes hoverPlayButtonOff {
+//     from{
+//         width: 110px;
+//         height: 110px;
+//     }
+//     to{
+//         width: 100px;
+//         height: 100px;
+//     }
+// }
+// @-o-keyframes hoverPlayButtonOff {
+//     from{
+//         width: 110px;
+//         height: 110px;
+//     }
+//     to{
+//         width: 100px;
+//         height: 100px;
+//     }
+// }
+// @keyframes hoverPlayButtonOff {
+//     from{
+//         width: 110px;
+//         height: 110px;
+//     }
+//     to{
+//         width: 100px;
+//         height: 100px;
+//     }
+// }

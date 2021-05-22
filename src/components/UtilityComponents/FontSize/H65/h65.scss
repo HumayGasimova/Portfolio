@@ -1,0 +1,189 @@
+.h65 {
+    font-size: 65px;
+    color: black;
+}
+
+.h65-black-lustria {
+    font-size: 65px;
+    font-family: 'Lustria', serif;
+    color: black;
+}
+
+.h65-black-lustria-scroll-slider {
+    font-size: 65px;
+    font-family: 'Lustria', serif;
+    color: black;
+}
+
+.h65-white-teko {
+    font-size: 65px;
+    font-family: 'Teko', sans-serif;
+    color: white;
+}
+
+.h65-nero-teko {
+    font-size: 65px;
+    font-family: 'Teko', sans-serif;
+    color: rgb(37, 37, 37);
+}
+
+.h65-nero-poppins {
+    font-size: 65px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h65-black-teko {
+    font-size: 65px;
+    font-family: 'Teko', sans-serif;
+    color: black;
+}
+
+.h65-black-poppins {
+    font-size: 65px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.h65-black-poppins-scroll-slider {
+    font-size: 65px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.h65-white-poppins-centered {
+    font-size: 70px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1025px){
+    .h65-white-poppins-centered {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .h65-black-poppins-scroll-slider {
+        font-size: 45px;
+    }
+    .h65-black-lustria-scroll-slider {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 870px){
+    .h65-white-poppins-centered {
+        font-size: 40px;
+    }
+}
+
+// @media only screen and (max-width: 690px){
+//     .h65-black-teko {
+//         font-size: 55px;
+//     }
+//     .h65-black-lustria {
+//         font-size: 50px;
+//     }
+// }
+
+
+@media only screen and (max-width: 650px){
+    .h65-white-poppins-centered {
+        font-size: 30px;
+    }
+}
+
+// @media only screen and (max-width: 600px){
+//     .h65-black-teko {
+//         font-size: 50px;
+//     }
+//     .h65-black-lustria {
+//         font-size: 45px;
+//     }
+// }
+
+@media only screen and (max-width: 600px){
+    .h65-black-teko {
+        font-size: 40px;
+    }
+    .h65-black-lustria {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .h65-nero-poppins {
+        font-size: 45px;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(37, 37, 37);
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .h65-black-teko {
+        font-size: 35px;
+    }
+    .h65-black-lustria {
+        font-size: 30px;
+    }
+    .h65-black-poppins {
+        font-size: 45px;
+    }
+}
+
+// .h3-center {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     text-align: center;
+// }
+
+// .h3-animation {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//         color: rgb(180, 139, 62);
+//         -webkit-animation: appear 0.3s linear;
+//         -moz-animation: appear 0.3s linear;
+//         -o-animation: appear 0.3s linear;
+//         animation: appear 0.3s linear;
+//     }
+// }
+
+// @-webkit-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-moz-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-o-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }

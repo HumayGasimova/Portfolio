@@ -1,0 +1,283 @@
+.stone-wall-item {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    .stone-wall-item-image {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            height: 100%;
+            filter: grayscale(40%);
+        }
+    }
+    .stone-wall-item-image-hover-on {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.05);
+            filter: grayscale(40%);
+            -webkit-animation: stoneWallItemImageHoverOn .3s linear;
+            -moz-animation: stoneWallItemImageHoverOn .3s linear;
+            -o-animation: stoneWallItemImageHoverOn .3s linear;
+            animation: stoneWallItemImageHoverOn .3s linear;
+        }
+    }
+    .stone-wall-item-image-hover-off {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            filter: grayscale(40%);
+            -webkit-animation: stoneWallItemImageHoverOff .3s linear;
+            -moz-animation: stoneWallItemImageHoverOff .3s linear;
+            -o-animation: stoneWallItemImageHoverOff .3s linear;
+            animation: stoneWallItemImageHoverOff .3s linear;
+        }
+    }
+    .stone-wall-item-curtain-hover-on {
+        background: rgba(0, 0, 0, 0.7);
+        width: calc(100% - 40px);
+        padding: 20px 20px 20px 20px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 1;
+        -webkit-animation: stoneWallItemCurtainHoverOn 0.3s linear;
+        -moz-animation: stoneWallItemCurtainHoverOn 0.3s linear;
+        -o-animation: stoneWallItemCurtainHoverOn 0.3s linear;
+        animation: stoneWallItemCurtainHoverOn 0.3s linear;
+        .stone-wall-icon {
+            color: white;
+            cursor: pointer;
+        }
+        .stone-wall-item-image-arrow-wrapper-lengthen {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+            cursor: pointer;
+            .arrow-horizontal-line {
+                width: 60px;
+                height: 2px;
+                background: white;
+                -webkit-animation: lengthenHorizontalLineStoneWallItem .1s linear;
+                -moz-animation: lengthenHorizontalLineStoneWallItem .1s linear;
+                -o-animation: lengthenHorizontalLineStoneWallItem .1s linear;
+                animation: lengthenHorizontalLineStoneWallItem .1s linear;
+                animation-delay: .3s;
+                animation-fill-mode: both;
+            }
+            .arrow-wrapper2 {
+                transform: translate(-5px);
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .arrow-top-line {
+                    border: 0px solid white;
+                    background: white;
+                    height: 15px;
+                    transform: translate(-1px, 2.5px) rotate(-45deg);
+                    -webkit-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    -moz-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    -o-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    animation: lengthenArrowLineStoneWallItem .1s linear;
+                    animation-delay: .4s;
+                    animation-fill-mode: both;
+                }
+                .arrow-bottom-line {
+                    border: 0px solid white;
+                    background: white;
+                    height: 15px;
+                    transform: translate(-1px, -2.5px) rotate(45deg);
+                    -webkit-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    -moz-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    -o-animation: lengthenArrowLineStoneWallItem .1s linear;
+                    animation: lengthenArrowLineStoneWallItem .1s linear;
+                    animation-delay: .4s;
+                    animation-fill-mode: both;
+                }
+            }
+        }
+    }
+    .stone-wall-item-curtain-hover-off {
+        background: rgba(0, 0, 0, 0.7);
+        width: calc(100% - 40px);
+        padding: 20px 20px 20px 20px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 0;
+        -webkit-animation: stoneWallItemCurtainHoverOff .1s linear;
+        -moz-animation: stoneWallItemCurtainHoverOff .1s linear;
+        -o-animation: stoneWallItemCurtainHoverOff .1s linear;
+        animation: stoneWallItemCurtainHoverOff .1s linear;
+        .stone-wall-item-image-arrow-wrapper-shorten {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+            cursor: pointer;
+            .arrow-horizontal-line {
+                width: 0px;
+                height: 2px;
+                background: white;
+                animation-delay: .1s;
+                animation-fill-mode: both;
+            }
+            .arrow-wrapper2 {
+                transform: translate(-5px);
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .arrow-top-line {
+                    border: 1px solid transparent;
+                    height: 0px;
+                    transform: translate(-1px, 1px) rotate(-45deg);
+                }
+                .arrow-bottom-line {
+                    border: 1px solid transparent;
+                    height: 0px;
+                    transform: translate(-1px, -1px) rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+.display-none{
+    display: none;
+}
+
+@-webkit-keyframes lengthenArrowLineStoneWallItem {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-moz-keyframes lengthenArrowLineStoneWallItem {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-o-keyframes lengthenArrowLineStoneWallItem {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@keyframes lengthenArrowLineStoneWallItem {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineStoneWallItem {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineStoneWallItem {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineStoneWallItem {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineStoneWallItem {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes stoneWallItemImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-moz-keyframes stoneWallItemImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-o-keyframes stoneWallItemImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@keyframes stoneWallItemImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+
+@-webkit-keyframes stoneWallItemImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-moz-keyframes stoneWallItemImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-o-keyframes stoneWallItemImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@keyframes stoneWallItemImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+
+@-webkit-keyframes stoneWallItemCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-moz-keyframes stoneWallItemCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-o-keyframes stoneWallItemCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@keyframes stoneWallItemCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+
+@-webkit-keyframes stoneWallItemCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-moz-keyframes stoneWallItemCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-o-keyframes stoneWallItemCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@keyframes stoneWallItemCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}

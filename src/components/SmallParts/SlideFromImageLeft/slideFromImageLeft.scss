@@ -1,0 +1,301 @@
+.slide-from-image-left {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    // margin-bottom: 30px;
+    cursor: pointer;
+    .slide-from-image-left-image-wrapper {
+        width: 100%;
+        transform: translateX(0px);
+        >img {
+            width: 100%;
+            filter: grayscale(40%);
+        }
+    }
+    .slide-from-image-left-image-wrapper-hover-on {
+        width: 100%;
+        transform: translateX(30px);
+        -webkit-animation: slideFromImageLeftImageHoverOn .2s linear;
+        -moz-animation: slideFromImageLeftImageHoverOn .2s linear;
+        -o-animation: slideFromImageLeftImageHoverOn .2s linear;
+        animation: slideFromImageLeftImageHoverOn .2s linear;
+        >img {
+            width: 100%;
+            filter: grayscale(40%);
+        }
+    }
+    .slide-from-image-left-image-wrapper-hover-off {
+        width: 100%;
+        transform: translateX(0px);
+        >img {
+            width: 100%;
+            filter: grayscale(40%);
+        }
+    }
+    .slide-from-image-left-curtain-hover-on {
+        background: rgb(37, 37, 37);
+        width: calc(100% - 80px);
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 40px;
+        -webkit-animation: slideFromImageLeftCurtainHoverOn .5s ease-out;
+        -moz-animation: slideFromImageLeftCurtainHoverOn .5s ease-out;
+        -o-animation: slideFromImageLeftCurtainHoverOn .5s ease-out;
+        animation: slideFromImageLeftCurtainHoverOn .5s ease-out;
+        .slide-from-image-left-categories {
+            position: relative;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            opacity: 1;
+            -webkit-animation: slideFromImageLeftCategoriesHoverOn .1s linear;
+            -moz-animation: slideFromImageLeftCategoriesHoverOn .1s linear;
+            -o-animation: slideFromImageLeftCategoriesHoverOn .1s linear;
+            animation: slideFromImageLeftCategoriesHoverOn .1s linear;
+            animation-delay: .3s;
+            animation-fill-mode: both;
+            .slide-from-image-left-category {
+                padding-right: 6px;
+                display: flex;
+                align-items: center;
+                .slide-from-image-left-category-slash {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: rgb(155, 155, 155);
+                    padding-left: 2px;
+                }
+            }
+        }
+        .slide-from-image-left-header-wrapper {
+            width: 100%;
+            .slide-from-image-left-line {
+                width: 100%;
+                height: 2px;
+                background: white;
+                margin-top: 10px;
+            }
+        }
+    }
+    .slide-from-image-left-curtain-hover-off {
+        background: rgb(37, 37, 37);
+        width: 0;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 40px 0 40px 0;
+        -webkit-animation: slideFromImageLeftCurtainHoverOff .5s ease-out;
+        -moz-animation: slideFromImageLeftCurtainHoverOff .5s ease-out;
+        -o-animation: slideFromImageLeftCurtainHoverOff .5s ease-out;
+        animation: slideFromImageLeftCurtainHoverOff .5s ease-out;
+        animation-delay: .2s;
+        animation-fill-mode: both;
+        .slide-from-image-left-categories {
+            display: flex;
+            flex-wrap: wrap;
+            opacity: 0;
+            -webkit-animation: slideFromImageLeftCategoriesHoverOff .1s linear;
+            -moz-animation: slideFromImageLeftCategoriesHoverOff .1s linear;
+            -o-animation: slideFromImageLeftCategoriesHoverOff .1s linear;
+            animation: slideFromImageLeftCategoriesHoverOff .1s linear;
+            .slide-from-image-left-category {
+                padding-right: 6px;
+                display: flex;
+                align-items: center;
+                .slide-from-image-left-category-slash {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: rgb(155, 155, 155);
+                    padding-left: 2px;
+                }
+            }
+        }
+        .slide-from-image-left-header-wrapper {
+            width: 100%;
+            .slide-from-image-left-line {
+                width: 0;
+                height: 2px;
+                background: white;
+                margin-top: 10px;
+                -webkit-animation: slideFromImageLeftLineHoverOff .2s linear;
+                -moz-animation: slideFromImageLeftLineHoverOff .2s linear;
+                -o-animation: slideFromImageLeftLineHoverOff .2s linear;
+                animation: slideFromImageLeftLineHoverOff .2s linear;
+            }
+        }
+    }
+}
+
+.display-none{
+    display: none;
+}
+
+@-webkit-keyframes slideFromImageLeftLineHoverOn {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+@-moz-keyframes slideFromImageLeftLineHoverOn {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+@-o-keyframes slideFromImageLeftLineHoverOn {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+@keyframes slideFromImageLeftLineHoverOn {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+
+@-webkit-keyframes slideFromImageLeftLineHoverOff {
+    from{width: 100%;}
+    to{width: 0%;}
+}
+@-moz-keyframes slideFromImageLeftLineHoverOff {
+    from{width: 100%;}
+    to{width: 0%;}
+}
+@-o-keyframes slideFromImageLeftLineHoverOff {
+    from{width: 100%;}
+    to{width: 0%;}
+}
+@keyframes slideFromImageLeftLineHoverOff {
+    from{width: 100%;}
+    to{width: 0%;}
+}
+
+@-webkit-keyframes slideFromImageLeftCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-moz-keyframes slideFromImageLeftCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-o-keyframes slideFromImageLeftCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes slideFromImageLeftCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes slideFromImageLeftCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes slideFromImageLeftCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes slideFromImageLeftCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes slideFromImageLeftCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@-webkit-keyframes slideFromImageLeftImageHoverOn {
+    from{transform: translateX(0px);}
+    to{transform: translateX(30px);}
+}
+@-moz-keyframes slideFromImageLeftImageHoverOn {
+    from{transform: translateX(0px);}
+    to{transform: translateX(30px);}
+}
+@-o-keyframes slideFromImageLeftImageHoverOn {
+    from{transform: translateX(0px);}
+    to{transform: translateX(30px);}
+}
+@keyframes slideFromImageLeftImageHoverOn {
+    from{transform: translateX(0px);}
+    to{transform: translateX(30px);}
+}
+
+@-webkit-keyframes slideFromImageLeftImageHoverOff {
+    from{transform: translateX(30px);}
+    to{transform: translateX(0px);}
+}
+@-moz-keyframes slideFromImageLeftImageHoverOff {
+    from{transform: translateX(30px);}
+    to{transform: translateX(0px);}
+}
+@-o-keyframes slideFromImageLeftImageHoverOff {
+    from{transform: translateX(30px);}
+    to{transform: translateX(0px);}
+}
+@keyframes slideFromImageLeftImageHoverOff {
+    from{transform: translateX(30px);}
+    to{transform: translateX(0px);}
+}
+
+@-webkit-keyframes slideFromImageLeftCurtainHoverOn {
+    from{width: 0;}
+    to{width: calc(100% - 80px);}
+}
+@-moz-keyframes slideFromImageLeftCurtainHoverOn {
+    from{width: 0;}
+    to{width: calc(100% - 80px);}
+}
+@-o-keyframes slideFromImageLeftCurtainHoverOn {
+    from{width: 0;}
+    to{width: calc(100% - 80px);}
+}
+@keyframes slideFromImageLeftCurtainHoverOn {
+    from{width: 0;}
+    to{width: calc(100% - 80px);}
+}
+
+@-webkit-keyframes slideFromImageLeftCurtainHoverOff {
+    from{
+        width: calc(100% - 80px);
+        padding: 40px;
+    }
+    to{
+        width: 0px;
+        padding: 40px 0 40px 0;
+    }
+}
+@-moz-keyframes slideFromImageLeftCurtainHoverOff {
+    from{
+        width: calc(100% - 80px);
+        padding: 40px;
+    }
+    to{
+        width: 0px;
+        padding: 40px 0 40px 0;
+    }
+}
+@-o-keyframes slideFromImageLeftCurtainHoverOff {
+    from{
+        width: calc(100% - 80px);
+        padding: 40px;
+    }
+    to{
+        width: 0px;
+        padding: 40px 0 40px 0;
+    }
+}
+@keyframes slideFromImageLeftCurtainHoverOff {
+    from{
+        width: calc(100% - 80px);
+        padding: 40px;
+    }
+    to{
+        width: 0px;
+        padding: 40px 0 40px 0;
+    }
+}

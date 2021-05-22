@@ -1,0 +1,85 @@
+.switch-image-page {
+    width: calc(100% + 18px);
+    .switch-image-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .switch-image-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        .switch-image-page-header {
+            padding: 90px 130px 90px 130px;
+        }
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .switch-image-page-items {
+            width: calc(100% - 230px);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 130px 100px 100px 130px;
+            .switch-image-page-item {
+                width: calc(33.3% - 30px);
+                padding: 0 30px 30px 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .switch-image-page {
+        .switch-image-page-wrapper {
+            .switch-image-page-items {
+                .switch-image-page-item {
+                    width: calc(50% - 30px);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 945px){
+    .switch-image-page {
+        .switch-image-page-wrapper {
+            .switch-image-page-items {
+                .switch-image-page-item {
+                    width: calc(100% - 30px);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 890px){
+    .switch-image-page {
+        .switch-image-page-wrapper {
+            .switch-image-page-header {
+                padding: 90px 70px 90px 70px;
+            }
+            .switch-image-page-items {
+                width: calc(100% - 110px);
+                padding: 130px 40px 100px 70px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .switch-image-page {
+        .switch-image-page-wrapper {
+            .switch-image-page-header {
+                padding: 90px 30px 90px 30px;
+            }
+            .switch-image-page-items {
+                width: calc(100% - 30px);
+                padding: 130px 0px 100px 30px;
+            }
+        }
+    }
+}

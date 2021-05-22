@@ -1,0 +1,33 @@
+.scroll-slider {
+    width: 5121.43px;
+    display: flex;
+    background: white;
+    .scroll-slider-item-text {
+        width: 561px;
+        padding: 170px 80px 170px 165px;
+    }
+    .scroll-slider-item-image {
+        >img {
+            width: 100%;
+            filter: grayscale(100%);
+        }
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .scroll-slider {
+        width: 3534px;
+        display: flex;
+        background: white;
+        .scroll-slider-item-text {
+            width: 561px;
+            padding: 40px 60px 40px 40px;
+        }
+        .scroll-slider-item-image {
+            >img {
+                width: 100%;
+                filter: grayscale(100%);
+            }
+        }
+    }
+}

@@ -1,0 +1,851 @@
+.toolbar-item-wrapper {
+    position: relative;
+    .toolbar-item-white {
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 17px;
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px 0 10px;
+        color: black;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+            color: rgb(155, 155, 155);
+            -webkit-animation: appearToolbarSidebarItemText .5s linear;
+            -moz-animation: appearToolbarSidebarItemText .5s linear;
+            -o-animation: appearToolbarSidebarItemText .5s linear;
+            animation: appearToolbarSidebarItemText .5s linear;
+        }
+    }
+    .toolbar-item-white-active {
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 17px;
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px 0 10px;
+        color: rgb(155, 155, 155);
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    
+    .toolbar-item-regular {
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 17px;
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px 0 10px;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+            color: rgb(155, 155, 155);
+            -webkit-animation: appearToolbarSidebarItemText .5s linear;
+            -moz-animation: appearToolbarSidebarItemText .5s linear;
+            -o-animation: appearToolbarSidebarItemText .5s linear;
+            animation: appearToolbarSidebarItemText .5s linear;
+        }
+    }
+    .toolbar-item-regular-active {
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 17px;
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px 0 10px;
+        color: rgb(155, 155, 155);
+        opacity: 0.7;
+        cursor: pointer;      
+    }
+
+    .toolbar-item-options {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        width: 240px;
+        background-color: white;
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .toolbar-item-options-wrapper {
+            .toolbar-option {
+                .toolbar-option-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 5px 5px 5px 20px;
+                    cursor: pointer;
+                    .arrow-wrapper-active {
+                        display: flex;
+                        transform: translate(100%);
+                        align-items: center;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(-5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(-45deg);
+                            }
+                           .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hide {
+                        display: flex;
+                        align-items: center;
+                        opacity: 0;
+                        transform: translateX(0%);
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(-5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(-45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hover-on {
+                        display: flex;
+                        align-items: center;
+                        opacity: 1;
+                        transform: translateX(100%);
+                        -webkit-animation: toolbarItemArrowAppears .2s ease;
+                        -moz-animation: toolbarItemArrowAppears .2s ease;
+                        -o-animation: toolbarItemArrowAppears .2s ease;
+                        animation: toolbarItemArrowAppears .2s ease;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(-5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(-45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hover-off {
+                        display: flex;
+                        align-items: center;
+                        opacity: 0;
+                        transform: translateX(0%);
+                        -webkit-animation: toolbarItemArrowDisappears .2s ease;
+                        -moz-animation: toolbarItemArrowDiappears .2s ease;
+                        -o-animation: toolbarItemArrowDisappears .2s ease;
+                        animation: toolbarItemArrowDisappears .2s ease;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(-5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(-45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(45deg);
+                            }
+                        }
+                    }
+    
+                    .toolbar-option-item-text-active {
+                        transform: translateX(20px);
+                    }
+                    .toolbar-option-item-text {
+                        transform: translateX(0px);
+                    }
+                    .toolbar-option-item-text-hover-on {
+                        transform: translateX(20px);
+                        -webkit-animation: toolbarItemTextHoverOn .2s ease;
+                        -moz-animation: toolbarItemTextHoverOn .2s ease;
+                        -o-animation: toolbarItemTextHoverOn .2s ease;
+                        animation: toolbarItemTextHoverOn .2s ease;
+                    }
+                    .toolbar-option-item-text-hover-off {
+                        transform: translateX(0px);
+                        -webkit-animation: toolbarItemTextHoverOff .2s ease;
+                        -moz-animation: toolbarItemTextHoverOff .2s ease;
+                        -o-animation: toolbarItemTextHoverOff .2s ease;
+                        animation: toolbarItemTextHoverOff .2s ease;
+                    }
+                }
+            }
+            
+        }
+    }
+    .toolbar-item-options-align-end {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        width: 240px;
+        background-color: white;
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .toolbar-item-options-wrapper {
+            .toolbar-option {
+                .toolbar-option-item {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    padding: 5px 20px 5px 5px;
+                    cursor: pointer;
+                    .toolbar-option-item-text-active {
+                        transform: translateX(-20px);
+                    }
+                    .toolbar-option-item-text {
+                        transform: translateX(0px);
+                    }
+                    .toolbar-option-item-text-hover-on {
+                        transform: translateX(-20px);
+                        -webkit-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                        -moz-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                        -o-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                        animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                    }
+                    .toolbar-option-item-text-hover-off {
+                        transform: translateX(0px);
+                        -webkit-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                        -moz-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                        -o-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                        animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                    }
+
+                    .arrow-wrapper-active {
+                        display: flex;
+                        transform: translate(-100%);
+                        align-items: center;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(45deg);
+                            }
+                           .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(-45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hide {
+                        display: flex;
+                        align-items: center;
+                        opacity: 0;
+                        transform: translateX(100%);
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(-45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hover-on {
+                        display: flex;
+                        align-items: center;
+                        opacity: 1;
+                        transform: translateX(-100%);
+                        -webkit-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                        -moz-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                        -o-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                        animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(-45deg);
+                            }
+                        }
+                    }
+                    .arrow-wrapper-hover-off {
+                        display: flex;
+                        align-items: center;
+                        opacity: 0;
+                        transform: translateX(0%);
+                        -webkit-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                        -moz-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                        -o-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                        animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                        .arrow-horizontal-line {
+                            border-top: 1px solid black;
+                            background: black;
+                            width: 15px;
+                        }
+                        .arrow-wrapper2 {
+                            transform: translate(5px);
+                            height: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .arrow-top-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, 2.5px) rotate(45deg);
+                            }
+                            .arrow-bottom-line {
+                                border-top: 1px solid black;
+                                width: 5px;
+                                transform: translate(0px, -3.5px) rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+                .toolbar-option-item-with-sub-option {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 20px 5px 25px;
+                    cursor: pointer;
+                    .sub-option-arrow-wrapper {
+                        width: 10px;
+                        .sub-option-arrow-top-line {
+                            border-left: 1px solid rgb(78, 78, 78);
+                            height: 7px;
+                            width: 0px;
+                            transform: translate(5px, 1.3px) rotate(45deg);
+                        }
+                        .sub-option-arrow-bottom-line {
+                            border-left: 1px solid rgb(78, 78, 78);
+                            height: 7px;
+                            width: 0px;
+                            transform: translate(5px, -1.3px) rotate(-45deg);
+                        }
+                    }
+                    .toolbar-option-item-text-and-arrow-wrapper{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        .toolbar-option-item-text-active {
+                            transform: translateX(-20px);
+                        }
+                        .toolbar-option-item-text {
+                            transform: translateX(0px);
+                        }
+                        .toolbar-option-item-text-hover-on {
+                            transform: translateX(-20px);
+                            -webkit-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                            -moz-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                            -o-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                            animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                        }
+                        .toolbar-option-item-text-hover-off {
+                            transform: translateX(0px);
+                            -webkit-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                            -moz-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                            -o-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                            animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                        }
+    
+                        .arrow-wrapper-active {
+                            display: flex;
+                            transform: translate(-100%);
+                            align-items: center;
+                            .arrow-horizontal-line {
+                                border-top: 1px solid black;
+                                background: black;
+                                width: 15px;
+                            }
+                            .arrow-wrapper2 {
+                                transform: translate(5px);
+                                height: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .arrow-top-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, 2.5px) rotate(45deg);
+                                }
+                               .arrow-bottom-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, -3.5px) rotate(-45deg);
+                                }
+                            }
+                        }
+                        .arrow-wrapper-hide {
+                            display: flex;
+                            align-items: center;
+                            opacity: 0;
+                            transform: translateX(100%);
+                            .arrow-horizontal-line {
+                                border-top: 1px solid black;
+                                background: black;
+                                width: 15px;
+                            }
+                            .arrow-wrapper2 {
+                                transform: translate(5px);
+                                height: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .arrow-top-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, 2.5px) rotate(45deg);
+                                }
+                                .arrow-bottom-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, -3.5px) rotate(-45deg);
+                                }
+                            }
+                        }
+                        .arrow-wrapper-hover-on {
+                            display: flex;
+                            align-items: center;
+                            opacity: 1;
+                            transform: translateX(-100%);
+                            -webkit-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                            -moz-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                            -o-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                            animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                            .arrow-horizontal-line {
+                                border-top: 1px solid black;
+                                background: black;
+                                width: 15px;
+                            }
+                            .arrow-wrapper2 {
+                                transform: translate(5px);
+                                height: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .arrow-top-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, 2.5px) rotate(45deg);
+                                }
+                                .arrow-bottom-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, -3.5px) rotate(-45deg);
+                                }
+                            }
+                        }
+                        .arrow-wrapper-hover-off {
+                            display: flex;
+                            align-items: center;
+                            opacity: 0;
+                            transform: translateX(0%);
+                            -webkit-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                            -moz-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                            -o-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                            animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                            .arrow-horizontal-line {
+                                border-top: 1px solid black;
+                                background: black;
+                                width: 15px;
+                            }
+                            .arrow-wrapper2 {
+                                transform: translate(5px);
+                                height: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .arrow-top-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, 2.5px) rotate(45deg);
+                                }
+                                .arrow-bottom-line {
+                                    border-top: 1px solid black;
+                                    width: 5px;
+                                    transform: translate(0px, -3.5px) rotate(-45deg);
+                                }
+                            }
+                        }
+                    }
+
+                    .toolbar-item-sub-options {
+                        position: absolute;
+                        width: 230px;
+                        top: -100%;
+                        left: calc(-100% - 30px);
+                        padding: 0 20px 0 20px;
+                        background-color: white;
+                        box-shadow: 0px -10px 0px rgb(239, 239, 239);
+                        .toolbar-sub-option-item {
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                            padding: 5px;
+                            cursor: pointer;
+                            .toolbar-option-item-text-active {
+                                transform: translateX(-20px);
+                            }
+                            .toolbar-option-item-text {
+                                transform: translateX(0px);
+                            }
+                            .toolbar-option-item-text-hover-on {
+                                transform: translateX(-20px);
+                                -webkit-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                                -moz-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                                -o-animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                                animation: toolbarItemTextHoverOnAlignEnd .2s ease;
+                            }
+                            .toolbar-option-item-text-hover-off {
+                                transform: translateX(-0px);
+                                -webkit-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                                -moz-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                                -o-animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                                animation: toolbarItemTextHoverOffAlignEnd .2s ease;
+                            }
+        
+                            .arrow-wrapper-active {
+                                display: flex;
+                                transform: translate(-100%);
+                                align-items: center;
+                                .arrow-horizontal-line {
+                                    border-top: 1px solid black;
+                                    background: black;
+                                    width: 15px;
+                                }
+                                .arrow-wrapper2 {
+                                    transform: translate(5px);
+                                    height: 10px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .arrow-top-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, 2.5px) rotate(45deg);
+                                    }
+                                    .arrow-bottom-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, -3.5px) rotate(-45deg);
+                                    }
+                                }
+                            }
+                            .arrow-wrapper-hide {
+                                display: flex;
+                                align-items: center;
+                                opacity: 0;
+                                transform: translateX(100%);
+                                .arrow-horizontal-line {
+                                    border-top: 1px solid black;
+                                    background: black;
+                                    width: 15px;
+                                }
+                                .arrow-wrapper2 {
+                                    transform: translate(5px);
+                                    height: 10px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .arrow-top-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, 2.5px) rotate(45deg);
+                                    }
+                                    .arrow-bottom-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, -3.5px) rotate(-45deg);
+                                    }
+                                }
+                            }
+                            .arrow-wrapper-hover-on {
+                                display: flex;
+                                align-items: center;
+                                opacity: 1;
+                                transform: translateX(-100%);
+                                -webkit-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                                -moz-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                                -o-animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                                animation: toolbarItemArrowAppearsAlignEnd .2s ease;
+                                .arrow-horizontal-line {
+                                    border-top: 1px solid black;
+                                    background: black;
+                                    width: 15px;
+                                }
+                                .arrow-wrapper2 {
+                                    transform: translate(5px);
+                                    height: 10px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .arrow-top-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, 2.5px) rotate(45deg);
+                                    }
+                                    .arrow-bottom-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, -3.5px) rotate(-45deg);
+                                    }
+                                }
+                            }
+                            .arrow-wrapper-hover-off {
+                                display: flex;
+                                align-items: center;
+                                opacity: 0;
+                                transform: translateX(0%);
+                                -webkit-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                                -moz-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                                -o-animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                                animation: toolbarItemArrowDisppearsAlignEnd .2s ease;
+                                .arrow-horizontal-line {
+                                    border-top: 1px solid black;
+                                    background: black;
+                                    width: 15px;
+                                }
+                                .arrow-wrapper2 {
+                                    transform: translate(5px);
+                                    height: 10px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .arrow-top-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, 2.5px) rotate(45deg);
+                                    }
+                                    .arrow-bottom-line {
+                                        border-top: 1px solid black;
+                                        width: 5px;
+                                        transform: translate(0px, -3.5px) rotate(-45deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes toolbarItemTextHoverOnAlignEnd {
+    from{transform: translateX(0);}
+    to{transform: translateX(-20px);}
+}
+@-moz-keyframes toolbarItemTextHoverOnAlignEnd {
+    from{transform: translateX(0);}
+    to{transform: translateX(-20px);}
+}
+@-o-keyframes toolbarItemTextHoverOnAlignEnd {
+    from{transform: translateX(0);}
+    to{transform: translateX(-20px);}
+}
+@keyframes toolbarItemTextHoverOnAlignEnd {
+    from{transform: translateX(0);}
+    to{transform: translateX(-20px);}
+}
+
+@-webkit-keyframes toolbarItemTextHoverOffAlignEnd {
+    from{transform: translateX(-20px);}
+    to{transform: translateX(0px);}
+}
+@-moz-keyframes toolbarItemTextHoverOffAlignEnd {
+    from{transform: translateX(-20px);}
+    to{transform: translateX(0px);}
+}
+@-o-keyframes toolbarItemTextHoverOffAlignEnd {
+    from{transform: translateX(-20px);}
+    to{transform: translateX(0px);}
+}
+@keyframes toolbarItemTextHoverOffAlignEnd {
+    from{transform: translateX(-20px);}
+    to{transform: translateX(0px);}
+}
+
+@-webkit-keyframes toolbarItemArrowAppearsAlignEnd {
+    from{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@-moz-keyframes toolbarItemArrowAppearsAlignEnd {
+    from{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@-o-keyframes toolbarItemArrowAppearsAlignEnd {
+    from{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@keyframes toolbarItemArrowAppearsAlignEnd {
+    from{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes toolbarItemArrowDisppearsAlignEnd {
+    from{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+}
+@-moz-keyframes toolbarItemArrowDisppearsAlignEnd {
+    from{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+}
+@-o-keyframes toolbarItemArrowDisppearsAlignEnd {
+    from{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+}
+@keyframes toolbarItemArrowDisppearsAlignEnd {
+    from{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes appearToolbarSidebarItemText {
+    from{opacity: 1;}
+    to {opacity: 0.7;}
+}
+@-moz-keyframes appearToolbarSidebarItemText {
+    from{opacity: 1;}
+    to {opacity: 0.7;}
+}
+@-o-keyframes appearToolbarSidebarItemText {
+    from{opacity: 1;}
+    to {opacity: 0.7;}
+}
+@keyframes appearToolbarSidebarItemText {
+    from{opacity: 1;}
+    to {opacity: 0.7;}
+}

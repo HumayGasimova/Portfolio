@@ -1,0 +1,85 @@
+.footer {
+    .footer-info {
+        background-color: rgb(37, 37, 37);
+        .footer-info-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 70px 0 70px;
+            width: calc(100% - 140px);
+            .footer-info-section {
+                width: calc(25% - 60px);
+                padding: 20px 30px 20px 30px;
+                .footer-info-section-wrapper {
+                    display: flex;
+                }
+                .footer-info-section-feed-wrapper {
+                    font-size: 17px;
+                    color: white;
+                    font-family: 'Lustria', serif;
+                    >a {
+                        color: rgb(155, 155, 155);
+                        cursor: pointer;
+                        &:hover{
+                            color: white;
+                            -webkit-animation: footerText .3s linear;
+                            -moz-animation: footerText .3s linear;
+                            -o-animation: footerText .3s linear;
+                            animation: footerText .3s linear;
+                        }
+                    }
+                }
+            }
+            .footer-info-map {
+                width: 250px;
+                cursor: pointer;
+                >img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .footer-copyright {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px -10px 0px rgb(59, 59, 59);
+        background-color: rgb(23, 23, 23);
+    }
+}
+
+@media only screen and (max-width: 1170px){
+    .footer {
+        .footer-info {
+            .footer-info-wrapper {
+                .footer-info-section {
+                    width: calc(50% - 60px);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .footer {
+        .footer-info {
+            .footer-info-wrapper {
+                .footer-info-section {
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .footer {
+        .footer-info {
+            .footer-info-wrapper {
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}

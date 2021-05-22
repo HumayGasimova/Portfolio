@@ -1,0 +1,14 @@
+.blog-recent-post-item {
+    .blog-recent-post-header {
+        .blog-recent-post-header-active {
+            font-size: 17px;
+            color: black;
+            border-bottom: 1px solid black;
+            font-family: 'Lustria', serif;
+            display: inline-flex;
+        }
+    }
+    .blog-recent-post-date {
+        padding-top: 5px;
+    }
+}

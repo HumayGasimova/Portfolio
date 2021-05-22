@@ -1,0 +1,485 @@
+.porfolio-navigation {
+    transform: translateX(-7.5px);
+    width: calc(100% + 15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .arrow-wrapper-left {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 15px;
+        }
+        .arrow-wrapper {
+            transform: translate(3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, 2px) rotate(45deg);
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, -2px) rotate(-45deg);
+            }
+        }
+    }
+    .arrow-wrapper-left-lengthen {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 20px;
+            -webkit-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            -moz-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            -o-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+        }
+        .arrow-wrapper {
+            transform: translate(3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 0px solid black;
+                background: black;
+                height: 7px;
+                transform: translate(1px, 2px) rotate(45deg);
+                -webkit-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+            .arrow-bottom-line {
+                border: 0px solid black;
+                background: black;
+                height: 7px;
+                transform: translate(1px, -2px) rotate(-45deg);
+                -webkit-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+        }
+    }
+    .arrow-wrapper-left-shorten {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 15px;
+            -webkit-animation: shorteHorizontalLinePortfolioNavigation .1s linear;
+            -moz-animation: shorteHorizontalLinePortfolioNavigation .1s linear;
+            -o-animation: shorteHorizontalLinePortfolioNavigation .1s linear;
+            animation: shorteHorizontalLinePortfolioNavigation .1s linear;
+            animation-delay: .1s;
+            animation-fill-mode: both;
+        }
+        .arrow-wrapper {
+            transform: translate(3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 2px) rotate(45deg);
+                -webkit-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                animation: shortenArrowLinePortfolioNavigation .1s linear;
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -2px) rotate(-45deg);
+                -webkit-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                animation: shortenArrowLinePortfolioNavigation .1s linear;
+            }
+        }
+    }
+
+    .navigation-menu {
+        width: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        cursor: pointer;
+        .navigation-menu-dot {
+            border: 2px solid rgb(37, 37, 37);
+            background-color: rgb(37, 37, 37);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin: 2px;
+        }
+        .navigation-menu-dot-hover-on {
+            border: 2px solid rgb(155, 155, 155);
+            background-color: rgb(155, 155, 155);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin: 2px;
+            -webkit-animation: portfolioNavigationMenuButtonHoverOn .3s linear;
+            -moz-animation: portfolioNavigationMenuButtonHoverOn .3s linear;
+            -o-animation: portfolioNavigationMenuButtonHoverOn .3s linear;
+            animation: portfolioNavigationMenuButtonHoverOn .3s linear;
+        }
+        .navigation-menu-dot-hover-off {
+            border: 2px solid rgb(37, 37, 37);
+            background-color: rgb(37, 37, 37);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin: 2px;
+            -webkit-animation: portfolioNavigationMenuButtonHoverOff .3s linear;
+            -moz-animation: portfolioNavigationMenuButtonHoverOff .3s linear;
+            -o-animation: portfolioNavigationMenuButtonHoverOff .3s linear;
+            animation: portfolioNavigationMenuButtonHoverOff .3s linear;
+        }
+    }
+
+    .arrow-wrapper-right {
+        display: flex;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 15px;
+        }
+        .arrow-wrapper {
+            transform: translate(-3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, 2px) rotate(-45deg);
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, -2px) rotate(45deg);
+            }
+        }
+    }
+    .arrow-wrapper-right-lengthen {
+        display: flex;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 20px;
+            -webkit-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            -moz-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            -o-animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+            animation: lengthenHorizontalLinePortfolioNavigation .1s linear;
+        }
+        .arrow-wrapper {
+            transform: translate(-3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 0px solid black;
+                background: black;
+                height: 7px;
+                transform: translate(1px, 2px) rotate(-45deg);
+                -webkit-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+            .arrow-bottom-line {
+                border: 0px solid black;
+                background: black;
+                height: 7px;
+                transform: translate(1px, -2px) rotate(45deg);
+                -webkit-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation: lengthenArrowLinePortfolioNavigation .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+        }
+    }
+    .arrow-wrapper-right-shorten {
+        display: flex;
+        align-items: center;
+        width: 30px;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            border: 1px solid black;
+            background: black;
+            width: 15px;
+            -webkit-animation: shorteRightHorizontalLineSmallImages .1s linear;
+            -moz-animation: shorteRightHorizontalLineSmallImages .1s linear;
+            -o-animation: shorteRightHorizontalLineSmallImages .1s linear;
+            animation: shorteRightHorizontalLineSmallImages .1s linear;
+            animation-delay: .1s;
+            animation-fill-mode: both;
+        }
+        .arrow-wrapper {
+            transform: translate(-3px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, 2px) rotate(-45deg);
+                -webkit-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                animation: shortenArrowLinePortfolioNavigation .1s linear;
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(1px, -2px) rotate(45deg);
+                -webkit-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -moz-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                -o-animation: shortenArrowLinePortfolioNavigation .1s linear;
+                animation: shortenArrowLinePortfolioNavigation .1s linear;
+            }
+        }
+    }
+}
+
+
+@-webkit-keyframes portfolioNavigationMenuButtonHoverOn {
+    from{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+    to{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+}
+@-moz-keyframes portfolioNavigationMenuButtonHoverOn {
+    from{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+    to{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+}
+@-o-keyframes portfolioNavigationMenuButtonHoverOn {
+    from{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+    to{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+}
+@keyframes portfolioNavigationMenuButtonHoverOn {
+    from{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+    to{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+}
+
+@-webkit-keyframes portfolioNavigationMenuButtonHoverOff {
+    from{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+    to{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+}
+@-moz-keyframes portfolioNavigationMenuButtonHoverOff {
+    from{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+    to{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+}
+@-o-keyframes portfolioNavigationMenuButtonHoverOff {
+    from{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+    to{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+}
+@keyframes portfolioNavigationMenuButtonHoverOff {
+    from{
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+    }
+    to{
+        background-color: rgb(37, 37, 37);
+        border: 2px solid rgb(37, 37, 37);
+    }
+}
+
+@-webkit-keyframes lengthenArrowLinePortfolioNavigation {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 7px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLinePortfolioNavigation {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 7px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLinePortfolioNavigation {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 7px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLinePortfolioNavigation {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 7px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenArrowLinePortfolioNavigation {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 7px;
+    }
+    to{
+        border: 1px solid transparent;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLinePortfolioNavigation {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 7px;
+    }
+    to{
+        border: 1px solid transparent;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLinePortfolioNavigation {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 7px;
+    }
+    to{
+        border: 1px solid transparent;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLinePortfolioNavigation {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 7px;
+    }
+    to{
+        border: 1px solid transparent;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLinePortfolioNavigation {
+    from{width: 15px;}
+    to{width: 20px;}
+}
+@-moz-keyframes lengthenHorizontalLinePortfolioNavigation {
+    from{width: 15px;}
+    to{width: 20px;}
+}
+@-o-keyframes lengthenHorizontalLinePortfolioNavigation {
+    from{width: 15px;}
+    to{width: 20px;}
+}
+@keyframes lengthenHorizontalLinePortfolioNavigation {
+    from{width: 15px;}
+    to{width: 20px;}
+}
+
+@-webkit-keyframes shorteHorizontalLinePortfolioNavigation {
+    from{width: 20px;}
+    to{width: 15px;}
+}
+@-moz-keyframes shorteHorizontalLinePortfolioNavigation {
+    from{width: 20px;}
+    to{width: 15px;}
+}
+@-o-keyframes shorteHorizontalLinePortfolioNavigation {
+    from{width: 20px;}
+    to{width: 15px;}
+}
+@keyframes shorteHorizontalLinePortfolioNavigation {
+    from{width: 20px;}
+    to{width: 15px;}
+}

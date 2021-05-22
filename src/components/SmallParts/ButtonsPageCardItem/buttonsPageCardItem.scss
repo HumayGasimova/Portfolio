@@ -1,0 +1,447 @@
+.buttons-page-card-item {
+    .buttons-page-card-item-section1-text-wrapper {
+        width: 95%;
+        line-height: 1.6;
+    }
+    .buttons-page-card-item-section2-text-wrapper {
+        width: 370px;
+        line-height: 1.6;
+    }
+    .buttons-page-card-item-button-type-arrow-wrapper {
+        display: inline-flex;
+        margin-top: 40px;
+        align-items: center;
+        cursor: pointer;
+       .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 50px;
+       }
+       .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+           .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+           }
+           .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+           }
+       }
+    }
+    .buttons-page-card-item-button-type-arrow-wrapper-lengthen {
+        display: inline-flex;
+        margin-top: 40px;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 60px;
+            -webkit-animation: lengthenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            -moz-animation: lengthenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            -o-animation: lengthenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            animation: lengthenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 0px solid black;
+                background: black;
+                height: 15px;
+                transform: translate(-1px, 2.5px) rotate(-45deg);
+                -webkit-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -moz-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -o-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+            .arrow-bottom-line {
+                border: 0px solid black;
+                background: black;
+                height: 15px;
+                transform: translate(-1px, -2.5px) rotate(45deg);
+                -webkit-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -moz-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -o-animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation: lengthenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+            }
+        }
+    }
+    .buttons-page-card-item-button-type-arrow-wrapper-shorten {
+        display: inline-flex;
+        margin-top: 40px;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 50px;
+            -webkit-animation: shortenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            -moz-animation: shortenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            -o-animation: shortenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            animation: shortenHorizontalLineButtonsPageCardItemTypeArrow .1s linear;
+            animation-delay: .1s;
+            animation-fill-mode: both;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+                -webkit-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -moz-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -o-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+                -webkit-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -moz-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                -o-animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+                animation: shortenArrowLineButtonsPageCardItemTypeArrow .1s linear;
+            }
+        }
+    }
+    .buttons-page-card-item-button-wrapper {
+        display: flex;
+        margin-top: 50px;
+        align-items: center;
+    }
+    
+}
+
+@media only screen and (max-width: 1260px){
+    .buttons-page-card-item {
+        .buttons-page-card-item-section2-text-wrapper {
+            width: 100%;
+            line-height: 1.6;
+        }
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+    to{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+}
+@-moz-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+    to{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+}
+@-o-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+    to{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+}
+@keyframes shortenHorizontalLineButtonsPageCardItemTypeArrow {
+    from{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+    to{
+        from{width: 60px;}
+        to{width: 50px;}
+    }
+}
+
+@-webkit-keyframes lengthenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineButtonsPageCardItemTypeArrow {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@-moz-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@-o-keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+@keyframes lengthenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 15px;}
+    to{width: 25px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@-moz-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@-o-keyframes shortenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+@keyframes shortenHorizontalLineButtonsPageCardItemTypeArrowWithText {
+    from{width: 25px;}
+    to{width: 15px;}
+}
+
+@-webkit-keyframes lengthenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 10px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 10px;
+    }
+    to{
+        border: 0.5px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineButtonsPageCardItemTypeArrowWithText {
+    from{
+        border: 0.5px solid black;
+        background: black;
+        height: 10px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes buttonsPageCardItemTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@-moz-keyframes buttonsPageCardItemTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@-o-keyframes buttonsPageCardItemTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+@keyframes buttonsPageCardItemTextHoverOn {
+    from{transform: translateX(10px);}
+    to{transform: translateX(15px);}
+}
+
+@-webkit-keyframes buttonsPageCardItemTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@-moz-keyframes buttonsPageCardItemTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@-o-keyframes buttonsPageCardItemTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}
+@keyframes buttonsPageCardItemTextHoverOff {
+    from{transform: translateX(15px);}
+    to{transform: translateX(10px);}
+}

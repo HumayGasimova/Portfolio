@@ -1,0 +1,106 @@
+.h25 {
+    font-size: 25px;
+    // font-family: 'Yanone Kaffeesatz', sans-serif;
+    // color:  rgb(180, 139, 62);
+}
+
+.h25-nobel {
+    font-size: 25px;
+    color: rgb(155, 155, 155);
+}
+
+.h25-white {
+    font-size: 25px;
+    color: white;
+}
+
+.h25-white-lustria {
+    font-size: 25px;
+    color: white;
+    font-family: 'Lustria', serif;
+}
+
+.h25-white-lustria {
+    font-size: 25px;
+    color: white;
+    font-family: 'Lustria', serif;
+}
+
+.h25-white-lustria-countdown-page {
+    font-size: 25px;
+    color: white;
+    font-family: 'Lustria', serif;
+}
+
+.h25-nobel-lustria {
+    font-size: 25px;
+    color:  rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+}
+
+.h25-nobel-lustria-countdown-page {
+    font-size: 25px;
+    color:  rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+}
+
+.h25-black-lustria {
+    font-size: 25px;
+    color: black;
+    font-family: 'Lustria', serif;
+}
+
+.h25-black-teko {
+    font-size: 25px;
+    color: black;
+    font-family: 'Teko', sans-serif;
+}
+
+.h25-nero2-teko {
+    font-size: 25px;
+    color: rgb(23, 23, 23);
+    font-family: 'Teko', sans-serif;
+}
+
+.h25-white-teko {
+    font-size: 25px;
+    color: white;
+    font-family: 'Teko', sans-serif;
+}
+
+.h25-black-poppins {
+    font-size: 25px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h25-white-poppins {
+    font-size: 25px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width: 860px){
+    .h25-nobel {
+        font-size: 23px;
+    }
+    .h25-white-lustria {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 530px){
+    .h25-nobel {
+        font-size: 17px;
+    }
+    .h25-white-lustria {
+        font-size: 17px;
+    }
+    .h25-white-lustria-countdown-page {
+        font-size: 20px;
+    }
+    .h25-nobel-lustria-countdown-page {
+        font-size: 20px;
+    }
+}
+

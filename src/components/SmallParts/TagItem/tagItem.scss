@@ -1,0 +1,68 @@
+.tag-item {
+    background: white;
+    padding: 7px 19px 7px 19px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.tag-item-active {
+    background: black;
+    padding: 7px 19px 7px 19px;
+    margin: 0 10px 10px 0;
+}
+
+.tag-item-hover-on {
+    background: black;
+    padding: 7px 19px 7px 19px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    -webkit-animation: tagItemBackgroundHoverOn .1s linear;
+    -moz-animation: tagItemBackgroundHoverOn .1s linear;
+    -o-animation: tagItemBackgroundHoverOn .1s linear;
+    animation: tagItemBackgroundHoverOn .1s linear;
+}
+
+.tag-item-hover-off {
+    background: white;
+    padding: 7px 19px 7px 19px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    -webkit-animation: tagItemBackgroundHoverOff .1s linear;
+    -moz-animation: tagItemBackgroundHoverOff .1s linear;
+    -o-animation: tagItemBackgroundHoverOff .1s linear;
+    animation: tagItemBackgroundHoverOff .1s linear;
+}
+
+@-webkit-keyframes tagItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@-moz-keyframes tagItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@-o-keyframes tagItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@keyframes tagItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+
+@-webkit-keyframes tagItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@-moz-keyframes tagItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@-o-keyframes tagItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@keyframes tagItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}

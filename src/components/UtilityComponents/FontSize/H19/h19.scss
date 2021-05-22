@@ -1,0 +1,206 @@
+.h19 {
+    font-size: 19px;
+    // font-family: 'Yanone Kaffeesatz', sans-serif;
+    // color:  rgb(180, 139, 62);
+}
+
+.h19-nobel {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+}
+
+.h19-matterhorn-teko {
+    font-size: 19px;
+    color: rgb(78, 78, 78);
+    font-family: 'Teko', sans-serif;
+}
+
+.h19-nobel-lora {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lora', serif;
+}
+
+.h19-black-lustria {
+    font-size: 19px;
+    color: black;
+    font-family: 'Lustria', serif;
+}
+
+.h19-nobel-lustria {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+}
+
+.h19-black-poppins {
+    font-size: 19px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h19-nero-poppins {
+    font-size: 19px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h19-nobel-lustria-animated {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+}
+
+.h19-black-poppins-animated {
+    font-size: 19px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    &:hover{
+        color: white;
+    }
+}
+
+.h19-black-poppins-white-hover-on {
+    font-size: 19px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    -webkit-animation: h19BlackWhiteHoverOn;
+    -moz-animation: h19BlackWhiteHoverOn;
+    -o-animation: h19BlackWhiteHoverOn;
+    animation: h19BlackWhiteHoverOn;
+}
+
+.h19-black-poppins-white-hover-off {
+    font-size: 19px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    -webkit-animation: h19BlackWhiteHoverOff;
+    -moz-animation: h19BlackWhiteHoverOff;
+    -o-animation: h19BlackWhiteHoverOff;
+    animation: h19BlackWhiteHoverOff;
+}
+
+.h19-nobel-lustria-nero-hover-off {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h19NobelNeroHoverOff .5s linear;
+    -moz-animation: h19NobelNeroHoverOff .5s linear;
+    -o-animation: h19NobelNeroHoverOff .5s linear;
+    animation: h19NobelNeroHoverOff .5s linear;
+}
+
+.h19-nobel-lustria-nero-hover-on {
+    font-size: 19px;
+    color: rgb(37, 37, 37);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h19NobelNeroHoverOn .5s linear;
+    -moz-animation: h19NobelNeroHoverOn .5s linear;
+    -o-animation: h19NobelNeroHoverOn .5s linear;
+    animation: h19NobelNeroHoverOn .5s linear;
+}
+
+.h19-nobel-lustria-nero-hover-off {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h19NobelNeroHoverOff .5s linear;
+    -moz-animation: h19NobelNeroHoverOff .5s linear;
+    -o-animation: h19NobelNeroHoverOff .5s linear;
+    animation: h19NobelNeroHoverOff .5s linear;
+}
+
+.h19-nobel-lora-nero-hover-on {
+    font-size: 19px;
+    color: rgb(37, 37, 37);
+    font-family: 'Lora', serif;
+    -webkit-animation: h19NobelNeroHoverOn .5s linear;
+    -moz-animation: h19NobelNeroHoverOn .5s linear;
+    -o-animation: h19NobelNeroHoverOn .5s linear;
+    animation: h19NobelNeroHoverOn .5s linear;
+}
+
+.h19-nobel-lora-nero-hover-off {
+    font-size: 19px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lora', serif;
+    -webkit-animation: h19NobelNeroHoverOff .5s linear;
+    -moz-animation: h19NobelNeroHoverOff .5s linear;
+    -o-animation: h19NobelNeroHoverOff .5s linear;
+    animation: h19NobelNeroHoverOff .5s linear;
+}
+
+@-webkit-keyframes h19BlackWhiteHoverOn {
+    from{color: black;}
+    to{color: white;}
+}
+@-moz-keyframes h19BlackWhiteHoverOn {
+    from{color: black;}
+    to{color: white;}
+}
+@-o-keyframes h19BlackWhiteHoverOn {
+    from{color: black;}
+    to{color: white;}
+}
+@keyframes h19BlackWhiteHoverOn {
+    from{color: black;}
+    to{color: white;}
+}
+
+@-webkit-keyframes h19BlackWhiteHoverOff {
+    from{color: white;}
+    to{color: black;}
+}
+@-moz-keyframes h19BlackWhiteHoverOff {
+    from{color: white;}
+    to{color: black;}
+}
+@-o-keyframes h19BlackWhiteHoverOff {
+    from{color: white;}
+    to{color: black;}
+}
+@keyframes h19BlackWhiteHoverOff {
+    from{color: white;}
+    to{color: black;}
+}
+
+@-webkit-keyframes h19NobelNeroHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@-moz-keyframes h19NobelNeroHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@-o-keyframes h19NobelNeroHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@keyframes h19NobelNeroHoverOn {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+
+@-webkit-keyframes h19NobelNeroHoverOff {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes h19NobelNeroHoverOff {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes h19NobelNeroHoverOff {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes h19NobelNeroHoverOff {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}

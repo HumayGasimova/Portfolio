@@ -1,0 +1,258 @@
+.portfolio-item-card-image {
+    width: 100%;
+}
+.portfolio-item-card-categories {
+    display: flex;
+    flex-wrap: wrap;
+    .portfolio-item-card-category {
+        padding-right: 6px;
+        display: flex;
+        align-items: flex-end;
+        .portfolio-item-card-category-slash {
+            font-size: 14px;
+            color: rgb(155, 155, 155);
+            padding-right: 2px;
+        }
+    }
+}
+.portfolio-item-card-arrow-wrapper {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    cursor: pointer;
+    .arrow-horizontal-line {
+        border: 1px solid black;
+        background: black;
+        width: 50px;
+    }
+    .arrow-wrapper2 {
+        transform: translate(-5px);
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .arrow-top-line {
+            border: 1px solid transparent;
+            height: 0px;
+            transform: translate(-1px, 1px) rotate(-45deg);
+        }
+        .arrow-bottom-line {
+            border: 1px solid transparent;
+            height: 0px;
+            transform: translate(-1px, -1px) rotate(45deg);
+        }
+    }
+}
+.portfolio-item-card-arrow-wrapper-lengthen {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    cursor: pointer;
+    .arrow-horizontal-line {
+        border: 1px solid black;
+        background: black;
+        width: 60px;
+        -webkit-animation: lengthenHorizontalLineSwitchImagePage .1s linear;
+        -moz-animation: lengthenHorizontalLineSwitchImagePage .1s linear;
+        -o-animation: lengthenHorizontalLineSwitchImagePage .1s linear;
+        animation: lengthenHorizontalLineSwitchImagePage .1s linear;
+    }
+    .arrow-wrapper2 {
+        transform: translate(-5px);
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .arrow-top-line {
+            border: 0px solid black;
+            background: black;
+            height: 15px;
+            transform: translate(-1px, 2.5px) rotate(-45deg);
+            -webkit-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            -moz-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            -o-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            animation: lengthenArrowLineSwitchImagePage .1s linear;
+            animation-delay: .2s;
+            animation-fill-mode: both;
+        }
+        .arrow-bottom-line {
+            border: 0px solid black;
+            background: black;
+            height: 15px;
+            transform: translate(-1px, -2.5px) rotate(45deg);
+            -webkit-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            -moz-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            -o-animation: lengthenArrowLineSwitchImagePage .1s linear;
+            animation: lengthenArrowLineSwitchImagePage .1s linear;
+            animation-delay: .2s;
+            animation-fill-mode: both;
+        }
+    }
+}
+.portfolio-item-card-arrow-wrapper-shorten {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    cursor: pointer;
+    .arrow-horizontal-line {
+        border: 1px solid black;
+        background: black;
+        width: 50px;
+        -webkit-animation: shortenHorizontalLineSwitchImagePage .1s linear;
+        -moz-animation: shortenHorizontalLineSwitchImagePage .1s linear;
+        -o-animation: shortenHorizontalLineSwitchImagePage .1s linear;
+        animation: shortenHorizontalLineSwitchImagePage .1s linear;
+        animation-delay: .1s;
+        animation-fill-mode: both;
+    }
+    .arrow-wrapper2 {
+        transform: translate(-5px);
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .arrow-top-line {
+            border: 1px solid transparent;
+            height: 0px;
+            transform: translate(-1px, 1px) rotate(-45deg);
+            -webkit-animation: shortenArrowLineSwitchImagePage .1s linear;
+            -moz-animation: shortenArrowLineSwitchImagePage .1s linear;
+            -o-animation: shortenArrowLineSwitchImagePage .1s linear;
+            animation: shortenArrowLineSwitchImagePage .1s linear;
+        }
+        .arrow-bottom-line {
+            border: 1px solid transparent;
+            height: 0px;
+            transform: translate(-1px, -1px) rotate(45deg);
+            -webkit-animation: shortenArrowLineSwitchImagePage .1s linear;
+            -moz-animation: shortenArrowLineSwitchImagePage .1s linear;
+            -o-animation: shortenArrowLineSwitchImagePage .1s linear;
+            animation: shortenArrowLineSwitchImagePage .1s linear;
+        }
+    }
+}
+
+@-webkit-keyframes lengthenArrowLineSwitchImagePage {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLineSwitchImagePage {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLineSwitchImagePage {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLineSwitchImagePage {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineSwitchImagePage {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineSwitchImagePage {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineSwitchImagePage {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineSwitchImagePage {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineSwitchImagePage {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineSwitchImagePage {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineSwitchImagePage {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineSwitchImagePage {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineSwitchImagePage {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@-moz-keyframes shortenHorizontalLineSwitchImagePage {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@-o-keyframes shortenHorizontalLineSwitchImagePage {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@keyframes shortenHorizontalLineSwitchImagePage {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+

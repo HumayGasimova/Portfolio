@@ -1,0 +1,416 @@
+.overlay-image {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    .overlay-image {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            filter: grayscale(40%);
+        }
+    }
+    .overlay-image-hover-on {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            transform: scale(1.05);
+            filter: grayscale(40%);
+            -webkit-animation: overlayImageHoverOn .3s linear;
+            -moz-animation: overlayImageHoverOn .3s linear;
+            -o-animation: overlayImageHoverOn .3s linear;
+            animation: overlayImageHoverOn .3s linear;
+        }
+    }
+    .overlay-image-hover-off {
+        overflow: hidden;
+        >img {
+            width: 100%;
+            transform: scale(1);
+            filter: grayscale(40%);
+            -webkit-animation: overlayImageHoverOff .3s linear;
+            -moz-animation: overlayImageHoverOff .3s linear;
+            -o-animation: overlayImageHoverOff .3s linear;
+            animation: overlayImageHoverOff .3s linear;
+        }
+    }
+    .overlay-curtain-hover-on {
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 1;
+        -webkit-animation: overlayCurtainHoverOn 0.3s linear;
+        -moz-animation: overlayCurtainHoverOn 0.3s linear;
+        -o-animation: overlayCurtainHoverOn 0.3s linear;
+        animation: overlayCurtainHoverOn 0.3s linear;
+        .overlay-with-info-categories {
+            position: relative;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            opacity: 1;
+            -webkit-animation: overlayWithInfoCategoriesHoverOn .1s linear;
+            -moz-animation: overlayWithInfoCategoriesHoverOn .1s linear;
+            -o-animation: overlayWithInfoCategoriesHoverOn .1s linear;
+            animation: overlayWithInfoCategoriesHoverOn .1s linear;
+            animation-delay: .3s;
+            animation-fill-mode: both;
+            .overlay-with-info-category {
+                padding-right: 6px;
+                display: flex;
+                align-items: center;
+                .overlay-with-info-category-slash {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: rgb(155, 155, 155);
+                    padding-left: 2px;
+                }
+            }
+        }
+        .overlay-image-arrow-wrapper-lengthen {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+            cursor: pointer;
+            .arrow-horizontal-line {
+                width: 60px;
+                height: 2px;
+                background: white;
+                -webkit-animation: lengthenHorizontalLineOverlayImage .1s linear;
+                -moz-animation: lengthenHorizontalLineOverlayImage .1s linear;
+                -o-animation: lengthenHorizontalLineOverlayImage .1s linear;
+                animation: lengthenHorizontalLineOverlayImage .1s linear;
+                animation-delay: .3s;
+                animation-fill-mode: both;
+            }
+            .arrow-wrapper2 {
+                transform: translate(-5px);
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .arrow-top-line {
+                    border: 0px solid white;
+                    background: white;
+                    height: 15px;
+                    transform: translate(-1px, 2.5px) rotate(-45deg);
+                    -webkit-animation: lengthenArrowLineOverlayImage .1s linear;
+                    -moz-animation: lengthenArrowLineOverlayImage .1s linear;
+                    -o-animation: lengthenArrowLineOverlayImage .1s linear;
+                    animation: lengthenArrowLineOverlayImage .1s linear;
+                    animation-delay: .4s;
+                    animation-fill-mode: both;
+                }
+                .arrow-bottom-line {
+                    border: 0px solid white;
+                    background: white;
+                    height: 15px;
+                    transform: translate(-1px, -2.5px) rotate(45deg);
+                    -webkit-animation: lengthenArrowLineOverlayImage .1s linear;
+                    -moz-animation: lengthenArrowLineOverlayImage .1s linear;
+                    -o-animation: lengthenArrowLineOverlayImage .1s linear;
+                    animation: lengthenArrowLineOverlayImage .1s linear;
+                    animation-delay: .4s;
+                    animation-fill-mode: both;
+                }
+            }
+        }
+    }
+    .overlay-curtain-hover-off {
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 0;
+        -webkit-animation: overlayCurtainHoverOff .1s linear;
+        -moz-animation: overlayCurtainHoverOff .1s linear;
+        -o-animation: overlayCurtainHoverOff .1s linear;
+        animation: overlayCurtainHoverOff .1s linear;
+        .overlay-with-info-categories {
+            display: flex;
+            flex-wrap: wrap;
+            opacity: 0;
+            -webkit-animation: overlayWithInfoCategoriesHoverOff .1s linear;
+            -moz-animation: overlayWithInfoCategoriesHoverOff .1s linear;
+            -o-animation: overlayWithInfoCategoriesHoverOff .1s linear;
+            animation: overlayWithInfoCategoriesHoverOff .1s linear;
+            .overlay-with-info-category {
+                padding-right: 6px;
+                display: flex;
+                align-items: center;
+                .overlay-with-info-category-slash {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: rgb(155, 155, 155);
+                    padding-left: 2px;
+                }
+            }
+        }
+        .overlay-image-arrow-wrapper-shorten {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+            cursor: pointer;
+            .arrow-horizontal-line {
+                width: 0px;
+                height: 2px;
+                background: white;
+                animation-delay: .1s;
+                animation-fill-mode: both;
+            }
+            .arrow-wrapper2 {
+                transform: translate(-5px);
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .arrow-top-line {
+                    border: 1px solid transparent;
+                    height: 0px;
+                    transform: translate(-1px, 1px) rotate(-45deg);
+                }
+                .arrow-bottom-line {
+                    border: 1px solid transparent;
+                    height: 0px;
+                    transform: translate(-1px, -1px) rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+.display-none{
+    display: none;
+}
+
+@-webkit-keyframes overlayWithInfoCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-moz-keyframes overlayWithInfoCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-o-keyframes overlayWithInfoCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes overlayWithInfoCategoriesHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes overlayWithInfoCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes overlayWithInfoCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes overlayWithInfoCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes overlayWithInfoCategoriesHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@-webkit-keyframes lengthenArrowLineOverlayImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-moz-keyframes lengthenArrowLineOverlayImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@-o-keyframes lengthenArrowLineOverlayImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+@keyframes lengthenArrowLineOverlayImage {
+    from{
+        height: 0px;
+        border: 0px solid white;
+    }
+    to{
+        height: 15px;
+        border: 1px solid white;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineOverlayImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineOverlayImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineOverlayImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineOverlayImage {
+    from{
+        border: 1px solid white;
+        background: white;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: white;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineOverlayImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineOverlayImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineOverlayImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineOverlayImage {
+    from{width: 0px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineOverlayImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@-moz-keyframes shortenHorizontalLineOverlayImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@-o-keyframes shortenHorizontalLineOverlayImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+@keyframes shortenHorizontalLineOverlayImage {
+    from{width: 60px;}
+    to{width: 0px;}
+}
+
+@-webkit-keyframes overlayImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-moz-keyframes overlayImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@-o-keyframes overlayImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+@keyframes overlayImageHoverOn {
+    from{transform: scale(1);}
+    to{transform: scale(1.05);}
+}
+
+@-webkit-keyframes overlayImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-moz-keyframes overlayImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@-o-keyframes overlayImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+@keyframes overlayImageHoverOff {
+    from{transform: scale(1.05);}
+    to{transform: scale(1);}
+}
+
+@-webkit-keyframes overlayCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-moz-keyframes overlayCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-o-keyframes overlayCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@keyframes overlayCurtainHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+
+@-webkit-keyframes overlayCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-moz-keyframes overlayCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-o-keyframes overlayCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@keyframes overlayCurtainHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}

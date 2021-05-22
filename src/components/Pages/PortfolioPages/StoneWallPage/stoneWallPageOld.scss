@@ -1,0 +1,1104 @@
+// .stone-wall-page {
+//     width: calc(100% + 18px);
+//     .stone-wall-page-loading-error {
+//         width: 100%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//     }
+//     .stone-wall-page-wrapper {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         width: 100%;
+//         .stone-wall-page-header {
+//             display: flex;
+//             justify-content: center;
+//             padding: 90px 0px 90px 0px;
+//         }
+//         .stone-wall-page-items {
+//             position: relative;
+//             width: 1099.99px;
+//             height: 1169.99px;
+//             // display: flex;
+//             // flex-wrap: wrap;
+//             // padding: 40px 100px 40px 130px;
+//             .stone-wall-page-item-id1 {
+//                 position: absolute;
+//                 top: 0px;
+//                 left: 0px;
+//                 width: 346.66px;
+//                 height: 346.66px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//             }
+//             .stone-wall-page-item-id2 {
+//                 position: absolute;
+//                 top: 376.66px;
+//                 left: 0;
+//                 width: 346.66px;
+//                 height: 723.33px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//             }
+//             .stone-wall-page-item-id2-animation-narrow-screen {
+//                 position: absolute;
+//                 top: 1196px;
+//                 left: 0px;
+//                 width: 368px;
+//                 height: 768px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId2NarrowScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId2NarrowScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId2NarrowScreen 0.3s linear;
+//                 animation: stoneWallPageItemId2NarrowScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id2-animation-expand-screen {
+//                 position: absolute;
+//                 top: 326.66px;
+//                 left: 0;
+//                 width: 296.66px;
+//                 height: 623.33px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId2ExpandScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId2ExpandScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId2ExpandScreen 0.3s linear;
+//                 animation: stoneWallPageItemId2ExpandScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id2-animation-narrow2-screen {
+//                 position: absolute;
+//                 top: 900px;
+//                 left: 0px;
+//                 width: 420px;
+//                 height: 868.55px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id2-animation-expand2-screen {
+//                 position: absolute;
+//                 top: 945px;
+//                 left: 0px;
+//                 width: 285px;
+//                 height: 600px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId2Expand2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id3 {
+//                 position: absolute;
+//                 top: 0px;
+//                 left: 376.66px;
+//                 width: 723.33px;
+//                 height: 723.33px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//             }
+//             .stone-wall-page-item-id3-animation-narrow-screen {
+//                 position: absolute;
+//                 top: 398px;
+//                 left: 0;
+//                 width: 768px;
+//                 height: 768px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId3NarrowScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId3NarrowScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId3NarrowScreen 0.3s linear;
+//                 animation: stoneWallPageItemId3NarrowScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id3-animation-expand-screen {
+//                 position: absolute;
+//                 top: 0px;
+//                 left: 326.66px;
+//                 width: 623.33px;
+//                 height: 623.33px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId3ExpandScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId3ExpandScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId3ExpandScreen 0.3s linear;
+//                 animation: stoneWallPageItemId3ExpandScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id3-animation-narrow2-screen {
+//                 position: absolute;
+//                 top: 450px;
+//                 left: 0;
+//                 width: 420px;
+//                 height: 420px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId3Narrow2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId3Narrow2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId3Narrow2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId3Narrow2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id3-animation-expand2-screen {
+//                 position: absolute;
+//                 top: 315px;
+//                 left: 0px;
+//                 width: 600px;
+//                 height: 600px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId3Expand2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId3Expand2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId3Expand2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId3Expand2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id4 {
+//                 position: absolute;
+//                 top: 753.33px;
+//                 left: 376.66px;
+//                 width: 346.66px;
+//                 height: 346.66px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//             }
+//             .stone-wall-page-item-id4-animation-narrow-screen {
+//                 position: absolute;
+//                 top: 0px;
+//                 left: 398px;
+//                 width: 368px;
+//                 height: 368px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId4NarrowScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId4NarrowScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId4NarrowScreen 0.3s linear;
+//                 animation: stoneWallPageItemId4NarrowScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id4-animation-expand-screen {
+//                 position: absolute;
+//                 top: 653.33px;
+//                 left: 326.66px;
+//                 width: 296.66px;
+//                 height: 296.66px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId4ExpandScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId4ExpandScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId4ExpandScreen 0.3s linear;
+//                 animation: stoneWallPageItemId4ExpandScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id4-animation-narrow2-screen {
+//                 position: absolute;
+//                 top: 1798.55px;
+//                 left: 0px;
+//                 width: 420px;
+//                 height: 420px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId4Narrow2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId4Narrow2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId4Narrow2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId4Narrow2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id4-animation-expand2-screen {
+//                 position: absolute;
+//                 top: 0px;
+//                 left: 316px;
+//                 width: 285px;
+//                 height: 285px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId4Expand2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId4Expand2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId4Expand2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId4Expand2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id5 {
+//                 position: absolute;
+//                 top: 753.33px;
+//                 left: 753.32px;
+//                 width: 346.66px;
+//                 height: 346.66px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//             }
+//             .stone-wall-page-item-id5-animation-narrow-screen {
+//                 position: absolute;
+//                 top: 1196px;
+//                 left: 398px;
+//                 width: 368px;
+//                 height: 368px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId5NarrowScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId5NarrowScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId5NarrowScreen 0.3s linear;
+//                 animation: stoneWallPageItemId5NarrowScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id5-animation-expand-screen {
+//                 position: absolute;
+//                 top: 653.33px;
+//                 left: 653.32px;
+//                 width: 296.66px;
+//                 height: 296.66px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId5ExpandScreen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId5ExpandScreen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId5ExpandScreen 0.3s linear;
+//                 animation: stoneWallPageItemId5ExpandScreen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id5-animation-narrow2-screen {
+//                 position: absolute;
+//                 top: 2248.55px;
+//                 left: 0px;
+//                 width: 420px;
+//                 height: 420px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId5Narrow2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId5Narrow2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId5Narrow2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId5Narrow2Screen 0.3s linear;
+//             }
+//             .stone-wall-page-item-id5-animation-expand2-screen {
+//                 position: absolute;
+//                 top: 945px;
+//                 left: 315px;
+//                 width: 285px;
+//                 height: 285px;
+//                 margin-right: 30px;
+//                 margin-bottom: 30px;
+//                 -webkit-animation: stoneWallPageItemId5Expand2Screen 0.3s linear;
+//                 -moz-animation: stoneWallPageItemId5Expand2Screen 0.3s linear;
+//                 -o-animation: stoneWallPageItemId5Expand2Screen 0.3s linear;
+//                 animation: stoneWallPageItemId5Expand2Screen 0.3s linear;
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 1200px){
+//     .stone-wall-page {
+//         .stone-wall-page-wrapper {
+//             .stone-wall-page-items {
+//                 width: 949.99px;
+//                 height: 1019.99px;
+//                 .stone-wall-page-item-id1 {
+//                     width: 296.66px;
+//                     height: 296.66px;
+//                 }
+//                 .stone-wall-page-item-id2 {
+//                     top: 326.66px;
+//                     left: 0;
+//                     width: 296.66px;
+//                     height: 623.33px;
+//                 }
+//                 .stone-wall-page-item-id3 {
+//                     top: 0px;
+//                     left: 326.66px;
+//                     width: 623.33px;
+//                     height: 623.33px;
+//                 }
+//                 .stone-wall-page-item-id4 {
+//                     top: 653.33px;
+//                     left: 326.66px;
+//                     width: 296.66px;
+//                     height: 296.66px;
+//                 }
+//                 .stone-wall-page-item-id5 {
+//                     top: 653.33px;
+//                     left: 653.32;
+//                     width: 296.66px;
+//                     height: 296.66px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 1026px){
+//     .stone-wall-page {
+//         .stone-wall-page-wrapper {
+//             .stone-wall-page-items {
+//                 width: 766px;
+//                 height: 2034px;
+//                 .stone-wall-page-item-id1 {
+//                     width: 368px;
+//                     height: 368px;
+//                 }
+//                 .stone-wall-page-item-id2 {
+//                     top: 1196px;
+//                     left: 0px;
+//                     width: 368px;
+//                     height: 768px;
+//                 }
+//                 .stone-wall-page-item-id3 {
+//                     top: 398px;
+//                     left: 0;
+//                     width: 768px;
+//                     height: 768px;
+//                 }
+//                 .stone-wall-page-item-id4 {
+//                     top: 0px;
+//                     left: 398px;
+//                     width: 368px;
+//                     height: 368px;
+//                 }
+//                 .stone-wall-page-item-id5 {
+//                     top: 1196px;
+//                     left: 398px;
+//                     width: 368px;
+//                     height: 368px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 840px){
+//     .stone-wall-page {
+//         .stone-wall-page-wrapper {
+//             .stone-wall-page-items {
+//                 width: 600px;
+//                 height: 1615px;
+//                 .stone-wall-page-item-id1 {
+//                     width: 285px;
+//                     height: 285px;
+//                 }
+//                 .stone-wall-page-item-id2 {
+//                     top: 945px;
+//                     left: 0px;
+//                     width: 285px;
+//                     height: 600px;
+//                 }
+//                 .stone-wall-page-item-id3 {
+//                     top: 315px;
+//                     left: 0;
+//                     width: 600px;
+//                     height: 600px;
+//                 }
+//                 .stone-wall-page-item-id4 {
+//                     top: 0px;
+//                     left: 316px;
+//                     width: 285px;
+//                     height: 285px;
+//                 }
+//                 .stone-wall-page-item-id5 {
+//                     top: 945px;
+//                     left: 315px;
+//                     width: 285px;
+//                     height: 285px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 670px){
+//     .stone-wall-page {
+//         .stone-wall-page-wrapper {
+//             .stone-wall-page-items {
+//                 width: 420px;
+//                 height: 2738.55px;
+//                 .stone-wall-page-item-id1 {
+//                     width: 420px;
+//                     height: 420px;
+//                 }
+//                 .stone-wall-page-item-id2 {
+//                     top: 900px;
+//                     left: 0px;
+//                     width: 420px;
+//                     height: 868.55px;
+//                 }
+//                 .stone-wall-page-item-id3 {
+//                     top: 450px;
+//                     left: 0px;
+//                     width: 420px;
+//                     height: 420px;
+//                 }
+//                 .stone-wall-page-item-id4 {
+//                     top: 1798.55px;
+//                     left: 0px;
+//                     width: 420px;
+//                     height: 420px;
+//                 }
+//                 .stone-wall-page-item-id5 {
+//                     top: 2248.55px;
+//                     left: 0px;
+//                     width: 420px;
+//                     height: 420px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 480px){
+//     .stone-wall-page {
+//         .stone-wall-page-wrapper {
+//             .stone-wall-page-header {
+//                 padding: 60px 0px 60px 0px;
+//             }
+//             .stone-wall-page-items {
+//                 width: 300px;
+//                 height: 2010.39px;
+//                 .stone-wall-page-item-id1 {
+//                     width: 300px;
+//                     height: 300px;
+//                 }
+//                 .stone-wall-page-item-id2 {
+//                     top: 660px;
+//                     left: 0px;
+//                     width: 300px;
+//                     height: 620.39px;
+//                 }
+//                 .stone-wall-page-item-id3 {
+//                     top: 330px;
+//                     left: 0px;
+//                     width: 300px;
+//                     height: 300px;
+//                 }
+//                 .stone-wall-page-item-id4 {
+//                     top: 1310.30px;
+//                     left: 0px;
+//                     width: 300px;
+//                     height: 300px;
+//                 }
+//                 .stone-wall-page-item-id5 {
+//                     top: 1640.39px;
+//                     left: 0px;
+//                     width: 300px;
+//                     height: 300px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId5NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 653.32;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 398px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId5NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 653.32;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 398px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId5NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 398px;
+//     }
+// }
+// @keyframes stoneWallPageItemId5NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 398px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId5ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId5ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId5ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @keyframes stoneWallPageItemId5ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId5Narrow2Screen {
+//     from{
+//         top: 945px;
+//         left: 315px;
+//     }
+//     to{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId5Narrow2Screen {
+//     from{
+//         top: 945px;
+//         left: 315px;
+//     }
+//     to{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId5Narrow2Screen {
+//     from{
+//         top: 945px;
+//         left: 315px;
+//     }
+//     to{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+// }
+// @keyframes stoneWallPageItemId5Narrow2Screen {
+//     from{
+//         top: 945px;
+//         left: 315px;
+//     }
+//     to{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId5Expand2Screen {
+//     from{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 945px;
+//         left: 315px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId5Expand2Screen {
+//     from{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 945px;
+//         left: 315px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId5Expand2Screen {
+//     from{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 945px;
+//         left: 315px;
+//     }
+// }
+// @keyframes stoneWallPageItemId5Expand2Screen {
+//     from{
+//         top: 2248.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 945px;
+//         left: 315px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId4NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 398px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId4NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 398px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId4NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 398px;
+//     }
+// }
+// @keyframes stoneWallPageItemId4NarrowScreen {
+//     from{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 398px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId4ExpandScreen {
+//     from{
+//         top: 0px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId4ExpandScreen {
+//     from{
+//         top: 0px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId4ExpandScreen {
+//     from{
+//         top: 0px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+// @keyframes stoneWallPageItemId4ExpandScreen {
+//     from{
+//         top: 0px;
+//         left: 398px;
+//     }
+//     to{
+//         top: 653.33px;
+//         left: 326.66px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId4Narrow2Screen {
+//     from{
+//         top: 0px;
+//         left: 316px;
+//     }
+//     to{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId4Narrow2Screen {
+//     from{
+//         top: 0px;
+//         left: 316px;
+//     }
+//     to{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId4Narrow2Screen {
+//     from{
+//         top: 0px;
+//         left: 316px;
+//     }
+//     to{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+// }
+// @keyframes stoneWallPageItemId4Narrow2Screen {
+//     from{
+//         top: 0px;
+//         left: 316px;
+//     }
+//     to{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId4Expand2Screen {
+//     from{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 316px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId4Expand2Screen {
+//     from{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 316px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId4Expand2Screen {
+//     from{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 316px;
+//     }
+// }
+// @keyframes stoneWallPageItemId4Expand2Screen {
+//     from{
+//         top: 1798.55px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 0px;
+//         left: 316px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId3NarrowScreen {
+//     from{
+//         top: 0px;
+//         left: 376.66px;
+//     }
+//     to{
+//         top: 398px;
+//         left: 0;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId3NarrowScreen {
+//     from{
+//         top: 0px;
+//         left: 376.66px;
+//     }
+//     to{
+//         top: 398px;
+//         left: 0;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId3NarrowScreen {
+//     from{
+//         top: 0px;
+//         left: 376.66px;
+//     }
+//     to{
+//         top: 326.66px;
+//         left: 0;
+//     }
+// }
+// @keyframes stoneWallPageItemId3NarrowScreen {
+//     from{
+//         top: 0px;
+//         left: 376.66px;
+//     }
+//     to{
+//         top: 398px;
+//         left: 0;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId3ExpandScreen {
+//     from{
+//         top: 398px;
+//         left: 0;
+//     }
+//     to{
+//         top: 0px;
+//         left: 326.66px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId3ExpandScreen {
+//     from{
+//         top: 398px;
+//         left: 0;
+//     }
+//     to{
+//         top: 0px;
+//         left: 326.66px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId3ExpandScreen {
+//     from{
+//         top: 398px;
+//         left: 0;
+//     }
+//     to{
+//         top: 0px;
+//         left: 326.66px;
+//     }
+// }
+// @keyframes stoneWallPageItemId3ExpandScreen {
+//     from{
+//         top: 398px;
+//         left: 0;
+//     }
+//     to{
+//         top: 0px;
+//         left: 326.66px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId3Narrow2Screen {
+//     from{
+//         top: 326.66px;
+//     }
+//     to{
+//         top: 450px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId3Narrow2Screen {
+//     from{
+//         top: 326.66px;
+//     }
+//     to{
+//         top: 450px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId3Narrow2Screen {
+//     from{
+//         top: 326.66px;
+//     }
+//     to{
+//         top: 450px;
+//     }
+// }
+// @keyframes stoneWallPageItemId3Narrow2Screen {
+//     from{
+//         top: 326.66px;
+//     }
+//     to{
+//         top: 450px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId3Expand2Screen {
+//     from{
+//         top: 450px;
+//     }
+//     to{
+//         top: 326.66px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId3Expand2Screen {
+//     from{
+//         top: 450px;
+//     }
+//     to{
+//         top: 326.66px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId3Expand2Screen {
+//     from{
+//         top: 450px;
+//     }
+//     to{
+//         top: 326.66px;
+//     }
+// }
+// @keyframes stoneWallPageItemId3Expand2Screen {
+//     from{
+//         top: 450px;
+//     }
+//     to{
+//         top: 326.66px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId2NarrowScreen {
+//     from{
+//         top: 326.66px;
+//         left: 0;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 0px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId2NarrowScreen {
+//     from{
+//         top: 326.66px;
+//         left: 0;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 0px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId2NarrowScreen {
+//     from{
+//         top: 326.66px;
+//         left: 0;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 0px;
+//     }
+// }
+// @keyframes stoneWallPageItemId2NarrowScreen {
+//     from{
+//         top: 326.66px;
+//         left: 0;
+//     }
+//     to{
+//         top: 1196px;
+//         left: 0px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId2ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 326.66px;
+//         left: 0;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId2ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 326.66px;
+//         left: 0;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId2ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 326.66px;
+//         left: 0;
+//     }
+// }
+// @keyframes stoneWallPageItemId2ExpandScreen {
+//     from{
+//         top: 1196px;
+//         left: 0px;
+//     }
+//     to{
+//         top: 326.66px;
+//         left: 0;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId2Narrow2Screen {
+//     from{
+//         top: 945px;
+//     }
+//     to{
+//         top: 900px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId2Narrow2Screen {
+//     from{
+//         top: 945px;
+//     }
+//     to{
+//         top: 900px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId2Narrow2Screen {
+//     from{
+//         top: 945px;
+//     }
+//     to{
+//         top: 900px;
+//     }
+// }
+// @keyframes stoneWallPageItemId2Narrow2Screen {
+//     from{
+//         top: 945px;
+//     }
+//     to{
+//         top: 900px;
+//     }
+// }
+
+// @-webkit-keyframes stoneWallPageItemId2Expand2Screen {
+//     from{
+//         top: 900px;
+//     }
+//     to{
+//         top: 945px;
+//     }
+// }
+// @-moz-keyframes stoneWallPageItemId2Expand2Screen {
+//     from{
+//         top: 900px;
+//     }
+//     to{
+//         top: 945px;
+//     }
+// }
+// @-o-keyframes stoneWallPageItemId2Expand2Screen {
+//     from{
+//         top: 900px;
+//     }
+//     to{
+//         top: 945px;
+//     }
+// }
+// @keyframes stoneWallPageItemId2Expand2Screen {
+//     from{
+//         top: 900px;
+//     }
+//     to{
+//         top: 945px;
+//     }
+// }

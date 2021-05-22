@@ -1,0 +1,102 @@
+.plus-icon {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:black;
+    }
+    .plus-vertical-line {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        transform: rotate(90deg);
+        width: 11px;
+        height: 1.5px;
+        background:black;
+    }
+}
+
+.plus-icon-hover-on {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:white;
+    }
+    .plus-vertical-line {
+      display: none;
+    }
+}
+
+.plus-icon-hover-off {
+    position: relative;
+    .plus-horizontal-line {
+        width: 11px;
+        height: 2px;
+        background:black;
+    }
+    .plus-vertical-line {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        transform: rotate(90deg);
+        width: 11px;
+        height: 1.5px;
+        background:black;
+    }
+}
+
+.soc-med-icon {
+    color: white;
+    cursor: pointer;
+}
+.soc-med-icon-hover-on {
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+    -webkit-animation: socMedIconHoverOn .3s linear;
+    -moz-animation: socMedIconHoverOn .3s linear;
+    -o-animation: socMedIconHoverOn .3s linear;
+    animation: socMedIconHoverOn .3s linear;
+}
+.soc-med-icon-hover-off {
+    color: white;
+    cursor: pointer;
+    -webkit-animation: socMedIconHoverOff .3s linear;
+    -moz-animation: socMedIconHoverOff .3s linear;
+    -o-animation: socMedIconHoverOff .3s linear;
+    animation: socMedIconHoverOff .3s linear;
+}
+
+@-webkit-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@-moz-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@-o-keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+@keyframes socMedIconHoverOn {
+    from{color: white;}
+    to{color: rgb(78, 78, 78);}
+}
+
+@-webkit-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@-moz-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@-o-keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}
+@keyframes socMedIconHoverOff {
+    from{color: rgb(78, 78, 78);}
+    to{color: white;}
+}

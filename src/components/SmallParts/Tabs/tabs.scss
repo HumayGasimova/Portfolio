@@ -1,0 +1,37 @@
+.tabs {
+    width: 100%;
+
+    .tabs-gray-line-wrapper {
+        position: relative;
+        .tabs-gray-line-long {
+            width: 100%;
+            height: 2px;
+            background-color: rgba(78, 78, 78, 0.1);
+        }
+        .tabs-black-line-short {
+            position: absolute;
+            top: -1px;
+            width: 100%;
+            height: 4px;
+            background-color: black;
+        }
+    }
+    
+    .tabs-header-items {
+        display: flex;
+        max-width: fit-content;
+        margin-bottom: 4px;
+        .tabs-header-item-first {
+            padding: 15px 25px 15px 0;
+            cursor: pointer;
+        }
+        .tabs-header-item {
+            padding: 15px 25px 15px 25px;
+                cursor: pointer;
+        }
+    }
+    .tabs-text {
+        padding: 40px 0 40px 0;
+        line-height: 1.6;
+    }
+}

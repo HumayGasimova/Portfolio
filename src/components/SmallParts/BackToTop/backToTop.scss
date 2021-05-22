@@ -1,0 +1,176 @@
+.back-to-top {
+    position: fixed;
+    right: -5px;
+    bottom: 55px;
+    transform: rotate(-90deg);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    cursor: pointer;
+    .back-to-top-text {
+        transform: translateX(0);
+        padding-bottom: 5px;
+    }
+    .back-to-top-text-hover-on {
+        transform: translateX(5px);
+        padding-bottom: 5px;
+        -webkit-animation: backToTopTextHoverOn .2s ease;
+        -moz-animation: backToTopTextHoverOn .2s ease;
+        -o-animation: backToTopTextHoverOn .2s ease;
+        animation: backToTopTextHoverOn .2s ease;
+    }
+    .back-to-top-text-hover-off {
+        transform: translateX(0);
+        padding-bottom: 5px;
+        -webkit-animation: backToTopTextHoverOff .2s ease;
+        -moz-animation: backToTopTextHoverOff .2s ease;
+        -o-animation: backToTopTextHoverOff .2s ease;
+        animation: backToTopTextHoverOff .2s ease;
+    }
+    .back-to-top-line {
+        position: absolute;
+        bottom: 0;
+        width: 125px;
+        height: 1.5px;
+        background: rgb(155, 155, 155);
+      
+    }
+    .back-to-top-line-hover-on {
+        position: absolute;
+        bottom: 0;
+        width: 100px;
+        height: 2px;
+        background: rgb(155, 155, 155);
+        -webkit-animation: backToTopLineHoverOn .2s ease;
+        -moz-animation: backToTopLineHoverOn .2s ease;
+        -o-animation: backToTopLineHoverOn .2s ease;
+        animation: backToTopLineHoverOn .2s ease;
+    }
+    .back-to-top-line-hover-off {
+        position: absolute;
+        bottom: 0;
+        width: 125px;
+        height: 1.5px;
+        background: rgb(155, 155, 155);
+        -webkit-animation: backToTopLineHoverOff .2s ease;
+        -moz-animation: backToTopLineHoverOff .2s ease;
+        -o-animation: backToTopLineHoverOff .2s ease;
+        animation: backToTopLineHoverOff .2s ease;
+    }
+}
+
+@-webkit-keyframes backToTopTextHoverOn {
+    from{transform: translateX(0);}
+    to{transform: translateX(5px);}
+}
+@-moz-keyframes backToTopTextHoverOn {
+    from{transform: translateX(0);}
+    to{transform: translateX(5px);}
+}
+@-o-keyframes backToTopTextHoverOn {
+    from{transform: translateX(0);}
+    to{transform: translateX(5px);}
+}
+@keyframes backToTopTextHoverOn {
+    from{transform: translateX(0);}
+    to{transform: translateX(5px);}
+}
+
+@-webkit-keyframes backToTopTextHoverOff {
+    from{transform: translateX(5px);}
+    to{transform: translateX(0);}
+}
+@-moz-keyframes backToTopTextHoverOff {
+    from{transform: translateX(5px);}
+    to{transform: translateX(0);}
+}
+@-o-keyframes backToTopTextHoverOff {
+    from{transform: translateX(5px);}
+    to{transform: translateX(0);}
+}
+@keyframes backToTopTextHoverOff {
+    from{transform: translateX(5px);}
+    to{transform: translateX(0);}
+}
+
+@-webkit-keyframes backToTopLineHoverOn {
+    from{
+        width: 125px;
+        height: 1.5px;
+    }
+    to{
+        width: 100px;
+        height: 2px;
+    }
+}
+@-moz-keyframes backToTopLineHoverOn {
+    from{
+        width: 125px;
+        height: 1.5px;
+    }
+    to{
+        width: 100px;
+        height: 2px;
+    }
+}
+@-o-keyframes backToTopLineHoverOn {
+    from{
+        width: 125px;
+        height: 1.5px;
+    }
+    to{
+        width: 100px;
+        height: 2px;
+    }
+}
+@keyframes backToTopLineHoverOn {
+    from{
+        width: 125px;
+        height: 1.5px;
+    }
+    to{
+        width: 100px;
+        height: 2px;
+    }
+}
+
+@-webkit-keyframes backToTopLineHoverOff {
+    from{
+        width: 100px;
+        height: 2px;
+    }
+    to{
+        width: 125px;
+        height: 1.5px;
+    }
+}
+@-moz-keyframes backToTopLineHoverOff {
+    from{
+        width: 100px;
+        height: 2px;
+    }
+    to{
+        width: 125px;
+        height: 1.5px;
+    }
+}
+@-o-keyframes backToTopLineHoverOff {
+    from{
+        width: 100px;
+        height: 2px;
+    }
+    to{
+        width: 125px;
+        height: 1.5px;
+    }
+}
+@keyframes backToTopLineHoverOff {
+    from{
+        width: 100px;
+        height: 2px;
+    }
+    to{
+        width: 125px;
+        height: 1.5px;
+    }
+}

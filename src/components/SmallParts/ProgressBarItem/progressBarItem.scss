@@ -1,0 +1,83 @@
+.progress-bar-item {
+    .progress-bar-item-wrapper {
+        display: flex;
+        justify-content: space-between;
+        -webkit-animation: appearProgressBarPercent 2s ease;
+        -moz-animation: appearProgressBarPercent 2s ease;
+        -o-animation: appearProgressBarPercent 2s ease;
+        animation: appearProgressBarPercent 2s ease;
+        .progress-bar-item-percent {
+            font-size: 25px;
+            font-family: 'Teko', sans-serif;
+            color: black;
+        }
+    }
+    .progress-bar-item-percent-line-wrapper {
+        position: relative;
+        .progress-bar-item-percent-line-back {
+            // width: 450px;
+            border: 1.5px solid rgba(155, 155, 155, 0.5);
+            background: rgba(155, 155, 155, 1);
+        }
+        .progress-bar-item-percent-line-top {
+            position: absolute;
+            top: 0%;
+            border: 1.5px solid black;
+            background: black;
+            -webkit-animation: appearProgressBarLine 2s ease;
+            -moz-animation: appearProgressBarLine 2s ease;
+            -o-animation: appearProgressBarLine 2s ease;
+            animation: appearProgressBarLine 2s ease;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .progress-bar-item {
+        .progress-bar-item-wrapper {
+            -webkit-animation: appearProgressBarPercentSmallScreen 2s ease;
+            -moz-animation: appearProgressBarPercentSmallScreen 2s ease;
+            -o-animation: appearProgressBarPercentSmallScreen 2s ease;
+            animation: appearProgressBarPercentSmallScreen 2s ease;
+        }
+    }
+}
+
+@-webkit-keyframes appearProgressBarPercentSmallScreen {
+    0%{width: 80%;}
+}
+@-moz-keyframes appearProgressBarPercentSmallScreen {
+    0%{width: 80%;}
+}
+@-o-keyframes appearProgressBarPercentSmallScreen {
+    0%{width: 80%;}
+}
+@keyframes appearProgressBarPercentSmallScreen {
+    0%{width: 80%;}
+}
+
+@-webkit-keyframes appearProgressBarPercent {
+    0%{width: 40%;}
+}
+@-moz-keyframes appearProgressBarPercent {
+    0%{width: 40%;}
+}
+@-o-keyframes appearProgressBarPercent {
+    0%{width: 40%;}
+}
+@keyframes appearProgressBarPercent {
+    0%{width: 40%;}
+}
+
+@-webkit-keyframes appearProgressBarLine {
+    0%{width: 0%;}
+}
+@-moz-keyframes appearProgressBarLine {
+    0%{width: 0%}
+}
+@-o-keyframes appearProgressBarLine {
+    0%{width: 0;}
+}
+@keyframes appearProgressBarLine {
+    0%{width: 0;}
+}

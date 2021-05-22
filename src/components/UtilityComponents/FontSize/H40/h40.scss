@@ -1,0 +1,102 @@
+.h40 {
+    font-size: 40px;
+    color: black;
+}
+
+.h40-black-teko {
+    font-size: 40px;
+    color: black;
+    font-family: 'Teko', sans-serif;
+}
+
+.h40-white-teko {
+    font-size: 40px;
+    color: white;
+    font-family: 'Teko', sans-serif;
+}
+
+.h40-nero-teko {
+    font-size: 40px;
+    color: rgb(37, 37, 37);
+    font-family: 'Teko', sans-serif;
+}
+
+.h40-nero-poppins {
+    font-size: 40px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h40-white-balsamiq {
+    font-size: 40px;
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 860px){
+    .h40-black-teko {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .h40-black-teko {
+        font-size: 30px;
+    }
+}
+
+// .h3-center {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     text-align: center;
+// }
+
+// .h3-animation {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//         color: rgb(180, 139, 62);
+//         -webkit-animation: appear 0.3s linear;
+//         -moz-animation: appear 0.3s linear;
+//         -o-animation: appear 0.3s linear;
+//         animation: appear 0.3s linear;
+//     }
+// }
+
+// @-webkit-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-moz-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-o-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }

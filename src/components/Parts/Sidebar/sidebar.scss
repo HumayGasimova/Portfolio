@@ -1,0 +1,112 @@
+.sidebar {
+    position: fixed;
+    top: 0%;
+    width: 250px;
+    height: 100%;
+    background: white;
+    z-index: 690;
+    overflow-y: scroll;
+    transform: translateX(-100%);
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 33px;
+        height: 68px;  
+        border-bottom: 0.5px solid rgba(155, 155, 155, 0.4);
+        cursor: pointer;
+    }
+}
+
+.sidebar-open {
+    position: fixed;
+    top: 0%;
+    width: 250px;
+    height: 100%;
+    background: white;
+    z-index: 690;
+    overflow-y: scroll;
+    transform: translateX(0%);
+    -webkit-animation: sidebarOpen 1s ease;
+    -moz-animation: sidebarOpen 1s ease;
+    -o-animation: sidebarOpen 1s ease;
+    animation: sidebarOpen 1s ease;
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 33px;
+        height: 68px;  
+        border-bottom: 0.5px solid rgba(155, 155, 155, 0.4);
+        cursor: pointer;
+    }
+}
+
+.sidebar-close {
+    position: fixed;
+    top: 0%;
+    width: 250px;
+    height: 100%;
+    background: white;
+    z-index: 690;
+    overflow-y: scroll;
+    transform: translateX(-100%);
+    -webkit-animation: sidebarClose 1s ease;
+    -moz-animation: sidebarClose 1s ease;
+    -o-animation: sidebarClose 1s ease;
+    animation: sidebarClose 1s ease;
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Balsamiq Sans', cursive;
+        font-size: 33px;
+        height: 68px;  
+        border-bottom: 0.5px solid rgba(155, 155, 155, 0.4);
+        cursor: pointer;
+    }
+}
+
+.sidebar-open::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-close::-webkit-scrollbar {
+    display: none;
+}
+
+@-webkit-keyframes sidebarOpen {
+    from{transform: translateX(-100%);}
+    to{transform: translateX(0%);}
+}
+@-moz-keyframes sidebarOpen {
+    from{transform: translateX(-100%);}
+    to{transform: translateX(0%);}
+}
+@-o-keyframes sidebarOpen {
+    from{transform: translateX(-100%);}
+    to{transform: translateX(0%);}
+}
+@keyframes sidebarOpen {
+    from{transform: translateX(-100%);}
+    to{transform: translateX(0%);}
+}
+
+@-webkit-keyframes sidebarClose {
+    from{transform: translateX(0%);}
+    to{transform: translateX(-100%);}
+}
+@-moz-keyframes sidebarClose {
+    from{transform: translateX(0%);}
+    to{transform: translateX(-100%);}
+}
+@-o-keyframes sidebarClose {
+    from{transform: translateX(0%);}
+    to{transform: translateX(-100%);}
+}
+@keyframes sidebarClose {
+    from{transform: translateX(0%);}
+    to{transform: translateX(-100%);}
+}

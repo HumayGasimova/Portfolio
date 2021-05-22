@@ -1,0 +1,244 @@
+.section-1-data-item {
+    margin: 0 10px 0 10px;
+    .arrow-wrapper {
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        cursor: pointer;
+        
+       .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 50px;
+       }
+       .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+           .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+           }
+           .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+           }
+       }
+    }
+   .arrow-wrapper-lengthen {
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        cursor: pointer;
+       .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 60px;
+            -webkit-animation: lengthenHorizontalLineSection1 .1s linear;
+            -moz-animation: lengthenHorizontalLineSection1 .1s linear;
+            -o-animation: lengthenHorizontalLineSection1 .1s linear;
+            animation: lengthenHorizontalLineSection1 .1s linear;
+       }
+       .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+           .arrow-top-line {
+                border: 0px solid black;
+                background: black;
+                height: 15px;
+                transform: translate(-1px, 2.5px) rotate(-45deg);
+                -webkit-animation: lengthenArrowLineSection1 .1s linear;
+                -moz-animation: lengthenArrowLineSection1 .1s linear;
+                -o-animation: lengthenArrowLineSection1 .1s linear;
+                animation: lengthenArrowLineSection1 .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+           }
+           .arrow-bottom-line {
+                border: 0px solid black;
+                background: black;
+                height: 15px;
+                transform: translate(-1px, -2.5px) rotate(45deg);
+                -webkit-animation: lengthenArrowLineSection1 .1s linear;
+                -moz-animation: lengthenArrowLineSection1 .1s linear;
+                -o-animation: lengthenArrowLineSection1 .1s linear;
+                animation: lengthenArrowLineSection1 .1s linear;
+                animation-delay: .2s;
+                animation-fill-mode: both;
+           }
+       }
+   }
+   .arrow-wrapper-shorten {
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        cursor: pointer;
+        .arrow-horizontal-line {
+            height: 2.5px;
+            background: black;
+            width: 50px;
+            -webkit-animation: shortenHorizontalLineSection1 .1s linear;
+            -moz-animation: shortenHorizontalLineSection1 .1s linear;
+            -o-animation: shortenHorizontalLineSection1 .1s linear;
+            animation: shortenHorizontalLineSection1 .1s linear;
+            animation-delay: .1s;
+            animation-fill-mode: both;
+        }
+        .arrow-wrapper2 {
+            transform: translate(-5px);
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .arrow-top-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, 1px) rotate(-45deg);
+                -webkit-animation: shortenArrowLineSection1 .1s linear;
+                -moz-animation: shortenArrowLineSection1 .1s linear;
+                -o-animation: shortenArrowLineSection1 .1s linear;
+                animation: shortenArrowLineSection1 .1s linear;
+            }
+            .arrow-bottom-line {
+                border: 1px solid transparent;
+                height: 0px;
+                transform: translate(-1px, -1px) rotate(45deg);
+                -webkit-animation: shortenArrowLineSection1 .1s linear;
+                -moz-animation: shortenArrowLineSection1 .1s linear;
+                -o-animation: shortenArrowLineSection1 .1s linear;
+                animation: shortenArrowLineSection1 .1s linear;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes lengthenArrowLineSection1 {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-moz-keyframes lengthenArrowLineSection1 {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@-o-keyframes lengthenArrowLineSection1 {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+@keyframes lengthenArrowLineSection1 {
+    from{
+        height: 0px;
+        border: 0px solid black;
+    }
+    to{
+        height: 15px;
+        border: 1px solid black;
+    }
+}
+
+@-webkit-keyframes shortenArrowLineSection1 {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-moz-keyframes shortenArrowLineSection1 {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@-o-keyframes shortenArrowLineSection1 {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+@keyframes shortenArrowLineSection1 {
+    from{
+        border: 1px solid black;
+        background: black;
+        height: 15px;
+    }
+    to{
+        border: 1px solid transparent;
+        background: black;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes lengthenHorizontalLineSection1 {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-moz-keyframes lengthenHorizontalLineSection1 {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@-o-keyframes lengthenHorizontalLineSection1 {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+@keyframes lengthenHorizontalLineSection1 {
+    from{width: 50px;}
+    to{width: 60px;}
+}
+
+@-webkit-keyframes shortenHorizontalLineSection1 {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@-moz-keyframes shortenHorizontalLineSection1 {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@-o-keyframes shortenHorizontalLineSection1 {
+    from{width: 60px;}
+    to{width: 50px;}
+}
+@keyframes shortenHorizontalLineSection1 {
+    from{width: 60px;}
+    to{width: 50px;}
+}

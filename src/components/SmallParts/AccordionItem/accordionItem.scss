@@ -1,0 +1,105 @@
+.accordion-item-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 15px 0;
+    border-bottom: 1px solid rgba(155, 155, 155, 0.2);
+    cursor: pointer;
+}
+
+.accordion-item-black-and-white {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    background: rgb(248, 248, 248);
+    margin: 15px 0 15px 0;
+    cursor: pointer;
+}
+.accordion-item-black-and-white-hover-on {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    background: black;
+    margin: 15px 0 15px 0;
+    cursor: pointer;
+    -webkit-animation: accordionItemBackgroundHoverOn .2s linear;
+    -moz-animation: accordionItemBackgroundHoverOn .2s linear;
+    -o-animation: accordionItemBackgroundHoverOn .2s linear;
+    animation: accordionItemBackgroundHoverOn .2s linear;
+}
+.accordion-item-black-and-white-hover-off {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    background: rgb(248, 248, 248);
+    margin: 15px 0 15px 0;
+    cursor: pointer;
+    -webkit-animation: accordionItemBackgroundHoverOff .2s linear;
+    -moz-animation: accordionItemBackgroundHoverOff .2s linear;
+    -o-animation: accordionItemBackgroundHoverOff .2s linear;
+    animation: accordionItemBackgroundHoverOff .2s linear;
+}
+
+.accordion-item-text {
+    padding: 0;
+    max-height: 0px;
+    overflow: hidden;
+    // transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item-text-open {
+    padding: 25px 0 25px 0;
+    max-height: 150px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item-text-close {
+    padding: 0;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+@-webkit-keyframes accordionItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@-moz-keyframes accordionItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@-o-keyframes accordionItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+@keyframes accordionItemBackgroundHoverOn {
+    from{background: white;}
+    to{background: black;}
+}
+
+@-webkit-keyframes accordionItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@-moz-keyframes accordionItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@-o-keyframes accordionItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}
+@keyframes accordionItemBackgroundHoverOff {
+    from{background: black;}
+    to{background: white;}
+}

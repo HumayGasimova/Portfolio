@@ -1,0 +1,89 @@
+.lists-page {
+    width: calc(100% + 18px);
+    .lists-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .lists-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        .lists-page-header {
+            padding: 90px 130px 90px 130px;
+        }
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .lists-page-section1-data-items {
+            width: calc(100% - 260px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: rgb(248, 248, 248);
+            padding: 90px 130px 90px 130px;
+            .lists-page-data-items {
+                .lists-page-data-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 15px 0 15px 0;
+                }
+            }
+        }
+        .lists-page-section2-data-items {
+            width: calc(100% - 260px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: white;
+            padding: 90px 130px 90px 130px;
+            .lists-page-data-items {
+                .lists-page-data-item {
+                    display: flex;
+                    padding: 15px 0 15px 0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .lists-page {
+        .lists-page-wrapper {
+            .lists-page-header {
+                padding: 90px 40px 90px 40px;
+            }
+            .lists-page-section1-data-items {
+                width: calc(100% - 80px);
+                padding: 90px 40px 90px 40px;
+            }
+            .lists-page-section2-data-items {
+                width: calc(100% - 80px);
+                padding: 90px 40px 90px 40px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 760px){
+    .lists-page {
+        .lists-page-wrapper {
+            .lists-page-section1-data-items {
+                flex-direction: column;
+                .lists-page-data-items {
+                    padding-bottom: 40px;
+                }
+            }
+            .lists-page-section2-data-items {
+                flex-direction: column;
+                .lists-page-data-items {
+                    padding-bottom: 40px;
+                }
+            }
+        }
+    }
+}

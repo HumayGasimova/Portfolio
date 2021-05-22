@@ -1,0 +1,23 @@
+.stone-wall-page {
+    width: calc(100% + 18px);
+    .stone-wall-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .stone-wall-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .stone-wall-page-header {
+            display: flex;
+            justify-content: center;
+            padding: 90px 0px 90px 0px;
+        }
+    }
+}

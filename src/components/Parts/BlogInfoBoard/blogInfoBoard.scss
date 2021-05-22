@@ -1,0 +1,71 @@
+
+.blog-info-board {
+    width: calc(25% - 40px);
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    .blog-info-board-search-wrapper {
+        width: 100%;
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .blog-info-board-search-button {
+            padding: 15px;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    .blog-info-board-person-info-wrapper {
+        .blog-info-board-person-image {
+            width: 140px;
+            height: 140px;
+            background: rgb(54, 32, 20);
+            border-radius: 50%;
+            >img {
+                filter: contrast(160%);
+                width: 100%;
+                border-radius: 50%;
+                opacity: 0.8;
+            }
+        }
+    }
+    .blog-info-board-recent-post-wrapper {
+        .blog-info-board-loading-error {
+            // width: calc(100% - 40px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding: 0px 20px 0px 20px;
+            text-align: center;
+            background: rgb(248, 248, 248);
+        }
+    }
+    .blog-info-board-categories-wrapper {
+        .blog-info-board-active-category {
+            font-size: 17px;
+            color: black;
+            border-bottom: 1px solid black;
+            font-family: 'Lustria', serif;
+            display: inline-flex;
+            cursor: pointer;
+        }
+    }
+    .blog-info-board-follow-us-wrapper {
+        .blog-info-board-icons {
+            display: flex;
+        }
+    }
+    .blog-info-board-tags-wrapper {
+        .blog-info-board-tag {
+            display: inline-flex;
+        }
+    }
+}
+
+@media only screen and (max-width: 830px){
+    .blog-info-board {
+        width: calc(100% - 40px);
+        padding-top: 70px;
+    }
+}

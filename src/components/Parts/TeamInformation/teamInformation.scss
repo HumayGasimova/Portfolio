@@ -1,0 +1,28 @@
+.team-information {
+    .team-information-loading-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .team-information-items {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .team-information-item {
+            width: 20%;
+        }
+    }
+}
+
+@media only screen and (max-width: 945px){
+    .team-information {
+        .team-information-items {
+            .team-information-item {
+                width: 100%;
+            }
+        }
+    }
+}

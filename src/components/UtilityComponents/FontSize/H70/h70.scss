@@ -1,0 +1,135 @@
+.h70 {
+    font-size: 70px;
+    color: black;
+}
+
+.h70-nero-poppins {
+    font-size: 70px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h70-black-lustria {
+    font-size: 70px;
+    color: black;
+    font-family: 'Lustria', serif;
+}
+
+.h70-black-poppins {
+    font-size: 70px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h70-white-poppins {
+    font-size: 70px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h70-white-poppins-cursor {
+    font-size: 70px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1130px){
+    .h70-nero-poppins {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (max-width: 1010px){
+    .h70-nero-poppins {
+        font-size: 45px;
+    }
+}
+@media only screen and (max-width: 640px){
+    .h70-nero-poppins {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .h70-black-lustria {
+        font-size: 50px;
+    }
+    .h70-black-poppins {
+        font-size: 45px;
+    }
+}
+
+// @media only screen and (max-width: 600px){
+//     .h65-black-teko {
+//         font-size: 40px;
+//     }
+//     .h65-black-lustria {
+//         font-size: 35px;
+//     }
+// }
+
+
+// @media only screen and (max-width: 430px){
+//     .h65-black-teko {
+//         font-size: 35px;
+//     }
+//     .h65-black-lustria {
+//         font-size: 30px;
+//     }
+// }
+
+// .h3-center {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     text-align: center;
+// }
+
+// .h3-animation {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//         color: rgb(180, 139, 62);
+//         -webkit-animation: appear 0.3s linear;
+//         -moz-animation: appear 0.3s linear;
+//         -o-animation: appear 0.3s linear;
+//         animation: appear 0.3s linear;
+//     }
+// }
+
+// @-webkit-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-moz-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-o-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }

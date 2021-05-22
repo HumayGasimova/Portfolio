@@ -1,0 +1,27 @@
+.home {
+    width: calc(100% + 18px);
+    .home-main-background {
+        background-image: url("../../../../images/background/abstract-3304213_1280.png");
+        background-size: 100% 100vh;
+        height: 100vh;
+        width: 100%;
+        .home-curtain {
+            position: absolute;
+            width: calc(100% + 18px);
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1120px){
+    .home {
+        .home-main-background {
+            height: 650px;
+            .home-curtain {
+                height: 650px;
+            }
+        }
+    }
+}

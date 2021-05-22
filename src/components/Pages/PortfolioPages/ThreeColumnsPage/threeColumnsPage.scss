@@ -1,0 +1,83 @@
+.three-columns-page {
+    width: calc(100% + 18px);
+    .three-columns-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .three-columns-page-button-load-more-loading-error {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .three-columns-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0 50px 0;
+        .three-columns-page-header {
+            padding: 90px 130px 90px 130px;
+        }
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .three-columns-page-data-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .three-columns-page-categories-from-header {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 100px 0px 60px 0px;
+                .three-columns-page-category-from-header {
+                    margin-left: 10px;
+                }
+            }
+            .three-columns-page-button-load-more {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    
+    }
+}
+
+
+@media only screen and (max-width: 890px){
+    .three-columns-page {
+        .three-columns-page-wrapper {
+            .three-columns-page-header {
+                padding: 90px 70px 90px 70px;
+            }
+            .three-columns-page-categories-from-header {
+                width: calc(100% - 140px);
+                padding: 100px 70px 0px 70px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .three-columns-page {
+        .three-columns-page-wrapper {
+            .three-columns-page-header {
+                padding: 90px 30px 90px 30px;
+            }
+            .three-columns-page-categories-from-header {
+                width: calc(100% - 60px);
+                padding: 100px 30px 0px 30px;
+            }
+        }
+    }
+}

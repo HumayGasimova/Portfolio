@@ -1,0 +1,82 @@
+.small-images {
+    width: calc(100% + 18px);
+    .small-images-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .small-images-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 130px 70px 130px;
+        .small-images-content {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            .small-images-portfolio-images {
+                width: calc(58% - 4px);
+                .small-images-portfolio-image {
+                    cursor: pointer;
+                    > img {
+                        width: 100%;
+                    }
+                }
+            }
+            .small-images-movable-part {
+                width: calc(42% - 30px);
+                padding: 5px 0px 0px 30px;
+                .small-images-categories {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .small-images-category {
+                        padding-right: 10px;
+                    }
+                }
+                .small-images-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .small-images-tag {
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .small-images {
+        .small-images-wrapper {
+            .small-images-content {
+                .small-images-portfolio-images {
+                    width: calc(100% - 4px);
+                }
+                .small-images-movable-part {
+                    width: calc(100% - 30px);
+                    padding: 5px 30px 30px 30px;
+                    margin-top: 0px !important; 
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 830px){
+    .small-images {
+        .small-images-wrapper {
+            padding: 70px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .small-images {
+        .small-images-wrapper {
+            padding: 20px;
+        }
+    }
+}

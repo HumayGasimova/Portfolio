@@ -1,0 +1,237 @@
+.h22 {
+    font-size: 22px;
+    // font-family: 'Yanone Kaffeesatz', sans-serif;
+    // color:  rgb(180, 139, 62);
+}
+
+.h22-black-lustria {
+    font-size: 22px;
+    color: black;
+    font-family: 'Lustria', serif;
+}
+
+.h22-black-poppins {
+    font-size: 22px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h22-white-lustria {
+    font-size: 22px;
+    color: white;
+    font-family: 'Lustria', serif;
+}
+
+.h22-nobel-lustria {
+    font-size: 22px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+}
+
+.h22-nero-poppins {
+    font-size: 22px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h22-white-poppins {
+    font-size: 22px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h22-nobel-lustria-centered {
+    font-size: 22px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    text-align: center;
+}
+
+.h22-white-poppins-animated-opacity-hover-on {
+    font-size: 22px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    opacity: 1;
+    -webkit-animation: h22OpacityHoverOn .1s linear;
+    -moz-animation: h22OpacityHoverOn .1s linear;
+    -o-animation: h22OpacityHoverOn .1s linear;
+    animation: h22OpacityHoverOn .1s linear;
+    animation-delay: .3s;
+    animation-fill-mode: both;
+}
+.h22-white-poppins-animated-opacity-hover-off {
+    font-size: 22px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    -webkit-animation: h22OpacityHoverOff .1s linear;
+    -moz-animation: h22OpacityHoverOff .1s linear;
+    -o-animation: h22OpacityHoverOff .1s linear;
+    animation: h22OpacityHoverOff .1s linear;
+}
+
+.h22-nero-lustria-cursor {
+    font-size: 22px;
+    color: rgb(37, 37, 37);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+}
+
+.h22-nero-lustria-nobel-hover-on {
+    font-size: 22px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h22NeroNobelHoverOn .5s linear;
+    -moz-animation: h22NeroNobelHoverOn .5s linear;
+    -o-animation: h22NeroNobelHoverOn .5s linear;
+    animation: h22NeroNobelHoverOn .5s linear;
+}
+
+.h22-nero-lustria-nobel-hover-off {
+    font-size: 22px;
+    color: rgb(37, 37, 37);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h22NeroNobelHoverOff .5s linear;
+    -moz-animation: h22NeroNobelHoverOff .5s linear;
+    -o-animation: h22NeroNobelHoverOff .5s linear;
+    animation: h22NeroNobelHoverOff .5s linear;
+}
+
+.h22-white-smoke-2-lustria-cursor {
+    font-size: 22px;
+    color: rgb(248, 248, 248);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+}
+
+.h22-white-smoke-2-lustoria-nobel-hover-on {
+    font-size: 22px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h22WhiteSmoke2NobelHoverOn .5s linear;
+    -moz-animation: h22WhiteSmoke2NobelHoverOn .5s linear;
+    -o-animation: h22WhiteSmoke2NobelHoverOn .5s linear;
+    animation: h22WhiteSmoke2NobelHoverOn .5s linear;
+}
+
+.h22-white-smoke-2-lustoria-nobel-hover-off {
+    font-size: 22px;
+    color: rgb(248, 248, 248);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h22WhiteSmoke2NobelHoverOff .5s linear;
+    -moz-animation: h22WhiteSmoke2NobelHoverOff .5s linear;
+    -o-animation: h22WhiteSmoke2NobelHoverOff .5s linear;
+    animation: h22WhiteSmoke2NobelHoverOff .5s linear;
+}
+
+@media only screen and (max-width: 870px){
+    .h22-nobel-lustria-centered {
+        font-size: 19px;
+    }
+}
+
+@-webkit-keyframes h22OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-moz-keyframes h22OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@-o-keyframes h22OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes h22OpacityHoverOn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes h22OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes h22OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes h22OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes h22OpacityHoverOff {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@-webkit-keyframes h22NeroNobelHoverOn {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes h22NeroNobelHoverOn {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes h22NeroNobelHoverOn {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes h22NeroNobelHoverOn {
+    from{color: rgb(37, 37, 37);}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes h22NeroNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@-moz-keyframes h22NeroNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@-o-keyframes h22NeroNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+@keyframes h22NeroNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(37, 37, 37);}
+}
+
+@-webkit-keyframes h22WhiteSmoke2NobelHoverOn {
+    from{color: rgb(248, 248, 248);}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes h22WhiteSmoke2NobelHoverOn {
+    from{color: rgb(248, 248, 248);}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes h22WhiteSmoke2NobelHoverOn {
+    from{color: rgb(248, 248, 248);}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes h22WhiteSmoke2NobelHoverOn {
+    from{color: rgb(248, 248, 248);}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes h22WhiteSmoke2NobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(248, 248, 248);}
+}
+@-moz-keyframes h22WhiteSmoke2NobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(248, 248, 248);}
+}
+@-o-keyframes h22WhiteSmoke2NobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(248, 248, 248);}
+}
+@keyframes h22WhiteSmoke2NobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: rgb(248, 248, 248);}
+}

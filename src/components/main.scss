@@ -1,0 +1,49 @@
+// html { 
+    // scroll-behavior: smooth;
+    // height: 100%; 
+    // overflow:auto; 
+// }
+// body { height: 100%; }
+// #app {
+//     height: auto;
+// }
+// .app{
+//     height: auto;
+// }
+.main {
+    height: calc(100% - 16px);
+    position: relative;
+    top: -10px;
+    left: -10px;
+    opacity: 1;
+    cursor: context-menu;
+}
+
+.main-unmount {
+    position: relative;
+    top: -10px;
+    left: -10px;
+    height: 30px; 
+    opacity: 0;
+    -webkit-animation: unmountMainComponent 1s ease;
+    -moz-animation: unmountMainComponent 1s ease;
+    -o-animation: unmountMainComponent 1s ease;
+    animation: unmountMainComponent 1s ease;
+}
+
+@-webkit-keyframes unmountMainComponent {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-moz-keyframes unmountMainComponent {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@-o-keyframes unmountMainComponent {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes unmountMainComponent {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}

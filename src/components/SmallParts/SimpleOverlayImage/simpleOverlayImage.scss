@@ -1,0 +1,85 @@
+.simple-overlay-image {
+    position: relative;
+    width: 100%;
+    // margin-bottom: 30px;
+    cursor: pointer;
+    >img {
+        width: 100%;
+        filter: grayscale(40%);
+    }
+    
+    .simple-overlay-curtain-hover-on {
+        background: white;
+        width: calc(100% - 80px);
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 40px 0px 40px;
+        opacity: 1;
+        -webkit-animation: simpleOverlayImageHoverOn 0.5s linear;
+        -moz-animation: simpleOverlayImageHoverOn 0.5s linear;
+        -o-animation: simpleOverlayImageHoverOn 0.5s linear;
+        animation: simpleOverlayImageHoverOn 0.5s linear;
+    }
+    .simple-overlay-curtain-hover-off {
+        background: white;
+        width: calc(100% - 80px);
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 40px 0px 40px;
+        opacity: 0;
+        -webkit-animation: simpleOverlayImageHoverOff .5s linear;
+        -moz-animation: simpleOverlayImageHoverOff .5s linear;
+        -o-animation: simpleOverlayImageHoverOff .5s linear;
+        animation: simpleOverlayImageHoverOff .5s linear;
+    }
+}
+
+.display-none{
+    display: none;
+}
+
+@-webkit-keyframes simpleOverlayImageHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-moz-keyframes simpleOverlayImageHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@-o-keyframes simpleOverlayImageHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+@keyframes simpleOverlayImageHoverOn {
+    from{opacity: 0;}
+    to{opacity:1;}
+}
+
+@-webkit-keyframes simpleOverlayImageHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-moz-keyframes simpleOverlayImageHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@-o-keyframes simpleOverlayImageHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}
+@keyframes simpleOverlayImageHoverOff {
+    from{opacity: 1;}
+    to{opacity:0;}
+}

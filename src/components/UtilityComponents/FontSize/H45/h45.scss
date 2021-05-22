@@ -1,0 +1,114 @@
+.h45 {
+    font-size: 45px;
+    font-family: 'Teko', sans-serif;
+    color: black;
+}
+
+.h45-black-lustria {
+    font-size: 45px;
+    font-family: 'Lustria', serif;
+    color: black;
+}
+
+.h45-white-lustria {
+    font-size: 45px;
+    font-family: 'Lustria', serif;
+    color: white;
+}
+
+.h45-nero-lustria {
+    font-size: 45px;
+    font-family: 'Lustria', serif;
+    color: rgb(37, 37, 37);
+}
+
+.h45-black-poppins {
+    font-size: 45px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h45-black-teko {
+    font-size: 45px;
+    font-family: 'Teko', sans-serif;
+    color: black;
+}
+
+.h45-white-teko {
+    font-size: 45px;
+    font-family: 'Teko', sans-serif;
+    color: white;
+}
+
+.h45-nero-teko {
+    font-size: 45px;
+    font-family: 'Teko', sans-serif;
+    color: rgb(37, 37, 37);
+}
+
+@media only screen and (max-width: 860px){
+    .h45-black-teko {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .h45-black-teko {
+        font-size: 30px;
+    }
+}
+
+// .h3-center {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     text-align: center;
+// }
+
+// .h3-animation {
+//     font-size: 40px;
+//     font-family: 'Yanone Kaffeesatz', sans-serif;
+//     color:  white;
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//         color: rgb(180, 139, 62);
+//         -webkit-animation: appear 0.3s linear;
+//         -moz-animation: appear 0.3s linear;
+//         -o-animation: appear 0.3s linear;
+//         animation: appear 0.3s linear;
+//     }
+// }
+
+// @-webkit-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-moz-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @-o-keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }
+// @keyframes appear {
+//     from{
+//         color: white;
+//     }
+//     to {
+//         color: rgb(180, 139, 62);
+//     }
+// }

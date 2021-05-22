@@ -1,0 +1,16 @@
+.pricing-tables-page-card-item {
+    width: calc(100% - 140px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    margin-right: 30px;
+    padding: 70px;
+    .pricing-tables-page-card-item-price-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .pricing-tables-page-card-item-description {
+        text-align: center;
+    }
+}

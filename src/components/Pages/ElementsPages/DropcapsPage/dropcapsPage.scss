@@ -1,0 +1,72 @@
+.dropcaps-page {
+    width: calc(100% + 18px);
+    .dropcaps-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+        background: rgb(248, 248, 248);
+    }
+    .dropcaps-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        .dropcaps-page-header {
+            padding: 90px 130px 90px 130px;
+        }
+        .grey-line {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(239, 239, 239);
+        }
+        .dropcaps-page-data-wrapper {
+            width: calc(100% - 260px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: rgb(248, 248, 248);
+            padding: 90px 130px 90px 130px;
+            .dropcaps-page-style {
+                font-family: 'Lustria', serif;
+                font-size: 17px;
+                color: rgb(155, 155, 155);
+                line-height: 1.6;
+                .dropcaps-style-normal {
+                    float: left;
+                    padding: 0 7px 0 0;
+                    margin: 0 9px 0 0;
+                    height: 50px;
+                    transform: translateY(-9px);
+                }
+                .dropcaps-style-square {
+                    font-weight: bold;
+                    float: left;
+                    padding: 0 7px 0 7px;
+                    margin: 9px 15px 0 0;
+                }
+                .dropcaps-style-circle {
+                    font-weight: bold;
+                    float: left;
+                    border-radius: 50%;
+                    padding: 2px 8px 2px 8px;
+                    margin: 9px 15px 0 0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .dropcaps-page {
+        .dropcaps-page-wrapper {
+            .dropcaps-page-header {
+                padding: 90px 40px 90px 40px;
+            }
+            .dropcaps-page-data-wrapper {
+                width: calc(100% - 80px);
+                padding: 90px 40px 90px 40px;
+            }
+        }
+    }
+}

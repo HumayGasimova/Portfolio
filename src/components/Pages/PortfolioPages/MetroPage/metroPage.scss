@@ -1,0 +1,20 @@
+.metro-page2 {
+    width: calc(100% + 18px);
+    .metro-page-loading-error {
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+    }
+    .metro-page-header {
+        display: flex;
+        justify-content: center;
+        padding: 90px 0px 90px 0px;
+    }
+    .metro-page-wrapper {
+        width: calc(100% - 80px);
+        padding: 40px;
+    }
+}

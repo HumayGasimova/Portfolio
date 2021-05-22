@@ -1,0 +1,84 @@
+.project-showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    .project-showcase-haeder {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+    .project-showcase-info-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        .project-showcase-text-wrapper {
+            width: calc(70% - 60px);
+            padding: 0 60px 0 0;
+            line-height: 1.6;
+        }
+        .project-showcase-category-date-tags-wrapper {
+            width: 30%;
+            flex-direction: column;
+            .project-showcase-categories-wrapper {
+                display: flex;
+                align-items: center;
+                .project-showcase-categories {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .project-showcase-category {
+                        padding-left: 10px;
+                    }
+                }
+            }
+            .project-showcase-date-wrapper {
+                display: flex;
+                align-items: center;
+            }
+            .project-showcase-tags-wrapper {
+                display: flex;
+                align-items: center;
+                .project-showcase-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .project-showcase-tag {
+                        padding-left: 10px;
+                    }
+                }
+            }          
+        }
+    }
+    .project-showcase-images {
+        width: 100%;
+        .project-showcase-image {
+            cursor: pointer;
+            >img {
+                width: 100%;
+            }
+        }
+    }
+    .project-showcase-background {
+        position: relative;
+        height: 800px;
+        // background-image: url('../../../images/');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 930px){
+    .project-showcase {
+        .project-showcase-info-wrapper {
+            .project-showcase-text-wrapper {
+                width: 100%;
+                padding: 0 0 20px 0;
+            }
+            .project-showcase-category-date-tags-wrapper {
+                width: 100%;
+                   
+            }
+        }
+    }
+}

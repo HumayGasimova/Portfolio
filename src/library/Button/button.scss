@@ -1,0 +1,326 @@
+// .portfolio-description-button {
+//     border-radius: 30px;
+//     width: 170px;
+//     color: rgb(42, 20, 33);
+//     border: 1px solid rgb(42, 20, 33);
+//     margin: 10px 0 0 0;
+//     margin: 10px 0 0 0;
+//     background: rgb(238, 203, 184);
+//     font-family: 'Indie Flower', cursive;
+//     cursor: pointer;
+//     &:hover {
+//         background-color: rgb(249, 142, 108);
+//         color: rgb(42, 20, 33);
+//         box-shadow: 5px 5px 5px 0 rgb(73, 38, 52);
+//     }
+// }
+
+.header-get-direction {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    top: 340px;
+    left: 110px;
+    border: none;
+    width: 170px;
+    height: 60px;
+    position: relative;
+    z-index: 500;
+    -webkit-animation: appearHeaderTextFront .5s linear;
+    -moz-animation: appearHeaderTextFront .5s linear;
+    -o-animation: appearHeaderTextFront .5s linear;
+    animation: appearHeaderTextFront .5s linear;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+}
+
+.call-to-action-get-direction-black {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: none;
+    width: 180px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.call-to-action-get-direction-clear {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: none;
+    width: 180px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+}
+
+.archive-load-more {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(239, 239, 239);
+    background-color: rgb(37, 37, 37);
+    border: 2px solid rgb(37, 37, 37);
+    width: 170px;
+    height: 60px;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        color: rgb(37, 37, 37);
+    }
+    &:disabled{
+        color: rgb(239, 239, 239);
+        background-color: rgb(155, 155, 155);
+        border: 2px solid rgb(155, 155, 155);
+        cursor: not-allowed;
+    }
+}
+
+.buttons-page-outline {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    color: black;
+    border: none;
+    width: 225px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    border: 2px solid black;
+    cursor: pointer;
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.buttons-page-solid {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 225px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.buttons-page-small {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 170px;
+    height: 55px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.buttons-page-medium {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 180px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.buttons-page-large {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 225px;
+    height: 60px;
+    z-index: 500;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.header-get-direction:focus {
+    outline: none; 
+}
+
+.call-to-action-get-direction-black:focus {
+    outline: none; 
+}
+
+.call-to-action-get-direction-clear:focus {
+    outline: none; 
+}
+
+.archive-load-more:focus {
+    outline: none; 
+}
+
+.buttons-page-outline:focus {     
+    outline: none; 
+}
+
+.buttons-page-solid:focus {     
+    outline: none; 
+}
+
+.buttons-page-small:focus {
+    outline: none; 
+}
+
+.buttons-page-medium:focus {
+    outline: none; 
+}
+
+.buttons-page-large:focus {
+    outline: none; 
+}
+
+.none {
+    width: none;
+}
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 1120px){
+    .header-get-direction {
+        top: 300px;
+        left: 75px;
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .header-get-direction {
+        top: 250px;
+        left: 70px;
+    }
+}
+
+@media only screen and (max-width: 730px){
+    .header-get-direction {
+        top: 200px;
+        left: 65px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .header-get-direction {
+        top: 175px;
+        left: 45px;
+    }
+}
+
+//     .portfolio-description-button-middle {
+//         width: 110px;
+//     }
+// }
+
+
+@keyframes appearHeaderTextFront {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+    
+@-moz-keyframes appearHeaderTextFront {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes appearHeaderTextFront {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@-o-keyframes appearHeaderTextFront {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

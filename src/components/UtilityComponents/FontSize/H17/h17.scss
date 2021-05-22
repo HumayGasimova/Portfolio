@@ -1,0 +1,140 @@
+.h17 {
+    font-size: 17px;
+    color: white;
+}
+
+.h17-black-poppins {
+    font-size: 17px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h17-nero-poppins {
+    font-size: 17px;
+    color: rgb(37, 37, 37);
+    font-family: 'Poppins', sans-serif;
+}
+
+.h17-nobel-lustria {
+    font-size: 17px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+}
+
+.h17-nobel-lora {
+    font-size: 17px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lora', serif;
+}
+
+.h17-black-lustria {
+    font-size: 17px;
+    color: black;
+    font-family: 'Lustria', serif;
+}
+
+.h17-black-lustria-cursor-animation {
+    font-size: 17px;
+    color: black;
+    border-bottom: 1px solid transparent;
+    font-family: 'Lustria', serif;
+    display: inline-flex;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 1px solid black;
+    }
+}
+
+.h17-nobel-lustria-animation {
+    font-size: 17px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    &:hover{
+        color: white;
+        -webkit-animation: footerText .3s linear;
+        -moz-animation: footerText .3s linear;
+        -o-animation: footerText .3s linear;
+        animation: footerText .3s linear;
+    }
+}
+
+.h17-white-lustria-animated {
+    font-size: 17px;
+    color: white;
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+}
+
+.h17-white-lustria-nobel-hover-on {
+    font-size: 17px;
+    color: rgb(155, 155, 155);
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h17WhiteNobelHoverOn .5s linear;
+    -moz-animation: h17WhiteNobelHoverOn .5s linear;
+    -o-animation: h17WhiteNobelHoverOn .5s linear;
+    animation: h17WhiteNobelHoverOn .5s linear;
+}
+
+.h17-nobel-lustria-nobel-hover-off {
+    font-size: 17px;
+    color: white;
+    font-family: 'Lustria', serif;
+    cursor: pointer;
+    -webkit-animation: h17WhiteNobelHoverOff .5s linear;
+    -moz-animation: h17WhiteNobelHoverOff .5s linear;
+    -o-animation: h17WhiteNobelHoverOff .5s linear;
+    animation: h17WhiteNobelHoverOff .5s linear;
+}
+
+@-webkit-keyframes h17WhiteNobelHoverOn {
+    from{color: white;}
+    to{color: rgb(155, 155, 155);}
+}
+@-moz-keyframes h17WhiteNobelHoverOn {
+    from{color: white;}
+    to{color: rgb(155, 155, 155);}
+}
+@-o-keyframes h17WhiteNobelHoverOn {
+    from{color: white;}
+    to{color: rgb(155, 155, 155);}
+}
+@keyframes h17WhiteNobelHoverOn {
+    from{color: white;}
+    to{color: rgb(155, 155, 155);}
+}
+
+@-webkit-keyframes h17WhiteNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: white;}
+}
+@-moz-keyframes h17WhiteNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: white;}
+}
+@-o-keyframes h17WhiteNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: white;}
+}
+@keyframes h17WhiteNobelHoverOff {
+    from{color: rgb(155, 155, 155);}
+    to{color: white;}
+}
+
+@-webkit-keyframes footerText {
+    from{color: rgb(155, 155, 155);}
+    to {color: white;}
+}
+@-moz-keyframes footerText {
+    from{color: rgb(155, 155, 155);}
+    to {color: white;}
+}
+@-o-keyframes footerText {
+    from{color: rgb(155, 155, 155);}
+    to {color: white;}
+}
+@keyframes footerText {
+    from{color: rgb(155, 155, 155);}
+    to {color: white;}
+}
