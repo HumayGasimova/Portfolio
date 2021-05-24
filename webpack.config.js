@@ -11,7 +11,8 @@ const DotenvPlugin = new Dotenv();
 
 console.log(__dirname)
 module.exports = {
-  entry: __dirname + '/src/index.js',
+  entry: __dirname + '/src/index.tsx',
+  devtool: 'inline-source-map',
   module: {
     rules:[
       {
@@ -55,6 +56,10 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
+      },
     ]
   },
   output: {
@@ -64,7 +69,7 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
-  },
+},
   devServer: {
     contentBase: './dist',
     port: 8080,
