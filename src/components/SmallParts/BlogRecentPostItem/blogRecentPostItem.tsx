@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -26,23 +23,117 @@ import {
     H17
 } from '../../UtilityComponents';
 
+import { RouteComponentProps } from 'react-router-dom';
+
+type ActivateBlogCategory = {
+    type: string,
+    categoryIsActive: string, 
+    categoryName: string
+}
+
+type ActivateBlogItem = {
+    type: string,
+    itemIsActive: string,
+    itemKey: string,
+    cardType: string,
+}
+
+type ActivateBlogTag = {
+    type: string,
+    tagIsActive: string, 
+    tagName: string
+}
+
+type ActivateRecentPost = {
+    type: string,
+    postKey: string,
+    postPath: string,
+    val: boolean
+}
+
+type ClearActivityOfMenuItems = {
+    
+}
+type BlogRecentPostItemProps = {
+    activateBlogCategory: (categoryIsActive: string, categoryName: string) => ActivateBlogCategory,
+    activateBlogItem: (itemIsActive: string, itemKey: string, cardType: string) => ActivateBlogItem,
+    activateBlogTag: (tagIsActive: string, tagName: string) => ActivateBlogTag,
+    activateRecentPost: (postKey: string, postPath: string, val: boolean) => ActivateRecentPost,
+    clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => ClearActivityOfMenuItems,
+    clearState: () => void,
+    elData: RecentPostObj,
+    history: any,
+    location: any,
+    match: any
+}
+
+type RecentPostObj = {
+    active: boolean,
+    cardType: string,
+    categories: Array<CategoriesObj>,
+    comments: Array<CommentsObj>,
+    coverImage: Array<CoverImageObj>,
+    date: string,
+    header: string,
+    id: number,
+    key: string,
+    linkText: string,
+    numberOfComments: number,
+    numberOfLikes: number,
+    path: string,
+    text: string,
+    userLikedThePost: boolean
+}
+
+type CategoriesObj = {
+    id: number,
+    isHover: string,
+    key: string,
+    label: string,
+    path: string,
+}
+
+type CommentsObj = {
+    authorImage: Array<AuthorImage>,
+    authorName: string,
+    date: string,
+    id: number
+}
+
+type AuthorImage = {
+    alt: string,
+    id: string,
+    imageName: string,
+    isHover: string,
+    key: string,
+}
+
+type CoverImageObj = {
+    alt: string,
+    folderName:  string,
+    id: number,
+    imageName: string,
+    isHover: string,
+    key: string,
+}
+
 /**
  * BlogRecentPostItem component definition and export
  */
 
-export const BlogRecentPostItem = (props) => {
+export const BlogRecentPostItem = (props: BlogRecentPostItemProps) => {
 
     /**
      * State
      */
 
-    const [recentPostDateIsHover, setRecentPostDateIsHover] = useState("init");
+    const [recentPostDateIsHover, setRecentPostDateIsHover] = React.useState("init");
     
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const handleMouseEnter = (opt) => {
@@ -95,8 +186,8 @@ export const BlogRecentPostItem = (props) => {
              */ 
 
             props.clearState();
-            props.clearActivityOfMenuItems();
-            props.activateBlogItem("active", key);
+            props.clearActivityOfMenuItems(null);
+            props.activateBlogItem("active", key, null);
             props.activateBlogCategory("deactive", "");
             props.activateBlogTag("deactive", "");
             props.history.push(`/crypto-portfolio/${path}`);
@@ -126,7 +217,7 @@ export const BlogRecentPostItem = (props) => {
                 onMouseEnter={() => handleMouseEnter(`blogRecentPostDate`)} 
                 onMouseLeave={() => handleMouseLeave(`blogRecentPostDate`)}
             >
-                <H15 className={renderClassName("blogRecentPostDate", recentPostDateIsHover)}>{props.elData.date}</H15>
+                <H15 className={renderClassName("blogRecentPostDate", recentPostDateIsHover, null)}>{props.elData.date}</H15>
             </div>
         </div>
     );
