@@ -2,9 +2,7 @@
 * Libraries
 */
 
-import React,{
-   Component
-} from 'react';
+import * as React from 'react';
 
 import {
    Route,
@@ -28,7 +26,7 @@ import './app.scss';
 * App component definition and export
 */
 
-export class App extends Component {
+export class App extends React.Component {
 
    /**
    * Markup

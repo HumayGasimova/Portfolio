@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -95,13 +92,13 @@ export const Archive = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
  
         props.setUnmountComponentValues(false, "");
@@ -435,8 +432,8 @@ export const Archive = (props) => {
                         <div 
                             className="archive-image"
                             onMouseDown={(e) => onClickHandler("goToPortfolioItem", el.path, null, e)}
-                            onMouseEnter={() => handleMouseEnter(`image`, el.id)} 
-                            onMouseLeave={() => handleMouseLeave(`image`, el.id)}
+                            onMouseEnter={() => handleMouseEnter(`image`, el.id, null)} 
+                            onMouseLeave={() => handleMouseLeave(`image`, el.id, null)}
                         >
                             <img src={loadImg(el.coverImage.key)}/>
                             <div className={renderClassName(`image`, el.coverImage.isHover)}/>
@@ -553,7 +550,6 @@ export default connect(
             fetchArchiveSuccess: bindActionCreators(Actions.fetchArchiveSuccess, dispatch),
             loadMoreDisableButtonStateForArchive: bindActionCreators(Actions.loadMoreDisableButtonStateForArchive, dispatch),
             loadMoreArchiveDataSuccess: bindActionCreators(Actions.loadMoreArchiveDataSuccess, dispatch),
-            loadMoreDisableButtonStateForArchive: bindActionCreators(Actions.loadMoreDisableButtonStateForArchive, dispatch),
             setArchiveCategory: bindActionCreators(Actions.setArchiveCategory, dispatch),
             setArchiveIsHoveringImage: bindActionCreators(Actions.setArchiveIsHoveringImage, dispatch),
             setArchiveIsHoveringCategory: bindActionCreators(Actions.setArchiveIsHoveringCategory, dispatch),
