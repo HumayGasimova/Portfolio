@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -85,14 +81,14 @@ export const ScrollSliderPage = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [mouseOnSlider, setMouseOnSlider] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [mouseOnSlider, setMouseOnSlider] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         let timeout;
 
         // Init state for fading effect when component will unmount
@@ -177,16 +173,6 @@ export const ScrollSliderPage = (props) => {
         }
     }
 
-    const renderBackgroundColor = (section) => {
-        switch(section) {
-            case 'section1':
-                return 'rgb(239, 239, 239)';
-            case 'section2':
-            default:
-                return 'white';
-        }
-    }
-
     const checkScrollDirectionIsUp = (e)  => {
         if (e.wheelDelta) {
           return e.wheelDelta > 0;
@@ -230,26 +216,26 @@ export const ScrollSliderPage = (props) => {
         }
     }
     
-    const renderScrollSliderPageDataContent = (arr) => {
-        if(arr.loading && !arr.error){
+    const renderScrollSliderPageDataContent = (data) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="scroll-slider-page-loading-error" 
                     style={{
                         height: `${size.height/2}px`,
-                        background: `${renderBackgroundColor(section)}`
+                        background: `white`
                     }}
                 >
                     <Loading color="black"/>
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <ScrollSlider
                     page="scrollSliderComponent"
                     sliderKey="scrollSliderId1"
-                    sliderContent={arr}
+                    sliderContent={data.items}
                     sliderContainersCoordinateRange={props.scrollSliderPage.sliderContainersCoordinateRange}
                     orientation="row"
                     rememberCoordinateRange={props.rememberCoordinateRangeOfScrollSliderForScrollSliderPage}
@@ -259,16 +245,16 @@ export const ScrollSliderPage = (props) => {
                 />
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
-                    className="scroll-slider-page-loading-error" 
+                    className="scroll-slider-page-loading-error"
                     style={{
                         height: `${size.height/2}px`,
-                        background: `${renderBackgroundColor(section)}`
+                        background: `white`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -286,7 +272,7 @@ export const ScrollSliderPage = (props) => {
                     <H45 className="h45-nero-lustria">Scroll Slider</H45>
                 </div>
                 <div className="grey-line"/>
-                {renderScrollSliderPageDataContent(props.scrollSliderPage.items)}
+                {renderScrollSliderPageDataContent(props.scrollSliderPage)}
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}

@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './pieCartsPage.scss';
+import './pricingTablesPage.scss';
 
 /**
  * Components
@@ -27,7 +24,7 @@ import './pieCartsPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import PieChartItem from '../../../SmallParts/PieChartItem/pieChartItem';
+import PricingTablesCardItem from '../../../SmallParts/PricingTablesCardItem/pricingTablesCardItem';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -74,59 +71,56 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * PieCartsPage component definition and export
+ * PricingTablesPage component definition and export
  */
 
-export const PieCartsPage = (props) => {
+export const PricingTablesPage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [showComponentSection2, setShowComponentSection2] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.pieChartsPage.section1Data.items.length === 0){
+        if(props.pricingTablesPage.section1Data.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchPieChartsPageSection1DataSuccess(FakeData.pieChartsPageSec1);
+                props.fetchPricingTablesPageSection1DataSuccess(FakeData.pricingTablesPageSec1);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchPieChartsPageSection1Data();
+                props.fetchPricingTablesPageSection1Data();
             }
         }
 
-        if(props.pieChartsPage.section2Data.items.length === 0){
+        if(props.pricingTablesPage.section2Data.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchPieChartsPageSection2DataSuccess(FakeData.pieChartsPageSec2);
+                props.fetchPricingTablesPageSection2DataSuccess(FakeData.pricingTablesPageSec2);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchPieChartsPageSection2Data();
+                props.fetchPricingTablesPageSection2Data();
             }
         }
-
+     
         // Scroll to the top of the screen
 
-        let timeout = setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 100);
+        window.scrollTo(0, 0);
 
         // Event Listeners
 
@@ -135,17 +129,15 @@ export const PieCartsPage = (props) => {
         return () => {
             // Cleaning the unmounted component
 
-            clearTimeout(timeout);
             window.removeEventListener('wheel', handleOnWheel);
             props.setMenuDotsState("init", "");
             props.setShowBackToTopComponent(false);
         }
-    }, [props.pieChartsPage.section2Data.items.length]);
+    }, []);
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("pieChartsPage");
-        let pieChartsPageSection2 = document.getElementById("pieChartsPageSection2");
+        let el = document.getElementById("pricingTablesPage");
 
         // Show or hide BackToTop component
 
@@ -161,32 +153,6 @@ export const PieCartsPage = (props) => {
             setScrollingUp(false);
         }else{
             setScrollingUp(true);
-        }
-
-        if(props.pieChartsPage.section2Data.items.length !== 0){
-            // Render the component only when it appears on the screen
-            
-            if(scrollHeight >= pieChartsPageSection2.offsetTop - size.height/2 - 400){
-                setShowComponentSection2(true);
-            }
-
-            // Render the component only when it appears on a vertically oriented screen
-            
-            if(size.width - size.height < 0){
-                if(scrollHeight >= pieChartsPageSection2.offsetTop - size.height/2 - 900){
-                    setShowComponentSection2(true);
-                }
-            }
-        }
-    }
-
-    const renderBackgroundColor = (section) => {
-        switch(section) {
-            case 'section1':
-                return 'rgb(239, 239, 239)';
-            case 'section2':
-            default:
-                return 'white';
         }
     }
 
@@ -205,12 +171,12 @@ export const PieCartsPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="pieChartsPage"
+                        page="pricingTablesPage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="pieChartsPage"
+                        page="pricingTablesPage"
                     />
                 </>
             )
@@ -221,31 +187,53 @@ export const PieCartsPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="pieChartsPage"
+                        page="pricingTablesPage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="pieChartsPage"
+                        page="pricingTablesPage"
                     />
                 </>
             )
         }
     }
+    
+    const renderBackgroundColor = (section) => {
+        switch(section) {
+            case 'section1':
+                return 'rgb(239, 239, 239)';
+            case 'section2':
+                return 'black';
+            default:
+                return 'white';
+        }
+    }
+    
+    const renderLoadingBackgroundColor = (section) => {
+        switch(section) {
+            case 'section1':
+                return 'black';
+            case 'section2':
+            default:
+                return 'white';
+        }
+    }
 
-    const renderPieChartsPageSection1Data = (arr) => {
+    const renderPricingTablePageSection1Data = (arr) => {
         return(
-            <div className="pie-charts-page-section1-data-items">{arr.items.map((el, i) => {
+            <div className="pricing-tables-page-section1-data-items">{arr.items.map((el, i) => {
                 return(
                     <div 
                         key={i}
-                        className="pie-charts-page-section1-data-item"
+                        className="pricing-tables-page-section1-data-item"
                     >
-                        <PieChartItem
-                            chartKey={el.key}
-                            percent={el.percent}
-                            header={el.header}
-                            chartColor="black"
+                        <PricingTablesCardItem
+                            page="pricingTablesPageSection1"
+                            data={el}
+                            setUnmountComponentValues={props.setUnmountComponentValues}
+                            unmountComponent={props.unmountComponent}
+                            currentPagePathName="pricing-tables"
                         />
                     </div>
                 )
@@ -253,41 +241,38 @@ export const PieCartsPage = (props) => {
         )
     }
 
-    const renderPieChartsPageSection2Data = (arr) => {
+    const renderPricingTablePageSection2Data = (arr) => {
         return(
-            <div 
-                className="pie-charts-page-section2-data-items"
-            >{arr.items.map((el, i) => {
-                if(showComponentSection2){
-                    return(
-                        <div 
-                            key={i}
-                            className="pie-charts-page-section2-data-item"
-                        >
-                            <PieChartItem
-                                chartKey={el.key}
-                                percent={el.percent}
-                                header={el.header}
-                                chartColor="black"
-                            />
-                        </div>
-                    )
-                }
+            <div className="pricing-tables-page-section2-data-items">{arr.items.map((el, i) => {
+                return(
+                    <div 
+                        key={i}
+                        className="pricing-tables-page-section2-data-item"
+                    >
+                        <PricingTablesCardItem
+                            page="pricingTablesPageSection2"
+                            data={el}
+                            setUnmountComponentValues={props.setUnmountComponentValues}
+                            unmountComponent={props.unmountComponent}
+                            currentPagePathName="pricing-tables"
+                        />
+                    </div>
+                )
             })}</div>
         )
     }
     
-    const renderPieChartsPageDataContent = (section, arr) => {
+    const renderPricingTablePageDataContent = (section, arr) => {
         if(arr.loading && !arr.error){
             return(
                 <div 
-                    className="pie-charts-page-loading-error" 
+                    className="pricing-tables-page-loading-error" 
                     style={{
                         height: `${size.height/2}px`,
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <Loading color="black"/>
+                    <Loading color={renderLoadingBackgroundColor(section)}/>
                 </div>
             )
         }
@@ -295,20 +280,14 @@ export const PieCartsPage = (props) => {
             switch(section){
                 case 'section1':
                     return(
-                        <div 
-                            id="pieChartsPageSection1"
-                            className="pie-charts-page-section1-data-wrapper"
-                        >
-                            {renderPieChartsPageSection1Data(arr)}
+                        <div className="pricing-tables-page-section1-data-wrapper">
+                            {renderPricingTablePageSection1Data(arr)}
                         </div>
                     );
                 case 'section2':
                     return(
-                        <div 
-                            id="pieChartsPageSection2"
-                            className="pie-charts-page-section2-data-wrapper"
-                        >
-                            {renderPieChartsPageSection2Data(arr)}
+                        <div className="pricing-tables-page-section2-data-wrapper">
+                            {renderPricingTablePageSection2Data(arr)}
                         </div>
                     );
             }
@@ -316,7 +295,7 @@ export const PieCartsPage = (props) => {
         if(!arr.loading && arr.error){
             return(
                 <div 
-                    className="pie-charts-page-loading-error" 
+                    className="pricing-tables-page-loading-error" 
                     style={{
                         height: `${size.height/2}px`,
                         background: `${renderBackgroundColor(section)}`
@@ -333,15 +312,15 @@ export const PieCartsPage = (props) => {
      */
 
     return(
-        <div className="pie-charts-page" id="pieChartsPage">
+        <div className="pricing-tables-page" id="pricingTablesPage">
             {renderToolbars()}
-            <div className="pie-charts-page-wrapper">
-                <div className="pie-charts-page-header">
-                    <H45 className="h45-nero-lustria">Pie Charts</H45>
+            <div className="pricing-tables-page-wrapper">
+                <div className="pricing-tables-page-header">
+                    <H45 className="h45-nero-lustria">Pricing Tables</H45>
                 </div>
                 <div className="grey-line"/>
-                {renderPieChartsPageDataContent("section1", props.pieChartsPage.section1Data)}
-                {renderPieChartsPageDataContent("section2", props.pieChartsPage.section2Data)}
+                {renderPricingTablePageDataContent("section1", props.pricingTablesPage.section1Data)}
+                {renderPricingTablePageDataContent("section2", props.pricingTablesPage.section2Data)}
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
@@ -352,22 +331,22 @@ export const PieCartsPage = (props) => {
 export default connect(
     (state) => {
         return {
-            pieChartsPage: Selectors.getPieChartsPageState(state),
+            pricingTablesPage: Selectors.getPricingTablesPageState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {
         return {
-            fetchPieChartsPageSection1Data: bindActionCreators(Services.fetchPieChartsPageSection1Data, dispatch),
-            fetchPieChartsPageSection1DataSuccess: bindActionCreators(Actions.fetchPieChartsPageSection1DataSuccess, dispatch),
-            fetchPieChartsPageSection2Data: bindActionCreators(Services.fetchPieChartsPageSection2Data, dispatch),
-            fetchPieChartsPageSection2DataSuccess: bindActionCreators(Actions.fetchPieChartsPageSection2DataSuccess, dispatch),
+            fetchPricingTablesPageSection1Data: bindActionCreators(Services.fetchPricingTablesPageSection1Data, dispatch),
+            fetchPricingTablesPageSection1DataSuccess: bindActionCreators(Actions.fetchPricingTablesPageSection1DataSuccess, dispatch),
+            fetchPricingTablesPageSection2Data: bindActionCreators(Services.fetchPricingTablesPageSection2Data, dispatch),
+            fetchPricingTablesPageSection2DataSuccess: bindActionCreators(Actions.fetchPricingTablesPageSection2DataSuccess, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(PieCartsPage);
+)(PricingTablesPage);
  

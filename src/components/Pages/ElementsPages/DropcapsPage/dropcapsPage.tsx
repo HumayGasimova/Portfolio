@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './listsPage.scss';
+import './dropcapsPage.scss';
 
 /**
  * Components
@@ -27,7 +24,6 @@ import './listsPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import Icon from '../../../SmallParts/Icon/icon';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -55,9 +51,9 @@ import * as Selectors from '../../../../reducers/selectors';
 
 import {
     H15,
-    H17,
     H45,
-    EW10
+    EH30,
+    EH80
 } from '../../../UtilityComponents';
 
 /**
@@ -76,50 +72,38 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * ListsPage component definition and export
+ * DropcapsPage component definition and export
  */
 
-export const ListsPage = (props) => {
+export const DropcapsPage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.listsPage.section1Data.items.length === 0){
+        if(props.dropcapsPage.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchListsPageSection1DataSuccess(FakeData.listsPageSec1);
+                props.fetchDropcapsPageDataSuccess(FakeData.dropcapsPage);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchListsPageSection1Data();
-            }
-        }
-
-        if(props.listsPage.section2Data.items.length === 0){
-            if(process.env.ENVIRONMENT === Environment.PRODUCTION){
-                // Fetch mock data (not required to run -> npm run server)
-
-                props.fetchListsPageSection2DataSuccess(FakeData.listsPageSec2);
-            }else{
-                // Fetch data (required to run -> npm run server)
-
-                props.fetchListsPageSection2Data();
+                props.fetchDropcapsPageData();
             }
         }
 
@@ -145,7 +129,7 @@ export const ListsPage = (props) => {
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("listsPage");
+        let el = document.getElementById("dropcapsPage");
 
         // Show or hide BackToTop component
 
@@ -164,16 +148,6 @@ export const ListsPage = (props) => {
         }
     }
 
-    const renderBackgroundColor = (section) => {
-        switch(section) {
-            case 'section1':
-                return 'rgb(239, 239, 239)';
-            case 'section2':
-            default:
-                return 'white';
-        }
-    }
-
     const checkScrollDirectionIsUp = (e)  => {
         if (e.wheelDelta) {
           return e.wheelDelta > 0;
@@ -189,12 +163,12 @@ export const ListsPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="listsPage"
+                        page="dropcapsPage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="listsPage"
+                        page="dropcapsPage"
                     />
                 </>
             )
@@ -205,67 +179,82 @@ export const ListsPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="listsPage"
+                        page="dropcapsPage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="listsPage"
+                        page="dropcapsPage"
                     />
                 </>
             )
         }
     }
 
-    const renderListsPageDataLists = (section, arr) => {
+    const renderParagraph = (obj) => {
+        let firstLetter = obj.text[0];
+        let remainingText = obj.text.substring(1);
+        
         return(
-            <>{arr.map((el, i) => {
-                return(
-                    <div 
-                        key={i}
-                        className="lists-page-data-item"
-                    >
-                        <Icon 
-                            key={i}
-                            iconType="fontAwesome"
-                            icon={el.iconType}
-                            iconSize="1x"
-                            classNameOpt={`${section}ListsPage`}
-                        />
-                        <EW10/>
-                        <H17 className="h17-nobel-lustria">{el.text}</H17>
-                    </div>
-                )
-            })}</>
+            <>
+                <span 
+                    className={`dropcaps-style-${obj.dropcapsStyle}`}
+                    style={{
+                        background: `${obj.dropcapsBackground}`,
+                        color: `${obj.dropcapsColor}`,
+                        fontSize: `${obj.dropcapsFontSize}`,
+                    }}
+                >
+                    {firstLetter}
+                </span>
+               {remainingText}
+            </>
         )
     }
-
-    const renderListsPageData = (section, arr) => {
+    
+    const renderDropcapsPageStyleSection = (arr) => {
         return(
-            <div className={`lists-page-${section}-data-items`}>
-                {arr.items.map((el, i) => {
+            <>
+                {arr.map((el, i) => {
                     return(
                         <div 
                             key={i}
-                            className="lists-page-data-items"
+                            className="dropcaps-page-style"
                         >
-                            {renderListsPageDataLists(section, el.listsArr)}
+                            {renderParagraph(el)}
+                            {i !== arr.length - 1 ? 
+                            <EH30/> 
+                            : null}
                         </div>
+                    )
+                })}
+            </>
+        )
+    }
+
+    const renderDropcapsPageData = (arr) => {
+        return(
+            <div>
+                {arr.map((el, i) => {
+                    return(
+                        <React.Fragment key={i}>
+                            {renderDropcapsPageStyleSection(el.text)}
+                            {i !== arr.length - 1 ? 
+                            <EH80/> 
+                            : null}
+                        </React.Fragment>
                     )
                 })}
             </div>
         )
     }
     
-    const renderListsPageDataContent = (section, arr) => {
+    const renderDropcapsPageDataContent = (arr) => {
         if(arr.loading && !arr.error){
             return(
                 <div 
-                    className="lists-page-loading-error" 
-                    style={{
-                        height: `${size.height/2}px`,
-                        background: `${renderBackgroundColor(section)}`
-                    }}
+                    className="dropcaps-page-loading-error" 
+                    style={{height: `${size.height/2}px`}}
                 >
                     <Loading color="black"/>
                 </div>
@@ -273,19 +262,16 @@ export const ListsPage = (props) => {
         }
         if(!arr.loading && !arr.error){
             return(
-                <div className="lists-page-section2-data-wrapper">
-                    {renderListsPageData(section, arr)}
+                <div className="dropcaps-page-data-wrapper">
+                    {renderDropcapsPageData(arr.items)}
                 </div>
             )
         }
         if(!arr.loading && arr.error){
             return(
                 <div 
-                    className="lists-page-loading-error" 
-                    style={{
-                        height: `${size.height/2}px`,
-                        background: `${renderBackgroundColor(section)}`
-                    }}
+                    className="dropcaps-page-loading-error" 
+                    style={{height: `${size.height/2}px`}}
                 >
                     <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
                 </div>
@@ -298,15 +284,14 @@ export const ListsPage = (props) => {
      */
 
     return(
-        <div className="lists-page" id="listsPage">
+        <div className="dropcaps-page" id="dropcapsPage">
             {renderToolbars()}
-            <div className="lists-page-wrapper">
-                <div className="lists-page-header">
-                    <H45 className="h45-nero-lustria">Lists</H45>
+            <div className="dropcaps-page-wrapper">
+                <div className="dropcaps-page-header">
+                    <H45 className="h45-nero-lustria">Dropcaps</H45>
                 </div>
                 <div className="grey-line"/>
-                {renderListsPageDataContent("section1", props.listsPage.section1Data)}
-                {renderListsPageDataContent("section2", props.listsPage.section2Data)}
+                {renderDropcapsPageDataContent(props.dropcapsPage)}
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
@@ -317,22 +302,20 @@ export const ListsPage = (props) => {
 export default connect(
     (state) => {
         return {
-            listsPage: Selectors.getListsPageState(state),
+            dropcapsPage: Selectors.getDropcapsPageState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {
         return {
-            fetchListsPageSection1Data: bindActionCreators(Services.fetchListsPageSection1Data, dispatch),
-            fetchListsPageSection1DataSuccess: bindActionCreators(Actions.fetchListsPageSection1DataSuccess, dispatch),
-            fetchListsPageSection2Data: bindActionCreators(Services.fetchListsPageSection2Data, dispatch),
-            fetchListsPageSection2DataSuccess: bindActionCreators(Actions.fetchListsPageSection2DataSuccess, dispatch),
+            fetchDropcapsPageData: bindActionCreators(Services.fetchDropcapsPageData, dispatch),
+            fetchDropcapsPageDataSuccess: bindActionCreators(Actions.fetchDropcapsPageDataSuccess, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(ListsPage);
+)(DropcapsPage);
  

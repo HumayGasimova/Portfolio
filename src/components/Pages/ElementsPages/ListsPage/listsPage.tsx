@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './pricingTablesPage.scss';
+import './listsPage.scss';
 
 /**
  * Components
@@ -27,7 +24,7 @@ import './pricingTablesPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import PricingTablesCardItem from '../../../SmallParts/PricingTablesCardItem/pricingTablesCardItem';
+import Icon from '../../../SmallParts/Icon/icon';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -53,9 +50,11 @@ import * as Selectors from '../../../../reducers/selectors';
  * Utility
  */
 
-import { 
+import {
     H15,
-    H45
+    H17,
+    H45,
+    EW10
 } from '../../../UtilityComponents';
 
 /**
@@ -74,56 +73,58 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * PricingTablesPage component definition and export
+ * ListsPage component definition and export
  */
 
-export const PricingTablesPage = (props) => {
+export const ListsPage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.pricingTablesPage.section1Data.items.length === 0){
+        if(props.listsPage.section1Data.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchPricingTablesPageSection1DataSuccess(FakeData.pricingTablesPageSec1);
+                props.fetchListsPageSection1DataSuccess(FakeData.listsPageSec1);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchPricingTablesPageSection1Data();
+                props.fetchListsPageSection1Data();
             }
         }
 
-        if(props.pricingTablesPage.section2Data.items.length === 0){
+        if(props.listsPage.section2Data.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchPricingTablesPageSection2DataSuccess(FakeData.pricingTablesPageSec2);
+                props.fetchListsPageSection2DataSuccess(FakeData.listsPageSec2);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchPricingTablesPageSection2Data();
+                props.fetchListsPageSection2Data();
             }
         }
-     
+
         // Scroll to the top of the screen
 
-        window.scrollTo(0, 0);
+        let timeout = setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
 
         // Event Listeners
 
@@ -132,6 +133,7 @@ export const PricingTablesPage = (props) => {
         return () => {
             // Cleaning the unmounted component
 
+            clearTimeout(timeout);
             window.removeEventListener('wheel', handleOnWheel);
             props.setMenuDotsState("init", "");
             props.setShowBackToTopComponent(false);
@@ -140,7 +142,7 @@ export const PricingTablesPage = (props) => {
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("pricingTablesPage");
+        let el = document.getElementById("listsPage");
 
         // Show or hide BackToTop component
 
@@ -159,6 +161,16 @@ export const PricingTablesPage = (props) => {
         }
     }
 
+    const renderBackgroundColor = (section) => {
+        switch(section) {
+            case 'section1':
+                return 'rgb(239, 239, 239)';
+            case 'section2':
+            default:
+                return 'white';
+        }
+    }
+
     const checkScrollDirectionIsUp = (e)  => {
         if (e.wheelDelta) {
           return e.wheelDelta > 0;
@@ -174,12 +186,12 @@ export const PricingTablesPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="pricingTablesPage"
+                        page="listsPage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="pricingTablesPage"
+                        page="listsPage"
                     />
                 </>
             )
@@ -190,115 +202,83 @@ export const PricingTablesPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="pricingTablesPage"
+                        page="listsPage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="pricingTablesPage"
+                        page="listsPage"
                     />
                 </>
             )
         }
     }
-    
-    const renderBackgroundColor = (section) => {
-        switch(section) {
-            case 'section1':
-                return 'rgb(239, 239, 239)';
-            case 'section2':
-                return 'black';
-            default:
-                return 'white';
-        }
-    }
-    
-    const renderLoadingBackgroundColor = (section) => {
-        switch(section) {
-            case 'section1':
-                return 'black';
-            case 'section2':
-            default:
-                return 'white';
-        }
-    }
 
-    const renderPricingTablePageSection1Data = (arr) => {
+    const renderListsPageDataLists = (section, arr) => {
         return(
-            <div className="pricing-tables-page-section1-data-items">{arr.items.map((el, i) => {
+            <>{arr.map((el, i) => {
                 return(
                     <div 
                         key={i}
-                        className="pricing-tables-page-section1-data-item"
+                        className="lists-page-data-item"
                     >
-                        <PricingTablesCardItem
-                            page="pricingTablesPageSection1"
-                            data={el}
-                            setUnmountComponentValues={props.setUnmountComponentValues}
-                            unmountComponent={props.unmountComponent}
-                            currentPagePathName="pricing-tables"
+                        <Icon 
+                            key={i}
+                            iconType="fontAwesome"
+                            icon={el.iconType}
+                            iconSize="1x"
+                            classNameOpt={`${section}ListsPage`}
                         />
+                        <EW10/>
+                        <H17 className="h17-nobel-lustria">{el.text}</H17>
                     </div>
                 )
-            })}</div>
+            })}</>
         )
     }
 
-    const renderPricingTablePageSection2Data = (arr) => {
+    const renderListsPageData = (section, arr) => {
         return(
-            <div className="pricing-tables-page-section2-data-items">{arr.items.map((el, i) => {
-                return(
-                    <div 
-                        key={i}
-                        className="pricing-tables-page-section2-data-item"
-                    >
-                        <PricingTablesCardItem
-                            page="pricingTablesPageSection2"
-                            data={el}
-                            setUnmountComponentValues={props.setUnmountComponentValues}
-                            unmountComponent={props.unmountComponent}
-                            currentPagePathName="pricing-tables"
-                        />
-                    </div>
-                )
-            })}</div>
+            <div className={`lists-page-${section}-data-items`}>
+                {arr.items.map((el, i) => {
+                    return(
+                        <div 
+                            key={i}
+                            className="lists-page-data-items"
+                        >
+                            {renderListsPageDataLists(section, el.listsArr)}
+                        </div>
+                    )
+                })}
+            </div>
         )
     }
     
-    const renderPricingTablePageDataContent = (section, arr) => {
+    const renderListsPageDataContent = (section, arr) => {
         if(arr.loading && !arr.error){
             return(
                 <div 
-                    className="pricing-tables-page-loading-error" 
+                    className="lists-page-loading-error" 
                     style={{
                         height: `${size.height/2}px`,
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <Loading color={renderLoadingBackgroundColor(section)}/>
+                    <Loading color="black"/>
                 </div>
             )
         }
         if(!arr.loading && !arr.error){
-            switch(section){
-                case 'section1':
-                    return(
-                        <div className="pricing-tables-page-section1-data-wrapper">
-                            {renderPricingTablePageSection1Data(arr)}
-                        </div>
-                    );
-                case 'section2':
-                    return(
-                        <div className="pricing-tables-page-section2-data-wrapper">
-                            {renderPricingTablePageSection2Data(arr)}
-                        </div>
-                    );
-            }
+            return(
+                <div className="lists-page-section2-data-wrapper">
+                    {renderListsPageData(section, arr)}
+                </div>
+            )
         }
         if(!arr.loading && arr.error){
             return(
                 <div 
-                    className="pricing-tables-page-loading-error" 
+                    className="lists-page-loading-error" 
                     style={{
                         height: `${size.height/2}px`,
                         background: `${renderBackgroundColor(section)}`
@@ -315,15 +295,15 @@ export const PricingTablesPage = (props) => {
      */
 
     return(
-        <div className="pricing-tables-page" id="pricingTablesPage">
+        <div className="lists-page" id="listsPage">
             {renderToolbars()}
-            <div className="pricing-tables-page-wrapper">
-                <div className="pricing-tables-page-header">
-                    <H45 className="h45-nero-lustria">Pricing Tables</H45>
+            <div className="lists-page-wrapper">
+                <div className="lists-page-header">
+                    <H45 className="h45-nero-lustria">Lists</H45>
                 </div>
                 <div className="grey-line"/>
-                {renderPricingTablePageDataContent("section1", props.pricingTablesPage.section1Data)}
-                {renderPricingTablePageDataContent("section2", props.pricingTablesPage.section2Data)}
+                {renderListsPageDataContent("section1", props.listsPage.section1Data)}
+                {renderListsPageDataContent("section2", props.listsPage.section2Data)}
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
@@ -334,22 +314,22 @@ export const PricingTablesPage = (props) => {
 export default connect(
     (state) => {
         return {
-            pricingTablesPage: Selectors.getPricingTablesPageState(state),
+            listsPage: Selectors.getListsPageState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {
         return {
-            fetchPricingTablesPageSection1Data: bindActionCreators(Services.fetchPricingTablesPageSection1Data, dispatch),
-            fetchPricingTablesPageSection1DataSuccess: bindActionCreators(Actions.fetchPricingTablesPageSection1DataSuccess, dispatch),
-            fetchPricingTablesPageSection2Data: bindActionCreators(Services.fetchPricingTablesPageSection2Data, dispatch),
-            fetchPricingTablesPageSection2DataSuccess: bindActionCreators(Actions.fetchPricingTablesPageSection2DataSuccess, dispatch),
+            fetchListsPageSection1Data: bindActionCreators(Services.fetchListsPageSection1Data, dispatch),
+            fetchListsPageSection1DataSuccess: bindActionCreators(Actions.fetchListsPageSection1DataSuccess, dispatch),
+            fetchListsPageSection2Data: bindActionCreators(Services.fetchListsPageSection2Data, dispatch),
+            fetchListsPageSection2DataSuccess: bindActionCreators(Actions.fetchListsPageSection2DataSuccess, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(PricingTablesPage);
+)(ListsPage);
  

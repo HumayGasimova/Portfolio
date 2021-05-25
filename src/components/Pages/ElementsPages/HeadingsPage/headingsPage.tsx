@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -15,13 +12,11 @@ import {
     connect
 } from 'react-redux';
 
-import uuid from "uuid";
-
 /**
  * Styles
  */
 
-import './iconWithTextPage.scss';
+import './headingsPage.scss';
 
 /**
  * Components
@@ -29,7 +24,6 @@ import './iconWithTextPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import OurProcess from '../../../Parts/OurProcess/ourProcess';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -57,11 +51,13 @@ import * as Selectors from '../../../../reducers/selectors';
 
 import { 
     H15,
+    H17,
+    H19,
+    H22,
+    H35,
     H45,
-    EW20,
-    EH20,
-    EH110,
-    EH135
+    H70,
+    EH20
 } from '../../../UtilityComponents';
 
 /**
@@ -80,53 +76,41 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * IconWithTextPage component definition and export
+ * HeadingsPage component definition and export
  */
 
-export const IconWithTextPage = (props) => {
+export const HeadingsPage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
-        
+
         // Fetch data for the component
 
-        if(props.iconWithTextPage.section1Data.items.length === 0){
+        if(props.headingsPage.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchIconWithTextPageSection1DataSuccess(FakeData.iconWithTextPageSec1);
+                props.fetchHeadingsPageDataSuccess(FakeData.headingsPage);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchIconWithTextPageSection1Data();
+                props.fetchHeadingsPageData();
             }
         }
 
-        if(props.iconWithTextPage.section2Data.items.length === 0){
-            if(process.env.ENVIRONMENT === Environment.PRODUCTION){
-                // Fetch mock data (not required to run -> npm run server)
-
-                props.fetchIconWithTextPageSection2DataSuccess(FakeData.iconWithTextPageSec2);
-            }else{
-                // Fetch data (required to run -> npm run server)
-
-                props.fetchIconWithTextPageSection2Data();
-            }
-        }
-        
         // Scroll to the top of the screen
 
         window.scrollTo(0, 0);
@@ -146,7 +130,7 @@ export const IconWithTextPage = (props) => {
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("iconWithTextPage");
+        let el = document.getElementById("googleMapsPage");
 
         // Show or hide BackToTop component
 
@@ -180,12 +164,12 @@ export const IconWithTextPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="iconWithTextPage"
+                        page="googleMapsPage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="iconWithTextPage"
+                        page="googleMapsPage"
                     />
                 </>
             )
@@ -196,54 +180,95 @@ export const IconWithTextPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="iconWithTextPage"
+                        page="googleMapsPage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="iconWithTextPage"
+                        page="googleMapsPage"
                     />
                 </>
             )
         }
     }
 
-    const renderIconWithTextPageSection1DataContent = () => {
+    const renderHeadings = (key, heading) => {
+        switch(key){
+            case 'headingsPageHeading1':
+                return <H70 className="h70-black-lustria">{heading}</H70>
+            case 'headingsPageHeading2':
+                return <H70 className="h70-black-poppins">{heading}</H70>
+            case 'headingsPageHeading3':
+                return <H45 className="h45-black-lustria">{heading}</H45>
+            case 'headingsPageHeading4':
+                return <H35 className="h35-black-poppins">{heading}</H35>
+            case 'headingsPageHeading5':
+                return <H22 className="h22-black-lustria">{heading}</H22>
+            case 'headingsPageHeading6':
+                return <H19 className="h19-black-poppins">{heading}</H19>
+        }
+    }
+
+    const renderHeadingsPageDate = (arr) => {
         return(
-            <div className="icon-with-text-page-section-1-data">
-                <OurProcess
-                    component="iconWithTextPageSection1"
-                    data={props.iconWithTextPage.section1Data}
-                />
-            </div>
-        )
-    } 
-    
-    const renderIconWithTextPageSection2DataContent = () => {
-        return(
-            <div className="icon-with-text-page-section-2-data">
-                <OurProcess
-                    component="iconWithTextPageSection2"
-                    data={props.iconWithTextPage.section2Data}
-                />
-            </div>
+            <>{arr.map((el,i) => {
+                return(
+                    <div 
+                        key={i}
+                        className="headings-page-item"
+                    >
+                        {renderHeadings(el.key, el.header)}
+                        <EH20/>
+                        <H17 className="h17-nobel-lustria">{el.text}</H17>
+                    </div>
+                )
+            })}</>
         )
     }
+
+    const renderHeadingsPageDataContent = () => {
+        if(props.headingsPage.loading && !props.headingsPage.error){
+            return(
+                <div 
+                    className="headings-page-loading-error" 
+                    style={{height: `${size.height/2}px`}}
+                >
+                    <Loading color="black"/>
+                </div>
+            )
+        }
+        if(!props.headingsPage.loading && !props.headingsPage.error){
+            return(
+                <div className="headings-page-items">
+                    {renderHeadingsPageDate(props.headingsPage.items)}
+                </div>
+            )
+        }
+        if(!props.headingsPage.loading && props.headingsPage.error){
+            return(
+                <div 
+                    className="headings-page-loading-error" 
+                    style={{height: `${size.height/2}px`}}
+                >
+                    <H15 className="h19-nobel-lora">{`${props.headingsPage.error}`}</H15>
+                </div>
+            )
+        }
+    } 
 
     /**
      * Markup
      */
 
     return(
-        <div className="icon-with-text-page" id="iconWithTextPage">
+        <div className="headings-page" id="googleMapsPage">
             {renderToolbars()}
-            <div className="icon-with-text-page-wrapper">
-                <div className="icon-with-text-page-header">
-                    <H45 className="h45-nero-lustria">Icon With Text</H45>
+            <div className="headings-page-wrapper">
+                <div className="headings-page-header">
+                    <H45 className="h45-nero-lustria">Headings</H45>
                 </div>
                 <div className="grey-line"/>
-                {renderIconWithTextPageSection1DataContent()}
-                {renderIconWithTextPageSection2DataContent()}
+                {renderHeadingsPageDataContent()}
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
@@ -254,22 +279,20 @@ export const IconWithTextPage = (props) => {
 export default connect(
     (state) => {
         return {
-            iconWithTextPage: Selectors.getIconWithTextPageState(state),
+            headingsPage: Selectors.getHeadingsPageState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {
         return {
-            fetchIconWithTextPageSection1Data: bindActionCreators(Services.fetchIconWithTextPageSection1Data, dispatch),
-            fetchIconWithTextPageSection1DataSuccess: bindActionCreators(Actions.fetchIconWithTextPageSection1DataSuccess, dispatch),
-            fetchIconWithTextPageSection2Data: bindActionCreators(Services.fetchIconWithTextPageSection2Data, dispatch),
-            fetchIconWithTextPageSection2DataSuccess: bindActionCreators(Actions.fetchIconWithTextPageSection2DataSuccess, dispatch),
+            fetchHeadingsPageData: bindActionCreators(Services.fetchHeadingsPageData, dispatch),
+            fetchHeadingsPageDataSuccess: bindActionCreators(Actions.fetchHeadingsPageDataSuccess, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
-            setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
+            setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
         };
     }
-)(IconWithTextPage);
+)(HeadingsPage);
  
