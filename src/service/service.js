@@ -2382,7 +2382,7 @@ export function fetchBlockquotePageData() {
 export function fetchScrollSliderPageData() {
     return dispatch => {
         dispatch(Actions.fetchScrollSliderPageDataBegin());
-        return fetch("http://localhost:3005/api/scroll-slder-page")
+        return fetch("http://localhost:3005/api/scroll-slider-page")
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
