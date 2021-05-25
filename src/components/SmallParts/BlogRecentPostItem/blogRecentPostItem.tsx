@@ -23,8 +23,6 @@ import {
     H17
 } from '../../UtilityComponents';
 
-import { RouteComponentProps } from 'react-router-dom';
-
 type ActivateBlogCategory = {
     type: string,
     categoryIsActive: string, 
@@ -59,7 +57,7 @@ type BlogRecentPostItemProps = {
     activateBlogItem: (itemIsActive: string, itemKey: string, cardType: string) => ActivateBlogItem,
     activateBlogTag: (tagIsActive: string, tagName: string) => ActivateBlogTag,
     activateRecentPost: (postKey: string, postPath: string, val: boolean) => ActivateRecentPost,
-    clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => ClearActivityOfMenuItems,
+    clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => void,
     clearState: () => void,
     elData: RecentPostObj,
     history: any,
