@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -87,13 +84,13 @@ export const ColumnsPage = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");

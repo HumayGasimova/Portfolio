@@ -304,6 +304,7 @@ export const SearchResultPage = (props) => {
         // Clear input value
 
         document.getElementById(fieldId).value = '';
+        // (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
     const renderSearchForm = (searchInputForm) => {
