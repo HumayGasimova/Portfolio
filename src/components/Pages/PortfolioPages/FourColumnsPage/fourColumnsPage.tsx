@@ -1797,7 +1797,7 @@ export const FourColumnsPage = (props) => {
     }
     
     const renderFourColumnsPageItemStyle = (id) => {
-        let styles: React.CSSProperties
+        let styles: React.CSSProperties;
         switch(id){
             case 1:
                 return styles = {

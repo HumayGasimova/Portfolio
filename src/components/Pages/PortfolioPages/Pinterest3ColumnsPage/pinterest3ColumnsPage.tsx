@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -86,16 +82,16 @@ export const Pinterest3ColumnsPage = (props) => {
      * State
      */
 
-    const resizeRef = useRef();
-    const transitionRef = useRef();
+    const resizeRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -175,12 +171,12 @@ export const Pinterest3ColumnsPage = (props) => {
         }
     }, [props.pinterest3ColumnsPage.itemsStyleValues.img1?.rendered]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         transitionRef.current = smoothTransition;
         resizeRef.current = handleResize;
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Set the transition property to the initial value if its value is 0
 
         if(props.pinterest3ColumnsPage.itemsStyleValues.img1?.transition === 0 ||
@@ -1257,15 +1253,16 @@ export const Pinterest3ColumnsPage = (props) => {
     }
 
     const renderPinterest3ColumnsPageItemStyle = (id) => {
+        let styles: React.CSSProperties;
         switch(id){
             case 1:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img1?.width}px`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img1?.height}px`
                 };
             case 2:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img2?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img2?.height}px`,
@@ -1273,7 +1270,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img2?.transition}s ease-out`,
                 };
             case 3:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img3?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img3?.height}px`,
@@ -1281,7 +1278,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img3?.transition}s ease-out`,
                 };
             case 4:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img4?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img4?.height}px`,
@@ -1289,7 +1286,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img4?.transition}s ease-out`,
                 };
             case 5:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img5?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img5?.height}px`,
@@ -1297,7 +1294,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img5?.transition}s ease-out`,
                 };
             case 6:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img6?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img6?.height}px`,
@@ -1305,7 +1302,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img6?.transition}s ease-out`,
                 };
             case 7:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img7?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img7?.height}px`,
@@ -1313,7 +1310,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img7?.transition}s ease-out`,
                 };
             case 8:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img8?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img8?.height}px`,
@@ -1321,7 +1318,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img8?.transition}s ease-out`,
                 };
             case 9:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img9?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img9?.height}px`,
@@ -1329,7 +1326,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img9?.transition}s ease-out`,
                 };
             case 10:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img10?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img10?.height}px`,
@@ -1337,7 +1334,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img10?.transition}s ease-out`,
                 };
             case 11:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img11?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img11?.height}px`,
@@ -1345,7 +1342,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img11?.transition}s ease-out`,
                 };
             case 12:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img12?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img12?.height}px`,
@@ -1353,7 +1350,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img12?.transition}s ease-out`,
                 };
             case 13:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img13?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img13?.height}px`,
@@ -1361,7 +1358,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img13?.transition}s ease-out`,
                 };
             case 14:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img14?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img14?.height}px`,
@@ -1369,7 +1366,7 @@ export const Pinterest3ColumnsPage = (props) => {
                     transition: `transform ${props.pinterest3ColumnsPage.itemsStyleValues.img14?.transition}s ease-out`,
                 };
             case 15:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.pinterest3ColumnsPage.itemsStyleValues.img15?.width}`,
                     height: `${props.pinterest3ColumnsPage.itemsStyleValues.img15?.height}px`,

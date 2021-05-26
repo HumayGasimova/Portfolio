@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './galleryPage.scss';
+import './galleryWithSpacePage.scss';
 
 /**
  * Components
@@ -55,7 +52,7 @@ import * as Selectors from '../../../../reducers/selectors';
 
 import { 
     H15,
-    H45
+    H45,
 } from '../../../UtilityComponents';
 
 /**
@@ -74,45 +71,45 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * GalleryPage component definition and export
+ * GalleryWithSpacePage component definition and export
  */
 
-export const GalleryPage = (props) => {
+export const GalleryWithSpacePage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.galleryPage.items.length === 0){
+        if(props.galleryWithSpacePage.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchGalleryPageSuccess(FakeData.galleryPage);
+                props.fetchGalleryWithSpacePageSuccess(FakeData.galleryWithSpacePage);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchGalleryPage();
+                props.fetchGalleryWithSpacePage();
             }
         }
 
         // Return to the part of the screen where the link to the selected item is located
 
         let timeout = setTimeout(() => {
-            if(!props.galleryPage.loading && !props.galleryPage.error && props.historyPopFromItem !== "scrollToTop"){
+            if(!props.galleryWithSpacePage.loading && !props.galleryWithSpacePage.error && props.historyPopFromItem !== "scrollToTop"){
                 let itemOffsetTop = document.getElementById(props.historyPopFromItem) ? document.getElementById(props.historyPopFromItem).offsetTop : 0;
                 window.scrollTo(0, itemOffsetTop - 30);
             }else{
@@ -136,8 +133,8 @@ export const GalleryPage = (props) => {
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("galleryPage");
-    
+        let el = document.getElementById("galleryWithSpacePage");
+
         // Show or hide BackToTop component
 
         if(scrollHeight > screen.height/2){
@@ -145,7 +142,7 @@ export const GalleryPage = (props) => {
         }else{
             props.setShowBackToTopComponent(false);
         }
-
+    
         // Check scroll direction
 
         if(!checkScrollDirectionIsUp(e) || scrollHeight < el.offsetTop + 150){
@@ -170,12 +167,12 @@ export const GalleryPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="galleryPage"
+                        page="galleryWithSpacePage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="galleryPage"
+                        page="galleryWithSpacePage"
                     />
                 </>
             )
@@ -186,29 +183,29 @@ export const GalleryPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="galleryPage"
+                        page="galleryWithSpacePage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="galleryPage"
+                        page="galleryWithSpacePage"
                     />
                 </>
             )
         }
     }
     
-    const renderGalleryPageData = () => {
+    const renderGalleryWithSpacePageData = () => {
         return(
-            <div className="gallery-page-items">{props.galleryPage.items.map((el, i) => {
+            <div className="gallery-with-space-page-items">{props.galleryWithSpacePage.items.map((el, i) => {
                 return(
                     <div 
                         key={i} 
                         id={el.key}
-                        className="gallery-page-item"
+                        className="gallery-with-space-page-item"
                     >
                         <OverlayImage
-                            page="galleryPage"
+                            page="galleryWithSpacePage"
                             obj={el}
                             setUnmountComponentValues={props.setUnmountComponentValues}
                             unmountComponent={props.unmountComponent}
@@ -219,35 +216,35 @@ export const GalleryPage = (props) => {
         )
     }
 
-    const renderGalleryPageContent = () => {
-        if(props.galleryPage.loading && !props.galleryPage.error){
+    const renderGalleryWithSpacePageContent = () => {
+        if(props.galleryWithSpacePage.loading && !props.galleryWithSpacePage.error){
             return(
                 <div 
-                    className="gallery-page-loading-error" 
+                    className="gallery-with-space-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
                     <Loading color="black"/>
                 </div>
             )
         }
-        if(!props.galleryPage.loading && !props.galleryPage.error){
+        if(!props.galleryWithSpacePage.loading && !props.galleryWithSpacePage.error){
             return(
-                <div className="gallery-page-wrapper">
-                    <div className="gallery-page-header">
-                        <H45 className="h45-nero-lustria">Gallery</H45>
+                <div className="gallery-with-space-page-wrapper">
+                    <div className="gallery-with-space-page-header">
+                        <H45 className="h45-nero-lustria">Gallery With Space</H45>
                     </div>
                     <div className="grey-line"/>
-                    {renderGalleryPageData()}
+                    {renderGalleryWithSpacePageData()}
                 </div>
             )
         }
-        if(!props.galleryPage.loading && props.galleryPage.error){
+        if(!props.galleryWithSpacePage.loading && props.galleryWithSpacePage.error){
             return(
                 <div 
-                    className="gallery-page-loading-error" 
+                    className="gallery-with-space-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${props.galleryPage.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${props.galleryWithSpacePage.error}`}</H15>
                 </div>
             )
         }
@@ -258,9 +255,9 @@ export const GalleryPage = (props) => {
      */
 
     return(
-        <div className="gallery-page" id="galleryPage">
+        <div className="gallery-with-space-page" id="galleryWithSpacePage">
             {renderToolbars()}
-            {renderGalleryPageContent()}
+            {renderGalleryWithSpacePageContent()}
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
         </div>   
@@ -270,7 +267,7 @@ export const GalleryPage = (props) => {
 export default connect(
     (state) => {
         return {
-            galleryPage: Selectors.getGalleryPageState(state),
+            galleryWithSpacePage: Selectors.getGalleryWithSpacePageState(state),
             historyPopFromItem: Selectors.getHistoryPopFromPortfolioItemeState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
@@ -278,13 +275,13 @@ export default connect(
     },
     (dispatch) => {
         return {
-            fetchGalleryPage: bindActionCreators(Services.fetchGalleryPage, dispatch),
-            fetchGalleryPageSuccess: bindActionCreators(Actions.fetchGalleryPageSuccess, dispatch),
+            fetchGalleryWithSpacePage: bindActionCreators(Services.fetchGalleryWithSpacePage, dispatch),
+            fetchGalleryWithSpacePageSuccess: bindActionCreators(Actions.fetchGalleryWithSpacePageSuccess, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(GalleryPage);
+)(GalleryWithSpacePage);
  
