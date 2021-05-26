@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -84,13 +81,13 @@ export const TestimonialsPage = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -401,8 +398,6 @@ export default connect(
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
             setSwiperStateForTestimonialsPageSection1: bindActionCreators(Actions.setSwiperStateForTestimonialsPageSection1, dispatch),
-            setSwiperStateForTestimonialsPageSection2: bindActionCreators(Actions.setSwiperStateForTestimonialsPageSection2, dispatch),
-            setSwiperStateForTestimonialsPageSection3: bindActionCreators(Actions.setSwiperStateForTestimonialsPageSection3, dispatch),
             setSwiperStateForTestimonialsPageSection2: bindActionCreators(Actions.setSwiperStateForTestimonialsPageSection2, dispatch),
             setSwiperStateForTestimonialsPageSection3: bindActionCreators(Actions.setSwiperStateForTestimonialsPageSection3, dispatch),
             setTestimonialsPageSection1IsHoveringSwiperDot: bindActionCreators(Actions.setTestimonialsPageSection1IsHoveringSwiperDot, dispatch)

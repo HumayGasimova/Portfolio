@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -69,6 +65,11 @@ import {
     useInterval
 } from '../../../../Hooks/useInterval';
 
+interface RefObject<T> {
+    // immutable
+readonly current: T | null
+}
+
 /**
  * TextMarqueePage component definition and export
  */
@@ -80,16 +81,16 @@ export const TextMarqueePage = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [translatedX, setTranslatedX] = useState(300);
-    const [fontSize, setFontSize] = useState(25);
+    const resizeRef = React.useRef(null);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [translatedX, setTranslatedX] = React.useState(300);
+    const [fontSize, setFontSize] = React.useState(25);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -124,11 +125,11 @@ export const TextMarqueePage = (props) => {
         }
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     });
 
-    const handleResize = (e) => {
+    const handleResize = () => {
         // Initialize the text position
 
         setTranslatedX(25);

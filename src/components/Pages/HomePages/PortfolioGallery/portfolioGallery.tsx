@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -86,7 +82,7 @@ export const PortfolioGallery = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
+    const resizeRef = React.useRef(null);
   
     const initCoordinateRange = [
         {
@@ -167,7 +163,7 @@ export const PortfolioGallery = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -217,7 +213,7 @@ export const PortfolioGallery = (props) => {
         }
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     });
 

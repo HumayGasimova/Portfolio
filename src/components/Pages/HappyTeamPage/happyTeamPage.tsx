@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -22,7 +20,7 @@ export const HappyTeamPage = () => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Scroll to the top of the screen
 
         window.scrollTo(0, 0);
