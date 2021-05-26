@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -90,16 +86,16 @@ export const FourColumnsPage = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
-    const transitionRef = useRef();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [categoryFromHeader, setCategoryFromHeader] = useState("showAll");
+    const resizeRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [categoryFromHeader, setCategoryFromHeader] = React.useState("showAll");
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -110,7 +106,7 @@ export const FourColumnsPage = (props) => {
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                fetchMockData(props.fourColumnsPage.loadMoreStep);
+                fetchMockData(props.fourColumnsPage.loadMoreStep, null, null, null);
             }else{
                 // Fetch data (required to run -> npm run server)
 
@@ -157,7 +153,7 @@ export const FourColumnsPage = (props) => {
             }else{
                 // Set all images width, height, transition and translate coordinates 
     
-                setImagesState("onInit");
+                setImagesState("onInit", null, null, null);
             }
         }
 
@@ -189,12 +185,12 @@ export const FourColumnsPage = (props) => {
         }
     }, [props.fourColumnsPage.itemsStyleValues.img1?.rendered]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         transitionRef.current = smoothTransition;
         resizeRef.current = handleResize;
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         updateTransitionValue();
     }, [props.fourColumnsPage.itemsStyleValues.img1?.transition,props.fourColumnsPage.itemsStyleValues.img2?.transition,
         props.fourColumnsPage.itemsStyleValues.img3?.transition,props.fourColumnsPage.itemsStyleValues.img4?.transition,
@@ -1752,13 +1748,12 @@ export const FourColumnsPage = (props) => {
             fetchMockData(props.fourColumnsPage.loadMoreStep, 
                 categoryFromHeader, 
                 size.width, 
-                props.fourColumnsPage.items.length, 
-                props.fourColumnsPage.itemsStyleValues);
+                props.fourColumnsPage.items.length);
         }else{
             // Fetch data (required to run -> npm run server)
 
             props.fetchFourColumnsPage(props.fourColumnsPage.loadMoreStep, 
-                categoryFromHeader, 
+                categoryFromHeader,
                 size.width, 
                 props.fourColumnsPage.items.length, 
                 props.fourColumnsPage.itemsStyleValues);
@@ -1802,9 +1797,10 @@ export const FourColumnsPage = (props) => {
     }
     
     const renderFourColumnsPageItemStyle = (id) => {
+        let styles: React.CSSProperties
         switch(id){
             case 1:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img1?.width}px`,
                     paddingRight: "30px",
@@ -1812,10 +1808,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img1?.scale}) 
                                translate(${props.fourColumnsPage.itemsStyleValues.img1?.translateX}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img1?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img1?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img1?.zIndex}` as "auto"
                 };
             case 2:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img2?.width}px`,
                     paddingRight: "30px",
@@ -1823,10 +1819,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img2?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img2?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img2?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img2?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img2?.zIndex}`,
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img2?.zIndex}` as "auto"
                 };
             case 3:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img3?.width}px`,
                     paddingRight: "30px",
@@ -1834,10 +1830,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img3?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img3?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img3?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img3?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img3?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img3?.zIndex}` as "auto"
                 };
             case 4:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img4?.width}px`,
                     paddingRight: "30px",
@@ -1845,10 +1841,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img4?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img4?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img4?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img4?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img4?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img4?.zIndex}` as "auto"
                 };
             case 5:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img5?.width}px`,
                     paddingRight: "30px",
@@ -1856,10 +1852,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img5?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img5?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img5?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img5?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img5?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img5?.zIndex}` as "auto"
                 };
             case 6:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img6?.width}px`,
                     paddingRight: "30px",
@@ -1867,10 +1863,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img6?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img6?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img6?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img6?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img6?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img6?.zIndex}` as "auto"
                 };
             case 7:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img7?.width}px`,
                     paddingRight: "30px",
@@ -1878,10 +1874,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img7?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img7?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img7?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img7?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img7?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img7?.zIndex}` as "auto"
                 };
             case 8:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img8?.width}px`,
                     paddingRight: "30px",
@@ -1889,10 +1885,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img8?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img8?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img8?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img8?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img8?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img8?.zIndex}` as "auto"
                 };
             case 9:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img9?.width}px`,
                     paddingRight: "30px",
@@ -1900,10 +1896,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img9?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img9?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img9?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img9?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img9?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img9?.zIndex}` as "auto"
                 };
             case 10:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img10?.width}px`,
                     paddingRight: "30px",
@@ -1911,10 +1907,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img10?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img10?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img10?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img10?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img10?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img10?.zIndex}` as "auto"
                 };
             case 11:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img11?.width}px`,
                     paddingRight: "30px",
@@ -1922,10 +1918,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img11?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img11?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img11?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img11?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img11?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img11?.zIndex}` as "auto"
                 };
             case 12:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img12?.width}px`,
                     paddingRight: "30px",
@@ -1933,10 +1929,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img12?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img12?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img12?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img12?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img12?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img12?.zIndex}` as "auto"
                 };
             case 13:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img13?.width}px`,
                     paddingRight: "30px",
@@ -1944,10 +1940,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img13?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img13?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img13?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img13?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img13?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img13?.zIndex}` as "auto"
                 };
             case 14:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img14?.width}px`,
                     paddingRight: "30px",
@@ -1955,10 +1951,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img14?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img14?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img14?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img14?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img14?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img14?.zIndex}` as "auto"
                 };
             case 15:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img15?.width}px`,
                     paddingRight: "30px",
@@ -1966,10 +1962,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img15?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img15?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img15?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img15?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img15?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img15?.zIndex}` as "auto"
                 };
             case 16:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img16?.width}px`,
                     paddingRight: "30px",
@@ -1977,10 +1973,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img16?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img16?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img16?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img16?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img16?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img16?.zIndex}` as "auto"
                 };
             case 17:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img17?.width}px`,
                     paddingRight: "30px",
@@ -1988,10 +1984,10 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img17?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img17?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img17?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img17?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img17?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img17?.zIndex}` as "auto"
                 };
             case 18:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.fourColumnsPage.itemsStyleValues.img18?.width}px`,
                     paddingRight: "30px",
@@ -1999,7 +1995,7 @@ export const FourColumnsPage = (props) => {
                     transform: `scale(${props.fourColumnsPage.itemsStyleValues.img18?.scale})
                                 translate(${props.fourColumnsPage.itemsStyleValues.img18?.translateX}px, ${props.fourColumnsPage.itemsStyleValues.img18?.translateY}px)`,
                     transition: `transform ${props.fourColumnsPage.itemsStyleValues.img18?.transition}s ease-out`,
-                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img18?.zIndex}`
+                    zIndex: `${props.fourColumnsPage.itemsStyleValues.img18?.zIndex}` as "auto"
                 };
         }
     }
@@ -2033,7 +2029,7 @@ export const FourColumnsPage = (props) => {
         }
         else{
             localStorage.setItem("fourColumnsPageHG", JSON.stringify({activeCategoryFromHeader: "showAll"}));
-            setImagesState("showAllCategories", -1);
+            setImagesState("showAllCategories", -1, null, null);
         }
        
     }
@@ -2118,7 +2114,7 @@ export const FourColumnsPage = (props) => {
                     style={{
                         position: "relative",
                         width: `${renderFourColumnsPageStyleWidth()}px`,
-                        height: `${renderFourColumnsPageStyleHeight("onInit")}px`
+                        height: `${renderFourColumnsPageStyleHeight()}px`
                     }}
                 >{props.fourColumnsPage.items.map((el, i) => {
                     return(
@@ -2254,10 +2250,8 @@ export default connect(
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setLoadMoreStepFourColumnsPage: bindActionCreators(Actions.setLoadMoreStepFourColumnsPage, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
-            updateItemsStyleValuesFourColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesFourColumnsPage, dispatch),
             setActivityOfFourColumnsPageCategoriesFromHeader: bindActionCreators(Actions.setActivityOfFourColumnsPageCategoriesFromHeader, dispatch),
-            disappearenceAndAppearanceOfElementsDueToTheCategoryFourColumnsPage: bindActionCreators(Actions.disappearenceAndAppearanceOfElementsDueToTheCategoryFourColumnsPage, dispatch),
-            setTopPositionOfTheItemForFourColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForFourColumnsPage, dispatch),
+            disappearenceAndAppearanceOfElementsDueToTheCategoryFourColumnsPage: bindActionCreators(Actions.disappearenceAndAppearanceOfElementsDueToTheCategoryFourColumnsPage, dispatch)
         };
     }
 )(FourColumnsPage);
