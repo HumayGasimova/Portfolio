@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './simpleOverlayPage.scss';
+import './switchImagePage.scss';
 
 /**
  * Components
@@ -27,7 +24,7 @@ import './simpleOverlayPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import SimpleOverlayImage from '../../../SmallParts/SimpleOverlayImage/simpleOverlayImage';
+import PortfolioItemCard from '../../../SmallParts/PortfolioItemCard/portfolioItemCard';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -74,69 +71,159 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
- * SimpleOverlayPage component definition and export
+ * SwitchImagePage component definition and export
  */
 
-export const SimpleOverlayPage = (props) => {
+export const SwitchImagePage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const resizeRef = React.useRef(null);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+  
+    const initCoordinateRange = [
+        {
+            id: 1,
+            updated: false
+        },
+        {
+            id: 2,
+            updated: false
+        },
+        {
+            id: 3,
+            updated: false
+        },
+        {
+            id: 4,
+            updated: false
+        },
+        {
+            id: 5,
+            updated: false
+        },
+        {
+            id: 6,
+            updated: false
+        },
+        {
+            id: 7,
+            updated: false
+        },
+        {
+            id: 8,
+            updated: false
+        },
+        {
+            id: 9,
+            updated: false
+        },
+        {
+            id: 10,
+            updated: false
+        },
+        {
+            id: 11,
+            updated: false
+        },
+        {
+            id: 12,
+            updated: false
+        },
+        {
+            id: 13,
+            updated: false
+        },
+        {
+            id: 14,
+            updated: false
+        },
+        {
+            id: 15,
+            updated: false
+        },
+        {
+            id: 16,
+            updated: false
+        },
+        {
+            id: 17,
+            updated: false
+        },
+        {
+            id: 18,
+            updated: false
+        }
+    ]
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.simpleOverlayPage.items.length === 0){
+        if(props.switchImagePage.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchSimpleOverlayPageSuccess(FakeData.simpleOverlayPage);
+                props.fetchSwitchImagePageSuccess(FakeData.switchImagePage);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchSimpleOverlayPage();
+                props.fetchSwitchImagePage();
             }
         }
 
         // Return to the part of the screen where the link to the selected item is located
 
         let timeout = setTimeout(() => {
-            if(!props.simpleOverlayPage.loading && !props.simpleOverlayPage.error && props.historyPopFromItem !== "scrollToTop"){
+            if(!props.switchImagePage.loading && !props.switchImagePage.error && props.historyPopFromItem !== "scrollToTop"){
                 let itemOffsetTop = document.getElementById(props.historyPopFromItem) ? document.getElementById(props.historyPopFromItem).offsetTop : 0;
                 window.scrollTo(0, itemOffsetTop - 30);
             }else{
                 window.scrollTo(0, 0);
             }
         }, 2);
-
+     
         // Event Listeners
 
+        const resize = () => {
+            resizeRef.current();
+        }
+
+        window.addEventListener('resize', resize);
         window.addEventListener('wheel', handleOnWheel);
 
         return () => {
             // Cleaning the unmounted component
 
             clearTimeout(timeout);
+            window.removeEventListener('resize', resize);
             window.removeEventListener('wheel', handleOnWheel);
             props.setMenuDotsState("init", "");
             props.setShowBackToTopComponent(false);
         }
     }, []);
 
+    React.useEffect(() => {
+        resizeRef.current = handleResize;
+    });
+
+    const handleResize = () => {
+        props.forgetCoordinateRangeForSwitchImagePage(initCoordinateRange);
+    }
+
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("simpleOverlayPage");
+        let el = document.getElementById("switchImagePage");
 
         // Show or hide BackToTop component
 
@@ -161,7 +248,7 @@ export const SimpleOverlayPage = (props) => {
         }
         return e.deltaY < 0;
     }
-
+   
     const renderToolbars = () => {
         if(size.width < 1120){
             return(
@@ -170,12 +257,12 @@ export const SimpleOverlayPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="simpleOverlayPage"
+                        page="switchImagePage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="simpleOverlayPage"
+                        page="switchImagePage"
                     />
                 </>
             )
@@ -186,37 +273,37 @@ export const SimpleOverlayPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="simpleOverlayPage"
+                        page="switchImagePage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="simpleOverlayPage"
+                        page="switchImagePage"
                     />
                 </>
             )
         }
     }
-    
-    const renderSimpleOverlayPageData = () => {
+
+    const renderSwitchImagePageData = () => {
         return(
-            <div className="simple-overlay-page-items">{props.simpleOverlayPage.items.map((el, i) => {
+            <div className="switch-image-page-items">{props.switchImagePage.items.map((el, i) => {
+                let imgCoordinateRange = props.switchImagePage.itemsCoordinateRange.find(item => item.id === el.id);
                 return(
-                    <div 
-                        key={i} 
+                    <div
+                        key={i}
+                        className="switch-image-page-item"
                         id={el.key}
-                        className="simple-overlay-page-item"
                     >
-                        <SimpleOverlayImage
-                            page="simpleOverlayPage"
-                            imageKey={el.coverImage.key}
-                            alt={el.coverImage.alt}
-                            header={el.header}
-                            isHover={el.coverImage.isHover}
-                            path={el.path}
+                        <PortfolioItemCard
+                            component="switchImagePage"
+                            obj={el}
+                            rememberCoordinateRange={props.rememberCoordinateRangeForSwitchImagePage}
+                            imgCoordinateRange={imgCoordinateRange}
                             setUnmountComponentValues={props.setUnmountComponentValues}
                             unmountComponent={props.unmountComponent}
-                            id={el.id}
+                            setIsHoveringCategory={props.setSwitchImagePageIsHoveringCategory}
+                            clearArchiveData={props.clearArchiveData}
                         />
                     </div>
                 )
@@ -224,35 +311,35 @@ export const SimpleOverlayPage = (props) => {
         )
     }
 
-    const renderSimpleOverlayPageContent = () => {
-        if(props.simpleOverlayPage.loading && !props.simpleOverlayPage.error){
+    const renderSwitchImagePageContent = () => {
+        if(props.switchImagePage.loading && !props.switchImagePage.error){
             return(
                 <div 
-                    className="simple-overlay-page-loading-error" 
+                    className="switch-image-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
                     <Loading color="black"/>
                 </div>
             )
         }
-        if(!props.simpleOverlayPage.loading && !props.simpleOverlayPage.error){
+        if(!props.switchImagePage.loading && !props.switchImagePage.error){
             return(
-                <div className="simple-overlay-page-wrapper">
-                    <div className="simple-overlay-page-header">
-                        <H45 className="h45-nero-lustria">Simple Overlay</H45>
+                <div className="switch-image-page-wrapper">
+                    <div className="switch-image-page-header">
+                        <H45 className="h45-nero-lustria">Switch Image</H45>
                     </div>
                     <div className="grey-line"/>
-                    {renderSimpleOverlayPageData()}
+                    {renderSwitchImagePageData()}
                 </div>
             )
         }
-        if(!props.simpleOverlayPage.loading && props.simpleOverlayPage.error){
+        if(!props.switchImagePage.loading && props.switchImagePage.error){
             return(
                 <div 
-                    className="simple-overlay-page-loading-error" 
+                    className="switch-image-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${props.simpleOverlayPage.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${props.switchImagePage.error}`}</H15>
                 </div>
             )
         }
@@ -263,33 +350,38 @@ export const SimpleOverlayPage = (props) => {
      */
 
     return(
-        <div className="simple-overlay-page" id="simpleOverlayPage">
+        <div className="switch-image-page" id="switchImagePage">
             {renderToolbars()}
-            {renderSimpleOverlayPageContent()}
+            {renderSwitchImagePageContent()}
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
-        </div>   
+        </div>
     );
 }
 
 export default connect(
     (state) => {
         return {
-            simpleOverlayPage: Selectors.getSimpleOverlayPageState(state),
+            switchImagePage: Selectors.getSwitchImagePageState(state),
             historyPopFromItem: Selectors.getHistoryPopFromPortfolioItemeState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
+            archive: Selectors.getArchiveState(state),
             showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {
         return {
-            fetchSimpleOverlayPage: bindActionCreators(Services.fetchSimpleOverlayPage, dispatch),
-            fetchSimpleOverlayPageSuccess: bindActionCreators(Actions.fetchSimpleOverlayPageSuccess, dispatch),
+            fetchSwitchImagePage: bindActionCreators(Services.fetchSwitchImagePage, dispatch),
+            fetchSwitchImagePageSuccess: bindActionCreators(Actions.fetchSwitchImagePageSuccess, dispatch),
+            rememberCoordinateRangeForSwitchImagePage: bindActionCreators(Actions.rememberCoordinateRangeForSwitchImagePage, dispatch),
+            forgetCoordinateRangeForSwitchImagePage: bindActionCreators(Actions.forgetCoordinateRangeForSwitchImagePage, dispatch),
+            setSwitchImagePageIsHoveringCategory: bindActionCreators(Actions.setSwitchImagePageIsHoveringCategory, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
+            clearArchiveData: bindActionCreators(Actions.clearArchiveData, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(SimpleOverlayPage);
+)(SwitchImagePage);
  

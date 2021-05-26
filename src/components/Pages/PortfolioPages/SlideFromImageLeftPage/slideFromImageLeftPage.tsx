@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -19,7 +16,7 @@ import {
  * Styles
  */
 
-import './standardPage.scss';
+import './slideFromImageLeftPage.scss';
 
 /**
  * Components
@@ -27,7 +24,7 @@ import './standardPage.scss';
 
 import Loading from '../../../SmallParts/Loading/loading';
 import Toolbar from '../../../Parts/Toolbar/toolbar';
-import StandardPortfolioItem from '../../../SmallParts/StandardPortfolioItem/standardPortfolioItem';
+import SlideFromImageLeft from '../../../SmallParts/SlideFromImageLeft/slideFromImageLeft';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
 
@@ -73,46 +70,47 @@ import {
 import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
+
 /**
- * StandardPage component definition and export
+ * SlideFromImageLeftPage component definition and export
  */
 
-export const StandardPage = (props) => {
+export const SlideFromImageLeftPage = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
 
         // Fetch data for the component
 
-        if(props.standardPage.items.length === 0){
+        if(props.slideFromImageLeftPage.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
 
-                props.fetchStandardPageSuccess(FakeData.standardPage);
+                props.fetchSlideFromImageLeftPageSuccess(FakeData.slideFromImageLeftPage);
             }else{
                 // Fetch data (required to run -> npm run server)
 
-                props.fetchStandardPage();
+                props.fetchSlideFromImageLeftPage();
             }
         }
 
         // Return to the part of the screen where the link to the selected item is located
 
         let timeout = setTimeout(() => {
-            if(!props.standardPage.loading && !props.standardPage.error && props.historyPopFromItem !== "scrollToTop"){
+            if(!props.slideFromImageLeftPage.loading && !props.slideFromImageLeftPage.error && props.historyPopFromItem !== "scrollToTop"){
                 let itemOffsetTop = document.getElementById(props.historyPopFromItem) ? document.getElementById(props.historyPopFromItem).offsetTop : 0;
                 window.scrollTo(0, itemOffsetTop - 30);
             }else{
@@ -136,7 +134,7 @@ export const StandardPage = (props) => {
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
-        let el = document.getElementById("standardPage");
+        let el = document.getElementById("slideFromImageLeft");
 
         // Show or hide BackToTop component
 
@@ -170,12 +168,12 @@ export const StandardPage = (props) => {
                         style="smallScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="standardPage"
+                        page="slideFromImageLeftPage"
                     />
                     <Toolbar 
                         style="smallScreen"
                         toolbarMainColor="regular"
-                        page="standardPage"
+                        page="slideFromImageLeftPage"
                     />
                 </>
             )
@@ -186,33 +184,33 @@ export const StandardPage = (props) => {
                         style="regularScreenAnimated" 
                         scrollingUp={scrollingUp}
                         toolbarMainColor="white"
-                        page="standardPage"
+                        page="slideFromImageLeftPage"
                     />
                     <Toolbar 
                         style="regularScreenWhite"
                         toolbarMainColor="white"
-                        page="standardPage"
+                        page="slideFromImageLeftPage"
                     />
                 </>
             )
         }
     }
     
-    const renderStandardPageData = () => {
+    const renderSlideFromImageLeftPageData = () => {
         return(
-            <div className="standard-page-items">{props.standardPage.items.map((el, i) => {
+            <div className="slide-from-image-left-page-items">{props.slideFromImageLeftPage.items.map((el, i) => {
                 return(
                     <div 
                         key={i} 
                         id={el.key}
-                        className="standard-page-item"
+                        className="slide-from-image-left-page-item"
                     >
-                        <StandardPortfolioItem
-                            page="standardPage"
+                        <SlideFromImageLeft
                             obj={el}
+                            page="slideFromImageLeftPage"
                             setUnmountComponentValues={props.setUnmountComponentValues}
-                            setIsHoveringCategory={props.setStandardPageIsHoveringCategory}
                             unmountComponent={props.unmountComponent}
+                            setIsHoveringCategory={props.setSlideFromImageLeftPageIsHoveringCategory}
                             clearArchiveData={props.clearArchiveData}
                         />
                     </div>
@@ -221,35 +219,35 @@ export const StandardPage = (props) => {
         )
     }
 
-    const renderStandardPageContent = () => {
-        if(props.standardPage.loading && !props.standardPage.error){
+    const renderSlideFromImageLeftPageContent = () => {
+        if(props.slideFromImageLeftPage.loading && !props.slideFromImageLeftPage.error){
             return(
                 <div 
-                    className="standard-page-loading-error" 
+                    className="slide-from-image-left-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
                     <Loading color="black"/>
                 </div>
             )
         }
-        if(!props.standardPage.loading && !props.standardPage.error){
+        if(!props.slideFromImageLeftPage.loading && !props.slideFromImageLeftPage.error){
             return(
-                <div className="standard-page-wrapper">
-                    <div className="standard-page-header">
-                        <H45 className="h45-nero-lustria">Standard</H45>
+                <div className="slide-from-image-left-page-wrapper">
+                    <div className="slide-from-image-left-page-header">
+                        <H45 className="h45-nero-lustria">Slide From Image Left</H45>
                     </div>
                     <div className="grey-line"/>
-                    {renderStandardPageData()}
+                    {renderSlideFromImageLeftPageData()}
                 </div>
             )
         }
-        if(!props.standardPage.loading && props.standardPage.error){
+        if(!props.slideFromImageLeftPage.loading && props.slideFromImageLeftPage.error){
             return(
                 <div 
-                    className="standard-page-loading-error" 
+                    className="slide-from-image-left-page-loading-error" 
                     style={{height: `${size.height}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${props.standardPage.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${props.slideFromImageLeftPage.error}`}</H15>
                 </div>
             )
         }
@@ -260,9 +258,9 @@ export const StandardPage = (props) => {
      */
 
     return(
-        <div className="standard-page" id="standardPage">
+        <div className="slide-from-image-left-page" id="slideFromImageLeft">
             {renderToolbars()}
-            {renderStandardPageContent()}
+            {renderSlideFromImageLeftPageContent()}
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
         </div>   
@@ -272,7 +270,7 @@ export const StandardPage = (props) => {
 export default connect(
     (state) => {
         return {
-            standardPage: Selectors.getStandardPageState(state),
+            slideFromImageLeftPage: Selectors.getSlideFromImageLeftPageState(state),
             historyPopFromItem: Selectors.getHistoryPopFromPortfolioItemeState(state),
             menuDotsState: Selectors.getMenuDotsStateState(state),
             archive: Selectors.getArchiveState(state),
@@ -281,9 +279,9 @@ export default connect(
     },
     (dispatch) => {
         return {
-            fetchStandardPage: bindActionCreators(Services.fetchStandardPage, dispatch),
-            fetchStandardPageSuccess: bindActionCreators(Actions.fetchStandardPageSuccess, dispatch),
-            setStandardPageIsHoveringCategory: bindActionCreators(Actions.setStandardPageIsHoveringCategory, dispatch),
+            fetchSlideFromImageLeftPage: bindActionCreators(Services.fetchSlideFromImageLeftPage, dispatch),
+            fetchSlideFromImageLeftPageSuccess: bindActionCreators(Actions.fetchSlideFromImageLeftPageSuccess, dispatch),
+            setSlideFromImageLeftPageIsHoveringCategory: bindActionCreators(Actions.setSlideFromImageLeftPageIsHoveringCategory, dispatch),
             setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
             unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
@@ -291,5 +289,5 @@ export default connect(
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
         };
     }
-)(StandardPage);
+)(SlideFromImageLeftPage);
  

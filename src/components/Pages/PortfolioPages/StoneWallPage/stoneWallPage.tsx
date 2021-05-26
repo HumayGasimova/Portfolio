@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -86,16 +82,16 @@ export const StoneWallPage = (props) => {
      * State
      */
 
-    const resizeRef = useRef();
-    const transitionRef = useRef();
+    const resizeRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -158,12 +154,12 @@ export const StoneWallPage = (props) => {
         }
     }, [props.stoneWallPage.itemsStyleValues.img1?.rendered]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
         transitionRef.current = smoothTransition;
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Set the transition property to the initial value if its value is 0
 
         if(props.stoneWallPage.itemsStyleValues.img1?.transition === 0){
@@ -650,15 +646,16 @@ export const StoneWallPage = (props) => {
     }
 
     const renderStoneWallPageItemStyle = (id) => {
+        let styles: React.CSSProperties;
         switch(id){
             case 1:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.stoneWallPage.itemsStyleValues.img1?.width}px`,
                     height: `${props.stoneWallPage.itemsStyleValues.img1?.height}px`
                 };
             case 2:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.stoneWallPage.itemsStyleValues.img2?.width}`,
                     height: `${props.stoneWallPage.itemsStyleValues.img2?.height}px`,
@@ -666,7 +663,7 @@ export const StoneWallPage = (props) => {
                     transition: `transform ${props.stoneWallPage.itemsStyleValues.img2?.transition}s ease-out`,
                 };
             case 3:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.stoneWallPage.itemsStyleValues.img3?.width}`,
                     height: `${props.stoneWallPage.itemsStyleValues.img3?.height}px`,
@@ -674,7 +671,7 @@ export const StoneWallPage = (props) => {
                     transition: `transform ${props.stoneWallPage.itemsStyleValues.img3?.transition}s ease-out`,
                 };
             case 4:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.stoneWallPage.itemsStyleValues.img4?.width}`,
                     height: `${props.stoneWallPage.itemsStyleValues.img4?.height}px`,
@@ -682,7 +679,7 @@ export const StoneWallPage = (props) => {
                     transition: `transform ${props.stoneWallPage.itemsStyleValues.img4?.transition}s ease-out`,
                 };
             case 5:
-                return {
+                return styles = {
                     position: "absolute",
                     width: `${props.stoneWallPage.itemsStyleValues.img5?.width}`,
                     height: `${props.stoneWallPage.itemsStyleValues.img5?.height}px`,

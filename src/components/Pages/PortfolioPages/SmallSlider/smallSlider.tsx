@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -90,16 +86,16 @@ export const SmallSlider = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [showContent, setShowContent] = useState(false);
-    const [onePercentToPx, setOnePercentToPx] = useState(0);
+    const resizeRef = React.useRef(null);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [showContent, setShowContent] = React.useState(false);
+    const [onePercentToPx, setOnePercentToPx] = React.useState(0);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
@@ -148,7 +144,7 @@ export const SmallSlider = (props) => {
         }
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     });
 

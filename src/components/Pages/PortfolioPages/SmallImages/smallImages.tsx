@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -95,15 +92,15 @@ export const SmallImages = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = useState(false);
-    const [showContent, setShowContent] = useState(false);
-    const [moveStepMovablePart, setMoveStepMovablePart] = useState(0);
+    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [showContent, setShowContent] = React.useState(false);
+    const [moveStepMovablePart, setMoveStepMovablePart] = React.useState(0);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "");
