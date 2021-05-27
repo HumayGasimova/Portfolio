@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -55,15 +52,15 @@ export const BlogNavigation = (props) => {
      * State
      */
 
-    const [isHoveringNavigationPrevDate, setIsHoveringNavigationPrevDate] = useState("init");
-    const [isHoveringNavigationNextDate, setIsHoveringNavigationNextDate] = useState("init");
-    const [showComponent, setShowComponent] = useState(false);
+    const [isHoveringNavigationPrevDate, setIsHoveringNavigationPrevDate] = React.useState("init");
+    const [isHoveringNavigationNextDate, setIsHoveringNavigationNextDate] = React.useState("init");
+    const [showComponent, setShowComponent] = React.useState(false);
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch previous and next post using the current post key
 
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
@@ -99,7 +96,7 @@ export const BlogNavigation = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, key) => {
+    const handleMouseEnter = (opt) => {
         switch(opt){
             case 'navigationPrevDate': 
                 setIsHoveringNavigationPrevDate("on");
@@ -110,7 +107,7 @@ export const BlogNavigation = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, key) => {
+    const handleMouseLeave = (opt) => {
         switch(opt){
             case 'navigationPrevDate': 
                 setIsHoveringNavigationPrevDate("off");

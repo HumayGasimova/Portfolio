@@ -2,9 +2,7 @@
  * Libraries
 */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -48,7 +46,7 @@ export const Footer = (props) => {
      * Methods
     */
 
-    useEffect(() => { 
+    React.useEffect(() => { 
     }, []);
 
     const feedOnClick = () => {

@@ -28,6 +28,7 @@ import MenuFullScreen from '../../../Parts/MenuFullScreen/menuFullScreen';
 import PortfolioItemCard from '../../../SmallParts/PortfolioItemCard/portfolioItemCard';
 import Footer from '../../../Parts/Footer/footer';
 import BackToTop from '../../../SmallParts/BackToTop/backToTop';
+import Example from '../../../Example/example';
 
 /**
  * Actions
@@ -71,11 +72,110 @@ import {
 import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
+interface PortfolioGalleryProps {
+    archive: Archive;
+    history: any;
+    historyPopFromItem: string;
+    location: any;
+    match: any;
+    menuDotsState: MenuDotsState;
+    portfolioGalleryPage: PortfolioGalleryPage;
+    showBackToTop: boolean;
+    staticContext: any;
+    clearArchiveData: () => void;
+    fetchPortfolioGalleryPage: () => void;
+    fetchPortfolioGalleryPageSuccess: (array: Array<PortfolioGalleryItems>) => void;
+    forgetCoordinateRangeForPortfolioGalleryPage: (arr: Array<PortfolioGalleryItemsCoordinateRange>) => void;
+    rememberCoordinateRangeForPortfolioGalleryPage: (id: number, coordinateRange: PortfolioGalleryItemsCoordinateRange) => void;
+    setMenuDotsState: (val: string, page: string) => void;
+    setPortfolioGalleryPageIsHoveringCategory: (val: string, pathOfIds: Array<number>) => void;
+    setShowBackToTopComponent: (val: boolean) => void;
+    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
+interface Archive {
+    category: string;
+    disableLoadMoreButton: boolean;
+    error: any;
+    errorMoreData: any;
+    items?: Array<PortfolioGalleryArchiveItems>;
+    loading: boolean;
+    loadingMoreData: boolean;
+}
+
+interface PortfolioGalleryPage {
+    error: any;
+    items?: Array<PortfolioGalleryItems>
+    itemsCoordinateRange: Array<PortfolioGalleryItemsCoordinateRange>
+    loading: boolean;
+}
+
+interface MenuDotsState {
+    page: string;
+    state: string;
+}
+
+interface PortfolioGalleryArchiveItems {
+    categories: Array<Categories>;
+    coverImage: PortfolioGalleryArchiveItemsCoverImage
+    header: string;
+    id: number;
+    key: string;
+    path: string;
+}
+
+interface PortfolioGalleryArchiveItemsCoverImage {
+    alt: string;
+    folderName: string;
+    id: number;
+    imageName: string;
+    isHover: string;
+    key: string;
+}
+
+interface PortfolioGalleryItems {
+    arrowIsHovering: string;
+    categories: Array<Categories>;
+    id: number;
+    key: string;
+    option: string;
+    path: string;
+    pictures: Array<PortfolioGalleryItemsPictures>;
+    portfolioType: string;
+}
+
+interface Categories {
+    id: number;
+    isHover: string;
+    key: string;
+    label: string;
+    path: string;
+}
+
+interface PortfolioGalleryItemsPictures {
+    alt: string;
+    folderName: string;
+    id: number;
+    imageName: string;
+    key: string;
+}
+
+interface PortfolioGalleryItemsCoordinateRange {
+    id: number;
+    leftCoordinate?: number;
+    rightCoordinate?: number;
+    topCoordinate?: number;
+    bottomCoordinate?: number;
+    updated: boolean;
+    width?: number;
+}
+
 /**
  * PortfolioGallery component definition and export
  */
 
-export const PortfolioGallery = (props) => {
+export const PortfolioGallery: React.FC<PortfolioGalleryProps> = (props) => {
 
     /**
      * State
@@ -165,8 +265,8 @@ export const PortfolioGallery = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-
-        props.setUnmountComponentValues(false, "");
+        console.log(props)
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -324,10 +424,10 @@ export const PortfolioGallery = (props) => {
             </div>
             {props.menuDotsState.state === "on" ? 
             <MenuFullScreen 
-                page="portfolioGallery"
+                page="portfolioGallry"
                 state={props.menuDotsState.state}
             /> : null}
-            {props.showBackToTop ? <BackToTop/> : null}     
+            {props.showBackToTop ? <BackToTop/> : null}
         </> 
     );
 }

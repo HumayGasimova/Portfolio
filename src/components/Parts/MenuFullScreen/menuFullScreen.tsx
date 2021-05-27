@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -55,17 +53,76 @@ import {
     menuFullscreenItemsArray
 } from '../../../constants/menuFullscreenItems';
 
+interface MenuFullScreenProps {
+    menuFullscreenItems: Array<MenuFullscreenItems>;
+    page: string;
+    state: string;
+    staticContext: any;
+    history: any;
+    location: any;
+    match: any;
+    initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    setMenuDotsState: (val: string, page: string) => void;
+    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
+interface MenuFullscreenItems {
+    id: number;
+    text: string;
+    itemId: string;
+    path: string;
+    active: boolean;
+    isHover: string;
+    hasOptions: boolean;
+    options: Array<MenuFullscreenItemsOption>;
+}
+
+interface MenuFullscreenItemsOption {
+    id: number;
+    header: string;
+    itemId: string;
+    array: Array<MenuFullscreenItemsOptionArray>;
+}
+
+interface MenuFullscreenItemsOptionArray {
+    id: number;
+    text: string;
+    itemId: string;
+    path: string;
+    active: boolean;
+    isHover: string;
+    subOptions: Array<any>;
+}
+
+interface MapStateToPropsTypes {
+    menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    setMenuDotsState: (val: string, page: string) => void;
+    setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
 /**
  * MenuFullScreen component definition and export
  */
 
-export const MenuFullScreen = (props) => {
+export const MenuFullScreen: React.FC<MenuFullScreenProps> = (props) => {
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init menu items
 
         props.initMenuFullscreenItems(menuFullscreenItemsArray);
@@ -126,11 +183,11 @@ export const MenuFullScreen = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
@@ -154,11 +211,11 @@ export const MenuFullScreen = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click
 
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 
@@ -190,7 +247,7 @@ export const MenuFullScreen = (props) => {
                             </div>
                         </div> : null}
                         {!el.active ? 
-                        <div className={renderClassName("arrow", el.isHover)}>
+                        <div className={renderClassName("arrow", el.isHover, null)}>
                             <div className="arrow-horizontal-line"/>
                             <div className="arrow-wrapper2">
                                 <div className="arrow-top-line"></div>
@@ -225,7 +282,7 @@ export const MenuFullScreen = (props) => {
                                 onMouseLeave={() => props.setIsHoveringMenuFullscreenOptionItem("off", pathOfIds)}
                                 onMouseDown={(e) => menuFullscreenSubOptionOnClick(e, el1.path)}
                             >
-                                <H15 className={renderClassName("optionItem", el1.isHover)}>{el1.text}</H15>
+                                <H15 className={renderClassName("optionItem", el1.isHover, null)}>{el1.text}</H15>
                                 <EH10/>
                             </div>
                         )
@@ -268,22 +325,24 @@ export const MenuFullScreen = (props) => {
     );
 }
 
-export default connect(
-    (state) => {
-        return {
-            menuFullscreenItems: Selectors.getMenuFullScreenItemsState(state)
-        };
-    },
-    (dispatch) => {
-        return {
-            initMenuFullscreenItems: bindActionCreators(Actions.initMenuFullscreenItems, dispatch),
-            setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
-            setIsHoveringMenuFullscreenItem: bindActionCreators(Actions.setIsHoveringMenuFullscreenItem, dispatch),
-            setActivityOfMenuFullscreenItem: bindActionCreators(Actions.setActivityOfMenuFullscreenItem, dispatch),
-            setIsHoveringMenuFullscreenOptionItem: bindActionCreators(Actions.setIsHoveringMenuFullscreenOptionItem, dispatch),
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-        };
-    }
-)(withRouter(MenuFullScreen));
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                menuFullscreenItems: Selectors.getMenuFullScreenItemsState(state)
+            };
+        },
+        (dispatch) => {
+            return {
+                initMenuFullscreenItems: bindActionCreators(Actions.initMenuFullscreenItems, dispatch),
+                setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
+                setIsHoveringMenuFullscreenItem: bindActionCreators(Actions.setIsHoveringMenuFullscreenItem, dispatch),
+                setActivityOfMenuFullscreenItem: bindActionCreators(Actions.setActivityOfMenuFullscreenItem, dispatch),
+                setIsHoveringMenuFullscreenOptionItem: bindActionCreators(Actions.setIsHoveringMenuFullscreenOptionItem, dispatch),
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+            };
+        }
+    )(MenuFullScreen)
+);
  

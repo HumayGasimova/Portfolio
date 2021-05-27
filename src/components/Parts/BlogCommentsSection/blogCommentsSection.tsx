@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -37,13 +34,13 @@ export const BlogCommentsSection = (props) => {
      * State
      */
 
-    const [pathOfIdsToComment, setPathOfIdsToComment] = useState([])
+    const [pathOfIdsToComment, setPathOfIdsToComment] = React.useState([])
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         let commentsSection = document.getElementById(`${props.page}CommentsSection`);
         let timeout;
 
@@ -59,8 +56,11 @@ export const BlogCommentsSection = (props) => {
             timeout = setTimeout(() => {
                 window.scroll(0, commentsSection.offsetTop);
             }, 500);
+            console.log(JSON.parse(localStorage.getItem("commentsIconCickedHG")))
 
-            localStorage.setItem("commentsIconCickedHG",false);
+            console.log(JSON.parse(localStorage.getItem("commentsIconCickedHG")))
+            
+            localStorage.setItem("commentsIconCickedHG","false");
         }
         return () => {
             // Cleaning the unmounted component
@@ -116,7 +116,7 @@ export const BlogCommentsSection = (props) => {
         return(
             <div className="blog-comments-section-wrapper">
                 <H22 className="h22-black-lustria">Comments</H22>
-                {renderComments(data.item.comments)}
+                {renderComments(data.item.comments, null, null)}
             </div>
         )
     } 

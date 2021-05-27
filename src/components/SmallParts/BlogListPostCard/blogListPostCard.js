@@ -346,7 +346,7 @@ export const BlogListPostCard = (props) => {
         }else{
             // Open selected blog item in a new window on scroll wheel click
 
-            localStorage.setItem("commentsIconCickedHG",true);
+            localStorage.setItem("commentsIconCickedHG","true");
             window.open(`/crypto-portfolio/${props.elData.path}` , "_blank");
         }
     }

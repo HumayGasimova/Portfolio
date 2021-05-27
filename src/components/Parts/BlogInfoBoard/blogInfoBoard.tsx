@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -74,13 +71,13 @@ export const BlogInfoBoard = (props) => {
      * State
      */
 
-    const [searchIsHover, setSearchIsHover] = useState("init");
+    const [searchIsHover, setSearchIsHover] = React.useState("init");
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
 
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
@@ -237,8 +234,7 @@ export const BlogInfoBoard = (props) => {
     const clearInputValue = (fieldId) => {
         // Clear input value
 
-        document.getElementById(fieldId).value = '';
-        // (document.getElementById(fieldId) as HTMLInputElement).value = '';
+        (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
     const renderSearchForm = () => {

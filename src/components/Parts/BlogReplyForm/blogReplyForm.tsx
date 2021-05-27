@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import uuid from "uuid";
 
@@ -55,7 +53,7 @@ export const BlogReplyForm = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Init imput forms
 
         props.initInputForm(blogListCommentReplyInputForm);
@@ -183,8 +181,7 @@ export const BlogReplyForm = (props) => {
     const clearInputValue = (fieldId) => {
         // Clear input value
 
-        document.getElementById(fieldId).value = '';
-        // (document.getElementById(fieldId) as HTMLInputElement).value = '';
+        (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
     const renderContactFormContent = (inputForm) => {
@@ -201,7 +198,7 @@ export const BlogReplyForm = (props) => {
                                 <Input
                                     className="blog-comment-reply-input"
                                     invalidClassName="invalid-blog-comment-reply-input"
-                                    onChange={(event) => inputChangeHandler(event, el.id, 'section1','inputForm')}
+                                    onChange={(event) => inputChangeHandler(event, el.id)}
                                     elementType={el.elementType}
                                     rows={el.elementConfig.rows}
                                     validField={el.validField}
