@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -86,16 +83,16 @@ export const PhotoViewer = (props) => {
      */
 
     const size = useWindowSize();
-    const [isHoveringExpand, setIsHoveringExpand] = useState(false);
-    const [isHoveringShrink, setIsHoveringShrink] = useState(false);
-    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = useState("init");
-    const [isHoveringRightArrow, setIsHoveringRightArrow] = useState("init");
-    const [isHoveringCloseButton, setIsHoveringCloseButton] = useState("init");
-    const [photoViewerWindowSize, setPhotoViewerWindowSize] = useState({
+    const [isHoveringExpand, setIsHoveringExpand] = React.useState(false);
+    const [isHoveringShrink, setIsHoveringShrink] = React.useState(false);
+    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState("init");
+    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState("init");
+    const [isHoveringCloseButton, setIsHoveringCloseButton] = React.useState("init");
+    const [photoViewerWindowSize, setPhotoViewerWindowSize] = React.useState({
         width: 0,
         height: 0
     })
-    const [photoViewerFullscreenWindowSize, setPhotoViewerFullscreenWindowSize] = useState({
+    const [photoViewerFullscreenWindowSize, setPhotoViewerFullscreenWindowSize] = React.useState({
         width: 0,
         height: 0
     })
@@ -104,7 +101,7 @@ export const PhotoViewer = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Set windth and height of photoViwer and fullScreen photoViwer for different pages
 
         renderStyle(size.width, props.width, props.height);
@@ -120,7 +117,7 @@ export const PhotoViewer = (props) => {
     const fullScreenOnChange = () => {
         // Show photo viewer when exiting fullscreen mode
 
-        if(!document.webkitIsFullScreen){
+        if(!document['webkitIsFullScreen']){
             props.setFullScreenState(false);
         }
     }
@@ -484,8 +481,9 @@ export const PhotoViewer = (props) => {
     const renderStyle = (screenWidth, width, height) => {
         // Set windth and height of photoViwer and fullScreen photoViwer
         
-        let updatedPhotoViewerWindowSize = {};
-        let updatedPhotoViewerFullscreenWindowSize = {};
+        let updatedPhotoViewerWindowSize;
+        let updatedPhotoViewerFullscreenWindowSize;
+
         if(screenWidth > 1100){
             updatedPhotoViewerWindowSize = {
                 width: width,
@@ -559,10 +557,10 @@ export const PhotoViewer = (props) => {
 
         if(elem.requestFullscreen) {
             elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
+        } else if (elem['webkitRequestFullscreen']) { /* Safari */
+            elem['webkitRequestFullscreen']();
+        } else if (elem['msRequestFullscreen']) { /* IE11 */
+            elem['msRequestFullscreen']();
         }
         props.setFullScreenState(true);
     }
@@ -572,10 +570,10 @@ export const PhotoViewer = (props) => {
 
         if (document.exitFullscreen) {
           document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
-          document.msExitFullscreen();
+        } else if (document['webkitExitFullscreen']) { /* Safari */
+          document['webkitExitFullscreen']();
+        } else if (document['msExitFullscreen']) { /* IE11 */
+          document['msExitFullscreen']();
         }
     }
 
@@ -596,7 +594,6 @@ export const PhotoViewer = (props) => {
                             icon={faExpand} 
                             size="lg" 
                             color={isHoveringExpand ? "white" : "rgb(155, 155, 155)"}
-                            onClick={() => setFullScreen(true)}
                             onClick={openFullScreen}
                             onMouseEnter={() => handleMouseEnter('expand')} 
                             onMouseLeave={() => handleMouseLeave('expand')}

@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -59,7 +57,7 @@ export const OurProcess = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const renderImg = (opt) => {

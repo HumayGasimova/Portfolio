@@ -5,7 +5,9 @@
 import * as React from 'react';
 
 import {
-    connect
+    connect,
+    useDispatch,
+    useSelector 
 } from 'react-redux';
 
 import {
@@ -53,70 +55,70 @@ import {
     menuFullscreenItemsArray
 } from '../../../constants/menuFullscreenItems';
 
-interface MenuFullScreenProps {
-    menuFullscreenItems: Array<MenuFullscreenItems>;
-    page: string;
-    state: string;
-    staticContext: any;
-    history: any;
-    location: any;
-    match: any;
-    initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    setMenuDotsState: (val: string, page: string) => void;
-    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
+// interface MenuFullScreenProps {
+//     menuFullscreenItems: Array<MenuFullscreenItems>;
+//     page: string;
+//     state: string;
+//     staticContext: any;
+//     history: any;
+//     location: any;
+//     match: any;
+//     initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => Array<MenuFullscreenItems>;
+//     setActivityOfMenuFullscreenItem: (val: string, id: number) => Array<MenuFullscreenItems>;
+//     setIsHoveringMenuFullscreenItem: (val: string, id: number) => Array<MenuFullscreenItems>;
+//     setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => Array<MenuFullscreenItems>;
+//     setMenuDotsState: (val: string, page: string) => void;
+//     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+//     unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+// }
 
-interface MenuFullscreenItems {
-    id: number;
-    text: string;
-    itemId: string;
-    path: string;
-    active: boolean;
-    isHover: string;
-    hasOptions: boolean;
-    options: Array<MenuFullscreenItemsOption>;
-}
+// interface MenuFullscreenItems {
+//     id: number;
+//     text: string;
+//     itemId: string;
+//     path: string;
+//     active: boolean;
+//     isHover: string;
+//     hasOptions: boolean;
+//     options: Array<MenuFullscreenItemsOption>;
+// }
 
-interface MenuFullscreenItemsOption {
-    id: number;
-    header: string;
-    itemId: string;
-    array: Array<MenuFullscreenItemsOptionArray>;
-}
+// interface MenuFullscreenItemsOption {
+//     id: number;
+//     header: string;
+//     itemId: string;
+//     array: Array<MenuFullscreenItemsOptionArray>;
+// }
 
-interface MenuFullscreenItemsOptionArray {
-    id: number;
-    text: string;
-    itemId: string;
-    path: string;
-    active: boolean;
-    isHover: string;
-    subOptions: Array<any>;
-}
+// interface MenuFullscreenItemsOptionArray {
+//     id: number;
+//     text: string;
+//     itemId: string;
+//     path: string;
+//     active: boolean;
+//     isHover: string;
+//     subOptions: Array<any>;
+// }
 
 interface MapStateToPropsTypes {
-    menuFullscreenItems: Array<MenuFullscreenItems>;
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
 }
 
 interface MapDispatchToPropsTypes {
-    initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    setMenuDotsState: (val: string, page: string) => void;
-    setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
 }
 
 /**
  * MenuFullScreen component definition and export
  */
 
-export const MenuFullScreen: React.FC<MenuFullScreenProps> = (props) => {
+export const MenuFullScreen = (props) => {
 
     /**
      * Methods

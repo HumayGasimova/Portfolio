@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -37,14 +34,14 @@ export const Pagination = (props) => {
      * State
      */
 
-    const [leftArrowIsHovering, setLeftArrowIsHovering] = useState("init");
-    const [rightArrowIsHovering, setRightArrowIsHovering] = useState("init");
+    const [leftArrowIsHovering, setLeftArrowIsHovering] = React.useState("init");
+    const [rightArrowIsHovering, setRightArrowIsHovering] = React.useState("init");
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
       
 
         return () =>  {
@@ -190,7 +187,7 @@ export const Pagination = (props) => {
         <div className="pagination">
             {props.activePageNumber !== 1 ? 
               <div 
-                className={renderClassName("leftArrowPaginatio", leftArrowIsHovering)}
+                className={renderClassName("leftArrowPaginatio", leftArrowIsHovering, null)}
                 onMouseEnter={() => handleMouseEnter("leftArrowPaginatio")} 
                 onMouseLeave={() => handleMouseLeave("leftArrowPaginatio")}
                 style={{transform: "rotate(180deg)"}}
@@ -205,7 +202,7 @@ export const Pagination = (props) => {
             {renderPages()}
             {props.activePageNumber !== props.pagesArray.length ? 
                 <div 
-                    className={renderClassName("rightArrowPaginatio", rightArrowIsHovering)}
+                    className={renderClassName("rightArrowPaginatio", rightArrowIsHovering, null)}
                     onMouseEnter={() => handleMouseEnter("rightArrowPaginatio")} 
                     onMouseLeave={() => handleMouseLeave("rightArrowPaginatio")}
                     onMouseDown={(e) => onPageClickHandler(e, "rightArrow", props.activePageNumber)}
