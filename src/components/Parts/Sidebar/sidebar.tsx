@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -53,13 +50,13 @@ export const Sidebar = (props) => {
      * State
      */
 
-    const [showOptions, setShowOptions] = useState(false);
+    const [showOptions, setShowOptions] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const handleMouseEnterSidebarItem = (data, id) => {
@@ -123,7 +120,6 @@ export const Sidebar = (props) => {
                         }
                     break;
                 case 'subOptionItem': 
-                    let currentItemId;
                     let updatedPathOfIds = [...pathOfIds];
 
                     updatedPathOfIds.unshift(idOfFirstObj);

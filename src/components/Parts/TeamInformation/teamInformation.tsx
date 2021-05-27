@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -84,7 +82,7 @@ export const TeamInformation = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
         
         if(props.teamInformation.items.length === 0){

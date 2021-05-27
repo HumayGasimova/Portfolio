@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -59,7 +56,7 @@ export const PictureBoard = (props) => {
      * State
      */
 
-    const resizeRef = useRef();
+    const resizeRef = React.useRef(null);
     const initCoordinateRange = [
         {
             id: 1,
@@ -115,7 +112,7 @@ export const PictureBoard = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Event Listeners
 
         const resize = () => {
@@ -128,7 +125,7 @@ export const PictureBoard = (props) => {
         return () => window.removeEventListener('resize', resize);
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     });
 

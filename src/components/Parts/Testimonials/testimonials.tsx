@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -87,7 +85,7 @@ export const Testimonials = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
         
         if(props.testimonials.items.length === 0){

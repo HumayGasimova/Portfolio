@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -64,6 +61,20 @@ import {
 import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
+interface MapStateToPropsTypes {
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
 /**
  * PorfolioNavigation component definition and export
  */
@@ -75,18 +86,18 @@ export const PorfolioNavigation = (props) => {
      */
    
     const size = useWindowSize();
-    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = useState("init");
-    const [isHoveringRightArrow, setIsHoveringRightArrow] = useState("init");
-    const [isHoveringMenuButton, setIsHoveringMenuButton] = useState("init");
-    const [key, setKey] = useState("");
-    const [page, setPage] = useState("");
-    const [category, setCategory] = useState("");
+    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState("init");
+    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState("init");
+    const [isHoveringMenuButton, setIsHoveringMenuButton] = React.useState("init");
+    const [key, setKey] = React.useState("");
+    const [page, setPage] = React.useState("");
+    const [category, setCategory] = React.useState("");
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         /**
          * Fetch data in accordance with the page and category (if the page
          * was archive) that were previously rendered in the location history
@@ -130,7 +141,7 @@ export const PorfolioNavigation = (props) => {
         setKey(key);
     }, []);
 
-    const handleMouseEnter = (opt, id) => {
+    const handleMouseEnter = (opt) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow("on");
@@ -144,7 +155,7 @@ export const PorfolioNavigation = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id) => {
+    const handleMouseLeave = (opt) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow("off");
@@ -439,8 +450,7 @@ export const PorfolioNavigation = (props) => {
                             props.twoColumnsPage.loadMoreStep - 1, 
                             itemsFromLocalStorage !== null ? itemsFromLocalStorage.activeCategoryFromHeader : "showAll", 
                             size.width, 
-                            props.twoColumnsPage.items.length, 
-                            props.twoColumnsPage.itemsStyleValues
+                            props.twoColumnsPage.items.length
                         );
                     }else{
                         // Fetch data (required to run -> npm run server)
@@ -460,8 +470,7 @@ export const PorfolioNavigation = (props) => {
                             props.threeColumnsPage.loadMoreStep - 1, 
                             itemsFromLocalStorage !== null ? itemsFromLocalStorage.activeCategoryFromHeader : "showAll", 
                             size.width, 
-                            props.threeColumnsPage.items.length, 
-                            props.threeColumnsPage.itemsStyleValues
+                            props.threeColumnsPage.items.length
                         );
 
                         // props.fetchThreeColumnsPageSuccess(FakeData.threeColumnsPage);
@@ -483,8 +492,7 @@ export const PorfolioNavigation = (props) => {
                             props.fourColumnsPage.loadMoreStep - 1, 
                             itemsFromLocalStorage !== null ? itemsFromLocalStorage.activeCategoryFromHeader : "showAll", 
                             size.width, 
-                            props.fourColumnsPage.items.length, 
-                            props.fourColumnsPage.itemsStyleValues
+                            props.fourColumnsPage.items.length
                         );
 
                     }else{
@@ -1745,112 +1753,114 @@ export const PorfolioNavigation = (props) => {
     );
 }
 
-export default connect(
-    (state) => {
-        return {
-            portfolioGalleryPage: Selectors.getPortfolioGalleryPageState(state),
-            archive: Selectors.getArchiveState(state),
-            switchImagePage: Selectors.getSwitchImagePageState(state),
-            simpleOverlayPage: Selectors.getSimpleOverlayPageState(state),
-            slideFromImageLeftPage: Selectors.getSlideFromImageLeftPageState(state),
-            overlayPage: Selectors.getOverlayPageState(state),
-            overlayWithInfoPage: Selectors.getOverlayWithInfoPageState(state),
-            standardPage: Selectors.getStandardPageState(state),
-            galleryPage: Selectors.getGalleryPageState(state),
-            galleryWithSpacePage: Selectors.getGalleryWithSpacePageState(state),
-            stoneWallPage: Selectors.getStoneWallPageState(state),
-            stoneWallWidePage: Selectors.getStoneWallWidePageState(state),
-            metroPage: Selectors.getMetroPageState(state),
-            pinterest3ColumnsPage: Selectors.getPinterest3ColumnsPageState(state),
-            twoColumnsWidePage: Selectors.getTwoColumnsWidePageState(state),
-            threeColumnsWidePage: Selectors.getThreeColumnsWidePageState(state),
-            fourColumnsWidePage: Selectors.getFourColumnsWidePageState(state),
-            fiveColumnsWidePage: Selectors.getFiveColumnsWidePageState(state),
-            twoColumnsPage: Selectors.getTwoColumnsPageState(state),
-            threeColumnsPage: Selectors.getThreeColumnsPageState(state),
-            fourColumnsPage: Selectors.getFourColumnsPageState(state),
-            bigImagesPortfolio: Selectors.getBigImagesPortfolioState(state),
-            bigSliderPortfolio: Selectors.getBigSliderPortfolioState(state),
-            galleryPortfolio: Selectors.getGalleryPortfolioState(state),
-            smallGalleryPortfolio: Selectors.getSmallGalleryPortfolioState(state),
-            smallImagesPortfolio: Selectors.getSmallImagesPortfolioState(state),
-            smallSliderPortfolio: Selectors.getSmallSliderPortfolioState(state),
-            unmountComp: Selectors.getUnmountComponentState(state)
-        };
-    },
-    (dispatch) => {
-        return {
-            fetchPortfolioGalleryPage: bindActionCreators(Services.fetchPortfolioGalleryPage, dispatch),
-            fetchPortfolioGalleryPageSuccess: bindActionCreators(Actions.fetchPortfolioGalleryPageSuccess, dispatch),
-            fetchArchive: bindActionCreators(Services.fetchArchive, dispatch),
-            fetchArchiveSuccess: bindActionCreators(Actions.fetchArchiveSuccess, dispatch),
-            setArchiveCategory: bindActionCreators(Actions.setArchiveCategory, dispatch),
-            loadMoreDisableButtonStateForArchive: bindActionCreators(Actions.loadMoreDisableButtonStateForArchive, dispatch),
-            fetchSwitchImagePage: bindActionCreators(Services.fetchSwitchImagePage, dispatch),
-            fetchSwitchImagePageSuccess: bindActionCreators(Actions.fetchSwitchImagePageSuccess, dispatch),
-            fetchSimpleOverlayPage: bindActionCreators(Services.fetchSimpleOverlayPage, dispatch),
-            fetchSimpleOverlayPageSuccess: bindActionCreators(Actions.fetchSimpleOverlayPageSuccess, dispatch),
-            fetchSlideFromImageLeftPage: bindActionCreators(Services.fetchSlideFromImageLeftPage, dispatch),
-            fetchSlideFromImageLeftPageSuccess: bindActionCreators(Actions.fetchSlideFromImageLeftPageSuccess, dispatch),
-            fetchOverlayPage: bindActionCreators(Services.fetchOverlayPage, dispatch),
-            fetchOverlayPageSuccess: bindActionCreators(Actions.fetchOverlayPageSuccess, dispatch),
-            fetchOverlayWithInfoPage: bindActionCreators(Services.fetchOverlayWithInfoPage, dispatch),
-            fetchOverlayWithInfoPageSuccess: bindActionCreators(Actions.fetchOverlayWithInfoPageSuccess, dispatch),
-            fetchStandardPage: bindActionCreators(Services.fetchStandardPage, dispatch),
-            fetchStandardPageSuccess: bindActionCreators(Actions.fetchStandardPageSuccess, dispatch),
-            fetchGalleryPage: bindActionCreators(Services.fetchGalleryPage, dispatch),
-            fetchGalleryPageSuccess: bindActionCreators(Actions.fetchGalleryPageSuccess, dispatch),
-            fetchGalleryWithSpacePage: bindActionCreators(Services.fetchGalleryWithSpacePage, dispatch),
-            fetchGalleryWithSpacePageSuccess: bindActionCreators(Actions.fetchGalleryWithSpacePageSuccess, dispatch),
-            fetchStoneWallPage: bindActionCreators(Services.fetchStoneWallPage, dispatch),
-            fetchStoneWallPageSuccess: bindActionCreators(Actions.fetchStoneWallPageSuccess, dispatch),
-            initItemsStylesStateForStoneWallPage: bindActionCreators(Actions.initItemsStylesStateForStoneWallPage, dispatch),
-            fetchStoneWallWidePage: bindActionCreators(Services.fetchStoneWallWidePage, dispatch),
-            fetchStoneWallWidePageSuccess: bindActionCreators(Actions.fetchStoneWallWidePageSuccess, dispatch),
-            initItemsStylesStateForStoneWallWidePage: bindActionCreators(Actions.initItemsStylesStateForStoneWallWidePage, dispatch),
-            fetchMetroPage: bindActionCreators(Services.fetchMetroPage, dispatch),
-            fetchMetroPageSuccess: bindActionCreators(Actions.fetchMetroPageSuccess, dispatch),
-            initItemsStylesStateForMetroPage: bindActionCreators(Actions.initItemsStylesStateForMetroPage, dispatch),
-            fetchPinterest3ColumnsPage: bindActionCreators(Services.fetchPinterest3ColumnsPage, dispatch),
-            fetchPinterest3ColumnsPageSuccess: bindActionCreators(Actions.fetchPinterest3ColumnsPageSuccess, dispatch),
-            initItemsStylesStateForPinterest3ColumnsPage: bindActionCreators(Actions.initItemsStylesStateForPinterest3ColumnsPage, dispatch),
-            fetchTwoColumnsWidePage: bindActionCreators(Services.fetchTwoColumnsWidePage, dispatch),
-            fetchTwoColumnsWidePageSuccess: bindActionCreators(Actions.fetchTwoColumnsWidePageSuccess, dispatch),
-            fetchThreeColumnsWidePage: bindActionCreators(Services.fetchThreeColumnsWidePage, dispatch),
-            fetchThreeColumnsWidePageSuccess: bindActionCreators(Actions.fetchThreeColumnsWidePageSuccess, dispatch),
-            fetchFourColumnsWidePage: bindActionCreators(Services.fetchFourColumnsWidePage, dispatch),
-            fetchFourColumnsWidePageSuccess: bindActionCreators(Actions.fetchFourColumnsWidePageSuccess, dispatch),
-            fetchFiveColumnsWidePage: bindActionCreators(Services.fetchFiveColumnsWidePage, dispatch),
-            fetchFiveColumnsWidePageSuccess: bindActionCreators(Actions.fetchFiveColumnsWidePageSuccess, dispatch),
-            fetchTwoColumnsPage: bindActionCreators(Services.fetchTwoColumnsPage, dispatch),
-            fetchTwoColumnsPageSuccess: bindActionCreators(Actions.fetchTwoColumnsPageSuccess, dispatch),
-            initItemsStylesStateForTwoColumnsPage: bindActionCreators(Actions.initItemsStylesStateForTwoColumnsPage, dispatch),
-            addMoreItemsStylesStateForTwoColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForTwoColumnsPage, dispatch),
-            setCategoriesTwoColumnsPage: bindActionCreators(Actions.setCategoriesTwoColumnsPage, dispatch),
-            loadMoreTwoColumnsPageSuccess: bindActionCreators(Actions.loadMoreTwoColumnsPageSuccess, dispatch),
-            loadMoreDisableButtonStateForTwoColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForTwoColumnsPage, dispatch),
-            updateItemsStyleValuesTwoColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesTwoColumnsPage, dispatch),
-            setTopPositionOfTheItemForTwoColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForTwoColumnsPage, dispatch),
-            fetchThreeColumnsPage: bindActionCreators(Services.fetchThreeColumnsPage, dispatch),
-            fetchThreeColumnsPageSuccess: bindActionCreators(Actions.fetchThreeColumnsPageSuccess, dispatch),
-            initItemsStylesStateForThreeColumnsPage: bindActionCreators(Actions.initItemsStylesStateForThreeColumnsPage, dispatch),
-            addMoreItemsStylesStateForThreeColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForThreeColumnsPage, dispatch),
-            setCategoriesThreeColumnsPage: bindActionCreators(Actions.setCategoriesThreeColumnsPage, dispatch),
-            loadMoreThreeColumnsPageSuccess: bindActionCreators(Actions.loadMoreThreeColumnsPageSuccess, dispatch),
-            loadMoreDisableButtonStateForThreeColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForThreeColumnsPage, dispatch),
-            updateItemsStyleValuesThreeColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesThreeColumnsPage, dispatch),
-            setTopPositionOfTheItemForThreeColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForThreeColumnsPage, dispatch),
-            fetchFourColumnsPage: bindActionCreators(Services.fetchFourColumnsPage, dispatch),
-            fetchFourColumnsPageSuccess: bindActionCreators(Actions.fetchFourColumnsPageSuccess, dispatch),
-            initItemsStylesStateForFourColumnsPage: bindActionCreators(Actions.initItemsStylesStateForFourColumnsPage, dispatch),
-            addMoreItemsStylesStateForFourColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForFourColumnsPage, dispatch),
-            setCategoriesFourColumnsPage: bindActionCreators(Actions.setCategoriesFourColumnsPage, dispatch),
-            loadMoreFourColumnsPageSuccess: bindActionCreators(Actions.loadMoreFourColumnsPageSuccess, dispatch),
-            loadMoreDisableButtonStateForFourColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForFourColumnsPage, dispatch),
-            updateItemsStyleValuesFourColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesFourColumnsPage, dispatch),
-            setTopPositionOfTheItemForFourColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForFourColumnsPage, dispatch),
-            setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
-            portfolioNavigationOnClickStart: bindActionCreators(Actions.portfolioNavigationOnClickStart, dispatch),
-        };
-    }
-)(withRouter(PorfolioNavigation));
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                portfolioGalleryPage: Selectors.getPortfolioGalleryPageState(state),
+                archive: Selectors.getArchiveState(state),
+                switchImagePage: Selectors.getSwitchImagePageState(state),
+                simpleOverlayPage: Selectors.getSimpleOverlayPageState(state),
+                slideFromImageLeftPage: Selectors.getSlideFromImageLeftPageState(state),
+                overlayPage: Selectors.getOverlayPageState(state),
+                overlayWithInfoPage: Selectors.getOverlayWithInfoPageState(state),
+                standardPage: Selectors.getStandardPageState(state),
+                galleryPage: Selectors.getGalleryPageState(state),
+                galleryWithSpacePage: Selectors.getGalleryWithSpacePageState(state),
+                stoneWallPage: Selectors.getStoneWallPageState(state),
+                stoneWallWidePage: Selectors.getStoneWallWidePageState(state),
+                metroPage: Selectors.getMetroPageState(state),
+                pinterest3ColumnsPage: Selectors.getPinterest3ColumnsPageState(state),
+                twoColumnsWidePage: Selectors.getTwoColumnsWidePageState(state),
+                threeColumnsWidePage: Selectors.getThreeColumnsWidePageState(state),
+                fourColumnsWidePage: Selectors.getFourColumnsWidePageState(state),
+                fiveColumnsWidePage: Selectors.getFiveColumnsWidePageState(state),
+                twoColumnsPage: Selectors.getTwoColumnsPageState(state),
+                threeColumnsPage: Selectors.getThreeColumnsPageState(state),
+                fourColumnsPage: Selectors.getFourColumnsPageState(state),
+                bigImagesPortfolio: Selectors.getBigImagesPortfolioState(state),
+                bigSliderPortfolio: Selectors.getBigSliderPortfolioState(state),
+                galleryPortfolio: Selectors.getGalleryPortfolioState(state),
+                smallGalleryPortfolio: Selectors.getSmallGalleryPortfolioState(state),
+                smallImagesPortfolio: Selectors.getSmallImagesPortfolioState(state),
+                smallSliderPortfolio: Selectors.getSmallSliderPortfolioState(state),
+                unmountComp: Selectors.getUnmountComponentState(state)
+            };
+        },
+        (dispatch) => {
+            return {
+                fetchPortfolioGalleryPage: bindActionCreators(Services.fetchPortfolioGalleryPage, dispatch),
+                fetchPortfolioGalleryPageSuccess: bindActionCreators(Actions.fetchPortfolioGalleryPageSuccess, dispatch),
+                fetchArchive: bindActionCreators(Services.fetchArchive, dispatch),
+                fetchArchiveSuccess: bindActionCreators(Actions.fetchArchiveSuccess, dispatch),
+                setArchiveCategory: bindActionCreators(Actions.setArchiveCategory, dispatch),
+                loadMoreDisableButtonStateForArchive: bindActionCreators(Actions.loadMoreDisableButtonStateForArchive, dispatch),
+                fetchSwitchImagePage: bindActionCreators(Services.fetchSwitchImagePage, dispatch),
+                fetchSwitchImagePageSuccess: bindActionCreators(Actions.fetchSwitchImagePageSuccess, dispatch),
+                fetchSimpleOverlayPage: bindActionCreators(Services.fetchSimpleOverlayPage, dispatch),
+                fetchSimpleOverlayPageSuccess: bindActionCreators(Actions.fetchSimpleOverlayPageSuccess, dispatch),
+                fetchSlideFromImageLeftPage: bindActionCreators(Services.fetchSlideFromImageLeftPage, dispatch),
+                fetchSlideFromImageLeftPageSuccess: bindActionCreators(Actions.fetchSlideFromImageLeftPageSuccess, dispatch),
+                fetchOverlayPage: bindActionCreators(Services.fetchOverlayPage, dispatch),
+                fetchOverlayPageSuccess: bindActionCreators(Actions.fetchOverlayPageSuccess, dispatch),
+                fetchOverlayWithInfoPage: bindActionCreators(Services.fetchOverlayWithInfoPage, dispatch),
+                fetchOverlayWithInfoPageSuccess: bindActionCreators(Actions.fetchOverlayWithInfoPageSuccess, dispatch),
+                fetchStandardPage: bindActionCreators(Services.fetchStandardPage, dispatch),
+                fetchStandardPageSuccess: bindActionCreators(Actions.fetchStandardPageSuccess, dispatch),
+                fetchGalleryPage: bindActionCreators(Services.fetchGalleryPage, dispatch),
+                fetchGalleryPageSuccess: bindActionCreators(Actions.fetchGalleryPageSuccess, dispatch),
+                fetchGalleryWithSpacePage: bindActionCreators(Services.fetchGalleryWithSpacePage, dispatch),
+                fetchGalleryWithSpacePageSuccess: bindActionCreators(Actions.fetchGalleryWithSpacePageSuccess, dispatch),
+                fetchStoneWallPage: bindActionCreators(Services.fetchStoneWallPage, dispatch),
+                fetchStoneWallPageSuccess: bindActionCreators(Actions.fetchStoneWallPageSuccess, dispatch),
+                initItemsStylesStateForStoneWallPage: bindActionCreators(Actions.initItemsStylesStateForStoneWallPage, dispatch),
+                fetchStoneWallWidePage: bindActionCreators(Services.fetchStoneWallWidePage, dispatch),
+                fetchStoneWallWidePageSuccess: bindActionCreators(Actions.fetchStoneWallWidePageSuccess, dispatch),
+                initItemsStylesStateForStoneWallWidePage: bindActionCreators(Actions.initItemsStylesStateForStoneWallWidePage, dispatch),
+                fetchMetroPage: bindActionCreators(Services.fetchMetroPage, dispatch),
+                fetchMetroPageSuccess: bindActionCreators(Actions.fetchMetroPageSuccess, dispatch),
+                initItemsStylesStateForMetroPage: bindActionCreators(Actions.initItemsStylesStateForMetroPage, dispatch),
+                fetchPinterest3ColumnsPage: bindActionCreators(Services.fetchPinterest3ColumnsPage, dispatch),
+                fetchPinterest3ColumnsPageSuccess: bindActionCreators(Actions.fetchPinterest3ColumnsPageSuccess, dispatch),
+                initItemsStylesStateForPinterest3ColumnsPage: bindActionCreators(Actions.initItemsStylesStateForPinterest3ColumnsPage, dispatch),
+                fetchTwoColumnsWidePage: bindActionCreators(Services.fetchTwoColumnsWidePage, dispatch),
+                fetchTwoColumnsWidePageSuccess: bindActionCreators(Actions.fetchTwoColumnsWidePageSuccess, dispatch),
+                fetchThreeColumnsWidePage: bindActionCreators(Services.fetchThreeColumnsWidePage, dispatch),
+                fetchThreeColumnsWidePageSuccess: bindActionCreators(Actions.fetchThreeColumnsWidePageSuccess, dispatch),
+                fetchFourColumnsWidePage: bindActionCreators(Services.fetchFourColumnsWidePage, dispatch),
+                fetchFourColumnsWidePageSuccess: bindActionCreators(Actions.fetchFourColumnsWidePageSuccess, dispatch),
+                fetchFiveColumnsWidePage: bindActionCreators(Services.fetchFiveColumnsWidePage, dispatch),
+                fetchFiveColumnsWidePageSuccess: bindActionCreators(Actions.fetchFiveColumnsWidePageSuccess, dispatch),
+                fetchTwoColumnsPage: bindActionCreators(Services.fetchTwoColumnsPage, dispatch),
+                fetchTwoColumnsPageSuccess: bindActionCreators(Actions.fetchTwoColumnsPageSuccess, dispatch),
+                initItemsStylesStateForTwoColumnsPage: bindActionCreators(Actions.initItemsStylesStateForTwoColumnsPage, dispatch),
+                addMoreItemsStylesStateForTwoColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForTwoColumnsPage, dispatch),
+                setCategoriesTwoColumnsPage: bindActionCreators(Actions.setCategoriesTwoColumnsPage, dispatch),
+                loadMoreTwoColumnsPageSuccess: bindActionCreators(Actions.loadMoreTwoColumnsPageSuccess, dispatch),
+                loadMoreDisableButtonStateForTwoColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForTwoColumnsPage, dispatch),
+                updateItemsStyleValuesTwoColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesTwoColumnsPage, dispatch),
+                setTopPositionOfTheItemForTwoColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForTwoColumnsPage, dispatch),
+                fetchThreeColumnsPage: bindActionCreators(Services.fetchThreeColumnsPage, dispatch),
+                fetchThreeColumnsPageSuccess: bindActionCreators(Actions.fetchThreeColumnsPageSuccess, dispatch),
+                initItemsStylesStateForThreeColumnsPage: bindActionCreators(Actions.initItemsStylesStateForThreeColumnsPage, dispatch),
+                addMoreItemsStylesStateForThreeColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForThreeColumnsPage, dispatch),
+                setCategoriesThreeColumnsPage: bindActionCreators(Actions.setCategoriesThreeColumnsPage, dispatch),
+                loadMoreThreeColumnsPageSuccess: bindActionCreators(Actions.loadMoreThreeColumnsPageSuccess, dispatch),
+                loadMoreDisableButtonStateForThreeColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForThreeColumnsPage, dispatch),
+                updateItemsStyleValuesThreeColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesThreeColumnsPage, dispatch),
+                setTopPositionOfTheItemForThreeColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForThreeColumnsPage, dispatch),
+                fetchFourColumnsPage: bindActionCreators(Services.fetchFourColumnsPage, dispatch),
+                fetchFourColumnsPageSuccess: bindActionCreators(Actions.fetchFourColumnsPageSuccess, dispatch),
+                initItemsStylesStateForFourColumnsPage: bindActionCreators(Actions.initItemsStylesStateForFourColumnsPage, dispatch),
+                addMoreItemsStylesStateForFourColumnsPage: bindActionCreators(Actions.addMoreItemsStylesStateForFourColumnsPage, dispatch),
+                setCategoriesFourColumnsPage: bindActionCreators(Actions.setCategoriesFourColumnsPage, dispatch),
+                loadMoreFourColumnsPageSuccess: bindActionCreators(Actions.loadMoreFourColumnsPageSuccess, dispatch),
+                loadMoreDisableButtonStateForFourColumnsPage: bindActionCreators(Actions.loadMoreDisableButtonStateForFourColumnsPage, dispatch),
+                updateItemsStyleValuesFourColumnsPage: bindActionCreators(Actions.updateItemsStyleValuesFourColumnsPage, dispatch),
+                setTopPositionOfTheItemForFourColumnsPage: bindActionCreators(Actions.setTopPositionOfTheItemForFourColumnsPage, dispatch),
+                setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
+                portfolioNavigationOnClickStart: bindActionCreators(Actions.portfolioNavigationOnClickStart, dispatch),
+            };
+        }
+    )(PorfolioNavigation)
+);

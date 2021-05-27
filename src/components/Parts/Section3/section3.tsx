@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -29,7 +27,7 @@ export const Section3 = () => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     /**

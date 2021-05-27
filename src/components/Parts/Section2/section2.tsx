@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -24,8 +22,8 @@ import './section2.scss';
  * Components
  */
 
-import PictureBoard from '../../Parts/PictureBoard/pictureBoard';
-import OurProcess from '../../Parts/OurProcess/ourProcess';
+import PictureBoard from '../PictureBoard/pictureBoard';
+import OurProcess from '../OurProcess/ourProcess';
 
 /**
  * Actions
@@ -73,7 +71,7 @@ export const Section2 = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
         
         if(props.pictureBoard.items.length === 0){

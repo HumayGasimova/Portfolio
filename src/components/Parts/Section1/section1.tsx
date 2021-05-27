@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -71,7 +69,7 @@ export const Section1 = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
 
         if(props.section1Data.items.length === 0){
