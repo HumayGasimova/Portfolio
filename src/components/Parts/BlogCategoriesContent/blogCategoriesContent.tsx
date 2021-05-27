@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -27,7 +24,7 @@ import './blogCategoriesContent.scss';
 
 import Loading from '../../SmallParts/Loading/loading';
 import BlogListPostCard from '../../SmallParts/BlogListPostCard/blogListPostCard';
-import Pagination from '../../Parts/Pagination/pagination';
+import Pagination from '../Pagination/pagination';
 
 /**
  * Services
@@ -72,7 +69,7 @@ export const BlogCategoriesContent = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
 
         let categoryName = setPageData(props.page, "categoryName");

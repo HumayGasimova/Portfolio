@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -37,13 +34,13 @@ export const Audio = (props) => {
      * State
      */
 
-    const [audioIsPlaying, setAudioIsPlaying] = useState(false);
+    const [audioIsPlaying, setAudioIsPlaying] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         let audio = document.getElementById(`${props.audioKey}Audio`);
         
         // Event Listeners

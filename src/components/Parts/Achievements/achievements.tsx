@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -81,13 +78,13 @@ export const Achievements = (props) => {
      */
 
     const size = useWindowSize();
-    const [showComponent, setShowComponent] = useState(false);
+    const [showComponent, setShowComponent] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
 
         if(props.achievementsData.items.length === 0){
