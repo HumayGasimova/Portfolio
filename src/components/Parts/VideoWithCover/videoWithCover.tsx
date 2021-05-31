@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -35,14 +32,14 @@ export const VideoWithCover = (props) => {
      * State
      */
 
-    const [isHoveringPlayButton, setIsHoveringPlayButton] = useState("init");
-    const [videoShown, setVideoShown] = useState(false);
+    const [isHoveringPlayButton, setIsHoveringPlayButton] = React.useState("init");
+    const [videoShown, setVideoShown] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     /**
@@ -102,8 +99,8 @@ export const VideoWithCover = (props) => {
                     <div 
                         className={renderClassName(isHoveringPlayButton)}
                         onMouseDown={(e) => showVideo(e)}
-                        onMouseEnter={() => handleMouseEnter('expand')} 
-                        onMouseLeave={() => handleMouseLeave('expand')}
+                        onMouseEnter={() => handleMouseEnter()} 
+                        onMouseLeave={() => handleMouseLeave()}
                     >
                     </div>
                 </div>

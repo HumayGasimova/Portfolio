@@ -40,6 +40,20 @@ import * as Actions from '../../../actions';
 
 import * as Selectors from '../../../reducers/selectors';
 
+interface MapStateToPropsTypes {
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
 /**
  * Sidebar component definition and export
  */
@@ -204,29 +218,31 @@ export const Sidebar = (props) => {
     );
 }
 
-export default connect(
-    (state) => {
-        return {
-            menuItems: Selectors.getMenuItemsState(state),
-            blogListStandardPage: Selectors.getBlogListStandardPageState(state)
-        };
-    },
-    (dispatch) => {
-        return {
-            setIsHoveringMenuItem: bindActionCreators(Actions.setIsHoveringMenuItem, dispatch),
-            setIsHoveringToolbarOptionItem: bindActionCreators(Actions.setIsHoveringToolbarOptionItem, dispatch),
-            setIsHoveringToolbarSubOptionItem: bindActionCreators(Actions.setIsHoveringToolbarSubOptionItem, dispatch),
-            setActivityOfToolbarOptionItem: bindActionCreators(Actions.setActivityOfToolbarOptionItem, dispatch),
-            setActivityOfToolbarSubOptionItem: bindActionCreators(Actions.setActivityOfToolbarSubOptionItem, dispatch),
-            clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
-            setSidebarState: bindActionCreators(Actions.setSidebarState, dispatch),
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-            setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
-            activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
-            activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
-            activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
-        };
-    }
-)(withRouter(Sidebar));
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                menuItems: Selectors.getMenuItemsState(state),
+                blogListStandardPage: Selectors.getBlogListStandardPageState(state)
+            };
+        },
+        (dispatch) => {
+            return {
+                setIsHoveringMenuItem: bindActionCreators(Actions.setIsHoveringMenuItem, dispatch),
+                setIsHoveringToolbarOptionItem: bindActionCreators(Actions.setIsHoveringToolbarOptionItem, dispatch),
+                setIsHoveringToolbarSubOptionItem: bindActionCreators(Actions.setIsHoveringToolbarSubOptionItem, dispatch),
+                setActivityOfToolbarOptionItem: bindActionCreators(Actions.setActivityOfToolbarOptionItem, dispatch),
+                setActivityOfToolbarSubOptionItem: bindActionCreators(Actions.setActivityOfToolbarSubOptionItem, dispatch),
+                clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
+                setSidebarState: bindActionCreators(Actions.setSidebarState, dispatch),
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+                setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
+                activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
+                activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
+                activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
+            };
+        }
+    )(Sidebar)
+);
  

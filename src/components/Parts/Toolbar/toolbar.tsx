@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -77,6 +74,33 @@ import {
     menuItemsArray
 } from '../../../constants/menuItems';
 
+interface MapStateToPropsTypes {
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
+interface ToolbarItemData {
+    active: boolean,
+    hasSubOptions: boolean,
+    id: number,
+    isHover: string,
+    itemId: string,
+    options: Array<any>,
+    length: number,
+    path: string,
+    text: string
+}
+
+
 /**
  * Toolbar component definition and export
  */
@@ -88,17 +112,27 @@ export const Toolbar = (props) => {
      */
 
     const size = useWindowSize();
-    const [menuDots, setMenuDots] = useState([1,2,3,4,5,6,7,8,9]);
-    const [isHovering, setIsHovering] = useState(null);
-    const [showOptions, setShowOptions] = useState(false);
-    const [toolbarItemData, setToolbarItemData] = useState({});
-    const [showOptionsLessThan3Regular, setShowOptionsLessThan3Regular] = useState(false);
+    const [menuDots, setMenuDots] = React.useState([1,2,3,4,5,6,7,8,9]);
+    const [isHovering, setIsHovering] = React.useState(null);
+    const [showOptions, setShowOptions] = React.useState(false);
+    const [toolbarItemData, setToolbarItemData] = React.useState({
+        active: false,
+        hasSubOptions: false,
+        id: 0,
+        isHover: "",
+        itemId: "",
+        options: [],
+        length: 0,
+        path: "",
+        text: ""
+    });
+    const [showOptionsLessThan3Regular, setShowOptionsLessThan3Regular] = React.useState(false);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Initialize menu items
 
         props.initMenuItems(menuItemsArray);
@@ -119,6 +153,7 @@ export const Toolbar = (props) => {
     }
 
     const handleMouseEnterToolbarItem = (opt, data, id) => {
+        console.log("DATA",data)
         props.setIsHoveringMenuItem("on", id);
         switch(opt){
             case 'regular':
@@ -145,7 +180,20 @@ export const Toolbar = (props) => {
             case 'regular':
                 if(data.options.length > 2){
                     setShowOptions(false);
-                    setToolbarItemData({});
+
+                    let obj: ToolbarItemData = {
+                        active: false,
+                        hasSubOptions: false,
+                        id: 0,
+                        isHover: "",
+                        itemId: "",
+                        options: [],
+                        length: 0,
+                        path: "",
+                        text: ""
+                    }
+                    
+                    setToolbarItemData(obj);
                 }else{
                     setShowOptionsLessThan3Regular(false);
                 }
@@ -160,6 +208,8 @@ export const Toolbar = (props) => {
 
         if(e.button !== 1){
             // Menu option or suboption on left mouse click
+
+            let currentItemId;
 
             /**
              * Check if the menu option or suboption is active. If it is active,
@@ -201,7 +251,6 @@ export const Toolbar = (props) => {
                         }
                     break;
                 case 'subOptionItem': 
-                    let currentItemId;
                     let updatedPathOfIds = [...pathOfIds];
 
                     updatedPathOfIds.unshift(idOfFirstObj);
@@ -547,7 +596,7 @@ export const Toolbar = (props) => {
                 <>
                     <div className="toolbar-small-screen">
                         <div
-                            className={renderClassName("menuSmallScreenButton", props.sidebarState)}
+                            className={renderClassName("menuSmallScreenButton", props.sidebarState, null)}
                             onClick={menuOnClick}
                         >
                             <div className="toolbar-menu-first-line">
@@ -590,7 +639,7 @@ export const Toolbar = (props) => {
                 >  
                     <div className={props.scrollingUp ? "toolbar-small-screen-animated-mounted" : "toolbar-small-screen-animated-unmounted"}>
                         <div
-                            className={renderClassName("menuSmallScreenButton", props.sidebarState)}
+                            className={renderClassName("menuSmallScreenButton", props.sidebarState, null)}
                             onClick={menuOnClick}
                         >
                             <div className="toolbar-menu-first-line">
@@ -656,7 +705,6 @@ export const Toolbar = (props) => {
                         onMouseEnterAndLeaveOptionItem={props.setIsHoveringToolbarOptionItem} 
                         onMouseEnterAndLeaveSubOptionItem={props.setIsHoveringToolbarSubOptionItem}
                         itemOnClick={(opt, path, pathOfIds, e, idOfFirstObj, itemId) => itemOnClick(opt, path, pathOfIds, e, idOfFirstObj, itemId)}
-                        renderClassName={(opt, isHover) => handleMouseLeaveToolbarOptionItem(opt, isHover)}
                         data={el}
                     />
                 )
@@ -690,7 +738,7 @@ export const Toolbar = (props) => {
                     <div 
                         key={i} 
                         className="toolbar-option-item"
-                        onMouseDown={(e) => itemOnClick("optionItem", el.path, pathOfIds, e)}
+                        onMouseDown={(e) => itemOnClick("optionItem", el.path, pathOfIds, e, null, null)}
                     >
                         {el.active ? 
                         <div className="arrow-wrapper-active">
@@ -701,7 +749,7 @@ export const Toolbar = (props) => {
                             </div>
                         </div> : null}
                         {!el.active ? 
-                        <div className={renderClassName("arrow", el.isHover)}>
+                        <div className={renderClassName("arrow", el.isHover, null)}>
                             <div className="arrow-horizontal-line"/>
                             <div className="arrow-wrapper2">
                                 <div className="arrow-top-line"></div>
@@ -742,33 +790,35 @@ export const Toolbar = (props) => {
     );
 }
 
-export default connect(
-    (state) => {
-        return {
-            menuItems: Selectors.getMenuItemsState(state),
-            sidebarState: Selectors.getSidebarStateState(state),
-            blogListStandardPage: Selectors.getBlogListStandardPageState(state),
-            unmountComp: Selectors.getUnmountComponentState(state)
-        };
-    },
-    (dispatch) => {
-        return {
-            initMenuItems: bindActionCreators(Actions.initMenuItems, dispatch),
-            setIsHoveringMenuItem: bindActionCreators(Actions.setIsHoveringMenuItem, dispatch),
-            setIsHoveringToolbarOptionItem: bindActionCreators(Actions.setIsHoveringToolbarOptionItem, dispatch),
-            setIsHoveringToolbarSubOptionItem: bindActionCreators(Actions.setIsHoveringToolbarSubOptionItem, dispatch),
-            setActivityOfToolbarOptionItem: bindActionCreators(Actions.setActivityOfToolbarOptionItem, dispatch),
-            setActivityOfToolbarSubOptionItem: bindActionCreators(Actions.setActivityOfToolbarSubOptionItem, dispatch),
-            setSidebarState: bindActionCreators(Actions.setSidebarState, dispatch),
-            clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-            setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
-            setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
-            activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
-            activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
-            activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
-        };
-    }
-)(withRouter(Toolbar));
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                menuItems: Selectors.getMenuItemsState(state),
+                sidebarState: Selectors.getSidebarStateState(state),
+                blogListStandardPage: Selectors.getBlogListStandardPageState(state),
+                unmountComp: Selectors.getUnmountComponentState(state)
+            };
+        },
+        (dispatch) => {
+            return {
+                initMenuItems: bindActionCreators(Actions.initMenuItems, dispatch),
+                setIsHoveringMenuItem: bindActionCreators(Actions.setIsHoveringMenuItem, dispatch),
+                setIsHoveringToolbarOptionItem: bindActionCreators(Actions.setIsHoveringToolbarOptionItem, dispatch),
+                setIsHoveringToolbarSubOptionItem: bindActionCreators(Actions.setIsHoveringToolbarSubOptionItem, dispatch),
+                setActivityOfToolbarOptionItem: bindActionCreators(Actions.setActivityOfToolbarOptionItem, dispatch),
+                setActivityOfToolbarSubOptionItem: bindActionCreators(Actions.setActivityOfToolbarSubOptionItem, dispatch),
+                setSidebarState: bindActionCreators(Actions.setSidebarState, dispatch),
+                clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+                setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
+                setHistoryPopFromPortfolioItem: bindActionCreators(Actions.setHistoryPopFromPortfolioItem, dispatch),
+                activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
+                activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
+                activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
+            };
+        }
+    )(Toolbar)
+);
  

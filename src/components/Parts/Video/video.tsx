@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -38,17 +34,18 @@ export const Video = (props) => {
      * State
      */
 
-    const videoRef = useRef();
-    const [url, setUrl] = useState("");
-    const previousUrl = useRef(url);
-    const [videoIsPlaying, setVideoIsPlaying] = useState(false);
+    const videoRef = React.useRef(null);
+    const [url, setUrl] = React.useState("");
+    const previousUrl = React.useRef(url);
+    const [videoIsPlaying, setVideoIsPlaying] = React.useState(false);
    
     /**
      * Methods
      */
 
-    useEffect(() => {
-        let video = document.getElementById(`${props.videoKey}Video`);
+    React.useEffect(() => {
+        let video = (document.getElementById(`${props.videoKey}Video`) as HTMLVideoElement);
+        
         setUrl(loadVideo(props.videoKey));
 
         // Play video
