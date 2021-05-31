@@ -2,19 +2,19 @@
  * Libraries
  */
 
-import React from 'react';
+import * as React from 'react';
 
 /**
  * Styles
  */
 
-import './h45.scss';
+import './h22.scss';
 
 /**
- * H45 component definition and export
+ * H22 component definition and export
  */
 
-export const H45 = (props) => {
+export const H22 = (props) => {
 
     /**
      * Markup
@@ -22,7 +22,7 @@ export const H45 = (props) => {
 
     return(
         <div 
-            className={props.className ? props.className  : "h45"}
+            className={props.className ? props.className : "h22"}
             onClick={props.onClick}
         >
            {props.children}
@@ -30,5 +30,5 @@ export const H45 = (props) => {
     );
 }
 
-export default H45;
+export default H22;
  
