@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
@@ -13,6 +11,12 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
  */
 
 import './googleMapContainer.scss';
+
+// type Props = {
+//     google: any,
+//     mapWidth: any,
+//     mapHeight: any
+// };
 
 /**
  * GoogleMapContainer component definition and export
@@ -24,7 +28,7 @@ export const GoogleMapContainer = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     /**
@@ -51,4 +55,11 @@ export const GoogleMapContainer = (props) => {
 
 export default GoogleApiWrapper({
     // apiKey: 'AIzaSyCPjkxzgmKxCOngkKFGByXX-1xASP8LUuA'
+    apiKey: ""
 })(GoogleMapContainer);
+
+// export default GoogleApiWrapper(
+//     (props: any) => ({
+//       apiKey: "<your_key>"
+//     }
+// ))(GoogleMapContainer)

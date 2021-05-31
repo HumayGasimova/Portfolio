@@ -8,6 +8,8 @@
             "es6",
             "dom",
             "es2019"
-        ]
+        ],
+        "types": [ "googlemaps", "node"],
+        "skipLibCheck": true
     }
 }
