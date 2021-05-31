@@ -10,6 +10,10 @@
             "es2019"
         ],
         "types": [ "googlemaps", "node"],
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "src/types"
+        ] 
     }
 }

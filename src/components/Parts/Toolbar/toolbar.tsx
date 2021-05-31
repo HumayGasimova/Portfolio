@@ -153,7 +153,6 @@ export const Toolbar = (props) => {
     }
 
     const handleMouseEnterToolbarItem = (opt, data, id) => {
-        console.log("DATA",data)
         props.setIsHoveringMenuItem("on", id);
         switch(opt){
             case 'regular':
