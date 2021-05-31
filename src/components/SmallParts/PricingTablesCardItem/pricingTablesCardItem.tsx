@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -41,13 +38,13 @@ export const PricingTablesCardItem = (props) => {
      * State
      */
 
-    const [isHovering, setIsHovering] = useState("init");
+    const [isHovering, setIsHovering] = React.useState("init");
 
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const renderCurrency = (currency) => {

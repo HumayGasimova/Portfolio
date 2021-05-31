@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -46,14 +43,14 @@ export const ProgressBarItem = (props) => {
      */
 
     const size = useWindowSize();
-    const [value, setValue] = useState(0);
-    const [delay, setDelay] = useState(10);
+    const [value, setValue] = React.useState(0);
+    const [delay, setDelay] = React.useState(10);
 
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     useInterval(() => {

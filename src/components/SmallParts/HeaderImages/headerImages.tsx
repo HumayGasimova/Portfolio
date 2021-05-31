@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -29,7 +26,7 @@ import './headerImages.scss';
  * Components
  */
 
-import Loading from '../../SmallParts/Loading/loading';
+import Loading from '../Loading/loading';
 import Button from '../../../library/Button/button';
 
 /**
@@ -94,8 +91,8 @@ export const HeaderImages = (props) => {
      */
 
     const size = useWindowSize();
-    const [imgShow, setImgShow] = useState(true);
-    const [img, setImg] = useState(
+    const [imgShow, setImgShow] = React.useState(true);
+    const [img, setImg] = React.useState(
         {
             id: 1,
             imgName: "Image1",
@@ -106,7 +103,7 @@ export const HeaderImages = (props) => {
             alt: "Crypto"
         }
     );
-    const [switchButtons, setSwitchButtons] = useState([
+    const [switchButtons, setSwitchButtons] = React.useState([
         {
             id: 1, 
             active: true,
@@ -131,7 +128,7 @@ export const HeaderImages = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Fetch data for the component
 
         if(props.headerImages.items.length === 0){

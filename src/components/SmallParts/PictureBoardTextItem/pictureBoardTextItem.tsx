@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState
-} from 'react';
+import * as React from 'react';
 
 import { 
     FontAwesomeIcon 
@@ -58,7 +56,7 @@ export const PictureBoardTextItem = (props) => {
      * State
      */
 
-    const [isHovering, setIsHovering] = useState(false);
+    const [isHovering, setIsHovering] = React.useState(false);
 
     /**
      * Methods

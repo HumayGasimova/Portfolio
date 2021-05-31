@@ -2,12 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useLayoutEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -42,14 +37,14 @@ export const PieChartItem = (props) => {
      * State
      */
 
-    const [value, setValue] = useState(0);
-    const [delay, setDelay] = useState(30);
+    const [value, setValue] = React.useState(0);
+    const [delay, setDelay] = React.useState(30);
 
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     useInterval(() => {

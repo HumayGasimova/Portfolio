@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 import { 
     FontAwesomeIcon 
@@ -58,13 +55,13 @@ export const Icon = (props) => {
      * State
      */
  
-    const [iconIsHover, setIconIsHover] = useState("init");
+    const [iconIsHover, setIconIsHover] = React.useState("init");
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
     
     const handleMouseEnter = (opt) => {
@@ -236,7 +233,7 @@ export const Icon = (props) => {
                 <FontAwesomeIcon 
                     icon={setIconName(props.icon)} 
                     size={props.iconSize}
-                    className={renderClassName(props.classNameOpt, props.isHover ? props.isHover : iconIsHover)}
+                    className={renderClassName(props.classNameOpt, props.isHover ? props.isHover : iconIsHover, null)}
                     onMouseEnter={props.onMouseEnter ? () => handleMouseEnter(props.classNameOpt) : null} 
                     onMouseLeave={props.onMouseLeave ? () => handleMouseLeave(props.classNameOpt) : null}
                     onMouseDown={props.onMouseDown ? (e) => iconOnClick(e, props.iconName, props.instaName) : null}
@@ -251,12 +248,12 @@ export const Icon = (props) => {
                     onMouseLeave={props.onMouseLeave ? () => handleMouseLeave(props.classNameOpt) : null}
                     onMouseDown={props.onMouseDown ? (e) => iconOnClick(e, props.iconName, props.instaName) : null}
                 >
-                    <div className={renderClassName("socialMediaBackgroundCurtain", iconIsHover)}/>
+                    <div className={renderClassName("socialMediaBackgroundCurtain", iconIsHover, null)}/>
                     <div className="icon-wrapper">
                         <FontAwesomeIcon 
                             icon={setIconName(props.icon)} 
                             size={props.iconSize}
-                            className={renderClassName(props.classNameOpt, iconIsHover)}
+                            className={renderClassName(props.classNameOpt, iconIsHover, null)}
                         />
                     </div>
                 </div>

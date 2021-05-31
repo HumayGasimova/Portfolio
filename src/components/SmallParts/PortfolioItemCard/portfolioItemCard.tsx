@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -40,13 +37,13 @@ export const PortfolioItemCard = (props) => {
      * State
      */
 
-    const [isHovering, setIsHovering] = useState("init");
+    const [isHovering, setIsHovering] = React.useState("init");
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const handleMouseEnter = (opt, id, pathOfIds) => {
@@ -171,8 +168,8 @@ export const PortfolioItemCard = (props) => {
             <H19 className="h19-nero-poppins">{props.obj.portfolioType}</H19>
             <div 
                 className={renderClassName("arrow", isHovering)}
-                onMouseEnter={() => handleMouseEnter("arrow")} 
-                onMouseLeave={() => handleMouseLeave("arrow")} 
+                onMouseEnter={() => handleMouseEnter("arrow", null, null)} 
+                onMouseLeave={() => handleMouseLeave("arrow", null, null)} 
                 onMouseDown={(e) => onClickHandler(props.obj.path, null, e)}
             >
                 <div className="arrow-horizontal-line"/>

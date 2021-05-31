@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -53,14 +49,14 @@ export const ProjectShowcaseItem = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
-    const transitionRef = useRef();
+    const resizeRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
  
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Event Listeners
 
         const resize = () => {
@@ -85,12 +81,12 @@ export const ProjectShowcaseItem = (props) => {
       
     }, [props.data.backgroundImage.animation]);
     
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
         transitionRef.current = smoothTransition;
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Set the transition property to the initial value if its value is 0
         
         if(props.data.key === "portfolioProjectShowcasePageId1" && props.data.backgroundImage.style.transition === 0){

@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -39,15 +35,15 @@ export const Pinterest3ColumnsItem = (props) => {
      * State
      */
 
-    const resizeRef = useRef();
-    const [isHovering, setIsHovering] = useState("init");
-    const [cardHeight, setCardHeight] = useState({});
+    const resizeRef = React.useRef(null);
+    const [isHovering, setIsHovering] = React.useState("init");
+    const [cardHeight, setCardHeight] = React.useState({});
  
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Event Listeners
 
         const resize = () => {
@@ -60,7 +56,7 @@ export const Pinterest3ColumnsItem = (props) => {
         return () =>  window.removeEventListener('resize', resize);
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     });
 

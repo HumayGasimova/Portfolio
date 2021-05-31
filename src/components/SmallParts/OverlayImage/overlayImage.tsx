@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -41,16 +37,16 @@ export const OverlayImage = (props) => {
      * State
      */
 
-    const resizeRef = useRef();
-    const [isHovering, setIsHovering] = useState("init");
-    const [cardHeight, setCardHeight] = useState(0);
-    const [paddingTopBottom, setPaddingTopBottom] = useState(0);
+    const resizeRef = React.useRef(null);
+    const [isHovering, setIsHovering] = React.useState("init");
+    const [cardHeight, setCardHeight] = React.useState(0);
+    const [paddingTopBottom, setPaddingTopBottom] = React.useState(0);
  
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Event Listeners
 
         const resize = () => {
@@ -63,7 +59,7 @@ export const OverlayImage = (props) => {
         return () =>  window.removeEventListener('resize', resize);
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
     })
 
