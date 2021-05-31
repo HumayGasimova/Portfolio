@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState, 
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -39,8 +36,8 @@ export const AchievementItem = (props) => {
      * State
      */
 
-    const [value, setValue] = useState(0);
-    const [delay, setDelay] = useState(70);
+    const [value, setValue] = React.useState(0);
+    const [delay, setDelay] = React.useState(70);
 
     /**
      * Methods

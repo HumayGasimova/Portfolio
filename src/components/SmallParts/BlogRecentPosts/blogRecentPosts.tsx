@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -21,7 +18,7 @@ import './blogRecentPosts.scss';
  * Components
  */
 
-import BlogRecentPostItem from '../../SmallParts/BlogRecentPostItem/blogRecentPostItem';
+import BlogRecentPostItem from '../BlogRecentPostItem/blogRecentPostItem';
 
 /**
  * Utility
@@ -41,7 +38,7 @@ export const BlogRecentPosts = (props) => {
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
         // Activate the recent post on browser refresh
         
         let activePostPath = props.location.pathname.slice(18);

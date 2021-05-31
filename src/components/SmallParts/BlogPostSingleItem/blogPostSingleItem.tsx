@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -29,9 +26,9 @@ import './blogPostSingleItem.scss';
  * Components
  */
 
-import Loading from '../../SmallParts/Loading/loading';
+import Loading from '../Loading/loading';
 import Icon from '../Icon/icon';
-import TagItem from '../../SmallParts/TagItem/tagItem';
+import TagItem from '../TagItem/tagItem';
 import Audio from '../../Parts/Audio/audio';
 import Video from '../../Parts/Video/video'
 import Swiper from '../../../library/Swiper/swiper';
@@ -99,6 +96,20 @@ import {
     socialMediaIcons
 } from '../../../constants/socialMediaIcons';
 
+interface MapStateToPropsTypes {
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
 /**
  * BlogPostSingleItem component definition and export
  */
@@ -110,20 +121,20 @@ export const BlogPostSingleItem = (props) => {
      */
 
     const size = useWindowSize();
-    const [showContent, setShowContent] = useState(false);
-    const [isHoveringBlogPostItemDate, setIsHoveringBlogPostItemDate] = useState("init");
-    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = useState("init");
-    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = useState("init");
-    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = useState("init");
-    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = useState("init");
-    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = useState("init");
-    const [cardWidth, setCardWidth] = useState(0);
+    const [showContent, setShowContent] = React.useState(false);
+    const [isHoveringBlogPostItemDate, setIsHoveringBlogPostItemDate] = React.useState("init");
+    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState("init");
+    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState("init");
+    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState("init");
+    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState("init");
+    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState("init");
+    const [cardWidth, setCardWidth] = React.useState(0);
     
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
 
         // Init state for fading effect when component will unmount
         
@@ -164,12 +175,12 @@ export const BlogPostSingleItem = (props) => {
 
         let activePostPath = props.location.pathname.slice(18);
 
-        setPageData(props.page, "activateRecentPost")(null, activePostPath, true);
+        setPageData(props.page, "activateRecentPost", null)(null, activePostPath, true);
 
         return () =>  {
             // Cleaning the unmounted component
 
-            setPageData(props.page, "activateBlogItem")("deactive", "", "");
+            setPageData(props.page, "activateBlogItem", null)("deactive", "", "");
         }
     }, []);
 
@@ -189,16 +200,13 @@ export const BlogPostSingleItem = (props) => {
         });
 
         props.fetchPostBlogDataSuccess(updatedJson);
-        setPageData(props.page, "activateBlogItem")("active", updatedJson.cardId, updatedJson.cardType);
+        setPageData(props.page, "activateBlogItem", null)("active", updatedJson.cardId, updatedJson.cardType);
     }
 
     const handleMouseEnter = (opt, key) => {
         switch(opt){
             case 'blogPostItemDate': 
                 setIsHoveringBlogPostItemDate("on");
-                break;
-            case 'blogCardHeader': 
-                setIsHoveringBlogCardHeader("on");
                 break;
             case 'blogCardLikes': 
                 setIsHoveringBlogCardLikes("on");
@@ -210,7 +218,7 @@ export const BlogPostSingleItem = (props) => {
                 setIsHoveringBlogCardShare("on");
                 break;
             case 'blogCardCategories':
-                setPageData(props.page, "blogPostSingleItemCategoryIsHover")("on", key);
+                setPageData(props.page, "blogPostSingleItemCategoryIsHover", null)("on", key);
                 break;
             case 'blogCardLink': 
                 setIsHoveringBlogCardLink("on");
@@ -226,10 +234,7 @@ export const BlogPostSingleItem = (props) => {
             case 'blogPostItemDate': 
                 setIsHoveringBlogPostItemDate("off");
                 break;
-            case 'blogCardHeader': 
-                setIsHoveringBlogCardHeader("off");
-                break;
-            case 'blogCardLikes': 
+            case 'blogCardLikes':
                 setIsHoveringBlogCardLikes("off");
                 break;
             case 'blogCardComments': 
@@ -239,7 +244,7 @@ export const BlogPostSingleItem = (props) => {
                 setIsHoveringBlogCardShare("off");
                 break;
             case 'blogCardCategories':
-                setPageData(props.page, "blogPostSingleItemCategoryIsHover")("off", key);
+                setPageData(props.page, "blogPostSingleItemCategoryIsHover", null)("off", key);
                 break;
             case 'blogCardLink': 
                 setIsHoveringBlogCardLink("off");
@@ -566,25 +571,25 @@ export const BlogPostSingleItem = (props) => {
                 <div className="blog-post-single-item-info-left-part-wrapper">
                     <div 
                         className="blog-post-single-item-info-likes"
-                        onMouseEnter={() => handleMouseEnter(`blogCardLikes`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardLikes`)}
-                        onClick={() => onLikesClickHandler(setPageData(props.page, "pageData").postBlogContent.item)}
+                        onMouseEnter={() => handleMouseEnter(`blogCardLikes`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardLikes`, null)}
+                        onClick={() => onLikesClickHandler(setPageData(props.page, "pageData", null).postBlogContent.item)}
                     >
                         <Icon 
                             iconType="fontAwesome"
-                            icon={setPageData(props.page, "pageData").postBlogContent.item.userLikedThePost ? "faHeartSolid" : "faHeart"}
+                            icon={setPageData(props.page, "pageData", null).postBlogContent.item.userLikedThePost ? "faHeartSolid" : "faHeart"}
                             iconSize="1x"
                             isHover={isHoveringBlogCardLikes}
                             classNameOpt="blogCardLike"
                         />
                         &nbsp;
-                        <H15 className={renderClassName("blogCardLikes", isHoveringBlogCardLikes)}>{setPageData(props.page, "pageData").postBlogContent.item.numberOfLikes}</H15>
+                        <H15 className={renderClassName("blogCardLikes", isHoveringBlogCardLikes)}>{setPageData(props.page, "pageData", null).postBlogContent.item.numberOfLikes}</H15>
                     </div>
                     <EW10/>
                     <div 
                         className="blog-post-single-item-info-comments"
-                        onMouseEnter={() => handleMouseEnter(`blogCardComments`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardComments`)} 
+                        onMouseEnter={() => handleMouseEnter(`blogCardComments`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardComments`, null)} 
                     >
                         <Icon 
                             iconType="fontAwesome"
@@ -594,7 +599,7 @@ export const BlogPostSingleItem = (props) => {
                             classNameOpt="blogCardComment"
                         />
                         &nbsp;
-                        <H15 className={renderClassName("blogCardComments", isHoveringBlogCardComments)}>{setPageData(props.page, "pageData").postBlogContent.item.numberOfComments}</H15>
+                        <H15 className={renderClassName("blogCardComments", isHoveringBlogCardComments)}>{setPageData(props.page, "pageData", null).postBlogContent.item.numberOfComments}</H15>
                     </div>
                     <EW10/>
                     <div className="blog-post-single-item-info-categories">
@@ -605,7 +610,7 @@ export const BlogPostSingleItem = (props) => {
                             classNameOpt="blogCardCategory"
                         />
                         &nbsp;
-                        {renderCategories(setPageData(props.page, "pageData").postBlogContent.item.categories)}
+                        {renderCategories(setPageData(props.page, "pageData", null).postBlogContent.item.categories)}
                     </div>
                 </div>
             </div>
@@ -623,14 +628,14 @@ export const BlogPostSingleItem = (props) => {
             */
 
             props.clearActivityOfMenuItems();
-            setPageData(props.page, "activateBlogCategory")("active", key);
-            setPageData(props.page, "activateBlogTag")("deactive", "");
-            setPageData(props.page, "activateBlogItem")("deactive", "");
+            setPageData(props.page, "activateBlogCategory", null)("active", key);
+            setPageData(props.page, "activateBlogTag", null)("deactive", "");
+            setPageData(props.page, "activateBlogItem", null)("deactive", "");
             props.history.push(`/crypto-portfolio/list-standard-blog-category/${key}`);
         }else{
             // Show filtered items on scroll wheel click
 
-            setPageData(props.page, "activateBlogCategory")("active", key);
+            setPageData(props.page, "activateBlogCategory", null)("active", key);
             window.open(`/crypto-portfolio/list-standard-blog-category/${key}`, "_blank");
         }
     }
@@ -684,12 +689,12 @@ export const BlogPostSingleItem = (props) => {
         return(
             <div className="blog-post-single-item-tags-and-soc-media-wrapper">
                 <div className="blog-post-single-item-tags-part-wrapper">
-                   {renderTags(setPageData(props.page, "pageData").postBlogContent.item.tags)}
+                   {renderTags(setPageData(props.page, "pageData", null).postBlogContent.item.tags)}
                 </div>              
                 <div 
                     className="blog-post-single-item-soc-med-part-wrapper"
-                    onMouseEnter={() => handleMouseEnter(`blogCardShare`)} 
-                    onMouseLeave={() => handleMouseLeave(`blogCardShare`)} 
+                    onMouseEnter={() => handleMouseEnter(`blogCardShare`, null)} 
+                    onMouseLeave={() => handleMouseLeave(`blogCardShare`, null)} 
                 >
                     {renderSocialMediaIcons()}
                     <Icon
@@ -716,14 +721,14 @@ export const BlogPostSingleItem = (props) => {
              */
 
             props.clearActivityOfMenuItems();
-            setPageData(props.page, "activateBlogTag")("active", key);
-            setPageData(props.page, "activateBlogCategory")("deactive", "");
-            setPageData(props.page, "activateBlogItem")("deactive", "");
+            setPageData(props.page, "activateBlogTag", null)("active", key);
+            setPageData(props.page, "activateBlogCategory", null)("deactive", "");
+            setPageData(props.page, "activateBlogItem", null)("deactive", "");
             props.history.push(`/crypto-portfolio/list-standard-blog-tag/${key}`);
         }else{
             // Show filtered items on scroll wheel click
 
-            setPageData(props.page, "activateBlogTag")("active", key);
+            setPageData(props.page, "activateBlogTag", null)("active", key);
             window.open(`/crypto-portfolio/list-standard-blog-tag/${key}`, "_blank");
         }
     }
@@ -801,8 +806,8 @@ export const BlogPostSingleItem = (props) => {
                 <EH60/>
                 <div className="blog-post-single-item-date-and-header-wrapper">
                     <div
-                        onMouseEnter={() => handleMouseEnter(`blogPostItemDate`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogPostItemDate`)} 
+                        onMouseEnter={() => handleMouseEnter(`blogPostItemDate`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogPostItemDate`, null)} 
                     >
                         <H15 className={renderClassName("blogPostItemDate", isHoveringBlogPostItemDate)}>{data.date}</H15>
                     </div>
@@ -819,17 +824,17 @@ export const BlogPostSingleItem = (props) => {
                 <EH70/>
                 <BlogNavigation
                     page={props.page}
-                    itemKey={setPageData(props.page, "pageData").activeItem.itemKey}
+                    itemKey={setPageData(props.page, "pageData", null).activeItem.itemKey}
                     fetchPrevAndNextPostForBlogListItem={props.fetchPrevAndNextPostForBlogListItem}
-                    fakeData={setPageData(props.page, "fakeData")}
+                    fakeData={setPageData(props.page, "fakeData", null)}
                     fetchBlogNavigationForBlogListStandardPageDataSuccess={props.fetchBlogNavigationForBlogListStandardPageDataSuccess}
-                    data={setPageData(props.page, "pageData").navigation}
+                    data={setPageData(props.page, "pageData", null).navigation}
                     setUnmountComponentValues={props.setUnmountComponentValues}
                     unmountComponent={props.unmountComponent}
-                    clearState={setPageData(props.page, "clearState")}
-                    activateBlogItem={setPageData(props.page, "activateBlogItem")}
-                    activateBlogCategory={setPageData(props.page, "activateBlogCategory")}
-                    activateBlogTag={setPageData(props.page, "activateBlogTag")}
+                    clearState={setPageData(props.page, "clearState", null)}
+                    activateBlogItem={setPageData(props.page, "activateBlogItem", null)}
+                    activateBlogCategory={setPageData(props.page, "activateBlogCategory", null)}
+                    activateBlogTag={setPageData(props.page, "activateBlogTag", null)}
                 />
             </>
         )
@@ -871,44 +876,44 @@ export const BlogPostSingleItem = (props) => {
 
     return(
         <div className="blog-post-single-item" id="blogPostSingleItem">
-            {showContent ? renderBlogPostSingleItemDataContent(setPageData(props.page, "pageData").postBlogContent) : null}
+            {showContent ? renderBlogPostSingleItemDataContent(setPageData(props.page, "pageData", null).postBlogContent) : null}
         </div>
     );
 }
-
-export default connect(
-    (state) => {
-        return {
-            blogListStandardPage: Selectors.getBlogListStandardPageState(state),
-        };
-    },
-    (dispatch) => {
-        return {
-            fetchStandardPostBlogData: bindActionCreators(Services.fetchStandardPostBlogData, dispatch),
-            fetchGalleryPostBlogData: bindActionCreators(Services.fetchGalleryPostBlogData, dispatch),
-            fetchLinkPostBlogData: bindActionCreators(Services.fetchLinkPostBlogData, dispatch),
-            fetchQuotePostBlogData: bindActionCreators(Services.fetchQuotePostBlogData, dispatch),
-            fetchAudioPostBlogData: bindActionCreators(Services.fetchAudioPostBlogData, dispatch),
-            fetchVideoPostBlogData: bindActionCreators(Services.fetchVideoPostBlogData, dispatch),
-            fetchPostBlogDataSuccess: bindActionCreators(Actions.fetchPostBlogDataSuccess, dispatch),
-            fetchPrevAndNextPostForBlogListItem: bindActionCreators(Services.fetchPrevAndNextPostForBlogListItem, dispatch),
-            fetchBlogNavigationForBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogNavigationForBlogListStandardPageDataSuccess, dispatch),
-            blogPostSingleItemCategoryIsHoverForBlogListStandardPage: bindActionCreators(Actions.blogPostSingleItemCategoryIsHoverForBlogListStandardPage, dispatch),
-            setSwiperStateOfBlogPostSingleItemForBlogListStandardPage: bindActionCreators(Actions.setSwiperStateOfBlogPostSingleItemForBlogListStandardPage, dispatch),
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-            clearBlogListSingleItemStateForBlogListStandardPage: bindActionCreators(Actions.clearBlogListSingleItemStateForBlogListStandardPage, dispatch),
-            activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
-            activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
-            activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
-            increaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage, dispatch),
-            decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage, dispatch),
-            increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
-            decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
-            clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
-            activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
-            activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch),
-        };
-    }
-)(withRouter(BlogPostSingleItem));
  
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                blogListStandardPage: Selectors.getBlogListStandardPageState(state),
+            };
+        },
+        (dispatch) => {
+            return {
+                fetchStandardPostBlogData: bindActionCreators(Services.fetchStandardPostBlogData, dispatch),
+                fetchGalleryPostBlogData: bindActionCreators(Services.fetchGalleryPostBlogData, dispatch),
+                fetchLinkPostBlogData: bindActionCreators(Services.fetchLinkPostBlogData, dispatch),
+                fetchQuotePostBlogData: bindActionCreators(Services.fetchQuotePostBlogData, dispatch),
+                fetchAudioPostBlogData: bindActionCreators(Services.fetchAudioPostBlogData, dispatch),
+                fetchVideoPostBlogData: bindActionCreators(Services.fetchVideoPostBlogData, dispatch),
+                fetchPostBlogDataSuccess: bindActionCreators(Actions.fetchPostBlogDataSuccess, dispatch),
+                fetchPrevAndNextPostForBlogListItem: bindActionCreators(Services.fetchPrevAndNextPostForBlogListItem, dispatch),
+                fetchBlogNavigationForBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogNavigationForBlogListStandardPageDataSuccess, dispatch),
+                blogPostSingleItemCategoryIsHoverForBlogListStandardPage: bindActionCreators(Actions.blogPostSingleItemCategoryIsHoverForBlogListStandardPage, dispatch),
+                setSwiperStateOfBlogPostSingleItemForBlogListStandardPage: bindActionCreators(Actions.setSwiperStateOfBlogPostSingleItemForBlogListStandardPage, dispatch),
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+                clearBlogListSingleItemStateForBlogListStandardPage: bindActionCreators(Actions.clearBlogListSingleItemStateForBlogListStandardPage, dispatch),
+                activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
+                activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
+                activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
+                increaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage, dispatch),
+                decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage, dispatch),
+                increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
+                decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
+                clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
+                activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch),
+            };
+        }
+    )(BlogPostSingleItem)
+);

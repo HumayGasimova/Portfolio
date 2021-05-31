@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -43,7 +41,7 @@ export const CountdownItem = (props) => {
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
         // Initialize state with current date and next month
         let currentDate = {
             day: Utility.getDateAndTime("day"),

@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -71,20 +67,20 @@ export const BlogListPostCard = (props) => {
      */
 
     const size = useWindowSize();
-    const [isHoveringBlogCardDate, setIsHoveringBlogCardDate] = useState("init");
-    const [isHoveringBlogCardHeader, setIsHoveringBlogCardHeader] = useState("init");
-    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = useState("init");
-    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = useState("init");
-    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = useState("init");
-    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = useState("init");
-    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = useState("init");
-    const [cardWidth, setCardWidth] = useState(0);
+    const [isHoveringBlogCardDate, setIsHoveringBlogCardDate] = React.useState("init");
+    const [isHoveringBlogCardHeader, setIsHoveringBlogCardHeader] = React.useState("init");
+    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState("init");
+    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState("init");
+    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState("init");
+    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState("init");
+    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState("init");
+    const [cardWidth, setCardWidth] = React.useState(0);
     
     /**
      * Methods
      */
    
-    useEffect(() => {
+    React.useEffect(() => {
 
         //Set width of swiper
 
@@ -416,14 +412,14 @@ export const BlogListPostCard = (props) => {
                 <EH60/>
                 <div className="blog-list-post-card-date-and-header-wrapper">
                     <div
-                        onMouseEnter={() => handleMouseEnter(`blogCardDate`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardDate`)} 
+                        onMouseEnter={() => handleMouseEnter(`blogCardDate`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardDate`, null)} 
                     >
                         <H15 className={renderClassName("blogCardDate", isHoveringBlogCardDate)}>{props.elData.date}</H15>
                     </div>
                     <div
-                        onMouseEnter={() => handleMouseEnter(`blogCardHeader`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardHeader`)}
+                        onMouseEnter={() => handleMouseEnter(`blogCardHeader`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardHeader`, null)}
                         onMouseDown={(e) => onCardClickHandler(e, props.elData.path, props.elData.key)}
                     >
                         <H35 className={renderClassName("blogCardHeader", isHoveringBlogCardHeader)}>{props.elData.header}</H35>
@@ -514,8 +510,8 @@ export const BlogListPostCard = (props) => {
                 <div className="blog-list-post-card-info-left-part-wrapper">
                     <div 
                         className="blog-list-post-card-info-likes"
-                        onMouseEnter={() => handleMouseEnter(`blogCardLikes`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardLikes`)}
+                        onMouseEnter={() => handleMouseEnter(`blogCardLikes`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardLikes`, null)}
                         onClick={onLikesClickHandler}
                     >
                         <Icon 
@@ -531,8 +527,8 @@ export const BlogListPostCard = (props) => {
                     <EW10/>
                     <div 
                         className="blog-list-post-card-info-comments"
-                        onMouseEnter={() => handleMouseEnter(`blogCardComments`)} 
-                        onMouseLeave={() => handleMouseLeave(`blogCardComments`)}
+                        onMouseEnter={() => handleMouseEnter(`blogCardComments`, null)} 
+                        onMouseLeave={() => handleMouseLeave(`blogCardComments`, null)}
                         onMouseDown={(e) => onCommentsClickHandler(e)}
                     >
                         <Icon 
@@ -559,8 +555,8 @@ export const BlogListPostCard = (props) => {
                 </div>              
                 <div 
                     className="blog-list-post-card-info-soc-med-wrapper"
-                    onMouseEnter={() => handleMouseEnter(`blogCardShare`)} 
-                    onMouseLeave={() => handleMouseLeave(`blogCardShare`)} 
+                    onMouseEnter={() => handleMouseEnter(`blogCardShare`, null)} 
+                    onMouseLeave={() => handleMouseLeave(`blogCardShare`, null)} 
                 >
                     {renderSocialMediaIcons()}
                     <Icon
@@ -595,8 +591,8 @@ export const BlogListPostCard = (props) => {
                         <div className="blog-list-post-card-link">
                             <div
                                 className="blog-list-post-card-link-text-wrapper"
-                                onMouseEnter={() => handleMouseEnter(`blogCardLink`)} 
-                                onMouseLeave={() => handleMouseLeave(`blogCardLink`)} 
+                                onMouseEnter={() => handleMouseEnter(`blogCardLink`, null)} 
+                                onMouseLeave={() => handleMouseLeave(`blogCardLink`, null)} 
                             >
                                 <H22 className={renderClassName("blogCardLink", isHoveringBlogCardLink)}>{props.elData.linkText}</H22>
                             </div>
@@ -620,8 +616,8 @@ export const BlogListPostCard = (props) => {
                             <div>
                                 <div
                                     className="blog-list-post-card-quote-text-wrapper"
-                                    onMouseEnter={() => handleMouseEnter(`blogCardQuote`)} 
-                                    onMouseLeave={() => handleMouseLeave(`blogCardQuote`)} 
+                                    onMouseEnter={() => handleMouseEnter(`blogCardQuote`, null)} 
+                                    onMouseLeave={() => handleMouseLeave(`blogCardQuote`, null)} 
                                 >
                                     <H22 className={renderClassName("blogCardQuote", isHoveringBlogCardQuote)}>{props.elData.quoteText}</H22>
                                 </div>
@@ -671,4 +667,5 @@ export const BlogListPostCard = (props) => {
 }
 
 export default withRouter(BlogListPostCard);
+
  

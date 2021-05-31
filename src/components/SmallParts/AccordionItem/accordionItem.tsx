@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -37,7 +35,7 @@ export const AccordionItem = (props) => {
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
     }, []);
 
     const handleMouseEnter = (style, id) => {

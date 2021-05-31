@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -52,15 +48,15 @@ import * as Images from '../../../constants/images';
 export const BlogComment = (props) => {
 
 
-    const [isHoveringReplyButton, setIsHoveringReplyButton] = useState("init");
-    const [showReplyForm, setShowReplyForm] = useState(false);
-    const previousShowReplyFormVal = useRef(showReplyForm);
+    const [isHoveringReplyButton, setIsHoveringReplyButton] = React.useState("init");
+    const [showReplyForm, setShowReplyForm] = React.useState(false);
+    const previousShowReplyFormVal = React.useRef(showReplyForm);
 
     /**
      * Methods
      */
 
-    useEffect(()=>{
+    React.useEffect(()=>{
         if(previousShowReplyFormVal.current === true){
             setShowReplyForm(true);
             previousShowReplyFormVal.current = false;

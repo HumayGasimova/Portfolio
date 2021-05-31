@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 import {
     withRouter
@@ -31,13 +28,13 @@ import {
 
 export const BackToTop = (props) => {
 
-    const [isHovering, setIsHovering] = useState("init");
+    const [isHovering, setIsHovering] = React.useState("init");
 
     /**
      * Methods
      */
 
-    useEffect(()=>{
+    React.useEffect(()=>{
         // Set smooth scrollbar behavior
 
         document.getElementById("html").style.scrollBehavior = "smooth";
