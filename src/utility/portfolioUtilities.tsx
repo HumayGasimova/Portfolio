@@ -1,4 +1,4 @@
-import * as Utility from './';
+import * as Utility from '.';
 
 export const findPathOfIds = (path) => {
     let updatedPath = path.split("/");
@@ -278,12 +278,12 @@ export const calcTranslateCoordinates = (page, screenWidth, coordinate, elIndex,
     let widthOfElement;
     switch(page) {
         case 'twoColumnsPage':
-            widthOfElement = setWidthOfImage(page, screenWidth);
+            widthOfElement = setWidthOfImage(page, screenWidth, null);
             if(coordinate === "X") return widthOfElement + 30;
             if(coordinate === "Y") return calculateTranslateYForTwoColumnsPage(page, elIndex, screenWidth);
             break;
         case 'threeColumnsPage':
-            widthOfElement = setWidthOfImage(page, screenWidth);
+            widthOfElement = setWidthOfImage(page, screenWidth, null);
             if(coordinate === "X"){
                 if(position === "secondColumn"){
                     return widthOfElement + 30;
@@ -294,12 +294,12 @@ export const calcTranslateCoordinates = (page, screenWidth, coordinate, elIndex,
             if(coordinate === "Y") return calculateTranslateYForThreeColumnsPage(page, elIndex, screenWidth);
             break;
         case 'threeColumnsPageSmallScreen':
-            widthOfElement = setWidthOfImage("threeColumnsPage", screenWidth);
+            widthOfElement = setWidthOfImage("threeColumnsPage", screenWidth, null);
             if(coordinate === "X") return widthOfElement + 30;
             if(coordinate === "Y") return calculateTranslateYForThreeColumnsPageSmallScreen("threeColumnsPage", elIndex, screenWidth);
             break;
         case 'fourColumnsPage':
-            widthOfElement = setWidthOfImage(page, screenWidth);
+            widthOfElement = setWidthOfImage(page, screenWidth, null);
             if(coordinate === "X"){
                 if(position === "secondColumn"){
                     return widthOfElement + 30;
@@ -312,7 +312,7 @@ export const calcTranslateCoordinates = (page, screenWidth, coordinate, elIndex,
             if(coordinate === "Y") return calculateTranslateYForFourColumnsPage(page, elIndex, screenWidth);
             break;
         case 'fourColumnsPageSmallScreen':
-            widthOfElement = setWidthOfImage("fourColumnsPage", screenWidth);
+            widthOfElement = setWidthOfImage("fourColumnsPage", screenWidth, null);
             if(coordinate === "X") return widthOfElement + 30;
             if(coordinate === "Y") return calculateTranslateYForFourColumnsPageSmallScreen("fourColumnsPage", elIndex, screenWidth);
             break;
