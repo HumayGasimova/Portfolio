@@ -12,7 +12,7 @@ import {
     connect
 } from 'react-redux';
 
-import uuid from "uuid";
+import * as uuid from "uuid";
 
 /**
  * Styles

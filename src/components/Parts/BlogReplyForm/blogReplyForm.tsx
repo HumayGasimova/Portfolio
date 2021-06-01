@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 
-import uuid from "uuid";
+import * as uuid from "uuid";
 
 /**
  * Styles

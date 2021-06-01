@@ -38,7 +38,7 @@ import {
     EH40
 } from '../../UtilityComponents';
 
-import uuid from "uuid";
+import * as uuid from "uuid";
 
 /**
  * Images

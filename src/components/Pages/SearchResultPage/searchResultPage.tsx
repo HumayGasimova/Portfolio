@@ -63,7 +63,7 @@ import {
 
 import * as Utility from '../../../utility';
 
-import uuid from "uuid";
+import * as uuid from "uuid";
 
 /**
  * Hooks
