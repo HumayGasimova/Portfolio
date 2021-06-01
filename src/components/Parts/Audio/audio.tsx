@@ -27,7 +27,7 @@ import * as Audios from '../../../constants/audios';
 /**
  * Audio component definition and export
  */
-//  import * as CreativeMindsMp3 from '../../../audio/bensound-creativeminds.mp3';
+
 export const Audio = (props) => {
 
     /**
