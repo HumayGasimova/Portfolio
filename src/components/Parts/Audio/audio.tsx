@@ -27,7 +27,7 @@ import * as Audios from '../../../constants/audios';
 /**
  * Audio component definition and export
  */
-
+ import CreativeMindsMp3 from '../../../audio/bensound-creativeminds.mp3';
 export const Audio = (props) => {
 
     /**
@@ -41,10 +41,11 @@ export const Audio = (props) => {
      */
 
     React.useEffect(() => {
-        let audio = document.getElementById(`${props.audioKey}Audio`);
-        
+        let audio = (document.getElementById(`${props.audioKey}Audio`) as HTMLAudioElement);
+        // let audio = document.getElementById(`${props.audioKey}Audio`);
         // Event Listeners
-
+        audio.play()
+        console.log("KKs", audio)
         audio.addEventListener('play', audioOnPlay);
         audio.addEventListener('ended', audioOnFinish);
 
@@ -90,7 +91,9 @@ export const Audio = (props) => {
                 controls 
                 id={`${props.audioKey}Audio`}
             >
-                <source src={loadAudio(props.audioKey)} type="audio/mp3"/>
+                {/* <source src={loadAudio(props.audioKey)} type="audio/mp3"/> */}
+                <source src={CreativeMindsMp3} type="audio/mp3"/>
+                
                 Your browser does not support the audio element.
             </audio>
             {audioIsPlaying ? <div className="audio-copyrights">

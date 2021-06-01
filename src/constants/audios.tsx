@@ -1,7 +1,7 @@
+
 /**
  * Audios
  */
-
 
 import CreativeMindsMp3 from '../audio/bensound-creativeminds.mp3';
 import UkuleleMp3 from '../audio/bensound-ukulele.mp3';

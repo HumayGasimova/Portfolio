@@ -32,10 +32,10 @@ module.exports = {
           },
         ]
       },
-      {
-        test: /\.(png|gif|jpg|jpeg|svg|ico|mp4|mp3)$/,
-        use:  'file-loader?name=[name].[ext]'
-      },
+      // {
+      //   test: /\.(png|gif|jpg|jpeg|svg|ico|mp4|mp3)$/,
+      //   use:  'file-loader?name=[name].[ext]'
+      // },
       // {
       //   test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
       //   use: 'base64-inline-loader'
@@ -62,12 +62,17 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
       },
+      {
+        test: /\.(png|gif|jpg|jpeg|svg|ico|mp4|mp3|wav)$/,
+        type: "asset/resource",
+      },
     ]
   },
   output: {
     filename: 'transformed.js',
     path: __dirname + '/dist',
-    publicPath: '/' //reload page when refresh browser (react-router /ex/ex)
+    publicPath: '/', //reload page when refresh browser (react-router /ex/ex)
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
