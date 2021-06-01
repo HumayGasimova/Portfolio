@@ -60,7 +60,7 @@ export const CountdownItem = (props) => {
 
         let distance = new Date(`${props.data.endDate.month}, ${props.data.endDate.day}, ${props.data.endDate.year}`).getTime() - new Date().getTime();
         var monthsLeft = Math.abs((props.data.endDate.year - +currentDate.year)*12 - (new Date().getMonth()) + Utility.getMonthId(props.data.endDate.month));
-        var daysLeft = Utility.getDaysInMonth(Utility.getDateAndTime("month"), null) - (+Utility.getDateAndTime("day") - 1);
+        var daysLeft = Utility.getDaysInMonth(Utility.getDateAndTime("month"), null) - (Utility.getDateAndTime("day") as any - 1);
         var hoursLeft = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutesLeft = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
