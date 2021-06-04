@@ -29,13 +29,24 @@ import * as Actions from '../actions';
 import * as Utility from '../utility';
 
 /**
+ * Types
+ */
+
+type Action = {
+    repeatedKey: string,
+    repeatedPath: string,
+    page: string,
+    button: any
+}
+
+/**
  * Epic
  */
 
 export const gotoNewPageEpic = (action$, state$, dependencies$) => 
     action$.pipe(
         ofType(actionTypes.GO_TO_NEW_PAGE),
-        mergeMap(action => {
+        mergeMap((action: Action) => {
             let category = state$.value.archive.category;
             let categoryToPath;
             if(state$.value.archive.category){
@@ -44,7 +55,7 @@ export const gotoNewPageEpic = (action$, state$, dependencies$) =>
             if(action.repeatedKey === category && action.page === "archive"){
                 if(action.button === 0){
                     return of(
-                        Actions.setUnmountComponentValues(false, action.repeatedPath)
+                        Actions.setUnmountComponentValues(false, action.repeatedPath, null)
                     )
                 }
                 if(action.button === 1){  

@@ -29,13 +29,23 @@ import * as Actions from '../actions';
 import * as Utility from '../utility';
 
 /**
+ * Types
+ */
+
+type Action = {
+    path: string,
+    page: string,
+    category: string
+}
+
+/**
  * Epic
  */
 
 export const portfolioNavigationOnClickEpic = (action$, state$, dependencies$) => 
     action$.pipe(
         ofType(actionTypes.PORTFOLIO_NAVIGATION_ON_CLICK),
-        mergeMap(action => {
+        mergeMap((action: Action) => {
             document.getElementById("html").style.scrollBehavior = null;
             dependencies$.history.push(`/crypto-portfolio/${action.path}`, {page: action.page, category: action.category});
             return empty();

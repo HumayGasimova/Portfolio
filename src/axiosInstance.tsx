@@ -1,18 +1,22 @@
 import axios from 'axios';
 
+interface Headers {
+    Authorization: string
+}
+
 export default (history = null) => {
     // const baseUrl = "process.env.REACT_APP_BACKEND_URL";
     const baseURL = process.env.REACT_APP_BACKEND_URL;
     console.log("BASEURL", baseURL);
     
-    let headers = {};
+    let headers: Headers;
     
     if(localStorage.token){
         headers.Authorization = `Bearer ${localStorage.token}`;
     }
     
     const axiosInstance = axios.create({
-        baseYRL: baseURL,
+        baseURL: baseURL,
         headers: {
             TOKEN: "TOKENTOKEN" // header add here
         }
@@ -37,7 +41,7 @@ export default (history = null) => {
                 if(history){
                     history.push("auth/login")
                 }else{
-                    window.location  = "auth/login"
+                    // window.location  = "auth/login"
                 }
               
             }else{

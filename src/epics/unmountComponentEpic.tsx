@@ -23,13 +23,24 @@ import * as actionTypes from '../constants/actionTypes';
 import * as Actions from '../actions';
 
 /**
+ * Types
+ */
+
+type Action = {
+    repeatedKey: string,
+    repeatedPath: string,
+    page: string,
+    button: any
+}
+
+/**
  * Epic
  */
 
 export const unmountComponentEpic = (action$) => 
     action$.pipe(
         ofType(actionTypes.UNMOUNT_COMPONENT),
-        mergeMap(action => {
+        mergeMap((action: Action) => {
             document.getElementById("html").style.scrollBehavior = null;
             console.log(action.page)
             if(action.button !== 1){

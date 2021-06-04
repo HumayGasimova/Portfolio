@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 axios.interceptors.request.use(request => {
-    // req.headers.Authroization = "Bearer jjjjj"
+    // request.headers.Authroization = "Bearer jjjjj"
     console.log("APP",request);
     return request;
 }, error => {
@@ -11,7 +11,7 @@ axios.interceptors.request.use(request => {
 })
 
 axios.interceptors.response.use(response => {
-    // req.headers.Authroization = "Bearer jjjjj"
+    // response.headers.Authroization = "Bearer jjjjj"
     console.log("APP",response);
     return response;
 }, error => {

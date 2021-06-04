@@ -1702,23 +1702,23 @@ export function fetchSubscribeContactFormPage(info, history) {
 //     })
 // })
 
-        axiosInstance(history).post(
+        axiosInstance(history).post( //axios.post if in index.js for interceptor //axiosInstance(history).post for axiosInstance
             `http://localhost:3005/api/subscribe-contact-form-page`,
              {
                 info
              }
         )
-            // .then(handleErrors)
+        // .then(handleErrors)
 // .then(res => res.json()) // to debug instead of json write text
-            .then(json => {
-                // console.log(json)
-                dispatch(Actions.fetchSubscribeContactFormPageSuccess(json));
-                // return json;
-            })
-            .catch(error => {
-                console.log("error",error)
-                dispatch(Actions.fetchSubscribeContactFormPageFailur(error))
-            });
+        .then(json => {
+            // console.log(json)
+            dispatch(Actions.fetchSubscribeContactFormPageSuccess(json));
+            // return json;
+        })
+        .catch(error => {
+            console.log("error",error)
+            dispatch(Actions.fetchSubscribeContactFormPageFailur(error))
+        });
     };
 }
 

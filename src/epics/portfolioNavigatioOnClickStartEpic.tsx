@@ -30,13 +30,23 @@ import * as Actions from '../actions';
 import * as Utility from '../utility';
 
 /**
+ * Types
+ */
+
+type Action = {
+    path: string,
+    page: string,
+    category: string
+}
+
+/**
  * Epic
  */
 
 export const portfolioNavigationOnClickStartEpic = (action$, state$, dependencies$) => 
     action$.pipe(
         ofType(actionTypes.PORTFOLIO_NAVIGATION_ON_CLICK_START),
-        mergeMap(action => {
+        mergeMap((action: Action) => {
             return of(
                 Actions.portfolioNavigationOnClick(action.path, action.page, action.category)
             ).pipe(
