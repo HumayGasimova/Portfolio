@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -89,23 +85,23 @@ import {
 
 export const Swiper = (props) => {
 
-    const testimonialsContent = useRef();
-    const bigSliderContent = useRef();
-    const smallSliderContent  = useRef();
-    const testimonialsPageSection1Content = useRef();
-    const testimonialsPageSection2Content = useRef();
-    const testimonialsPageSection3Content = useRef();
-    const blogListStandardPageCardId2Content = useRef();
-    const blogListStandardPageCardId8Content = useRef();
-    const blogListStandardPageCardId14Content = useRef();
+    const testimonialsContent = React.useRef(null);
+    const bigSliderContent = React.useRef(null);
+    const smallSliderContent  = React.useRef(null);
+    const testimonialsPageSection1Content = React.useRef(null);
+    const testimonialsPageSection2Content = React.useRef(null);
+    const testimonialsPageSection3Content = React.useRef(null);
+    const blogListStandardPageCardId2Content = React.useRef(null);
+    const blogListStandardPageCardId8Content = React.useRef(null);
+    const blogListStandardPageCardId14Content = React.useRef(null);
     // const [currentSwiper, setCurrentSwiper] = useState('');
     // const [relode, setRelode] = useState(false)
 
     const getHeight = () => window.innerHeight;
     const getWidth = () => window.innerWidth;
     
-    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = useState("init");
-    const [isHoveringRightArrow, setIsHoveringRightArrow] = useState("init");
+    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState("init");
+    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState("init");
 
     // const [mouseDown, setMouseDown] = useState(false)
   
@@ -118,14 +114,14 @@ export const Swiper = (props) => {
 
     // const {activeIndex, translate, transition, _slides} = state;
 
-    const transitionRef = useRef();
-    const resizeRef = useRef();
+    const transitionRef = React.useRef(null);
+    const resizeRef = React.useRef(null);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         let slidesArray = [...props.contentArray];
         let _slides;
         // let swiperWrapper;
@@ -232,12 +228,12 @@ export const Swiper = (props) => {
         props.swiperData.activeIndex
     ]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         transitionRef.current = smoothTransition;
         resizeRef.current = handleResize;
     })
 
-    useEffect(() => {
+    React.useEffect(() => {
         if(props.swiperData.transition === 0) {
             // setState({
             //     ...state,
@@ -249,7 +245,7 @@ export const Swiper = (props) => {
         }
     }, [props.swiperData.transition])
 
-    useEffect(() => {
+    React.useEffect(() => {
 
         const smooth = e => {
             if(e.target.className.includes(`${props.translateWidth ? "swiper-window-width-content" : "swiper-window-height-content"}`)){
@@ -277,7 +273,7 @@ export const Swiper = (props) => {
     }, [])
 
     useInterval(() => {
-        nextSlide();
+        nextSlide(null, null);
         
     },props.autoPlay ? 7000 : null)
 
@@ -490,7 +486,7 @@ export const Swiper = (props) => {
         props.photoViewerOpen(_component, true, slidesForPhotoViewer);
     }
 
-    const handleMouseEnter = (opt, id, key) => {
+    const handleMouseEnter = (opt, id) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow('on');
@@ -504,7 +500,7 @@ export const Swiper = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, key) => {
+    const handleMouseLeave = (opt, id) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow('off');
@@ -739,8 +735,8 @@ export const Swiper = (props) => {
                     <div 
                         className="swiper-window-width-content" 
                         id={`swiper-content-${props.component}`}
-                        onMouseEnter={handleMouseEnter} 
-                        onMouseLeave={handleMouseLeave}
+                        onMouseEnter={() => handleMouseEnter(null, null)} 
+                        onMouseLeave={() => handleMouseLeave(null, null)}
                         style={{
                             transform: `translateX(-${props.swiperData.translate}px)`,
                             transition: `transform ${props.swiperData.transition}s ease-out`,
@@ -875,14 +871,14 @@ export const Swiper = (props) => {
                     <div 
                         className="swiper-window-height-content" 
                         id="swiper-content"
-                        onMouseEnter={handleMouseEnter} 
-                        onMouseLeave={handleMouseLeave}
+                        onMouseEnter={() => handleMouseEnter(null, null)} 
+                        onMouseLeave={() => handleMouseLeave(null, null)}
                         style={{
-                            transform: `translateY(-${translate}px)`,
-                            transition: `transform ${transition}s ease-out`,
+                            transform: `translateY(-${props.swiperData.translate}px)`,
+                            transition: `transform ${props.swiperData.transition}s ease-out`,
                             height: `${getTranslateValue(props.translateWidth, props.translateHeight)}px`
                         }}
-                    >{_slides.map((el, i) => {
+                    >{props.swiperData.map((el, i) => {
                         return(
                             <div 
                                 key={i} 
@@ -905,10 +901,10 @@ export const Swiper = (props) => {
                     <div className="swiper-arrow-left">
                         <div 
                             // className="swiper-arrow-left-wrapper"
-                            className={renderClassName("leftArrow", isHoveringLeftArrow)}
-                            onClick={() => prevSlide(null, null)}
-                            onMouseEnter={() => handleMouseEnter('leftArrow')} 
-                            onMouseLeave={() => handleMouseLeave('leftArrow')}
+                            className={renderClassName("leftArrow", isHoveringLeftArrow, null)}
+                            onClick={() => prevSlide(null)}
+                            onMouseEnter={() => handleMouseEnter('leftArrow', null)} 
+                            onMouseLeave={() => handleMouseLeave('leftArrow', null)}
                             id="prev"
                         >
                             <div className="swiper-arrow-left-line"/>
@@ -928,10 +924,10 @@ export const Swiper = (props) => {
                     <div className="swiper-arrow-left">
                         <div 
                             // className="swiper-arrow-left-wrapper"
-                            className={renderClassName("leftArrow", isHoveringLeftArrow)}
-                            onClick={() => prevSlide(null, null)}
-                            onMouseEnter={() => handleMouseEnter('leftArrow')} 
-                            onMouseLeave={() => handleMouseLeave('leftArrow')}
+                            className={renderClassName("leftArrow", isHoveringLeftArrow, null)}
+                            onClick={() => prevSlide(null)}
+                            onMouseEnter={() => handleMouseEnter('leftArrow', null)} 
+                            onMouseLeave={() => handleMouseLeave('leftArrow', null)}
                             id="prev"
                         >
                             <div className="h17-white-lustria">Previous</div>
@@ -945,8 +941,8 @@ export const Swiper = (props) => {
             return(
                 <div 
                     className="swiper-arrow-up"
-                    onClick={() => prevSlide(null, null)}
-                    onMouseEnter={handleMouseEnter} 
+                    onClick={() => prevSlide(null)}
+                    onMouseEnter={() => handleMouseEnter(null, null)} 
                 >
                     <FontAwesomeIcon 
                         icon={faChevronUp} 
@@ -966,10 +962,10 @@ export const Swiper = (props) => {
                     <div className="swiper-arrow-right">
                         <div 
                             // className="swiper-arrow-right-wrapper"
-                            className={renderClassName("rightArrow", isHoveringRightArrow)}
+                            className={renderClassName("rightArrow", isHoveringRightArrow, null)}
                             onClick={() => nextSlide(null, null)}
-                            onMouseEnter={() => handleMouseEnter('rightArrow')} 
-                            onMouseLeave={() => handleMouseLeave('rightArrow')}
+                            onMouseEnter={() => handleMouseEnter('rightArrow', null)} 
+                            onMouseLeave={() => handleMouseLeave('rightArrow', null)}
                             id="next"
                         >
                             <div className="swiper-arrow-right-line"/>
@@ -989,10 +985,10 @@ export const Swiper = (props) => {
                     <div className="swiper-arrow-right">
                         <div 
                             // className="swiper-arrow-right-wrapper"
-                            className={renderClassName("rightArrow", isHoveringRightArrow)}
+                            className={renderClassName("rightArrow", isHoveringRightArrow, null)}
                             onClick={() => nextSlide(null, null)}
-                            onMouseEnter={() => handleMouseEnter('rightArrow')} 
-                            onMouseLeave={() => handleMouseLeave('rightArrow')}
+                            onMouseEnter={() => handleMouseEnter('rightArrow', null)} 
+                            onMouseLeave={() => handleMouseLeave('rightArrow', null)}
                             id="next"
                         >
                             <div className="h17-white-lustria">Next</div>
@@ -1007,7 +1003,7 @@ export const Swiper = (props) => {
                 <div 
                     className="swiper-arrow-down"
                     onClick={() => nextSlide(null, null)}
-                    onMouseEnter={handleMouseEnter} 
+                    onMouseEnter={() => handleMouseEnter(null, null)} 
                 >
                     <FontAwesomeIcon 
                         icon={faChevronDown} 
@@ -1043,7 +1039,7 @@ export const Swiper = (props) => {
 
     const renderSwiperDots = () => {
         return(
-            <div className={renderClassName(`${props.component}SwiperDots`)} >
+            <div className={renderClassName(`${props.component}SwiperDots`, null, null)} >
                 {props.swiperData.slides.map((el, i) => {
                     let active = props.swiperData.activeIndex + 1 === el.id ? "on" : "off";
                     // console.log(props.swiperData.activeIndex)
@@ -1070,7 +1066,7 @@ export const Swiper = (props) => {
     return(
         <>
             <div 
-                className={renderClassName(props.component)} 
+                className={renderClassName(props.component, null, null)} 
                 // id={`${props.component}Swiper`}
                 ref={setRef(`${props.component}Content`)}
             >
