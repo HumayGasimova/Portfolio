@@ -9,7 +9,7 @@
     "deploy:firebase": "npm run build && firebase deploy",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
-    "server": "nodemon src/setUpServer",
+    "server": "nodemon src/setUpServer.tsx",
     "clean": "rimraf dist"
   },
   "keywords": [],
