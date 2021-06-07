@@ -11,6 +11,45 @@ import * as actionTypes from "../constants/actionTypes";
 import * as Utility from "../utility";
 import uuid from "uuid";
 
+type Item = {
+    id: number,
+    text: string,
+    itemId: string,
+    path: string,
+    active: boolean,
+    isHover: string,
+    hasSubOptions: boolean,
+    options: Array<Options>
+}
+
+type Options = {
+    id: number,
+    active: boolean,
+    header: string,
+    itemId: string,
+    array: Array<OptionsArray>
+}
+
+type OptionsArray = {
+        id: number,
+        text: string,
+        itemId: string,
+        path: string,
+        active: boolean,
+        isHover: string,
+        subOptions: Array<Suboptions>
+}
+
+type Suboptions = {
+    id: number,
+    text: string,
+    itemId: string,
+    path: string,
+    active: boolean,
+    isHover: string,
+    subOptions: Array<Suboptions>
+}
+
 /**
  * Initial State
  */
@@ -713,34 +752,38 @@ const clearActivityOfMenuItems = (state, action) => {
     }
     
     if(activeItemPath.length !== 0){
-        let item = updatedMenuItems.filter(item => item.id === +activeItemPath[0]);
+        let item: Array<Item> = updatedMenuItems.filter(item => item.id === +activeItemPath[0]);
+        
         if(item.length !== 0){
             let itemIndex = updatedMenuItems.findIndex(item => item.id === +activeItemPath[0]);
-            item = {...item[0], active: false}
+            let _item: Item  = {...item[0], active: false}
         
-            updatedMenuItems.splice(itemIndex, 1, item);
+            updatedMenuItems.splice(itemIndex, 1, _item);
           
         }
-        let item2 = item.options.filter(item => item.id === +activeItemPath[1]);
+
+        let item2: Array<Options> = item[0].options.filter(item => item.id === +activeItemPath[1]);
         if(item2.length !== 0){
-            let itemIndex2 = item.options.findIndex(item => item.id === +activeItemPath[1]);
-            item2 = {...item2[0], active: false}
+            let itemIndex2 = item[0].options.findIndex(item => item.id === +activeItemPath[1]);
+            let _item2: Options = {...item2[0], active: false}
         
-            item.options.splice(itemIndex2, 1, item2);
+            item[0].options.splice(itemIndex2, 1, _item2);
         }
-        let item3 = item2.array.filter(item => item.id === +activeItemPath[2]);
+
+        let item3: Array<OptionsArray> = item2[0].array.filter(item => item.id === +activeItemPath[2]);
         if(item3.length !== 0){
-            let itemIndex3 = item2.array.findIndex(item => item.id === +activeItemPath[2]);
-            item3 = {...item3[0], active: false}
+            let itemIndex3 = item2[0].array.findIndex(item => item.id === +activeItemPath[2]);
+            let _item3: Suboptions = {...item3[0], active: false}
     
-            item2.array.splice(itemIndex3, 1, item3);
+            item2[0].array.splice(itemIndex3, 1, _item3);
         }
-        let item4 = item3.subOptions.filter(item => item.id === +activeItemPath[3]);
+
+        let item4: Array<Suboptions> = item3[0].subOptions.filter(item => item.id === +activeItemPath[3]);
         if(item4.length !== 0){
-            let itemIndex4 = item3.subOptions.findIndex(item => item.id === +activeItemPath[3]);
-            item4 = {...item4[0], active: false}
+            let itemIndex4 = item3[0].subOptions.findIndex(item => item.id === +activeItemPath[3]);
+            let _item4: Suboptions = {...item4[0], active: false}
         
-            item3.subOptions.splice(itemIndex4, 1, item4);
+            item3[0].subOptions.splice(itemIndex4, 1, _item4);
         }
     }
   
