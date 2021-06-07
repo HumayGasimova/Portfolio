@@ -77,7 +77,7 @@ import * as Types from './achievementsTypes';
  * Achievements component definition and export
  */
 
-export const Achievements: React.FC<Types.AchievementsPageProps> = (props) => {
+export const Achievements: React.FC<Types.AchievementsComponentProps> = (props) => {
 
     /**
      * State

@@ -25,16 +25,22 @@ import {
 import * as Audios from '../../../constants/audios';
 
 /**
+ * Types
+ */
+
+import * as Types from './audioTypes';
+
+/**
  * Audio component definition and export
  */
 
-export const Audio = (props) => {
+export const Audio: React.FC<Types.AudioComponentProps> = (props) => {
 
     /**
      * State
      */
 
-    const [audioIsPlaying, setAudioIsPlaying] = React.useState(false);
+    const [audioIsPlaying, setAudioIsPlaying] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -42,8 +48,6 @@ export const Audio = (props) => {
 
     React.useEffect(() => {
         let audio = (document.getElementById(`${props.audioKey}Audio`) as HTMLAudioElement);
-        // let audio = document.getElementById(`${props.audioKey}Audio`);
-
 
         // Event Listeners
         
@@ -58,8 +62,8 @@ export const Audio = (props) => {
         }
     }, []);
 
-    const loadAudio = (opt) => {
-        let audio;
+    const loadAudio = (opt: string) => {
+        let audio: string;
 
         switch(opt){
             case 'ukuleleMp3':

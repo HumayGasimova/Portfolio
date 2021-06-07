@@ -1,4 +1,4 @@
-export type AchievementsPageProps = {
+export type AchievementsComponentProps = {
     achievementsData: AchievementsData,
     fetchAchievementsData: () => void,
     fetchAchievementsDataSuccess: (array: Array<AchievementsDataObj>) => {array: Array<AchievementsDataObj>},
