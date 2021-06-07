@@ -2,21 +2,18 @@
  * Libraries
  */
 
-import {
-    useEffect,
-    useRef
-  } from 'react';
+import * as React from 'react';
   
 export const useInterval = (callback, delay) => {
-    const savedCallback = useRef();
+    const savedCallback = React.useRef(null);
 
     // Remember the latest function.
-    useEffect(() => {
+    React.useEffect(() => {
         savedCallback.current = callback;
     }, [callback]);
 
     // Set up the interval.
-    useEffect(() => {
+    React.useEffect(() => {
         function tick() {
             savedCallback.current();
         }

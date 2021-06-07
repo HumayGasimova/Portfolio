@@ -2,14 +2,11 @@
  * Libraries
  */
 
-import {
-    useEffect,
-    useRef
-  } from 'react';
+import * as React from 'react';
   
 export const usePrevious = (value) => {
-    const ref = useRef();
-    useEffect(() => {
+    const ref = React.useRef(null);
+    React.useEffect(() => {
       ref.current = value;
     });
     return ref.current;

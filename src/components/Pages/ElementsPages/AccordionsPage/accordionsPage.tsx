@@ -298,7 +298,7 @@ export const AccordionsPage = (props) => {
             return(
                 <div 
                     className="accordions-page-loading-error" 
-                    style={{height: `${size.heigh/2}px`}}
+                    style={{height: `${size.height/2}px`}}
                 >
                     <H15 className="h19-nobel-lora">{`${props.accordionsPage.section2Data.error}`}</H15>
                 </div>
