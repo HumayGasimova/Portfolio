@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState,
-    useEffect,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     bindActionCreators
@@ -26,7 +22,7 @@ import './scrollSlider.scss';
  * Components
  */
 
-import Button from '../..//library/Button/button';
+import Button from '../Button/button';
 
 /**
  * Actions
@@ -86,16 +82,16 @@ export const ScrollSlider = (props) => {
      */
 
     const size = useWindowSize();
-    const resizeRef = useRef();
-    const transitionRef = useRef();
-    const [initHeight, setInitHeight] = useState("350px");       
-    const [componentUpdated, setComponentUpdated] = useState(false);    
+    const resizeRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
+    const [initHeight, setInitHeight] = React.useState("350px");       
+    const [componentUpdated, setComponentUpdated] = React.useState(false);    
     
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Prevent scrolling y axis on scrolSlider component
 
         document.getElementById('scrollSlider').onwheel = () => false;
@@ -135,12 +131,12 @@ export const ScrollSlider = (props) => {
         }
     }, [props.mouseOnSlider, componentUpdated]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         resizeRef.current = handleResize;
         transitionRef.current = smoothTransition;
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Set the transition property to the initial value if its value is 0
 
         if(props.scrollSlidersStyleValues.slider1?.transition === 0){
@@ -260,7 +256,7 @@ export const ScrollSlider = (props) => {
             id="scrollSlider"
             style={{
                 height: `${initHeight}`,
-                flexDirection: `${props.orientation}`,
+                flexDirection: `${props.orientation}` as 'row',
                 transform: `translateX(${props.scrollSlidersStyleValues.slider1?.translateX}px)`,
                 transition: `transform ${props.scrollSlidersStyleValues.slider1?.transition}s ease`,
             }}
@@ -280,7 +276,7 @@ export const ScrollSlider = (props) => {
                             <Button
                                 className="buttons-page-medium"
                                 text="get direction."
-                                onMouseDown={(e) => onMouseDownHandler(e)}
+                                // onMouseDown={(e) => onMouseDownHandler(e)}
                             />
                             {size.width < 900 ? null : <EH60/>}
                         </div>
