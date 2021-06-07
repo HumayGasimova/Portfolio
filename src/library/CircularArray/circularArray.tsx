@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -57,8 +54,8 @@ export const CircularArray = (props) => {
      */
 
     const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    const [selected, setSelected] = useState(0);
-    const [move, setMove] = useState(false)
+    const [selected, setSelected] = React.useState(0);
+    const [move, setMove] = React.useState(false)
 
     /**
      * Methods

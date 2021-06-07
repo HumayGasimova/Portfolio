@@ -2,9 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useState
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -30,7 +28,7 @@ export const ButtonWithText = (props) => {
      * State
      */
 
-    const [isHovering, setIsHovering] = useState("init");
+    const [isHovering, setIsHovering] = React.useState("init");
 
     /**
      * Methods

@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 /**
  * Styles
@@ -83,7 +80,7 @@ export const Input = (props) => {
                     <div className={props.validField === false && props.touched === true ? props.invalidClassName : props.className}>
                         <textarea 
                             value={props.value}
-                            type={props.type}
+                            // type={props.type}
                             onChange={props.onChange}
                             rows={props.rows}
                             id={props.inputID}
@@ -94,12 +91,12 @@ export const Input = (props) => {
                 )
             case "select":
                 return(
-                    <div className={props.validField === false && props.touched === true ? propsminvalidClassName : props.className}>
+                    <div className={props.validField === false && props.touched === true ? props.minvalidClassName : props.className}>
                         <select 
                             value={props.value}
-                            type={props.type}
+                            // type={props.type}
                             onChange={props.onChange}
-                            rows={props.rows}
+                            // rows={props.rows}
                             id={props.inputID}
                             placeholder={props.placeholder}
                         >

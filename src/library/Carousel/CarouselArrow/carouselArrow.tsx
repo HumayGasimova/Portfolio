@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -15,15 +12,20 @@ import {
     bindActionCreators
 } from 'redux';
 
+import { 
+    FontAwesomeIcon 
+} from '@fortawesome/react-fontawesome';
+
 /**
  * Styles
  */
 
-import './carouselSlide.scss';
+import './carouselArrow.scss';
 
 /**
  * Components
  */
+
 
 /**
  * Actions
@@ -46,19 +48,19 @@ import './carouselSlide.scss';
 // } from '../constants/storiesArray';
 
 /**
- * Images
+ * Icons
  */
 
-import Image1 from '../../../images/17222.jpg';
-import Image2 from '../../../images/40925569753_4d7f10ac9f_b.jpg';
-import Image3 from '../../../images/caffeine-coffee-coffee-beans-cup-606545.jpg';
-import Image4 from '../../../images/dessert.jpg';
+import { 
+    faArrowAltCircleLeft,
+    faArrowAltCircleRight
+} from '@fortawesome/free-solid-svg-icons';
 
 /**
- * CarouselSlide component definition and export
+ * CarouselArrow component definition and export
  */
 
-export const CarouselSlide = (props) => {
+export const CarouselArrow = (props) => {
 
     /**
      * State
@@ -67,17 +69,13 @@ export const CarouselSlide = (props) => {
     /**
      * Methods
      */
-   
-    const loadImage = (img) => {
-        switch(img){
-            case 'image1':
-                return Image1;
-            case 'image2':
-                return Image2;
-            case 'image3':
-                return Image3;
-            case 'image4':
-                return Image4;
+
+    const loadIconName = (name) => {
+        switch(name){
+            case 'left':
+                return faArrowAltCircleLeft;
+            case 'right':
+                return faArrowAltCircleRight;
         }
     }
 
@@ -86,12 +84,14 @@ export const CarouselSlide = (props) => {
      */
 
     return(
-        <div 
-            className="carousel-slide"   
-            style={{width: `${props.width}px`}}
-        >
-            <img src={loadImage(props.image)}/>
-        </div>
+            <div className={props.name === "left" ? "carousel-arrow-left" : "carousel-arrow-right"}>
+                <FontAwesomeIcon 
+                    icon={loadIconName(props.name)} 
+                    size='2x'
+                    onClick={props.onClick}
+                    style={{cursor: "pointer"}}
+                />
+            </div>
     );
 }
 
@@ -109,5 +109,5 @@ export default connect(
             // initSingleStory: bindActionCreators(Actions.initSingleStory, dispatch),
         };
     }
-)(CarouselSlide);
+)(CarouselArrow);
  

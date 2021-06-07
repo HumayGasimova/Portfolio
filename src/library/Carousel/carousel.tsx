@@ -2,11 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState,
-    useRef
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -44,14 +40,6 @@ import CarouselDots from './CarouselDots/carouselDots';
 // import * as Selectors from '../reducers/selectors';
 
 /**
- * Constants
- */
-
-import {
-    slides
-} from '../../constants/slides';
-
-/**
  * Carousel component definition and export
  */
 
@@ -60,6 +48,20 @@ export const Carousel = (props) => {
     /**
      * State
      */
+    const slides = [
+        {
+            image: "image1"
+        },
+        {
+            image: "image2"
+        },
+        {
+            image: "image3"
+        },
+        {
+            image: "image4"
+        },
+    ]
 
     const firstSlide = slides[0];
     const secondSlide = slides[1]
@@ -67,7 +69,7 @@ export const Carousel = (props) => {
 
     const getWidth = () => window.innerWidth;
 
-    const [state, setState] = useState({
+    const [state, setState] = React.useState({
         activeIndex: 0,
         translate: getWidth(),
         transition: 0.45,
@@ -76,21 +78,21 @@ export const Carousel = (props) => {
 
     const {activeIndex, translate, transition, _slides} = state;
 
-    const autoPlayRef = useRef();
-    const transitionRef = useRef();
-    const resizeRef = useRef();
+    const autoPlayRef = React.useRef(null);
+    const transitionRef = React.useRef(null);
+    const resizeRef = React.useRef(null);
 
     /**
      * Methods
      */
 
-    useEffect(() => {
+    React.useEffect(() => {
         autoPlayRef.current = nextSlide;
         transitionRef.current = smoothTransition;
         resizeRef.current = handleResize;
     })
 
-    useEffect(() => {
+    React.useEffect(() => {
         if(transition === 0) {
             setState({
                 ...state,
@@ -99,7 +101,7 @@ export const Carousel = (props) => {
         }
     }, [transition])
 
-    useEffect(() => {
+    React.useEffect(() => {
         const play = () => {
             autoPlayRef.current();
         }

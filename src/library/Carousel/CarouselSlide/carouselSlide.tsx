@@ -2,10 +2,7 @@
  * Libraries
  */
 
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import * as React from 'react';
 
 import {
     connect
@@ -15,20 +12,15 @@ import {
     bindActionCreators
 } from 'redux';
 
-import { 
-    FontAwesomeIcon 
-} from '@fortawesome/react-fontawesome';
-
 /**
  * Styles
  */
 
-import './carouselArrow.scss';
+import './carouselSlide.scss';
 
 /**
  * Components
  */
-
 
 /**
  * Actions
@@ -51,19 +43,19 @@ import './carouselArrow.scss';
 // } from '../constants/storiesArray';
 
 /**
- * Icons
+ * Images
  */
 
-import { 
-    faArrowAltCircleLeft,
-    faArrowAltCircleRight
-} from '@fortawesome/free-solid-svg-icons';
+import Image1 from '../../../images/17222.jpg';
+import Image2 from '../../../images/40925569753_4d7f10ac9f_b.jpg';
+import Image3 from '../../../images/caffeine-coffee-coffee-beans-cup-606545.jpg';
+import Image4 from '../../../images/dessert.jpg';
 
 /**
- * CarouselArrow component definition and export
+ * CarouselSlide component definition and export
  */
 
-export const CarouselArrow = (props) => {
+export const CarouselSlide = (props) => {
 
     /**
      * State
@@ -72,13 +64,17 @@ export const CarouselArrow = (props) => {
     /**
      * Methods
      */
-
-    const loadIconName = (name) => {
-        switch(name){
-            case 'left':
-                return faArrowAltCircleLeft;
-            case 'right':
-                return faArrowAltCircleRight;
+   
+    const loadImage = (img) => {
+        switch(img){
+            case 'image1':
+                return Image1;
+            case 'image2':
+                return Image2;
+            case 'image3':
+                return Image3;
+            case 'image4':
+                return Image4;
         }
     }
 
@@ -87,14 +83,12 @@ export const CarouselArrow = (props) => {
      */
 
     return(
-            <div className={props.name === "left" ? "carousel-arrow-left" : "carousel-arrow-right"}>
-                <FontAwesomeIcon 
-                    icon={loadIconName(props.name)} 
-                    size='2x'
-                    onClick={props.onClick}
-                    style={{cursor: "pointer"}}
-                />
-            </div>
+        <div 
+            className="carousel-slide"   
+            style={{width: `${props.width}px`}}
+        >
+            <img src={loadImage(props.image)}/>
+        </div>
     );
 }
 
@@ -112,5 +106,5 @@ export default connect(
             // initSingleStory: bindActionCreators(Actions.initSingleStory, dispatch),
         };
     }
-)(CarouselArrow);
+)(CarouselSlide);
  
