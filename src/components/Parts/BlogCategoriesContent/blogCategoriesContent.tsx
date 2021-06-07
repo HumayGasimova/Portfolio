@@ -60,10 +60,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogCategoriesContentTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogCategoriesContent component definition and export
  */
 
-export const BlogCategoriesContent = (props) => {
+export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponentProps> = (props) => {
 
     /**
      * Methods
@@ -73,7 +80,7 @@ export const BlogCategoriesContent = (props) => {
         // Fetch data for the component
 
         let categoryName = setPageData(props.page, "categoryName");
-        
+        console.log("Props", props)
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
@@ -128,7 +135,7 @@ export const BlogCategoriesContent = (props) => {
         props.initBlogPagination(updatedBlogList.numberOfPages);
     }
 
-    const setPageData = (page, opt) => {
+    const setPageData = (page: string, opt: string): any => {
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -306,7 +313,7 @@ export const BlogCategoriesContent = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             blogListStandardPage: Selectors.getBlogListStandardPageState(state),
