@@ -68,17 +68,23 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './achievementsTypes';
+
+/**
  * Achievements component definition and export
  */
 
-export const Achievements = (props) => {
+export const Achievements: React.FC<Types.AchievementsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [showComponent, setShowComponent] = React.useState(false);
+    const [showComponent, setShowComponent] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -185,7 +191,7 @@ export const Achievements = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             achievementsData: Selectors.getAchievementsDataState(state)

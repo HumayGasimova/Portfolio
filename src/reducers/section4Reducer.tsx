@@ -66,7 +66,7 @@ const fetchStatisticsDataFailur = (state, action) => {
     };
 }
 
-const fetchAchievementsBegin = (state, action) => {
+const fetchAchievementsDataBegin = (state, action) => {
     let updateAchievementsData = {
         ...state.teamInformation, 
         loading: true, 
@@ -79,7 +79,7 @@ const fetchAchievementsBegin = (state, action) => {
     };
 }
 
-const fetchAchievementsSuccess = (state, action) => {   
+const fetchAchievementsDataSuccess = (state, action) => {   
     let updateAchievementsData = {
         ...state.teamInformation, 
         items: action.array,
@@ -91,7 +91,7 @@ const fetchAchievementsSuccess = (state, action) => {
     };
 }
 
-const fetchAchievementsFailur = (state, action) => {
+const fetchAchievementsDataFailur = (state, action) => {
     let updateAchievementsData = {
         items: [],
         loading: false, 
@@ -112,11 +112,11 @@ const section4Reducer = (state = initialState, action) => {
         case actionTypes.FETCH_STATISTICS_DATA_FAILURE:
             return fetchStatisticsDataFailur(state, action);
         case actionTypes.FETCH_ACHIEVEMENTS_DATA_BEGIN:
-            return fetchAchievementsBegin (state, action); 
+            return fetchAchievementsDataBegin (state, action); 
         case actionTypes.FETCH_ACHIEVEMENTS_DATA_SUCCESS:
-            return fetchAchievementsSuccess (state, action);
+            return fetchAchievementsDataSuccess (state, action);
         case actionTypes.FETCH_ACHIEVEMENTS_DATA_FAILURE:
-            return fetchAchievementsFailur(state, action);
+            return fetchAchievementsDataFailur(state, action);
         default: 
             return state;
     }

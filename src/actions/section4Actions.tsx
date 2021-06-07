@@ -1,5 +1,11 @@
 import * as actionTypes from '../constants/actionTypes';
 
+type AchievementsData = {
+    id: number,
+    achievement: string,
+    number: number
+}
+
 export function fetchStatisticsDataBegin() {
     return { 
         type: actionTypes.FETCH_STATISTICS_DATA_BEGIN
@@ -26,7 +32,7 @@ export function fetchAchievementsDataBegin() {
     };
 };
 
-export function fetchAchievementsDataSuccess(array) {
+export function fetchAchievementsDataSuccess(array: Array<AchievementsData>) {
     return { 
         type: actionTypes.FETCH_ACHIEVEMENTS_DATA_SUCCESS,
         array: array
