@@ -135,7 +135,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
         props.initBlogPagination(updatedBlogList.numberOfPages);
     }
 
-    const setPageData = (page: string, opt: string): any => {
+    const setPageData = (page: string, opt: string): any => { // LEARN MORE
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -262,7 +262,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
 
     const renderBlogListStandardPageDataContent = () => {
         let data = setPageData(props.page, "pageData");
-
+        
         if(data.loading && !data.error){
             return(
                 <div 

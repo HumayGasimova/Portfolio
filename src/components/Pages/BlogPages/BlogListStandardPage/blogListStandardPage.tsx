@@ -99,6 +99,21 @@ import {
     blogListStandardSearchInputForm
 } from '../../../../constants/inputForm';
 
+
+interface MapStateToPropsTypes {
+    // menuFullscreenItems: Array<MenuFullscreenItems>;
+}
+
+interface MapDispatchToPropsTypes {
+    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
+    // setMenuDotsState: (val: string, page: string) => void;
+    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
+    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
+    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
+    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
+    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
+}
+
 /**
  * BlogListStandardPage component definition and export
  */
@@ -425,7 +440,7 @@ export const BlogListStandardPage = (props) => {
                                 exact 
                                 path="/crypto-portfolio/list-standard-blog-category/:category"
                                 render={(props) => (
-                                    <BlogCategoriesContent page='blogListStandardPage'/>
+                                    <BlogCategoriesContent page='blogListStandardPage' activateListStandardBlogCategory= {props.activateListStandardBlogCategory}/>
                                 )}
                             />
                             <Route 
@@ -505,58 +520,59 @@ export const BlogListStandardPage = (props) => {
         </div>   
     );
 }
-
-export default connect(
-    (state) => {
-        return {
-            blogListStandardPage: Selectors.getBlogListStandardPageState(state),
-            searchResultPage: Selectors.getSearchResultPageState(state),
-            unmountComp: Selectors.getUnmountComponentState(state),
-            menuDotsState: Selectors.getMenuDotsStateState(state),
-            showBackToTop: Selectors.getShowBackToTopState(state),
-        };
-    },
-    (dispatch) => {
-        return {
-            fetchBlogListStandardPageData: bindActionCreators(Services.fetchBlogListStandardPageData, dispatch),
-            fetchBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogListStandardPageDataSuccess, dispatch),
-            initBlogPagination: bindActionCreators(Actions.initBlogPagination, dispatch),
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-            setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
-            setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
-            initSearchInputFormThroughWebsite: bindActionCreators(Actions.initSearchInputFormThroughWebsite, dispatch),
-            activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
-            activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
-            initCategoriesForBlogListStandardPage: bindActionCreators(Actions.initCategoriesForBlogListStandardPage, dispatch),
-            initTagsForBlogListStandardPage: bindActionCreators(Actions.initTagsForBlogListStandardPage, dispatch),
-            blogListCardCategoryIsHoverForBlogListStandardPage: bindActionCreators(Actions.blogListCardCategoryIsHoverForBlogListStandardPage, dispatch),
-            setSwiperStateForBlogListStandardPage: bindActionCreators(Actions.setSwiperStateForBlogListStandardPage, dispatch),
-            activatePageNumberForBlogListStandardPage: bindActionCreators(Actions.activatePageNumberForBlogListStandardPage, dispatch),
-            clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
-            activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
-            clearBlogListSingleItemStateForBlogListStandardPage: bindActionCreators(Actions.clearBlogListSingleItemStateForBlogListStandardPage, dispatch),
-            triggerCommentReplyButtonForBlogListStandardPage: bindActionCreators(Actions.triggerCommentReplyButtonForBlogListStandardPage, dispatch),
-            initInputFormOfBlogCommentReplyForBlogListStandardPage: bindActionCreators(Actions.initInputFormOfBlogCommentReplyForBlogListStandardPage, dispatch),
-            setInputFiledValueAndCheckValidationForBlogListStandardPage: bindActionCreators(Actions.setInputFiledValueAndCheckValidationForBlogListStandardPage, dispatch),
-            setInputFiledValueAndCheckValidationThroughWebsite: bindActionCreators(Actions.setInputFiledValueAndCheckValidationThroughWebsite, dispatch),
-            replyCommentBlogListStandardPage: bindActionCreators(Actions.replyCommentBlogListStandardPage, dispatch),
-            searchThroughWebsite: bindActionCreators(Actions.searchThroughWebsite, dispatch),
-            fetchStandardPostBlogData: bindActionCreators(Services.fetchStandardPostBlogData, dispatch),
-            fetchGalleryPostBlogData: bindActionCreators(Services.fetchGalleryPostBlogData, dispatch),
-            fetchLinkPostBlogData: bindActionCreators(Services.fetchLinkPostBlogData, dispatch),
-            fetchQuotePostBlogData: bindActionCreators(Services.fetchQuotePostBlogData, dispatch),
-            fetchAudioPostBlogData: bindActionCreators(Services.fetchAudioPostBlogData, dispatch),
-            fetchVideoPostBlogData: bindActionCreators(Services.fetchVideoPostBlogData, dispatch),
-            fetchPostBlogDataSuccess: bindActionCreators(Actions.fetchPostBlogDataSuccess, dispatch),
-            increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
-            decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
-            setCommentsButtonClickedStateForBlogListStandardPage: bindActionCreators(Actions.setCommentsButtonClickedStateForBlogListStandardPage, dispatch),
-            fetchBlogRecentPostsData: bindActionCreators(Services.fetchBlogRecentPostsData, dispatch),
-            fetchBlogRecentPostsForBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogRecentPostsForBlogListStandardPageDataSuccess, dispatch),
-            activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch),
-            fetchSearchThroughWebsiteResutData: bindActionCreators(Services.fetchSearchThroughWebsiteResutData, dispatch),
-        };
-    }
-)(withRouter(BlogListStandardPage));
  
+export default withRouter(
+    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                blogListStandardPage: Selectors.getBlogListStandardPageState(state),
+                searchResultPage: Selectors.getSearchResultPageState(state),
+                unmountComp: Selectors.getUnmountComponentState(state),
+                menuDotsState: Selectors.getMenuDotsStateState(state),
+                showBackToTop: Selectors.getShowBackToTopState(state),
+            };
+        },
+        (dispatch) => {
+            return {
+                fetchBlogListStandardPageData: bindActionCreators(Services.fetchBlogListStandardPageData, dispatch),
+                fetchBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogListStandardPageDataSuccess, dispatch),
+                initBlogPagination: bindActionCreators(Actions.initBlogPagination, dispatch),
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+                setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
+                setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
+                initSearchInputFormThroughWebsite: bindActionCreators(Actions.initSearchInputFormThroughWebsite, dispatch),
+                activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
+                activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
+                initCategoriesForBlogListStandardPage: bindActionCreators(Actions.initCategoriesForBlogListStandardPage, dispatch),
+                initTagsForBlogListStandardPage: bindActionCreators(Actions.initTagsForBlogListStandardPage, dispatch),
+                blogListCardCategoryIsHoverForBlogListStandardPage: bindActionCreators(Actions.blogListCardCategoryIsHoverForBlogListStandardPage, dispatch),
+                setSwiperStateForBlogListStandardPage: bindActionCreators(Actions.setSwiperStateForBlogListStandardPage, dispatch),
+                activatePageNumberForBlogListStandardPage: bindActionCreators(Actions.activatePageNumberForBlogListStandardPage, dispatch),
+                clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
+                activateListStandardBlogItem: bindActionCreators(Actions.activateListStandardBlogItem, dispatch),
+                clearBlogListSingleItemStateForBlogListStandardPage: bindActionCreators(Actions.clearBlogListSingleItemStateForBlogListStandardPage, dispatch),
+                triggerCommentReplyButtonForBlogListStandardPage: bindActionCreators(Actions.triggerCommentReplyButtonForBlogListStandardPage, dispatch),
+                initInputFormOfBlogCommentReplyForBlogListStandardPage: bindActionCreators(Actions.initInputFormOfBlogCommentReplyForBlogListStandardPage, dispatch),
+                setInputFiledValueAndCheckValidationForBlogListStandardPage: bindActionCreators(Actions.setInputFiledValueAndCheckValidationForBlogListStandardPage, dispatch),
+                setInputFiledValueAndCheckValidationThroughWebsite: bindActionCreators(Actions.setInputFiledValueAndCheckValidationThroughWebsite, dispatch),
+                replyCommentBlogListStandardPage: bindActionCreators(Actions.replyCommentBlogListStandardPage, dispatch),
+                searchThroughWebsite: bindActionCreators(Actions.searchThroughWebsite, dispatch),
+                fetchStandardPostBlogData: bindActionCreators(Services.fetchStandardPostBlogData, dispatch),
+                fetchGalleryPostBlogData: bindActionCreators(Services.fetchGalleryPostBlogData, dispatch),
+                fetchLinkPostBlogData: bindActionCreators(Services.fetchLinkPostBlogData, dispatch),
+                fetchQuotePostBlogData: bindActionCreators(Services.fetchQuotePostBlogData, dispatch),
+                fetchAudioPostBlogData: bindActionCreators(Services.fetchAudioPostBlogData, dispatch),
+                fetchVideoPostBlogData: bindActionCreators(Services.fetchVideoPostBlogData, dispatch),
+                fetchPostBlogDataSuccess: bindActionCreators(Actions.fetchPostBlogDataSuccess, dispatch),
+                increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
+                decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
+                setCommentsButtonClickedStateForBlogListStandardPage: bindActionCreators(Actions.setCommentsButtonClickedStateForBlogListStandardPage, dispatch),
+                fetchBlogRecentPostsData: bindActionCreators(Services.fetchBlogRecentPostsData, dispatch),
+                fetchBlogRecentPostsForBlogListStandardPageDataSuccess: bindActionCreators(Actions.fetchBlogRecentPostsForBlogListStandardPageDataSuccess, dispatch),
+                activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch),
+                fetchSearchThroughWebsiteResutData: bindActionCreators(Services.fetchSearchThroughWebsiteResutData, dispatch),
+            };
+        }
+    )(BlogListStandardPage)
+);
