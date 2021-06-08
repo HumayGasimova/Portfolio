@@ -10,7 +10,7 @@ import {
 
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
-export type BlogInfoBoardTypes = {
+export type BlogInfoBoardProps = {
     categoryList: Array<GeneralTypes.CategoriesListItem>,
     history: History,
     location: Location,

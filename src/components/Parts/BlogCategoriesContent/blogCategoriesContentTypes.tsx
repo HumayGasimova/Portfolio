@@ -1,6 +1,6 @@
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
-export type BlogCategoriesContentComponentProps = {
+export type BlogCategoriesContentProps = {
     page: string,
     blogListStandardPage: GeneralTypes.BlogListStandardPage,
     activateListStandardBlogCategory: (categoryIsActive: string, categoryName: string) => {categoryIsActive: string, categoryName: string},

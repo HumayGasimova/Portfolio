@@ -44,10 +44,17 @@ import * as Utility from '../../../utility';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogReplyFormTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogReplyForm component definition and export
  */
 
-export const BlogReplyForm = (props) => {
+export const BlogReplyForm: React.FC<Types.BlogReplyFormProps> = (props) => {
 
     /**
      * Methods
@@ -55,8 +62,8 @@ export const BlogReplyForm = (props) => {
 
     React.useEffect(() => {
         // Init imput forms
-
-        props.initInputForm(blogListCommentReplyInputForm);
+        
+        props.initInputForm(blogListCommentReplyInputForm as GeneralTypes.InputForm);
 
     }, []);
 
@@ -92,7 +99,7 @@ export const BlogReplyForm = (props) => {
             postReplyFakeData(props.fakeData, props.cardIdFromPathname, info);
         }else{
             // Fetch data (required to run -> npm run server)
-
+            
             props.postReply(props.cardIdFromPathname, info);
         }
         

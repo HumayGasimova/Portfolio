@@ -70,7 +70,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  * BlogCategoriesContent component definition and export
  */
 
-export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponentProps> = (props) => {
+export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentProps> = (props) => {
 
     /**
      * Methods

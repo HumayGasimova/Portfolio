@@ -142,7 +142,7 @@ export const BlogComment = (props) => {
         pathOfIdsToComment.push(props.data.id);
         return(
             <BlogReplyForm
-                // inputFieldNameBold
+                inputFieldNameBold={false}
                 initInputForm={props.initInputForm}
                 inputFormFieldsArray={props.inputFormFieldsArray}
                 setInputFiledValueAndCheckValidation={props.setInputFiledValueAndCheckValidation}

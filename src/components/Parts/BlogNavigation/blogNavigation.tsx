@@ -53,7 +53,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  * BlogNavigation component definition and export
  */
 
-export const BlogNavigation: React.FC<Types.BlogNavigationTypes> = (props) => {
+export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
 
     /**
      * State

@@ -10,7 +10,7 @@ import {
 
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
-export type BlogNavigationTypes = {
+export type BlogNavigationProps = {
     itemKey: string,
     history: History,
     location: Location,

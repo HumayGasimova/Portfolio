@@ -73,7 +73,7 @@ import * as Types from './blogInfoBoardTypes';
  * BlogInfoBoard component definition and export
  */
 
-export const BlogInfoBoard: React.FC<Types.BlogInfoBoardTypes> = (props) => {
+export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
 
     /**
      * State
