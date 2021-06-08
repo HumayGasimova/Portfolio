@@ -34,6 +34,22 @@ export const blogRecentPosts = [
                 isHover: "init"
             }
         ],
+        tags: [
+            {
+                id: 1,
+                tagName: "Graphic",
+                key: "graphic",
+                path: "list-standard-blog-tag/graphic",
+                isHover: "init"
+            },
+            {
+                id: 2,
+                tagName: "New",
+                key: "new",
+                path: "list-standard-blog-tas/new",
+                isHover: "init"
+            }
+        ],
         path: "blog-list-standard-item/link-post/1",
         coverImage: {
             id: 1,
@@ -168,6 +184,15 @@ export const blogRecentPosts = [
                 isHover: "init"
             }
         ],
+        tags: [
+            {
+                id: 1,
+                tagName: "Art",
+                key: "art",
+                path: "list-standard-blog-tag/art",
+                isHover: "init"
+            }
+        ],
         path: "blog-list-standard-item/audio-post/5",
         coverImage: {
             id: 1,
@@ -298,6 +323,22 @@ export const blogRecentPosts = [
                 label: "Fashion",
                 key: "fashion",
                 path: "list-standard-blog-tags/fashion",
+                isHover: "init"
+            }
+        ],
+        tags: [
+            {
+                id: 1,
+                tagName: "Art",
+                key: "art",
+                path: "list-standard-blog-tag/art",
+                isHover: "init"
+            },
+            {
+                id: 2,
+                tagName: "Design",
+                key: "design",
+                path: "list-standard-blog-tag/design",
                 isHover: "init"
             }
         ],

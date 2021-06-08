@@ -37,7 +37,7 @@ type ActiveTagObj = {
     tagName: string
 }
 
-type CategoriesListItem = {
+export type CategoriesListItem = {
     active: string,
     categoryName: string,
     id: number,
@@ -100,12 +100,13 @@ type CoverImageObj = {
     key: string
 }
 
-type TagsItem = {
+export type TagsItem = {
     id: number,
     isHover: string,
     key: string,
-    path: string,
-    tagName: string
+    path?: string,
+    tagName: string,
+    active?: string
 }
 
 type NavigationObj = {
@@ -168,7 +169,7 @@ type TagsListItem = {
  * Input Form
  */ 
 
-export type InputForm= {
+export type InputForm = {
     formIsValid: boolean,
     inputsArray: Array<InputsArrayItem>
 }
@@ -179,7 +180,7 @@ type InputsArrayItem = {
     elementType: string,
     elementConfig: ElementConfigObj,
     value: string,
-    validation: Array<ValidationItem>,
+    validation?: Array<ValidationItem>,
     validField: boolean,
     touched: boolean,
     errorMessage: Array<any>,
@@ -189,8 +190,10 @@ type InputsArrayItem = {
 }
 
 type ElementConfigObj = {
-    type: string,
-    placeholder: string
+    type?: string,
+    placeholder?: string,
+    options?: Array<any>,
+    rows?: string
 }
 
 type ValidationItem = {

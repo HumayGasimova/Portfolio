@@ -40,6 +40,8 @@ import {
 
 import * as uuid from "uuid";
 
+import * as Utility from "../../../utility";
+
 /**
  * Images
  */
@@ -62,10 +64,16 @@ import {
 } from '../../../constants/socialMediaIcons';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogInfoBoardTypes';
+
+/**
  * BlogInfoBoard component definition and export
  */
 
-export const BlogInfoBoard = (props) => {
+export const BlogInfoBoard: React.FC<Types.BlogInfoBoardTypes> = (props) => {
 
     /**
      * State
@@ -79,7 +87,7 @@ export const BlogInfoBoard = (props) => {
 
     React.useEffect(() => {
         // Fetch data for the component
-
+        
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
 
@@ -119,10 +127,10 @@ export const BlogInfoBoard = (props) => {
              * Show filtered items on left mouse click 
              */
 
-            props.clearActivityOfMenuItems();
+            props.clearActivityOfMenuItems(null);
             props.activateBlogCategory("active", key);
             props.activateBlogTag("deactive", "");
-            props.activateBlogItem("deactive", "");
+            props.activateBlogItem("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-category/${key}`);
         }else{
             // Show filtered items on scroll wheel click
@@ -143,9 +151,9 @@ export const BlogInfoBoard = (props) => {
              * Show filtered items on left mouse click 
              */
 
-            props.clearActivityOfMenuItems();
+            props.clearActivityOfMenuItems(null);
             props.activateBlogTag("active", key);
-            props.activateBlogItem("deactive", "");
+            props.activateBlogItem("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-tag/${key}`);
         }else{
             // Show filtered items on scroll wheel click
@@ -169,7 +177,7 @@ export const BlogInfoBoard = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, "search-result");
+            props.setUnmountComponentValues(true, "search-result", null);
 
             // Fire up unmountComponent epic
         
@@ -238,9 +246,9 @@ export const BlogInfoBoard = (props) => {
     }
 
     const renderSearchForm = () => {
-        if(props.searchFormInputsArray){
+        if(!Utility.isObjEmpty(props.searchInputForm)){
             return(
-                <>{props.searchFormInputsArray.map((el, i)=>{
+                <>{props.searchInputForm.inputsArray.map((el, i)=>{
                     return(
                         <div 
                             key={i} 
@@ -255,7 +263,6 @@ export const BlogInfoBoard = (props) => {
                                 touched={el.touched}
                                 erroeMessages={el.errorMessage}
                                 inputID={el.inputID}
-                                textareaID={el.textareaID}
                                 placeholder={el.elementConfig.placeholder}
                                 options={el.elementConfig.options}
                             />
@@ -385,7 +392,6 @@ export const BlogInfoBoard = (props) => {
                                 iconName={el.name} 
                                 icon={el.iconKey} 
                                 iconSize="1x"
-                                instaName={props.instaName}
                                 onMouseEnter
                                 onMouseLeave
                                 onMouseDown
