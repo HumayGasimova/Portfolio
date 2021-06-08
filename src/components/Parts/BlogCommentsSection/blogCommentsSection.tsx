@@ -25,16 +25,23 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogCommentsSectionTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogCommentsSection component definition and export
  */
 
-export const BlogCommentsSection = (props) => {
+export const BlogCommentsSection: React.FC<Types.BlogCommentsSectionProps> = (props) => {
 
     /**
      * State
      */
 
-    const [pathOfIdsToComment, setPathOfIdsToComment] = React.useState([])
+    const [pathOfIdsToComment, setPathOfIdsToComment] = React.useState<Array<number>>([])
     
     /**
      * Methods
@@ -43,7 +50,7 @@ export const BlogCommentsSection = (props) => {
     React.useEffect(() => {
         let commentsSection = document.getElementById(`${props.page}CommentsSection`);
         let timeout;
-
+        
         if(props.commentsIconClicked){
             // Component rendered on left mouse click
 
@@ -56,9 +63,6 @@ export const BlogCommentsSection = (props) => {
             timeout = setTimeout(() => {
                 window.scroll(0, commentsSection.offsetTop);
             }, 500);
-            console.log(JSON.parse(localStorage.getItem("commentsIconCickedHG")))
-
-            console.log(JSON.parse(localStorage.getItem("commentsIconCickedHG")))
             
             localStorage.setItem("commentsIconCickedHG","false");
         }
@@ -69,7 +73,7 @@ export const BlogCommentsSection = (props) => {
         }
     }, []);
 
-    const renderComments = (arr, id, _pathOfIds = []) => {
+    const renderComments = (arr: Array<GeneralTypes.Comments>, id: number, _pathOfIds: Array<number> = []) => {
         let iteration = 0;
         let pathOfIds = [...pathOfIdsToComment];
        
@@ -112,7 +116,7 @@ export const BlogCommentsSection = (props) => {
         )
     }
 
-    const renderBlogPostSingleItemComments = (data) => {
+    const renderBlogPostSingleItemComments = (data: Types.Data) => {
         return(
             <div className="blog-comments-section-wrapper">
                 <H22 className="h22-black-lustria">Comments</H22>

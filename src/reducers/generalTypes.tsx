@@ -3,36 +3,36 @@
  */ 
 
 export interface BlogListStandardPage {
-    activeCategory: ActiveCategory;
-    activeItem: ActiveItem;
+    activeCategory: ActiveCategoryObj;
+    activeItem: ActiveItemObj;
     activePageId: number;
-    activeTag: ActiveTag;
+    activeTag: ActiveTagObj;
     categoriesList: Array<CategoriesListItem>;
-    commentReplyInputForm: CommentReplyInputForm;
+    commentReplyInputForm: CommentReplyInputFormObj;
     commentsIconCicked: boolean;
     error: any;
     items: Array<BlogListStandardPageItem>;
     loading: boolean;
-    navigation: Navigation;
+    navigation: NavigationObj;
     pagesArray: Array<PagesArrayItem>;
-    postBlogContent: PostBlogContent;
-    recentPosts: RecentPosts;
+    postBlogContent: PostBlogContentObj;
+    recentPosts: RecentPostsObj;
     tagsList: Array<TagsListItem>;
     triggerCommentReplyButtonVal: false
 }
 
-type ActiveCategory = {
+type ActiveCategoryObj = {
     activated: string, 
     categoryName: string
 }
 
-type ActiveItem = {
+type ActiveItemObj = {
     activated: string,
     cardType: string | undefined,
     itemKey: string
 }
 
-type ActiveTag = {
+type ActiveTagObj = {
     activated: string, 
     tagName: string
 }
@@ -45,7 +45,7 @@ type CategoriesListItem = {
     key: string,
 }
 
-type CommentReplyInputForm = {
+type CommentReplyInputFormObj = {
 
 }
 
@@ -53,7 +53,7 @@ export type BlogListStandardPageItem = {
     cardType: string,
     categories: Array<Categories>,
     comments: Array<Comments>,
-    coverImage: CoverImage,
+    coverImage: CoverImageObj,
     date: string,
     header: string,
     id: number,
@@ -74,8 +74,8 @@ type Categories = {
     path: string
 }
 
-type Comments = {
-    authorImage: AuthorImage,
+export type Comments = {
+    authorImage: AuthorImageObj,
     authorName: string,
     date: string,
     id: number,
@@ -83,7 +83,7 @@ type Comments = {
     text: string
 }
 
-type AuthorImage = {
+type AuthorImageObj = {
     alt: string,
     id: string,
     imageName: string,
@@ -91,7 +91,7 @@ type AuthorImage = {
     key: string
 }
 
-type CoverImage = {
+type CoverImageObj = {
     alt: string,
     folderName: string,
     id: number,
@@ -108,13 +108,13 @@ type TagsItem = {
     tagName: string
 }
 
-type Navigation = {
+type NavigationObj = {
     error: any,
-    items: Array<NavigationItem>,
+    items: Array<NavigationItemObj>,
     loading: boolean
 }
 
-type NavigationItem = {
+type NavigationItemObj = {
 
 }
 
@@ -123,16 +123,16 @@ type PagesArrayItem = {
     active: boolean
 }
 
-type PostBlogContent = {
+type PostBlogContentObj = {
     error: any,
-    item: PostBlogContentItem,
+    item: PostBlogContentItemObj,
     loading: boolean
 }
 
-type PostBlogContentItem = {
+type PostBlogContentItemObj = {
 }
 
-type RecentPosts = {
+type RecentPostsObj = {
     error: any,
     item: Array<RecentPostsItem>,
     loading: boolean
@@ -143,7 +143,7 @@ type RecentPostsItem = {
     cardType: string,
     categories: Array<Categories>,
     comments: Array<Comments>,
-    coverImage: CoverImage,
+    coverImage: CoverImageObj,
     date: string,
     header: string,
     id: number,
@@ -162,4 +162,38 @@ type TagsListItem = {
     isHover: string,
     key: string,
     tagName: string
+}
+
+/**
+ * Input Form
+ */ 
+
+export type InputForm= {
+    formIsValid: boolean,
+    inputsArray: Array<InputsArrayItem>
+}
+
+type InputsArrayItem = {
+    id: number,
+    inputFieldName: string,
+    elementType: string,
+    elementConfig: ElementConfigObj,
+    value: string,
+    validation: Array<ValidationItem>,
+    validField: boolean,
+    touched: boolean,
+    errorMessage: Array<any>,
+    type: string,
+    inputID: string,
+    controlName: string
+}
+
+type ElementConfigObj = {
+    type: string,
+    placeholder: string
+}
+
+type ValidationItem = {
+    required: boolean,
+    valid: boolean
 }
