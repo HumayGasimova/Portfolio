@@ -2,22 +2,22 @@
  * BlogListStandardPage
  */ 
 
-export type BlogListStandardPage = {
-    activeCategory: ActiveCategory,
-    activeItem: ActiveItem,
-    activePageId: number,
-    activeTag: ActiveTag,
-    categoriesList: Array<CategoriesListItem>,
-    commentReplyInputForm: CommentReplyInputForm,
-    commentsIconCicked: boolean,
-    error: any,
-    items: Array<BlogListStandardPageItem>,
-    loading: boolean
-    navigation: Navigation,
-    pagesArray: Array<PagesArrayItem>
-    postBlogContent: PostBlogContent
-    recentPosts: RecentPosts,
-    tagsList: Array<TagsListItem>
+export interface BlogListStandardPage {
+    activeCategory: ActiveCategory;
+    activeItem: ActiveItem;
+    activePageId: number;
+    activeTag: ActiveTag;
+    categoriesList: Array<CategoriesListItem>;
+    commentReplyInputForm: CommentReplyInputForm;
+    commentsIconCicked: boolean;
+    error: any;
+    items: Array<BlogListStandardPageItem>;
+    loading: boolean;
+    navigation: Navigation;
+    pagesArray: Array<PagesArrayItem>;
+    postBlogContent: PostBlogContent;
+    recentPosts: RecentPosts;
+    tagsList: Array<TagsListItem>;
     triggerCommentReplyButtonVal: false
 }
 
@@ -27,8 +27,8 @@ type ActiveCategory = {
 }
 
 type ActiveItem = {
-    activated: string
-    cardType: string | undefined;
+    activated: string,
+    cardType: string | undefined,
     itemKey: string
 }
 
@@ -52,7 +52,7 @@ type CommentReplyInputForm = {
 export type BlogListStandardPageItem = {
     cardType: string,
     categories: Array<Categories>,
-    comments: Array<Comments>
+    comments: Array<Comments>,
     coverImage: CoverImage,
     date: string,
     header: string,
@@ -78,7 +78,7 @@ type Comments = {
     authorImage: AuthorImage,
     authorName: string,
     date: string,
-    id: number
+    id: number,
     repliesArray: Array<Comments>,
     text: string
 }

@@ -80,7 +80,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
         // Fetch data for the component
 
         let categoryName = setPageData(props.page, "categoryName");
-        console.log("Props", props)
+        
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
@@ -89,10 +89,9 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
             // Fetch data (required to run -> npm run server)
 
             if(!!categoryName){
-                props.fetchBlogCategoriesContentData(setPageData(props.page, "activePageNumber"), props.page, categoryName);
+                props.fetchBlogCategoriesContentData(setPageData(props.page, "activePageNumber") as number, props.page, categoryName as string);
             }
         }
-
     }, [props.blogListStandardPage.activeCategory.categoryName]);
  
     const fetchFakeData = (fakeData, activePageId, page, categoryName) => {
@@ -135,7 +134,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
         props.initBlogPagination(updatedBlogList.numberOfPages);
     }
 
-    const setPageData = (page: string, opt: string): any => { // LEARN MORE
+    const setPageData = (page: string, opt: string) => { // LEARN MORE
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -261,7 +260,8 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentComponen
     }
 
     const renderBlogListStandardPageDataContent = () => {
-        let data = setPageData(props.page, "pageData");
+
+        let data = setPageData(props.page, "pageData") as GeneralTypes.BlogListStandardPage;
         
         if(data.loading && !data.error){
             return(

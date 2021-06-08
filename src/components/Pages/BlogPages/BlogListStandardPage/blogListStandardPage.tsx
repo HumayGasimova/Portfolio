@@ -440,7 +440,7 @@ export const BlogListStandardPage = (props) => {
                                 exact 
                                 path="/crypto-portfolio/list-standard-blog-category/:category"
                                 render={(props) => (
-                                    <BlogCategoriesContent page='blogListStandardPage' activateListStandardBlogCategory= {props.activateListStandardBlogCategory}/>
+                                    <BlogCategoriesContent page='blogListStandardPage'/>
                                 )}
                             />
                             <Route 

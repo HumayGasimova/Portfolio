@@ -65,6 +65,7 @@ export type MapDispatchToPropsTypes = {
     decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: (cardKey: string) => {cardKey: string},
     setCommentsButtonClickedStateForBlogListStandardPage: (val: boolean) => {val: boolean},
     activatePageNumberForBlogListStandardPage: (activePageId: number) => {activePageId: number},
+    activateListStandardBlogCategory: (categoryIsActive: string, categoryName: string) => {categoryIsActive: string, categoryName: string},
     setSwiperStateForBlogListStandardPage: (
         slides: Array<SlidesItem>, 
         _slides: Array<SlidesItem>, 
