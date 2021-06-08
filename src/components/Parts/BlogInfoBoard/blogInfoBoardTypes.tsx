@@ -52,3 +52,9 @@ type Info = {
     page: string
 }
 
+// export interface match<P> {
+//     params: P;
+//     isExact: boolean;
+//     path: string;
+//     url: string;
+//   }

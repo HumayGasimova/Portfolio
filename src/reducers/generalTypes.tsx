@@ -63,7 +63,14 @@ export type BlogListStandardPageItem = {
     path: string,
     tags: Array<TagsItem>,
     text: string,
-    userLikedThePost: boolean
+    userLikedThePost: boolean,
+    imagesArray?: Array<ImagesArrayItem>,
+    swiper?: SwiperObj,
+    linkText?: string,
+    quoteText?: string,
+    quoteAuthor?: string,
+    audioKey?: string,
+    videoKey?: string
 }
 
 type Categories = {
@@ -74,6 +81,15 @@ type Categories = {
     path: string
 }
 
+type SwiperObj = {
+    slides: Array<any>,
+    _slides: Array<any>,
+    activeIndex: number,
+    translate: number,
+    transition: number,
+    rerender: boolean
+}
+
 export type Comments = {
     authorImage: AuthorImageObj,
     authorName: string,
@@ -81,6 +97,15 @@ export type Comments = {
     id: number,
     repliesArray: Array<Comments>,
     text: string
+}
+
+type ImagesArrayItem = {
+    id: number,
+    key: string,
+    isHover: string,
+    imageName: string,
+    folderName: string,
+    alt: string
 }
 
 type AuthorImageObj = {

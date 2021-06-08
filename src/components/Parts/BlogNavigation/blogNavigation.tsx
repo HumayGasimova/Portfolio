@@ -43,10 +43,17 @@ import * as Environment from '../../../constants/environments';
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogNavigationTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogNavigation component definition and export
  */
 
-export const BlogNavigation = (props) => {
+export const BlogNavigation: React.FC<Types.BlogNavigationTypes> = (props) => {
 
     /**
      * State
@@ -62,7 +69,7 @@ export const BlogNavigation = (props) => {
 
     React.useEffect(() => {
         // Fetch previous and next post using the current post key
-
+        
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
 
@@ -147,7 +154,7 @@ export const BlogNavigation = (props) => {
              */
 
             props.clearState();
-            props.activateBlogItem("active", key);
+            props.activateBlogItem("active", key, null);
             props.activateBlogCategory("deactive", "");
             props.activateBlogTag("deactive", "");
             props.history.push(`/crypto-portfolio/${path}`);
