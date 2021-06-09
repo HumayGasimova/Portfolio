@@ -83,7 +83,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  * PhotoViewer component definition and export
  */
 
-export const PhotoViewer: React.FC<Types.PhotoViewerTypes> = (props) => {
+export const PhotoViewer: React.FC<Types.PhotoViewerProps> = (props) => {
 
     /**
      * State
@@ -110,7 +110,7 @@ export const PhotoViewer: React.FC<Types.PhotoViewerTypes> = (props) => {
 
     React.useEffect(() => {
         // Set windth and height of photoViwer and fullScreen photoViwer for different pages
-console.log("props", props)
+        
         renderStyle(size.width, props.width, props.height);
         
         // Event Listeners
@@ -700,7 +700,7 @@ console.log("props", props)
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             photoViewerImagesArray: Selectors.getPhotoViewerImagesArrayState(state),

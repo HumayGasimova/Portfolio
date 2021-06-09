@@ -47,17 +47,24 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './pictureBoardTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * PictureBoard component definition and export
  */
 
-export const PictureBoard = (props) => {
+export const PictureBoard: React.FC<Types.PictureBoardProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const initCoordinateRange = [
+    const initCoordinateRange: Array<Types.PictureBoardImagesCooradinateRangeItem> = [
         {
             id: 1,
             updated: false
@@ -114,7 +121,7 @@ export const PictureBoard = (props) => {
 
     React.useEffect(() => {
         // Event Listeners
-
+        
         const resize = () => {
             resizeRef.current();
         }
@@ -185,7 +192,7 @@ export const PictureBoard = (props) => {
                             id={el.id}
                             option={el.option}
                             imagesArray={el.pictures}
-                            alt={el.alt}
+                            // alt={el.alt}
                             path={el.path}
                             rememberCoordinateRange={props.rememberCoordinateRangeForPictureBoard}
                             imgCoordinateRange={imgCoordinateRange}
@@ -210,7 +217,7 @@ export const PictureBoard = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             pictureBoard: Selectors.getPictureBoardItemsState(state),

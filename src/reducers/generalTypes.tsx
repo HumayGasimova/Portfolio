@@ -104,7 +104,7 @@ type ImagesArrayItem = {
     key: string,
     isHover: string,
     imageName: string,
-    folderName: string,
+    folderName?: string,
     alt: string
 }
 
