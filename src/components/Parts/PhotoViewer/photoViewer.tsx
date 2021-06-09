@@ -5,7 +5,7 @@
 import * as React from 'react';
 
 import {
-    connect
+    connect, TypedUseSelectorHook
 } from 'react-redux';
 
 import { 
@@ -73,26 +73,33 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
+ * Types
+ */
+
+import * as Types from './photoViewerTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * PhotoViewer component definition and export
  */
 
-export const PhotoViewer = (props) => {
+export const PhotoViewer: React.FC<Types.PhotoViewerTypes> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [isHoveringExpand, setIsHoveringExpand] = React.useState(false);
-    const [isHoveringShrink, setIsHoveringShrink] = React.useState(false);
-    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState("init");
-    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState("init");
-    const [isHoveringCloseButton, setIsHoveringCloseButton] = React.useState("init");
-    const [photoViewerWindowSize, setPhotoViewerWindowSize] = React.useState({
+    const [isHoveringExpand, setIsHoveringExpand] = React.useState<boolean>(false);
+    const [isHoveringShrink, setIsHoveringShrink] = React.useState<boolean>(false);
+    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState<string>("init");
+    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState<string>("init");
+    const [isHoveringCloseButton, setIsHoveringCloseButton] = React.useState<string>("init");
+    const [photoViewerWindowSize, setPhotoViewerWindowSize] = React.useState<Types.PhotoViewerWindowSize>({
         width: 0,
         height: 0
     })
-    const [photoViewerFullscreenWindowSize, setPhotoViewerFullscreenWindowSize] = React.useState({
+    const [photoViewerFullscreenWindowSize, setPhotoViewerFullscreenWindowSize] = React.useState<Types.PhotoViewerWindowSize>({
         width: 0,
         height: 0
     })
@@ -103,7 +110,7 @@ export const PhotoViewer = (props) => {
 
     React.useEffect(() => {
         // Set windth and height of photoViwer and fullScreen photoViwer for different pages
-
+console.log("props", props)
         renderStyle(size.width, props.width, props.height);
         
         // Event Listeners
@@ -122,7 +129,7 @@ export const PhotoViewer = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'expand': 
                 setIsHoveringExpand(true);
@@ -142,7 +149,7 @@ export const PhotoViewer = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'expand': 
                 setIsHoveringExpand(false);
@@ -162,7 +169,7 @@ export const PhotoViewer = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "leftArrow"){
             switch(isHovering){
                 case 'init':
@@ -206,7 +213,7 @@ export const PhotoViewer = (props) => {
         }        
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'text1':
                 return Images.TEXT_1;
@@ -478,7 +485,7 @@ export const PhotoViewer = (props) => {
         }
     }
 
-    const renderStyle = (screenWidth, width, height) => {
+    const renderStyle = (screenWidth: number, width: number, height: number) => {
         // Set windth and height of photoViwer and fullScreen photoViwer
         
         let updatedPhotoViewerWindowSize;
