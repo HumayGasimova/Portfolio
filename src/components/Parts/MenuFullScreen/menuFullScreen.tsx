@@ -100,25 +100,18 @@ import {
 //     subOptions: Array<any>;
 // }
 
-interface MapStateToPropsTypes {
-    // menuFullscreenItems: Array<MenuFullscreenItems>;
-}
+/**
+ * Types
+ */
 
-interface MapDispatchToPropsTypes {
-    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    // setMenuDotsState: (val: string, page: string) => void;
-    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
+import * as Types from './menuFullScreenTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * MenuFullScreen component definition and export
  */
 
-export const MenuFullScreen = (props) => {
+export const MenuFullScreen: React.FC<Types.MenuFullScreenProps> = (props) => {
 
     /**
      * Methods
@@ -126,6 +119,7 @@ export const MenuFullScreen = (props) => {
 
     React.useEffect(() => {
         // Init menu items
+        console.log("props", props)
 
         props.initMenuFullscreenItems(menuFullscreenItemsArray);
     }, []);
@@ -195,7 +189,6 @@ export const MenuFullScreen = (props) => {
 
         props.unmountComponent(null, null, props.page, e.button);
     }
-
 
     const menuFullScreenItemOnClick = (e, id, hasOptions, path) => {
         // Do nothing on right mouse click
@@ -328,7 +321,7 @@ export const MenuFullScreen = (props) => {
 }
 
 export default withRouter(
-    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
         (state) => {
             return {
                 menuFullscreenItems: Selectors.getMenuFullScreenItemsState(state)

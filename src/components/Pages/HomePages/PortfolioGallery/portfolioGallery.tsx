@@ -424,7 +424,7 @@ export const PortfolioGallery = (props) => {
             </div>
             {props.menuDotsState.state === "on" ? 
             <MenuFullScreen 
-                page="portfolioGallry"
+                page="portfolioGallery"
                 state={props.menuDotsState.state}
             /> : null}
             {props.showBackToTop ? <BackToTop/> : null}
