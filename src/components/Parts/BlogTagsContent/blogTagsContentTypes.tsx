@@ -45,3 +45,42 @@ type SlidesItem = {
     isHover: string,
     key: string
 }
+
+export type MapStateToPropsTypes = {
+    blogListStandardPage: GeneralTypes.BlogListStandardPage,
+}
+
+export type MapDispatchToPropsTypes = {
+    fetchBlogTagsContentData: (activePageId: number, page: string, tag: string) => void,
+    fetchBlogListStandardPageDataSuccess: (array: Array<GeneralTypes.BlogListStandardPageItem>) => {array: Array<GeneralTypes.BlogListStandardPageItem>},
+    initBlogPagination: (numOfPages: number) => {numOfPages: number},
+    blogListCardCategoryIsHoverForBlogListStandardPage: (val: string, cardKey: string, categoryKey: string) => {val: string, cardKey: string, categoryKey: string},
+    clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => {prevLocationPathOfIds: Array<number>},
+    activateListStandardBlogItem: (itemIsActive: string, itemKey: string, cardType: string) => {itemIsActive: string, itemKey: string, cardType: string},
+    activateListStandardBlogCategory: (categoryIsActive: string, categoryName: string) => {categoryIsActive: string, categoryName: string},
+    activateListStandardBlogTag: (tagIsActive: string, tagName: string) => {tagIsActive: string, tagName: string},
+    setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number},
+    clearBlogListSingleItemStateForBlogListStandardPage: () => void,
+    increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: (cardKey: number) => {cardKey: number},
+    decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: (cardKey: string) => {cardKey: string},
+    setCommentsButtonClickedStateForBlogListStandardPage: (val: boolean) => {val: boolean},
+    activatePageNumberForBlogListStandardPage: (activePageId: number) => {activePageId: number},
+    setSwiperStateForBlogListStandardPage: (
+        slides: Array<SlidesItem>, 
+        _slides: Array<SlidesItem>, 
+        activeIndex: number, 
+        translate: number, 
+        transition: number, 
+        rerender: boolean, 
+        cardKey?: string
+    ) => {
+        slides: Array<SlidesItem>, 
+        _slides: Array<SlidesItem>, 
+        activeIndex: number, 
+        translate: number, 
+        transition: number, 
+        rerender: boolean, 
+        cardKey?: string
+    },
+}

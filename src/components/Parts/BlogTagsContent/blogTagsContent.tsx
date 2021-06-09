@@ -313,7 +313,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             blogListStandardPage: Selectors.getBlogListStandardPageState(state),
