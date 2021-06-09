@@ -41,7 +41,7 @@ export const BlogCommentsSection: React.FC<Types.BlogCommentsSectionProps> = (pr
      * State
      */
 
-    const [pathOfIdsToComment, setPathOfIdsToComment] = React.useState<Array<number>>([])
+    const [pathOfIdsToComment, setPathOfIdsToComment] = React.useState<Array<number | string>>([])
     
     /**
      * Methods
@@ -73,7 +73,7 @@ export const BlogCommentsSection: React.FC<Types.BlogCommentsSectionProps> = (pr
         }
     }, []);
 
-    const renderComments = (arr: Array<GeneralTypes.CommentsItem>, id: number | string, _pathOfIds: Array<number> = []) => {
+    const renderComments = (arr: Array<GeneralTypes.CommentsItem>, id: number | string, _pathOfIds: Array<number | string> = []) => {
         let iteration = 0;
         let pathOfIds = [...pathOfIdsToComment];
        
