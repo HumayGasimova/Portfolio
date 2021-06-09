@@ -1,4 +1,4 @@
-
+import * as React from 'react';
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type BlogReplyFormProps = {
@@ -12,15 +12,15 @@ export type BlogReplyFormProps = {
     postReply: (id: number, info: PostInfo) => void,
     postReplyFakeData: (obj: GeneralTypes.BlogListStandardPageItem & CardId) => void,
     replyComment: () => void,
-    setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: MouseEvent, id: string, formName?: string) => {obj: GeneralTypes.InputForm, e: MouseEvent, id: string, formName?: string},
+    setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
 }
 
-type CardId = {
+export type CardId = {
     cardId: string
 }
 
-type PostInfo = {
-    id: string,
+export type PostInfo = {
+    id: number | string,
     pathOfIds: Array<number>,
     comment: string,
     fullName: string,

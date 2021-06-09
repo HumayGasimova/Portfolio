@@ -73,7 +73,7 @@ export const BlogCommentsSection: React.FC<Types.BlogCommentsSectionProps> = (pr
         }
     }, []);
 
-    const renderComments = (arr: Array<GeneralTypes.Comments>, id: number, _pathOfIds: Array<number> = []) => {
+    const renderComments = (arr: Array<GeneralTypes.CommentsItem>, id: number | string, _pathOfIds: Array<number> = []) => {
         let iteration = 0;
         let pathOfIds = [...pathOfIdsToComment];
        

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type BlogCommentsSectionProps = {
@@ -14,7 +15,7 @@ export type BlogCommentsSectionProps = {
     postReplyFakeData: (obj: GeneralTypes.BlogListStandardPageItem & CardId) => void,
     replyComment: () => void,
     setCommentsButtonClickedState: (val: boolean) => {val: boolean},
-    setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: MouseEvent, id: string, formName?: string) => {obj: GeneralTypes.InputForm, e: MouseEvent, id: string, formName?: string},
+    setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
     triggerCommentReplyButton: () => void
   
 }

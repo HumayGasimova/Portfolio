@@ -321,7 +321,6 @@ export const SearchResultPage = (props) => {
                                 touched={el.touched}
                                 erroeMessages={el.errorMessage}
                                 inputID={el.inputID}
-                                textareaID={el.textareaID}
                                 placeholder={el.elementConfig.placeholder}
                                 options={el.elementConfig.options}
                             />

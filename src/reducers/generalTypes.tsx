@@ -51,8 +51,8 @@ type CommentReplyInputFormObj = {
 
 export type BlogListStandardPageItem = {
     cardType: string,
-    categories: Array<Categories>,
-    comments: Array<Comments>,
+    categories: Array<CategoriesItem>,
+    comments: Array<CommentsItem>,
     coverImage: CoverImageObj,
     date: string,
     header: string,
@@ -73,7 +73,7 @@ export type BlogListStandardPageItem = {
     videoKey?: string
 }
 
-type Categories = {
+type CategoriesItem = {
     id: number,
     isHover: string,
     key: string,
@@ -90,12 +90,12 @@ type SwiperObj = {
     rerender: boolean
 }
 
-export type Comments = {
+export type CommentsItem = {
     authorImage: AuthorImageObj,
     authorName: string,
     date: string,
-    id: number,
-    repliesArray: Array<Comments>,
+    id: number | string,
+    repliesArray: Array<CommentsItem>,
     text: string
 }
 
@@ -167,8 +167,8 @@ type RecentPostsObj = {
 type RecentPostsItem = {
     active: boolean,
     cardType: string,
-    categories: Array<Categories>,
-    comments: Array<Comments>,
+    categories: Array<CategoriesItem>,
+    comments: Array<CommentsItem>,
     coverImage: CoverImageObj,
     date: string,
     header: string,

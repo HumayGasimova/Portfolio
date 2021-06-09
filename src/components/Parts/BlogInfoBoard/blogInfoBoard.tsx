@@ -79,7 +79,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
      * State
      */
 
-    const [searchIsHover, setSearchIsHover] = React.useState("init");
+    const [searchIsHover, setSearchIsHover] = React.useState<string>("init");
     
     /**
      * Methods
@@ -100,7 +100,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }, []);
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'searchIcon':
                 setSearchIsHover("on")
@@ -108,7 +108,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'searchIcon':
                 setSearchIsHover("off")
@@ -116,7 +116,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }
 
-    const onClickCategory = (key, e) => {
+    const onClickCategory = (key: string, e: React.MouseEvent) => {
 
         // Do nothing on right mouse click 
 
@@ -140,7 +140,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }
 
-    const onClickTag = (key, path, e) => {
+    const onClickTag = (key: string, path: string | null, e: React.MouseEvent) => {
 
         // Do nothing on right mouse click 
 
@@ -163,7 +163,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }
 
-    const onSearchClick = (e) => {
+    const onSearchClick = (e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -233,13 +233,13 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         });
     }
 
-    const inputChangeHandler = (e, inputFieldId, inputForm) => {
+    const inputChangeHandler = (e: React.MouseEvent, inputFieldId: number, inputForm: string) => {
         // Set input value and check validation
 
         props.setInputFiledValueAndCheckValidation(props.searchInputForm, e, inputFieldId, `${inputForm}`);
     }
 
-    const clearInputValue = (fieldId) => {
+    const clearInputValue = (fieldId: string) => {
         // Clear input value
 
         (document.getElementById(fieldId) as HTMLInputElement).value = '';
@@ -289,7 +289,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string | null, active: string) => {
         if(opt === "blogCategory"){
             if(active === "on"){
                 return "blog-info-board-active-category";

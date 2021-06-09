@@ -84,7 +84,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentProps> =
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
-            fetchFakeData(setPageData(props.page, "fakeData"), setPageData(props.page, "activePageNumber"), props.page, categoryName);
+            fetchFakeData(setPageData(props.page, "fakeData") as Array<GeneralTypes.BlogListStandardPageItem>, setPageData(props.page, "activePageNumber") as number, props.page, categoryName as string);
         }else{
             // Fetch data (required to run -> npm run server)
 
@@ -94,7 +94,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentProps> =
         }
     }, [props.blogListStandardPage.activeCategory.categoryName]);
  
-    const fetchFakeData = (fakeData, activePageId, page, categoryName) => {
+    const fetchFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem>, activePageId: number, page: string, categoryName: string) => {
         let blogListPage = [...fakeData];
         let categoriesArray = [];
 
@@ -134,7 +134,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentProps> =
         props.initBlogPagination(updatedBlogList.numberOfPages);
     }
 
-    const setPageData = (page: string, opt: string) => { // LEARN MORE
+    const setPageData = (page: string, opt: string) => {
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -229,7 +229,7 @@ export const BlogCategoriesContent: React.FC<Types.BlogCategoriesContentProps> =
         }
     }
 
-    const renderBlogListStandardPageData = (arr) => {
+    const renderBlogListStandardPageData = (arr: Array<GeneralTypes.BlogListStandardPageItem>) => {
         return(
             <div>
                 {arr.map((el, i) => {                     

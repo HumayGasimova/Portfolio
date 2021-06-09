@@ -8,7 +8,6 @@ export type PaginationProps = {
     filterParam?: string,
     infoFromSearch?: Info, 
     activatePageNumber: (activePageId: number) => {activePageId: number},
-  
     fetchFakeData?: (fakeData: Array<GeneralTypes.BlogListStandardPageItem>, activePageId: number, page: string, optionName: string) => void,
     fetchPageData: (a: Info | number, b: number | string, c?: string) => void 
     // | (info: Info, activePageId: number) => void | 
@@ -20,8 +19,4 @@ type Info = {
     id: string,
     page: string,
     searchValue: string
-}
-
-type FetchPageDataArguments = {
-
 }

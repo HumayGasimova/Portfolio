@@ -49,13 +49,6 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
      */
 
     React.useEffect(() => {
-      
-        console.log("props",props)
-        return () =>  {
-            // Cleaning the unmounted component
-
-
-        }
     }, []);
 
     const handleMouseEnter = (opt) => {

@@ -29,7 +29,7 @@ export type BlogNavigationProps = {
     unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number},
 }
 
-type DataObj = {
+export type DataObj = {
     items: Array<GeneralTypes.BlogListStandardPageItem>, 
     loading: boolean, 
     error: any

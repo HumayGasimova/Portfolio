@@ -85,7 +85,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
     }, [props.itemKey,
         props.data.items.length]);
 
-    const fetchFakeData = (_fakeData, page, _currentPostKey) => {
+    const fetchFakeData = (_fakeData: Array<GeneralTypes.BlogListStandardPageItem>, page: string, _currentPostKey: string) => {
         let currentPostKey = _currentPostKey;        
         let fakeData = [..._fakeData];
         let navigationArray = [];
@@ -103,7 +103,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'navigationPrevDate': 
                 setIsHoveringNavigationPrevDate("on");
@@ -114,7 +114,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'navigationPrevDate': 
                 setIsHoveringNavigationPrevDate("off");
@@ -125,7 +125,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if([
             'navigationPrevDate',
             'navigationNextDate'
@@ -141,7 +141,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
 
         // Do nothing on right mouse click 
 
@@ -166,7 +166,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const loadImg = (imgKey) => {
+    const loadImg = (imgKey: string) => {
         switch(imgKey){
             case 'blogCardStandardPostCoverImg1':
                 return Images.BLOG_CARD_STANDARD_POST_COVER_IMG_1;
@@ -217,7 +217,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         }
     }
 
-    const updateHeader = (str) => {
+    const updateHeader = (str: string) => {
         let _str = str.split("");
         if(_str[_str.length-1] === "."){
             _str.pop();
@@ -225,7 +225,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         return _str.join("")
     }
 
-    const renderBlogNavigationContent = (arr) => {
+    const renderBlogNavigationContent = (arr: Array<GeneralTypes.BlogListStandardPageItem>) => {
         return(
             <>
                 <div 
@@ -268,7 +268,7 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
         )
     }
 
-    const renderBlogNavigationDataContent = (data) => {
+    const renderBlogNavigationDataContent = (data: Types.DataObj) => {
         if(data.loading && !data.error){
             return(
                 <div className="blog-navigation-loading-error">

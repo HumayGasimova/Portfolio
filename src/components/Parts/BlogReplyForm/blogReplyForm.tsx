@@ -121,11 +121,11 @@ export const BlogReplyForm: React.FC<Types.BlogReplyFormProps> = (props) => {
         });
     }
 
-    const postReplyFakeData = (fakeData, cardIdFromPathname, info) => {
+    const postReplyFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem & Types.CardId>, cardIdFromPathname: number, info: Types.PostInfo) => {
         let postObj = fakeData.find(item => item.id === cardIdFromPathname);
         let replyInfo = info;
         if(replyInfo){
-            let obj = {
+            let obj: GeneralTypes.CommentsItem = {
                 id: replyInfo.id,
                 authorName: replyInfo.fullName,
                 date: replyInfo.date,
@@ -179,19 +179,19 @@ export const BlogReplyForm: React.FC<Types.BlogReplyFormProps> = (props) => {
         props.activateBlogItem("active", updatedJson.cardId, updatedJson.cardType);
     }
 
-    const inputChangeHandler = (e, inputFieldId) => {
+    const inputChangeHandler = (e: React.MouseEvent, inputFieldId: number) => {
         // Set input value and check validation
 
         props.setInputFiledValueAndCheckValidation(props.inputFormFieldsArray, e, inputFieldId, `commentReplyInputForm`);
     }
 
-    const clearInputValue = (fieldId) => {
+    const clearInputValue = (fieldId: string) => {
         // Clear input value
 
         (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
-    const renderContactFormContent = (inputForm) => {
+    const renderContactFormContent = (inputForm: GeneralTypes.InputForm) => {
         if(inputForm.inputsArray){
             return(
                 <>
@@ -212,7 +212,6 @@ export const BlogReplyForm: React.FC<Types.BlogReplyFormProps> = (props) => {
                                     touched={el.touched}
                                     erroeMessages={el.errorMessage}
                                     inputID={el.inputID}
-                                    textareaID={el.textareaID}
                                     placeholder={el.elementConfig.placeholder}
                                     options={el.elementConfig.options}
                                 />
