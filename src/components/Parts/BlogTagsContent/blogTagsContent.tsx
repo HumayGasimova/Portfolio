@@ -60,10 +60,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogTagsContentTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogTagsContent component definition and export
  */
 
-export const BlogTagsContent = (props) => {
+export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => {
 
     /**
      * Methods
@@ -73,7 +80,7 @@ export const BlogTagsContent = (props) => {
         // Fetch data for the component
 
         let tagName = setPageData(props.page, "tagName");
-        
+        console.log("props", props)
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
@@ -82,7 +89,7 @@ export const BlogTagsContent = (props) => {
             // Fetch data (required to run -> npm run server)
 
             if(!!tagName){
-                props.fetchBlogTagsContentData(setPageData(props.page, "activePageNumber"), props.page, tagName);
+                props.fetchBlogTagsContentData(setPageData(props.page, "activePageNumber") as number, props.page, tagName as string);
             }
         }
        
@@ -254,7 +261,7 @@ export const BlogTagsContent = (props) => {
     }
 
     const renderBlogListStandardPageDataContent = () => {
-        let data = setPageData(props.page, "pageData");
+        let data = setPageData(props.page, "pageData") as GeneralTypes.BlogListStandardPage;
 
         if(data.loading && !data.error){
             return(
