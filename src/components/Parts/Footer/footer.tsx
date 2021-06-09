@@ -37,16 +37,23 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './footerTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Footer component definition and export
 */
 
-export const Footer = (props) => {
+export const Footer: React.FC<Types.FooterProps> = (props) => {
 
     /**
      * Methods
     */
 
-    React.useEffect(() => { 
+    React.useEffect(() => {
     }, []);
 
     const feedOnClick = () => {

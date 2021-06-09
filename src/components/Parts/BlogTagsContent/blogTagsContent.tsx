@@ -80,7 +80,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
         // Fetch data for the component
 
         let tagName = setPageData(props.page, "tagName");
-        console.log("props", props)
+        
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
