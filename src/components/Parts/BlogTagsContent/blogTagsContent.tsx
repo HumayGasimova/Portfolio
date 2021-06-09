@@ -279,13 +279,13 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
                     {renderBlogListStandardPageData(data.items)}
                     <Pagination
                         page={props.page}
-                        activePageNumber={setPageData(props.page, "activePageNumber")}
-                        pagesArray={setPageData(props.page, "pagesArray")}
+                        activePageNumber={setPageData(props.page, "activePageNumber") as number}
+                        pagesArray={setPageData(props.page, "pagesArray") as Array<GeneralTypes.PagesArrayItem>}
                         fetchPageData={props.fetchBlogTagsContentData}
-                        fakeData={setPageData(props.page, "fakeData")}
+                        fakeData={setPageData(props.page, "fakeData") as Array<GeneralTypes.BlogListStandardPageItem>}
                         fetchFakeData={(fakeData, activePageId, page, categoryName) => fetchFakeData(fakeData, activePageId, page, categoryName)}
-                        activatePageNumber={setPageData(props.page, "activatePageNumber")}
-                        filterParam={setPageData(props.page, "tagName")}
+                        activatePageNumber={setPageData(props.page, "activatePageNumber") as (activePageId: number) => {activePageId: number}}
+                        filterParam={setPageData(props.page, "tagName") as string}
                     />
                 </div>
             )

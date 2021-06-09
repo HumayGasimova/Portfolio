@@ -65,7 +65,6 @@ export const OurProcess: React.FC<Types.OurProcessProps> = (props) => {
      */
 
     React.useEffect(() => {
-        console.log("props",props)
     }, []);
 
     const renderImg = (opt) => {

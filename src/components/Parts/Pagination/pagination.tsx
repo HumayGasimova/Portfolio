@@ -25,10 +25,17 @@ import {
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './paginationTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Pagination component definition and export
  */
 
-export const Pagination = (props) => {
+export const Pagination: React.FC<Types.PaginationProps> = (props) => {
 
     /**
      * State
@@ -43,7 +50,7 @@ export const Pagination = (props) => {
 
     React.useEffect(() => {
       
-
+        console.log("props",props)
         return () =>  {
             // Cleaning the unmounted component
 

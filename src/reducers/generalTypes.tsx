@@ -144,7 +144,7 @@ type NavigationItemObj = {
 
 }
 
-type PagesArrayItem = {
+export type PagesArrayItem = {
     id: number, 
     active: boolean
 }
