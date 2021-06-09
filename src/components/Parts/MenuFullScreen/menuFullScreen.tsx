@@ -124,7 +124,7 @@ export const MenuFullScreen: React.FC<Types.MenuFullScreenProps> = (props) => {
         props.initMenuFullscreenItems(menuFullscreenItemsArray);
     }, []);
     
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean) => {
         if(opt === "arrow"){
             switch(isHovering){
                 case 'init':
@@ -160,7 +160,7 @@ export const MenuFullScreen: React.FC<Types.MenuFullScreenProps> = (props) => {
         }
     }
 
-    const menuFullscreenSubOptionOnClick = (e, path) => {
+    const menuFullscreenSubOptionOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -190,7 +190,7 @@ export const MenuFullScreen: React.FC<Types.MenuFullScreenProps> = (props) => {
         props.unmountComponent(null, null, props.page, e.button);
     }
 
-    const menuFullScreenItemOnClick = (e, id, hasOptions, path) => {
+    const menuFullScreenItemOnClick = (e: React.MouseEvent, id: number, hasOptions: boolean, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -263,7 +263,7 @@ export const MenuFullScreen: React.FC<Types.MenuFullScreenProps> = (props) => {
         )
     }
 
-    const renderMenuFullscreenItemOptions = (obj) => {
+    const renderMenuFullscreenItemOptions = (obj: Types.MenuFullscreenItemsItem) => {
         return(
             <div className="menu-fullscreen-item-options">{obj.options.map((el,i) => {
                 return(

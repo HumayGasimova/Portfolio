@@ -67,7 +67,7 @@ export const OurProcess: React.FC<Types.OurProcessProps> = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const renderImg = (opt) => {
+    const renderImg = (opt: string) => {
         switch(opt){
             case 'sketch':
                 return Images.SKETCH;

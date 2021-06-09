@@ -41,8 +41,8 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
      * State
      */
 
-    const [leftArrowIsHovering, setLeftArrowIsHovering] = React.useState("init");
-    const [rightArrowIsHovering, setRightArrowIsHovering] = React.useState("init");
+    const [leftArrowIsHovering, setLeftArrowIsHovering] = React.useState<string>("init");
+    const [rightArrowIsHovering, setRightArrowIsHovering] = React.useState<string>("init");
 
     /**
      * Methods
@@ -51,7 +51,7 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'leftArrowPaginatio':
                 setLeftArrowIsHovering("on");
@@ -62,7 +62,7 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'leftArrowPaginatio':
                 setLeftArrowIsHovering("off");
@@ -73,7 +73,7 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean) => {
         if(['page'].includes(opt)){
             if(active) {
                 return "h15-black-poppins-cursor";
@@ -103,7 +103,7 @@ export const Pagination: React.FC<Types.PaginationProps> = (props) => {
         }
     }
 
-    const onPageClickHandler = (e, opt, pageID) => {
+    const onPageClickHandler = (e: React.MouseEvent, opt: string, pageID: number) => {
         // Do nothing on right mouse click
         
         if(e.button === 2) return;

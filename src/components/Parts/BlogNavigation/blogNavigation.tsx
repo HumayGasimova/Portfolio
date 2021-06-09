@@ -59,9 +59,9 @@ export const BlogNavigation: React.FC<Types.BlogNavigationProps> = (props) => {
      * State
      */
 
-    const [isHoveringNavigationPrevDate, setIsHoveringNavigationPrevDate] = React.useState("init");
-    const [isHoveringNavigationNextDate, setIsHoveringNavigationNextDate] = React.useState("init");
-    const [showComponent, setShowComponent] = React.useState(false);
+    const [isHoveringNavigationPrevDate, setIsHoveringNavigationPrevDate] = React.useState<string>("init");
+    const [isHoveringNavigationNextDate, setIsHoveringNavigationNextDate] = React.useState<string>("init");
+    const [showComponent, setShowComponent] = React.useState<boolean>(false);
     
     /**
      * Methods

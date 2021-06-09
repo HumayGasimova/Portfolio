@@ -84,7 +84,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
             
-            fetchFakeData(setPageData(props.page, "fakeData"), setPageData(props.page, "activePageNumber"), props.page, tagName);
+            fetchFakeData(setPageData(props.page, "fakeData") as Array<GeneralTypes.BlogListStandardPageItem>, setPageData(props.page, "activePageNumber") as number, props.page, tagName as string);
         }else{
             // Fetch data (required to run -> npm run server)
 
@@ -95,7 +95,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
        
     }, [props.blogListStandardPage.activeTag.tagName]);
  
-    const fetchFakeData = (fakeData, activePageId, page, tagName) => {
+    const fetchFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem>, activePageId: number, page: string, tagName: string) => {
         let blogListPage = [...fakeData];
         let tagsArray = [];
 
@@ -135,7 +135,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
         props.initBlogPagination(updatedBlogList.numberOfPages);
     }
 
-    const setPageData = (page, opt) => {
+    const setPageData = (page: string, opt: string) => {
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -230,7 +230,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
         }
     }
 
-    const renderBlogListStandardPageData = (arr) => {
+    const renderBlogListStandardPageData = (arr: Array<GeneralTypes.BlogListStandardPageItem>) => {
         return(
             <div>
                 {arr.map((el, i) => {                     

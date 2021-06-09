@@ -24,7 +24,7 @@ export type MenuFullScreenProps = {
     unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number},
 }
 
-type MenuFullscreenItemsItem = {
+export type MenuFullscreenItemsItem = {
     id: number,
     text: string,
     itemId: string,
