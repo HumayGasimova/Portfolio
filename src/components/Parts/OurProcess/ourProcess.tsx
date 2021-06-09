@@ -42,6 +42,13 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './ourProcessTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Images
  */
 
@@ -51,13 +58,14 @@ import * as Images from '../../../constants/images';
  * OurProcess component definition and export
  */
 
-export const OurProcess = (props) => {
+export const OurProcess: React.FC<Types.OurProcessProps> = (props) => {
 
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log("props",props)
     }, []);
 
     const renderImg = (opt) => {
