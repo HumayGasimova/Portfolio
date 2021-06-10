@@ -1,3 +1,12 @@
+import { 
+    History, 
+    Location 
+} from 'history';
+
+import { 
+    match 
+} from 'react-router';
+
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type PorfolioNavigationProps = {
@@ -10,16 +19,17 @@ export type PorfolioNavigationProps = {
     smallImagesPortfolio: GeneralTypes.PortfoliObj,
     smallSliderPortfolio: GeneralTypes.PortfoliObj,
     component: string,
+    twoColumnsPage: GeneralTypes.ColumnsPageObj,
+    threeColumnsPage: GeneralTypes.ColumnsPageObj,
+    fourColumnsPage: GeneralTypes.ColumnsPageObj,
+    twoColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
+    threeColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
+    fourColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
+    fiveColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
     
-    fiveColumnsWidePage: {items: Array(0), loading: false, error: null}
-    fourColumnsPage: {items: Array(0), loading: false, error: null, loadingMoreData: false, errorMoreData: null, …}
-    fourColumnsWidePage: {items: Array(0), loading: false, error: null}
     galleryPage: {items: Array(0), loading: false, error: null}
-    
     galleryWithSpacePage: {items: Array(0), loading: false, error: null}
-    history: {length: 6, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
-    location: {pathname: "/crypto-portfolio/portfolio-item/big-slider/1", search: "", hash: "", state: {…}, key: "ct1boq"}
-    match: {path: "/crypto-portfolio/portfolio-item/big-slider/:id", url: "/crypto-portfolio/portfolio-item/big-slider/1", isExact: true, params: {…}}
+   
     metroPage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
     overlayPage: {items: Array(0), loading: false, error: null}
     overlayWithInfoPage: {items: Array(0), loading: false, error: null}
@@ -32,12 +42,15 @@ export type PorfolioNavigationProps = {
     stoneWallPage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
     stoneWallWidePage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
     switchImagePage: {items: Array(0), loading: false, error: null, itemsCoordinateRange: Array(18)}
-    threeColumnsPage: {items: Array(0), loading: false, error: null, loadingMoreData: false, errorMoreData: null, …}
-    threeColumnsWidePage: {items: Array(0), loading: false, error: null}
-    twoColumnsPage: {items: Array(0), loading: false, error: null, loadingMoreData: false, errorMoreData: null, …}
-    twoColumnsWidePage: {items: Array(0), loading: false, error: null}
+    
+    
     unmountComp: {state: false, gotoPage: "", prevPage: undefined}
+
     staticContext: undefined
+    history: History,
+    location: Location,
+    match: match,
+
     addMoreItemsStylesStateForFourColumnsPage: ƒ ()
     addMoreItemsStylesStateForThreeColumnsPage: ƒ ()
     addMoreItemsStylesStateForTwoColumnsPage: ƒ ()

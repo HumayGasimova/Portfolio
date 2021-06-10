@@ -78,7 +78,8 @@ type CategoriesItem = {
     isHover: string,
     key: string,
     label: string,
-    path: string
+    path?: string,
+    active: boolean
 }
 
 type SwiperObj = {
@@ -118,7 +119,7 @@ type AuthorImageObj = {
 
 type CoverImageObj = {
     alt: string,
-    folderName: string,
+    folderName?: string,
     id: number,
     imageName: string,
     isHover: string,
@@ -271,3 +272,64 @@ export type PortfoliItemObj = {
     text: string
 }
 
+/**
+ * Columns Page Obj
+ */ 
+
+export type ColumnsPageObj = {
+    arrayOfDisappearAndAppearElements: Array<ArrayOfDisappearAndAppearElementsItem>,
+    categories: Array<CategoriesItem>,
+    disableLoadMoreButton: boolean,
+    error: any,
+    errorMoreData: any,
+    items: Array<ColumnsPageObjItem>,
+    itemsStyleValues: ItemsStyleValuesObj
+    itemsTopPosition: Array<ItemsTopPositionItem>
+    loadMoreStep: number,
+    loading: boolean,
+    loadingMoreData: boolean
+}
+
+type ArrayOfDisappearAndAppearElementsItem= {
+    id: number,
+    disappear: boolean
+}
+
+type ColumnsPageObjItem = {
+    arrowIsHovering: string,
+    categories: Array<CategoriesItem>,
+    coverImage: CoverImageObj,
+    header?: string,
+    id: number,
+    key: string,
+    option: string,
+    path: string,
+    portfolioType: string,
+    pictures?: Array<ImagesArrayItem>
+}
+
+type ItemsStyleValuesObj = {
+    rendered: boolean,
+    scale: number,
+    transition: number,
+    translateX: number,
+    translateY: number,
+    width: number,
+    zIndex: number
+}
+
+type ItemsTopPositionItem = {
+    id: string,
+    key: string,
+    topPosition: number
+}
+
+/**
+ * Columns Wide Page Obj
+ */ 
+
+export type ColumnsWidePageObj = {
+    error: any,
+    items: Array<ColumnsPageObjItem>,
+    loading: boolean
+}

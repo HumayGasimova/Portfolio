@@ -709,6 +709,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id2SmallImages1",
                 imageName: "jess-bailey-MSH3ldaRZsg-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -716,6 +717,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id2SmallImages2",
                 imageName: "paper-3025558_1920-updated.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             }
@@ -757,6 +759,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id2BigSlider1",
                 imageName: "dose-media-bU6JyhSI6zo-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -764,6 +767,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id2BigSlider2",
                 imageName: "daniel-korpai-kO7TrSB9pCQ-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -771,6 +775,7 @@ export const fiveColumnsWidePage = [
                 id: 3,
                 key: "id2BigSlider3",
                 imageName: "rahul-bhogal-lihCTIOP28U-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -778,6 +783,7 @@ export const fiveColumnsWidePage = [
                 id: 4,
                 key: "id2BigSlider4",
                 imageName: "grocery-list-1670408_1920-updated.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -785,6 +791,7 @@ export const fiveColumnsWidePage = [
                 id: 5,
                 key: "id2BigSlider5",
                 imageName: "heather-ford-6fiz86Ql3UA--updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -792,6 +799,7 @@ export const fiveColumnsWidePage = [
                 id: 6,
                 key: "id2BigSlider6",
                 imageName: "computer-820281_1920-updated.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             }
@@ -840,6 +848,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id2BigImages1",
                 imageName: "uby-yanes-LMwW0ARHc4o-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -847,6 +856,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id2BigImages2",
                 imageName: "emma-matthews-digital-content-production-vKM1ZdtoBL4-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -854,6 +864,7 @@ export const fiveColumnsWidePage = [
                 id: 3,
                 key: "id2BigImages3",
                 imageName: "uby-yanes-393QQ30ecvQ-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -861,6 +872,7 @@ export const fiveColumnsWidePage = [
                 id: 4,
                 key: "id2BigImages4",
                 imageName: "stil-flRm0z3MEoA-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -868,6 +880,7 @@ export const fiveColumnsWidePage = [
                 id: 5,
                 key: "id2BigImages5",
                 imageName: "freestocks-A11MXTzUhLE-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -875,6 +888,7 @@ export const fiveColumnsWidePage = [
                 id: 6,
                 key: "id2BigImages6",
                 imageName: "emma-matthews-digital-content-production-X6M1Ke1o9yI-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             }
@@ -1132,6 +1146,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id3SmallImages1",
                 imageName: "jess-bailey-dWKqZcPLc8Y-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1139,6 +1154,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id3SmallImages2",
                 imageName: "jess-bailey-L71uKsAVo4g-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1146,6 +1162,7 @@ export const fiveColumnsWidePage = [
                 id: 3,
                 key: "id3SmallImages3",
                 imageName: "jess-bailey-z0guTIr_kts-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             }
@@ -1194,6 +1211,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id3BigSlider1",
                 imageName: "angele-kamp-KaeaUITiWnc-upadted-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1201,6 +1219,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id3BigSlider2",
                 imageName: "charles-deluvio-dtSjxKDIPnA-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1208,6 +1227,7 @@ export const fiveColumnsWidePage = [
                 id: 3,
                 key: "id3BigSlider3",
                 imageName: "daily-nouri-E5Oo4nENq2M-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1215,6 +1235,7 @@ export const fiveColumnsWidePage = [
                 id: 4,
                 key: "id3BigSlider4",
                 imageName: "jess-bailey-YFn6rpnyeRY-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1222,6 +1243,7 @@ export const fiveColumnsWidePage = [
                 id: 5,
                 key: "id3BigSlider5",
                 imageName: "jozsef-hocza-pJYd5CI_TRM-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1229,6 +1251,7 @@ export const fiveColumnsWidePage = [
                 id: 6,
                 key: "id3BigSlider6",
                 imageName: "laika-notebooks-pONH9yZ-wXg-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             },
@@ -1236,6 +1259,7 @@ export const fiveColumnsWidePage = [
                 id: 7,
                 key: "id3BigSlider7",
                 imageName: "lauren-fleischmann-R2aodqJn3b8-updated-unsplash.png",
+                isHover: "init",
                 folderName: "colorful",
                 alt: "image"
             }
@@ -1270,6 +1294,7 @@ export const fiveColumnsWidePage = [
                 id: 1,
                 key: "id4SmallImages1",
                 imageName: "clay-banks-_wkd7XBRfU4-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -1277,6 +1302,7 @@ export const fiveColumnsWidePage = [
                 id: 2,
                 key: "id4SmallImages2",
                 imageName: "marina-zaharkina-TKQXY1dAgjE-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             },
@@ -1284,6 +1310,7 @@ export const fiveColumnsWidePage = [
                 id: 3,
                 key: "id4SmallImages3",
                 imageName: "ohmky-lQwWZI_WjSU-updated-unsplash.png",
+                isHover: "init",
                 folderName: "blackAndWhite",
                 alt: "image"
             }
