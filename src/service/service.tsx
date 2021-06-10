@@ -516,7 +516,7 @@ export function fetchMetroPage() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log("fetchMetroPageSuccess",json)
                 dispatch(Actions.fetchMetroPageSuccess(json));
                 let itemsState = Utility.getArrayOfEmptyVal(json.length);
                 dispatch(Actions.initItemsStylesStateForMetroPage(itemsState));
@@ -536,7 +536,7 @@ export function fetchPinterest3ColumnsPage() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log("fetchPinterest3ColumnsPage",json)
                 dispatch(Actions.fetchPinterest3ColumnsPageSuccess(json));
                 let itemsState = Utility.getArrayOfEmptyVal(json.length);
                 dispatch(Actions.initItemsStylesStateForPinterest3ColumnsPage(itemsState));
