@@ -241,7 +241,7 @@ export type ArchiveObj = {
     loadingMoreData: boolean
 }
 
-type ArchiveItem = {
+export type ArchiveItem = {
     categories: Array<CategoriesItem>,
     coverImage: CoverImageObj,
     header: string,
@@ -295,7 +295,7 @@ type ArrayOfDisappearAndAppearElementsItem= {
     disappear: boolean
 }
 
-type ColumnsPageObjItem = {
+export type ColumnsPageObjItem = {
     arrowIsHovering: string,
     categories: Array<CategoriesItem>,
     coverImage?: CoverImageObj,

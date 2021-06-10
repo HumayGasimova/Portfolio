@@ -1751,7 +1751,6 @@ export const FourColumnsPage = (props) => {
                 props.fourColumnsPage.items.length);
         }else{
             // Fetch data (required to run -> npm run server)
-
             props.fetchFourColumnsPage(props.fourColumnsPage.loadMoreStep, 
                 categoryFromHeader,
                 size.width, 

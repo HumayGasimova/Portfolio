@@ -44,76 +44,76 @@ export type PorfolioNavigationProps = {
     location: Location,
     match: match,
 
-    addMoreItemsStylesStateForFourColumnsPage: ƒ ()
-    addMoreItemsStylesStateForThreeColumnsPage: ƒ ()
-    addMoreItemsStylesStateForTwoColumnsPage: ƒ ()
-    fetchArchive: ƒ ()
-    fetchArchiveSuccess: ƒ ()
-    fetchFiveColumnsWidePage: ƒ ()
-    fetchFiveColumnsWidePageSuccess: ƒ ()
-    fetchFourColumnsPage: ƒ ()
-    fetchFourColumnsPageSuccess: ƒ ()
-    fetchFourColumnsWidePage: ƒ ()
-    fetchFourColumnsWidePageSuccess: ƒ ()
-    fetchGalleryPage: ƒ ()
-    fetchGalleryPageSuccess: ƒ ()
-    fetchGalleryWithSpacePage: ƒ ()
-    fetchGalleryWithSpacePageSuccess: ƒ ()
-    fetchMetroPage: ƒ ()
-    fetchMetroPageSuccess: ƒ ()
-    fetchOverlayPage: ƒ ()
-    fetchOverlayPageSuccess: ƒ ()
-    fetchOverlayWithInfoPage: ƒ ()
-    fetchOverlayWithInfoPageSuccess: ƒ ()
-    fetchPinterest3ColumnsPage: ƒ ()
-    fetchPinterest3ColumnsPageSuccess: ƒ ()
-    fetchPortfolioGalleryPage: ƒ ()
-    fetchPortfolioGalleryPageSuccess: ƒ ()
-    fetchSimpleOverlayPage: ƒ ()
-    fetchSimpleOverlayPageSuccess: ƒ ()
-    fetchSlideFromImageLeftPage: ƒ ()
-    fetchSlideFromImageLeftPageSuccess: ƒ ()
-    fetchStandardPage: ƒ ()
-    fetchStandardPageSuccess: ƒ ()
-    fetchStoneWallPage: ƒ ()
-    fetchStoneWallPageSuccess: ƒ ()
-    fetchStoneWallWidePage: ƒ ()
-    fetchStoneWallWidePageSuccess: ƒ ()
-    fetchSwitchImagePage: ƒ ()
-    fetchSwitchImagePageSuccess: ƒ ()
-    fetchThreeColumnsPage: ƒ ()
-    fetchThreeColumnsPageSuccess: ƒ ()
-    fetchThreeColumnsWidePage: ƒ ()
-    fetchThreeColumnsWidePageSuccess: ƒ ()
-    fetchTwoColumnsPage: ƒ ()
-    fetchTwoColumnsPageSuccess: ƒ ()
-    fetchTwoColumnsWidePage: ƒ ()
-    fetchTwoColumnsWidePageSuccess: ƒ ()
-    initItemsStylesStateForFourColumnsPage: ƒ ()
-    initItemsStylesStateForMetroPage: ƒ ()
-    initItemsStylesStateForPinterest3ColumnsPage: ƒ ()
-    initItemsStylesStateForStoneWallPage: ƒ ()
-    initItemsStylesStateForStoneWallWidePage: ƒ ()
-    initItemsStylesStateForThreeColumnsPage: ƒ ()
-    initItemsStylesStateForTwoColumnsPage: ƒ ()
-    loadMoreDisableButtonStateForArchive: ƒ ()
-    loadMoreDisableButtonStateForFourColumnsPage: ƒ ()
-    loadMoreDisableButtonStateForThreeColumnsPage: ƒ ()
-    loadMoreDisableButtonStateForTwoColumnsPage: ƒ ()
-    loadMoreFourColumnsPageSuccess: ƒ ()
-    loadMoreThreeColumnsPageSuccess: ƒ ()
-    loadMoreTwoColumnsPageSuccess: ƒ ()
-    portfolioNavigationOnClickStart: ƒ ()
-    setArchiveCategory: ƒ ()
-    setCategoriesFourColumnsPage: ƒ ()
-    setCategoriesThreeColumnsPage: ƒ ()
-    setCategoriesTwoColumnsPage: ƒ ()
-    setHistoryPopFromPortfolioItem: ƒ ()
-    setTopPositionOfTheItemForFourColumnsPage: ƒ ()
-    setTopPositionOfTheItemForThreeColumnsPage: ƒ ()
-    setTopPositionOfTheItemForTwoColumnsPage: ƒ ()
-    updateItemsStyleValuesFourColumnsPage: ƒ ()
-    updateItemsStyleValuesThreeColumnsPage: ƒ ()
-    updateItemsStyleValuesTwoColumnsPage: ƒ ()
+    addMoreItemsStylesStateForFourColumnsPage: (arr: Array<number>) => {arr: Array<number>},
+    addMoreItemsStylesStateForThreeColumnsPage: (arr: Array<number>) => {arr: Array<number>},
+    addMoreItemsStylesStateForTwoColumnsPage: (arr: Array<number>) => {arr: Array<number>},
+    fetchArchive: (category: string, step: number) => void,
+    fetchArchiveSuccess: (array: Array<GeneralTypes.ArchiveItem>) => {array: Array<GeneralTypes.ArchiveItem>},
+    fetchFiveColumnsWidePage: () => void,
+    fetchFiveColumnsWidePageSuccess: (array: Array<GeneralTypes.ColumnsPageObjItem>) => {array: Array<GeneralTypes.ColumnsPageObjItem>}
+    fetchFourColumnsPage: (step: number, category: string, screenWidth: number, numOfItemsInArray: number, itemsStyleValuesObj: Array<GeneralTypes.ItemsStyleValuesObj>) => void
+    fetchFourColumnsPageSuccess: (array: Array<GeneralTypes.ColumnsPageObjItem>) => {array: Array<GeneralTypes.ColumnsPageObjItem>}
+    fetchFourColumnsWidePage: () => {}
+    fetchFourColumnsWidePageSuccess: () => {}
+    fetchGalleryPage: () => {}
+    fetchGalleryPageSuccess: () => {}
+    fetchGalleryWithSpacePage: () => {}
+    fetchGalleryWithSpacePageSuccess: () => {}
+    fetchMetroPage: () => {}
+    fetchMetroPageSuccess: () => {}
+    fetchOverlayPage: () => {}
+    fetchOverlayPageSuccess: () => {}
+    fetchOverlayWithInfoPage: () => {}
+    fetchOverlayWithInfoPageSuccess: () => {}
+    fetchPinterest3ColumnsPage: () => {}
+    fetchPinterest3ColumnsPageSuccess: () => {}
+    fetchPortfolioGalleryPage: () => {}
+    fetchPortfolioGalleryPageSuccess: () => {}
+    fetchSimpleOverlayPage: () => {}
+    fetchSimpleOverlayPageSuccess: () => {}
+    fetchSlideFromImageLeftPage: () => {}
+    fetchSlideFromImageLeftPageSuccess: () => {}
+    fetchStandardPage: () => {}
+    fetchStandardPageSuccess: () => {}
+    fetchStoneWallPage: () => {}
+    fetchStoneWallPageSuccess: () => {}
+    fetchStoneWallWidePage: () => {}
+    fetchStoneWallWidePageSuccess: () => {}
+    fetchSwitchImagePage: () => {}
+    fetchSwitchImagePageSuccess: () => {}
+    fetchThreeColumnsPage: () => {}
+    fetchThreeColumnsPageSuccess: () => {}
+    fetchThreeColumnsWidePage: () => {}
+    fetchThreeColumnsWidePageSuccess: () => {}
+    fetchTwoColumnsPage: () => {}
+    fetchTwoColumnsPageSuccess: () => {}
+    fetchTwoColumnsWidePage: () => {}
+    fetchTwoColumnsWidePageSuccess: () => {}
+    initItemsStylesStateForFourColumnsPage: () => {}
+    initItemsStylesStateForMetroPage: () => {}
+    initItemsStylesStateForPinterest3ColumnsPage: () => {}
+    initItemsStylesStateForStoneWallPage: () => {}
+    initItemsStylesStateForStoneWallWidePage: () => {}
+    initItemsStylesStateForThreeColumnsPage: () => {}
+    initItemsStylesStateForTwoColumnsPage: () => {}
+    loadMoreDisableButtonStateForArchive: () => {}
+    loadMoreDisableButtonStateForFourColumnsPage: () => {}
+    loadMoreDisableButtonStateForThreeColumnsPage: () => {}
+    loadMoreDisableButtonStateForTwoColumnsPage: () => {}
+    loadMoreFourColumnsPageSuccess: () => {}
+    loadMoreThreeColumnsPageSuccess: () => {}
+    loadMoreTwoColumnsPageSuccess: () => {}
+    portfolioNavigationOnClickStart: () => {}
+    setArchiveCategory: () => {}
+    setCategoriesFourColumnsPage: () => {}
+    setCategoriesThreeColumnsPage: () => {}
+    setCategoriesTwoColumnsPage: () => {}
+    setHistoryPopFromPortfolioItem: () => {}
+    setTopPositionOfTheItemForFourColumnsPage: () => {}
+    setTopPositionOfTheItemForThreeColumnsPage: () => {}
+    setTopPositionOfTheItemForTwoColumnsPage: () => {}
+    updateItemsStyleValuesFourColumnsPage: () => {}
+    updateItemsStyleValuesThreeColumnsPage: () => {}
+    updateItemsStyleValuesTwoColumnsPage: () => {}
 }
 
