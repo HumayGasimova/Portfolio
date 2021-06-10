@@ -867,7 +867,6 @@ export function fetchThreeColumnsPage(step, category, screenWidth, numOfItemsInA
                     })
                 }
                 let itemsState;
-                console.log("json.threeColumnsData",json.threeColumnsData)
                 dispatch(Actions.fetchThreeColumnsPageSuccess(json.threeColumnsData));
                 if(step === 1){
                     itemsState = Utility.getArrayOfEmptyVal(json.threeColumnsData.length);
