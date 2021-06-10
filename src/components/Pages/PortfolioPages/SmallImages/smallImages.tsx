@@ -414,7 +414,7 @@ export const SmallImages = (props) => {
                         onMouseEnter={() => handleMouseEnter(`smallImagesTag`, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`smallImagesTag`, el.id)} 
                     >
-                        <H19 className={renderClassName(`smallImagesTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`smallImagesTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>

@@ -301,7 +301,7 @@ export const BigSlader = (props) => {
                         onMouseEnter={() => handleMouseEnter(`bigSliderTag`, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`bigSliderTag`, el.id)} 
                     >
-                        <H19 className={renderClassName(`bigSliderTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`bigSliderTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>

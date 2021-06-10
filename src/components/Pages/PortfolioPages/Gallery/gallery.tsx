@@ -419,7 +419,7 @@ export const Gallery = (props) => {
                         onMouseEnter={() => handleMouseEnter(`galleryTag`, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`galleryTag`, el.id)} 
                     >
-                        <H19 className={renderClassName(`galleryTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`galleryTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>

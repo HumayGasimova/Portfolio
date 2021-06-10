@@ -76,10 +76,17 @@ interface MapDispatchToPropsTypes {
 }
 
 /**
+ * Types
+ */
+
+import * as Types from './portfolioNavigationTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * PorfolioNavigation component definition and export
  */
 
-export const PorfolioNavigation = (props) => {
+export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (props) => {
 
     /**
      * State
@@ -103,6 +110,7 @@ export const PorfolioNavigation = (props) => {
          * was archive) that were previously rendered in the location history
          */ 
 
+        console.log("props", props)
         let page = props.location.state ? props.location.state.page : props.unmountComp.prevPage;
         let category = props.location.state ? props.location.state.category : Utility.categoryKeyToPath(props.archive.category);
 

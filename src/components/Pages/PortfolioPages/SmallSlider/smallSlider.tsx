@@ -328,7 +328,7 @@ export const SmallSlider = (props) => {
                         onMouseEnter={() => handleMouseEnter(`smallSliderTag`, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`smallSliderTag`, el.id)} 
                     >
-                        <H19 className={renderClassName(`smallSliderTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`smallSliderTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>

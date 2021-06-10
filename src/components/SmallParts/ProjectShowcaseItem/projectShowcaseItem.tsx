@@ -601,7 +601,7 @@ export const ProjectShowcaseItem = (props) => {
                         onMouseEnter={() => handleMouseEnter(`projectShowcaseTag`, key, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`projectShowcaseTag`, key, el.id)} 
                     >
-                        <H19 className={renderClassName(`projectShowcaseTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`projectShowcaseTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>

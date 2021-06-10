@@ -225,3 +225,49 @@ type ValidationItem = {
     required: boolean,
     valid: boolean
 }
+
+/**
+ * Archive Obj
+ */ 
+
+export type ArchiveObj = {
+    category: string | null,
+    disableLoadMoreButton: boolean,
+    error: any,
+    errorMoreData: any,
+    items: Array<ArchiveItem>,
+    loading: boolean,
+    loadingMoreData: boolean
+}
+
+type ArchiveItem = {
+    categories: Array<CategoriesItem>,
+    coverImage: CoverImageObj,
+    header: string,
+    id: number,
+    key: string,
+    path: string
+}
+
+/**
+ * Portfolio Obj
+ */ 
+
+export type PortfoliObj = {
+    error: any,
+    item: PortfoliItemObj,
+    loading: boolean,
+    swiper?: SwiperObj
+}
+
+export type PortfoliItemObj = {
+    categories: Array<CategoriesItem>,
+    date: string,
+    header: string,
+    id: number,
+    imagesArray: Array<ImagesArrayItem>
+    key: string,
+    tags: Array<TagsListItem>
+    text: string
+}
+

@@ -368,7 +368,7 @@ export const BigImages = (props) => {
                         onMouseEnter={() => handleMouseEnter(`bigImagesTag`, el.id)} 
                         onMouseLeave={() => handleMouseLeave(`bigImagesTag`, el.id)} 
                     >
-                        <H19 className={renderClassName(`bigImagesTag`, el.isHover)}>{el.label}</H19>
+                        <H19 className={renderClassName(`bigImagesTag`, el.isHover)}>{el.tagName}</H19>
                     </div>
                 )
             })}</div>
