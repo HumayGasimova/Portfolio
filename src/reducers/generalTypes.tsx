@@ -298,7 +298,7 @@ type ArrayOfDisappearAndAppearElementsItem= {
 type ColumnsPageObjItem = {
     arrowIsHovering: string,
     categories: Array<CategoriesItem>,
-    coverImage: CoverImageObj,
+    coverImage?: CoverImageObj,
     header?: string,
     id: number,
     key: string,
@@ -308,17 +308,18 @@ type ColumnsPageObjItem = {
     pictures?: Array<ImagesArrayItem>
 }
 
-type ItemsStyleValuesObj = {
+export type ItemsStyleValuesObj = {
     rendered: boolean,
-    scale: number,
-    transition: number,
-    translateX: number,
-    translateY: number,
-    width: number,
-    zIndex: number
+    scale?: number,
+    transition?: number,
+    translateX?: number,
+    translateY?: number,
+    width?: number,
+    zIndex?: number,
+    height?: number
 }
 
-type ItemsTopPositionItem = {
+export type ItemsTopPositionItem = {
     id: string,
     key: string,
     topPosition: number
@@ -331,5 +332,25 @@ type ItemsTopPositionItem = {
 export type ColumnsWidePageObj = {
     error: any,
     items: Array<ColumnsPageObjItem>,
-    loading: boolean
+    loading: boolean,
+}
+
+export type ItemsCoordinateRange = {
+    bottomCoordinate: number,
+    id: number,
+    leftCoordinate: number,
+    rightCoordinate: number,
+    topCoordinate: number,
+    updated: boolean,
+    width: number
+}
+
+/**
+ * Unmount component
+ */
+
+export type UnmountComponent = {
+    gotoPage: string,
+    prevPage: string | undefined,
+    state: boolean
 }

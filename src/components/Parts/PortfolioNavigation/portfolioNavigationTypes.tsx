@@ -10,7 +10,6 @@ import {
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type PorfolioNavigationProps = {
-    
     archive: GeneralTypes.ArchiveObj,
     bigImagesPortfolio: GeneralTypes.PortfoliObj,
     bigSliderPortfolio: GeneralTypes.PortfoliObj,
@@ -26,26 +25,20 @@ export type PorfolioNavigationProps = {
     threeColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
     fourColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
     fiveColumnsWidePage: GeneralTypes.ColumnsWidePageObj,
-    
-    galleryPage: {items: Array(0), loading: false, error: null}
-    galleryWithSpacePage: {items: Array(0), loading: false, error: null}
-   
-    metroPage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
-    overlayPage: {items: Array(0), loading: false, error: null}
-    overlayWithInfoPage: {items: Array(0), loading: false, error: null}
-    pinterest3ColumnsPage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
-    portfolioGalleryPage: {items: Array(18), loading: false, error: null, itemsCoordinateRange: Array(18)}
-    simpleOverlayPage: {items: Array(0), loading: false, error: null}
-    slideFromImageLeftPage: {items: Array(0), loading: false, error: null}
-   
-    standardPage: {items: Array(0), loading: false, error: null}
-    stoneWallPage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
-    stoneWallWidePage: {items: Array(0), loading: false, error: null, itemsStyleValues: {…}, itemsTopPosition: Array(0)}
-    switchImagePage: {items: Array(0), loading: false, error: null, itemsCoordinateRange: Array(18)}
-    
-    
-    unmountComp: {state: false, gotoPage: "", prevPage: undefined}
-
+    overlayPage: GeneralTypes.ColumnsWidePageObj,
+    overlayWithInfoPage: GeneralTypes.ColumnsWidePageObj,
+    simpleOverlayPage: GeneralTypes.ColumnsWidePageObj,
+    slideFromImageLeftPage: GeneralTypes.ColumnsWidePageObj,
+    switchImagePage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsCoordinateRange>,
+    standardPage: GeneralTypes.ColumnsWidePageObj,
+    galleryPage: GeneralTypes.ColumnsWidePageObj,
+    galleryWithSpacePage: GeneralTypes.ColumnsWidePageObj,
+    stoneWallPage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsStyleValuesObj> & Array<GeneralTypes.ItemsTopPositionItem>,
+    stoneWallWidePage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsStyleValuesObj> & Array<GeneralTypes.ItemsTopPositionItem>,
+    metroPage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsStyleValuesObj> & Array<GeneralTypes.ItemsTopPositionItem>,
+    pinterest3ColumnsPage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsStyleValuesObj> & Array<GeneralTypes.ItemsTopPositionItem>,
+    portfolioGalleryPage: GeneralTypes.ColumnsWidePageObj & Array<GeneralTypes.ItemsCoordinateRange>,
+    unmountComp: GeneralTypes.UnmountComponent,
     staticContext: undefined
     history: History,
     location: Location,
@@ -123,3 +116,4 @@ export type PorfolioNavigationProps = {
     updateItemsStyleValuesThreeColumnsPage: ƒ ()
     updateItemsStyleValuesTwoColumnsPage: ƒ ()
 }
+
