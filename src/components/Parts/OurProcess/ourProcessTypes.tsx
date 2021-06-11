@@ -6,8 +6,8 @@ export type OurProcessProps = {
 
 type DataObj = {
     items: Array<DataItemsItem>,
-    loading: false,
-    error: null
+    loading: boolean,
+    error: any
 }
 
 type DataItemsItem = {

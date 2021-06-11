@@ -100,7 +100,7 @@ export type CommentsItem = {
     text: string
 }
 
-type ImagesArrayItem = {
+export type ImagesArrayItem = {
     id: number,
     key: string,
     isHover?: string,

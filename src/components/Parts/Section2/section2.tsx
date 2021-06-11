@@ -62,10 +62,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './section2Types';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Section2 component definition and export
  */
 
-export const Section2 = (props) => {
+export const Section2: React.FC<Types.Section2Props> = (props) => {
 
     /**
      * Methods
@@ -100,10 +107,10 @@ export const Section2 = (props) => {
 
     }, []);
 
-    const renderClassName = (pictureBoardLoading, pictureBoardError, ourProcessLoading, ourProcessError) => {
+    const renderClassName = (pictureBoardLoading: boolean, pictureBoardError: any, ourProcessLoading: boolean, ourProcessError: any) => {
         // Style for loading and error cases for different parts of the section
-
-        let opt;
+        
+        let opt: string;
 
         if(!pictureBoardLoading && !pictureBoardError && !ourProcessLoading && !ourProcessError){
             opt = "noLoadingNoError";
@@ -159,7 +166,7 @@ export const Section2 = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             pictureBoard: Selectors.getPictureBoardItemsState(state),
@@ -168,10 +175,10 @@ export default connect(
     },
     (dispatch) => {
         return {
-            fetchPictureBoard: bindActionCreators(Services.fetchPictureBoard, dispatch),
             fetchOurProcessData: bindActionCreators(Services.fetchOurProcessData, dispatch),
-            fetchPictureBoardSuccess: bindActionCreators(Actions.fetchPictureBoardSuccess, dispatch),
             fetchOurProcessDataSuccess: bindActionCreators(Actions.fetchOurProcessDataSuccess, dispatch),
+            fetchPictureBoard: bindActionCreators(Services.fetchPictureBoard, dispatch),
+            fetchPictureBoardSuccess: bindActionCreators(Actions.fetchPictureBoardSuccess, dispatch)
         };
     }
 )(Section2);
