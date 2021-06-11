@@ -61,20 +61,6 @@ import {
 import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
-interface MapStateToPropsTypes {
-    // menuFullscreenItems: Array<MenuFullscreenItems>;
-}
-
-interface MapDispatchToPropsTypes {
-    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    // setMenuDotsState: (val: string, page: string) => void;
-    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
-
 /**
  * Types
  */
@@ -93,12 +79,12 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
      */
    
     const size = useWindowSize();
-    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState("init");
-    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState("init");
-    const [isHoveringMenuButton, setIsHoveringMenuButton] = React.useState("init");
-    const [key, setKey] = React.useState("");
-    const [page, setPage] = React.useState("");
-    const [category, setCategory] = React.useState("");
+    const [isHoveringLeftArrow, setIsHoveringLeftArrow] = React.useState<string>("init");
+    const [isHoveringRightArrow, setIsHoveringRightArrow] = React.useState<string>("init");
+    const [isHoveringMenuButton, setIsHoveringMenuButton] = React.useState<string>("init");
+    const [key, setKey] = React.useState<string>("");
+    const [page, setPage] = React.useState<string>("");
+    const [category, setCategory] = React.useState<string>("");
 
     /**
      * Methods
@@ -149,7 +135,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         setKey(key);
     }, []);
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow("on");
@@ -163,7 +149,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'leftArrow': 
                 setIsHoveringLeftArrow("off");
@@ -177,7 +163,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
     
-    const fetchContentItems = (page, category) => {
+    const fetchContentItems = (page: string, category: string) => {
         // Fetch data according to the page we came from
 
         let itemsFromLocalStorage;
@@ -526,7 +512,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const fetchTwoColumnsPageMockData = (step, category, screenWidth, numOfItemsInArray) => {
+    const fetchTwoColumnsPageMockData = (step: number, category: string, screenWidth: number, numOfItemsInArray: number) => {
         let twoColumnsPageData = [...FakeData.twoColumnsPage];
         let updatedTwoColumnsObj = {
             disableLoadMoreButton: false,
@@ -697,7 +683,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const fetchThreeColumnsPageMockData = (step, category, screenWidth, numOfItemsInArray) => {
+    const fetchThreeColumnsPageMockData = (step: number, category: string, screenWidth: number, numOfItemsInArray: number) => {
         let threeColumnsPageData = [...FakeData.threeColumnsPage];
         let updatedThreeColumnsObj = {
             disableLoadMoreButton: false,
@@ -980,7 +966,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const fetchFourColumnsPageMockData = (step, category, screenWidth, numOfItemsInArray) => {
+    const fetchFourColumnsPageMockData = (step: number, category: string, screenWidth: number, numOfItemsInArray: number) => {
         let fourColumnsPageData = [...FakeData.fourColumnsPage];
         let updatedFourColumnsObj = {
             disableLoadMoreButton: false,
@@ -1404,7 +1390,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "leftArrow"){
             switch(isHovering){
                 case 'init':
@@ -1437,7 +1423,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         }
     }
 
-    const handleMenuOnClick = (e) => {
+    const handleMenuOnClick = (e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -1654,7 +1640,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
         props.setHistoryPopFromPortfolioItem("scrollToTop");
     }
 
-    const arrowOnClick = (opt, key, e) => {
+    const arrowOnClick = (opt: string, key: string, e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -1762,7 +1748,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
 }
 
 export default withRouter(
-    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
         (state) => {
             return {
                 portfolioGalleryPage: Selectors.getPortfolioGalleryPageState(state),
