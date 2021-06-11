@@ -96,7 +96,6 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
          * was archive) that were previously rendered in the location history
          */ 
 
-        console.log("props", props)
         let page = props.location.state ? props.location.state.page : props.unmountComp.prevPage;
         let category = props.location.state ? props.location.state.category : Utility.categoryKeyToPath(props.archive.category);
 

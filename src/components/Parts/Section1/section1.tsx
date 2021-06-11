@@ -60,10 +60,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './section1Types';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Section1 component definition and export
  */
 
-export const Section1 = (props) => {
+export const Section1: React.FC<Types.Section1Props> = (props) => {
 
     /**
      * Methods
@@ -139,7 +146,7 @@ export const Section1 = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             section1Data: Selectors.getSection1DateState(state)
