@@ -79,7 +79,7 @@ export type CategoriesItem = {
     key: string,
     label: string,
     path?: string,
-    active: boolean
+    active?: boolean
 }
 
 type SwiperObj = {
@@ -103,7 +103,7 @@ export type CommentsItem = {
 type ImagesArrayItem = {
     id: number,
     key: string,
-    isHover: string,
+    isHover?: string,
     imageName: string,
     folderName?: string,
     alt: string

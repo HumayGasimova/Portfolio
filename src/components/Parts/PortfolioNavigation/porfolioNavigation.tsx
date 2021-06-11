@@ -463,7 +463,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
                     }else{
                         // Fetch data (required to run -> npm run server)
         
-                        props.fetchTwoColumnsPage(props.twoColumnsPage.loadMoreStep);
+                        props.fetchTwoColumnsPage(props.twoColumnsPage.loadMoreStep, null, null, null, null);
                     }
                 }
                 break;
@@ -485,7 +485,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
                     }else{
                         // Fetch data (required to run -> npm run server)
         
-                        props.fetchThreeColumnsPage(props.threeColumnsPage.loadMoreStep);
+                        props.fetchThreeColumnsPage(props.threeColumnsPage.loadMoreStep, null, null, null, null);
                     }
                 }
                 break;
@@ -506,7 +506,7 @@ export const PorfolioNavigation: React.FC<Types.PorfolioNavigationProps> = (prop
                     }else{
                         // Fetch data (required to run -> npm run server)
         
-                        props.fetchThreeColumnsPage(props.threeColumnsPage.loadMoreStep);
+                        props.fetchThreeColumnsPage(props.threeColumnsPage.loadMoreStep, null, null, null, null);
                     }
                 }
                 break;

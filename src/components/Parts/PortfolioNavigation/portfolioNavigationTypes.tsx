@@ -102,7 +102,7 @@ export type PorfolioNavigationProps = {
     loadMoreFourColumnsPageSuccess: () => {},
     loadMoreThreeColumnsPageSuccess: () => {},
     loadMoreTwoColumnsPageSuccess: () => {},
-    portfolioNavigationOnClickStart: () => {},
+    portfolioNavigationOnClickStart: (path: string, page: string, category: string) => {path: string, page: string, category: string},
     setArchiveCategory: (category: string) => {category: string},
     setCategoriesFourColumnsPage: (array: Array<GeneralTypes.CategoriesItem>) => {array: Array<GeneralTypes.CategoriesItem>},
     setCategoriesThreeColumnsPage: (array: Array<GeneralTypes.CategoriesItem>) => {array: Array<GeneralTypes.CategoriesItem>},
@@ -218,5 +218,5 @@ export type MapDispatchToPropsTypes = {
     updateItemsStyleValuesFourColumnsPage: (image: string, obj: GeneralTypes.ItemsStyleValuesObj) => {image: string, obj: GeneralTypes.ItemsStyleValuesObj},
     setTopPositionOfTheItemForFourColumnsPage: (id: string, val: number) => {id: string, val: number},
     setHistoryPopFromPortfolioItem: (val: string) => {val: string},
-    portfolioNavigationOnClickStart: () => {}
+    portfolioNavigationOnClickStart: (path: string, page: string, category: string) => {path: string, page: string, category: string}
 }

@@ -3868,7 +3868,7 @@ app.post('/api/portfolio-category/:category', (req, res) => {
                     coverImage: {
                         id: 1,
                         key: "graphicDesignCover5",
-                        isHiver: "init",
+                        isHover: "init",
                         imageName: "uby-yanes-LMwW0ARHc4o-updated-archive-unsplash.png",
                         folderName: "colorful",
                         alt: "image"
