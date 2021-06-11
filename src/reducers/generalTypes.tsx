@@ -73,7 +73,7 @@ export type BlogListStandardPageItem = {
     videoKey?: string
 }
 
-type CategoriesItem = {
+export type CategoriesItem = {
     id: number,
     isHover: string,
     key: string,
