@@ -40,25 +40,18 @@ import * as Actions from '../../../actions';
 
 import * as Selectors from '../../../reducers/selectors';
 
-interface MapStateToPropsTypes {
-    // menuFullscreenItems: Array<MenuFullscreenItems>;
-}
+/**
+ * Types
+ */
 
-interface MapDispatchToPropsTypes {
-    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    // setMenuDotsState: (val: string, page: string) => void;
-    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
+import * as Types from './sidebarTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * Sidebar component definition and export
  */
 
-export const Sidebar = (props) => {
+export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
 
     /**
      * State
@@ -71,15 +64,16 @@ export const Sidebar = (props) => {
      */
 
     React.useEffect(() => {
+        console.log("props",props)
     }, []);
 
-    const handleMouseEnterSidebarItem = (data, id) => {
+    const handleMouseEnterSidebarItem = (id) => {
         props.setIsHoveringMenuItem("on", id);
         setShowOptions(true);
     }
 
-    const handleMouseLeaveSidebarItem = (data) => {
-        props.setIsHoveringMenuItem("off");
+    const handleMouseLeaveSidebarItem = () => {
+        props.setIsHoveringMenuItem("off", null);
         setShowOptions(false);
     }
 
@@ -115,21 +109,21 @@ export const Sidebar = (props) => {
                     
                             if(itemId === "blogListStandard" && props.blogListStandardPage.activeCategory.activated === "active"){
                                 props.activateListStandardBlogCategory("deactive", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else if(itemId === "blogListStandard" && props.blogListStandardPage.activeItem.activated === "active"){
                                 props.activateListStandardBlogItem("deactive", "", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else if(itemId === "blogListStandard" && props.blogListStandardPage.activeTag.activated === "active"){
-                                props.activateListStandardBlogTag("deactive", "", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.activateListStandardBlogTag("deactive", "");
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else{
-                                props.setUnmountComponentValues(true, path);
+                                props.setUnmountComponentValues(true, path, null);
                             }
                             props.setHistoryPopFromPortfolioItem("scrollToTop");
-                            props.clearActivityOfMenuItems();
+                            props.clearActivityOfMenuItems(null);
                             props.setActivityOfToolbarOptionItem(pathOfIds);
                         }
                     break;
@@ -153,9 +147,9 @@ export const Sidebar = (props) => {
                         return;
                     }else{
                         props.setSidebarState("init");
-                        props.setUnmountComponentValues(true, path);
+                        props.setUnmountComponentValues(true, path, null);
                         props.setHistoryPopFromPortfolioItem("scrollToTop");
-                        props.clearActivityOfMenuItems();
+                        props.clearActivityOfMenuItems(null);
                         props.setActivityOfToolbarSubOptionItem(pathOfIds);
                     }
                     break;                    
@@ -163,7 +157,7 @@ export const Sidebar = (props) => {
         }else{
             // Remember information of unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
@@ -178,8 +172,8 @@ export const Sidebar = (props) => {
                         <SidebarItem 
                             key={el.id}
                             data={el}
-                            onMouseEnter={() => handleMouseEnterSidebarItem(el, el.id)} 
-                            onMouseLeave={() => handleMouseLeaveSidebarItem(el)}
+                            onMouseEnter={() => handleMouseEnterSidebarItem(el.id)} 
+                            onMouseLeave={() => handleMouseLeaveSidebarItem()}
                             showOptions={showOptions}
                             onMouseEnterAndLeaveOptionItem={props.setIsHoveringToolbarOptionItem} 
                             onMouseEnterAndLeaveSubOptionItem={props.setIsHoveringToolbarSubOptionItem}
@@ -219,7 +213,7 @@ export const Sidebar = (props) => {
 }
 
 export default withRouter(
-    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
         (state) => {
             return {
                 menuItems: Selectors.getMenuItemsState(state),

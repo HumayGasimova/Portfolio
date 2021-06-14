@@ -354,3 +354,36 @@ export type UnmountComponent = {
     prevPage: string | undefined,
     state: boolean
 }
+
+/**
+ * Menu Items
+ */
+
+export type MenuItemsItem = {
+    id: number,
+    text: string,
+    itemId: string,
+    path: string | null,
+    active: boolean,
+    isHover: string,
+    hasSubOptions: boolean,
+    options: Array<OptionsItem>
+}
+
+type OptionsItem = {
+    id: number,
+    active: boolean,
+    header: string | null,
+    itemId: string | null,
+    array: Array<MenuItemsArrayItem>
+}
+
+type MenuItemsArrayItem = {
+    id: number,
+    text: string,
+    itemId: string,
+    path: string,
+    active: boolean,
+    isHover: string,
+    subOptions: Array<MenuItemsArrayItem>
+}
