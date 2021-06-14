@@ -64,7 +64,6 @@ export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
      */
 
     React.useEffect(() => {
-        console.log("props",props)
     }, []);
 
     const handleMouseEnterSidebarItem = (id) => {

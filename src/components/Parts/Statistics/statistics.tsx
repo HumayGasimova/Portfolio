@@ -71,10 +71,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './statisticsTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Statistics component definition and export
  */
 
-export const Statistics = (props) => {
+export const Statistics: React.FC<Types.StatisticsProps> = (props) => {
 
     /**
      * State
@@ -195,7 +202,7 @@ export const Statistics = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             statisticsData: Selectors.getStatisticsDataState(state)
