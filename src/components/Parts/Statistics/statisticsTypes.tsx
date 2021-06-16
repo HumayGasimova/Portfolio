@@ -1,10 +1,10 @@
 export type StatisticsProps = {
-    statisticsData: StatisticsDataObj
+    statisticsData: StatisticsObj
     fetchStatisticsData: () => void,
     fetchStatisticsDataSuccess: (array: Array<StatisticsItemsItem>) => {array: Array<StatisticsItemsItem>}
 }
 
-type StatisticsDataObj = {
+type StatisticsObj = {
     error: any,
     items: Array<StatisticsItemsItem>,
     loading: boolean
@@ -17,7 +17,7 @@ type StatisticsItemsItem = {
 }
 
 export type MapStateToPropsTypes = {
-    statisticsData: StatisticsDataObj
+    statisticsData: StatisticsObj
 }
 
 export type MapDispatchToPropsTypes = {

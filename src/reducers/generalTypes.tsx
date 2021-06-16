@@ -82,7 +82,7 @@ export type CategoriesItem = {
     active?: boolean
 }
 
-type SwiperObj = {
+export type SwiperObj = {
     slides: Array<any>,
     _slides: Array<any>,
     activeIndex: number,

@@ -70,10 +70,17 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './testimonialsTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Testimonials component definition and export
  */
 
-export const Testimonials = (props) => {
+export const Testimonials: React.FC<Types.TestimonialsProps> = (props) => {
 
     /**
      * State
@@ -99,7 +106,6 @@ export const Testimonials = (props) => {
                 props.fetchTestimonials();
             }
         }
-        
     }, [props.testimonials.items.length]);
 
     /**
@@ -158,7 +164,7 @@ export const Testimonials = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             testimonials: Selectors.getTestimonialsState(state)

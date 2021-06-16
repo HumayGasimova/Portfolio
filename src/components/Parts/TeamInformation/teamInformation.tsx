@@ -26,13 +26,6 @@ import Loading from '../../SmallParts/Loading/loading';
 import TeamInformationCard from '../../SmallParts/TeamInformationCard/teamInformationCard';
 
 /**
- * Types
- */
-
-import * as Types from './teamInformationTypes';
-import * as GeneralTypes from '../../../reducers/generalTypes';
-
-/**
  * Services
  */
 
@@ -72,6 +65,13 @@ import {
 
 import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
+
+/**
+ * Types
+ */
+
+import * as Types from './teamInformationTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * TeamInformation component definition and export
