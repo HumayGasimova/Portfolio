@@ -26,6 +26,13 @@ import Loading from '../../SmallParts/Loading/loading';
 import TeamInformationCard from '../../SmallParts/TeamInformationCard/teamInformationCard';
 
 /**
+ * Types
+ */
+
+import * as Types from './teamInformationTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Services
  */
 
@@ -70,7 +77,7 @@ import * as Environment from '../../../constants/environments';
  * TeamInformation component definition and export
  */
 
-export const TeamInformation = (props) => {
+export const TeamInformation: React.FC<Types.TeamInformationProps> = (props) => {
 
     /**
      * State
@@ -96,7 +103,6 @@ export const TeamInformation = (props) => {
                 props.fetchTeamInformation();
             }
         }
-
     }, []);
 
     
@@ -150,7 +156,7 @@ export const TeamInformation = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             teamInformation: Selectors.getTeamInformationState(state)
