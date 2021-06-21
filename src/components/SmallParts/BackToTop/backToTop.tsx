@@ -23,10 +23,17 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './backToTopTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BackToTop component definition and export
  */
 
-export const BackToTop = (props) => {
+export const BackToTop: React.FC<Types.BackToTopProps> = (props) => {
 
     const [isHovering, setIsHovering] = React.useState("init");
 
@@ -36,7 +43,7 @@ export const BackToTop = (props) => {
 
     React.useEffect(()=>{
         // Set smooth scrollbar behavior
-
+        
         document.getElementById("html").style.scrollBehavior = "smooth";
         return () => {
             // Clear smooth scrollbar behavior
@@ -52,7 +59,7 @@ export const BackToTop = (props) => {
         setIsHovering("off");
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "text"){
             switch(isHovering){
                 case 'init':
@@ -75,7 +82,7 @@ export const BackToTop = (props) => {
         }
     }
 
-    const arrowOnClick = (e, path) => {
+    const arrowOnClick = (e: React.MouseEvent, path: string) => {
         switch(e.button){
             case 0: 
                 // Scroll to top on left mouse click
