@@ -57,7 +57,6 @@ import {
     EH20
 } from '../../UtilityComponents';
 
-
 /**
  * Hooks
  */
@@ -74,38 +73,18 @@ import {
     menuItemsArray
 } from '../../../constants/menuItems';
 
-interface MapStateToPropsTypes {
-    // menuFullscreenItems: Array<MenuFullscreenItems>;
-}
+/**
+ * Types
+ */
 
-interface MapDispatchToPropsTypes {
-    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    // setMenuDotsState: (val: string, page: string) => void;
-    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
-
-interface ToolbarItemData {
-    active: boolean,
-    hasSubOptions: boolean,
-    id: number,
-    isHover: string,
-    itemId: string,
-    options: Array<any>,
-    length: number,
-    path: string,
-    text: string
-}
-
+import * as Types from './toolbarTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes'; 
 
 /**
  * Toolbar component definition and export
  */
 
-export const Toolbar = (props) => {
+export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
 
     /**
      * State
@@ -134,7 +113,7 @@ export const Toolbar = (props) => {
 
     React.useEffect(() => {
         // Initialize menu items
-
+console.log("props", props)
         props.initMenuItems(menuItemsArray);
 
         // Hide sidebar component
@@ -174,23 +153,13 @@ export const Toolbar = (props) => {
     }
 
     const handleMouseLeaveToolbarItem = (opt, data) => {
-        props.setIsHoveringMenuItem("off");
+        props.setIsHoveringMenuItem("off", null);
         switch(opt){
             case 'regular':
                 if(data.options.length > 2){
                     setShowOptions(false);
 
-                    let obj: ToolbarItemData = {
-                        active: false,
-                        hasSubOptions: false,
-                        id: 0,
-                        isHover: "",
-                        itemId: "",
-                        options: [],
-                        length: 0,
-                        path: "",
-                        text: ""
-                    }
+                    let obj;
                     
                     setToolbarItemData(obj);
                 }else{
@@ -790,7 +759,7 @@ export const Toolbar = (props) => {
 }
 
 export default withRouter(
-    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
         (state) => {
             return {
                 menuItems: Selectors.getMenuItemsState(state),
