@@ -26,10 +26,17 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './accordionItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * AccordionItem component definition and export
  */
 
-export const AccordionItem = (props) => {
+export const AccordionItem: React.FC<Types.AccordionItemProps> = (props) => {
 
     /**
      * Methods
@@ -38,7 +45,7 @@ export const AccordionItem = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const handleMouseEnter = (style, id) => {
+    const handleMouseEnter = (style: string, id: number) => {
         switch(style){
             case 'hoverBlackAndWhite': 
                 props.setIsHoverAccordionItem("on", id);
@@ -46,7 +53,7 @@ export const AccordionItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (style, id) => {
+    const handleMouseLeave = (style: string, id: number) => {
         switch(style){
             case 'hoverBlackAndWhite': 
                 props.setIsHoverAccordionItem("off", id);
@@ -54,7 +61,7 @@ export const AccordionItem = (props) => {
         }
     }
     
-    const renderClassName = (style, opt, isHovering, isActive) => {
+    const renderClassName = (style: string, opt: string, isHovering: string, isActive: string) => {
         if(style === "simple"){
             if(opt === "background"){
                 return "accordion-item-simple";
@@ -107,7 +114,8 @@ export const AccordionItem = (props) => {
         // Activate accordion item
 
         let val = props.obj.active === "init" || props.obj.active === "off" ? "on" : "off";
-        props.activateAccordionItem(val, props.obj.id, props.option);
+
+        props.activateAccordionItem(val, props.obj.id);
     }
 
     /**

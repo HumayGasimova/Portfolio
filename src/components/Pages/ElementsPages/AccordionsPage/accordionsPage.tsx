@@ -200,7 +200,7 @@ export const AccordionsPage = (props) => {
         }
     }
 
-    const renderAccordionsPageSection1Data = (arr, opt) => {
+    const renderAccordionsPageSection1Data = (arr) => {
         return(
             <div className="accordions-page-section1-items">{arr.map((el, i) => {
                 return(
@@ -208,9 +208,10 @@ export const AccordionsPage = (props) => {
                         <AccordionItem 
                             style="simple"
                             obj={el}
+                            hoverEffect={null}
+                            setIsHoverAccordionItem={null}
                             activateAccordionItem={props.setActivitySection1ItemAccordionsPage}
                             iconType="plusIcon"
-                            option={opt}
                         />
                     </div>
                 )
@@ -254,9 +255,9 @@ export const AccordionsPage = (props) => {
         if(!props.accordionsPage.section1Data.loading && !props.accordionsPage.section1Data.error){
             return(
                 <div className="accordions-page-section1-data-wrapper">
-                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsLeftColumn,"leftColumn")}
+                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsLeftColumn)}
                     <EW70/>
-                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsRightColumn,"rightColumn")}
+                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsRightColumn)}
                 </div>
             )
         }
