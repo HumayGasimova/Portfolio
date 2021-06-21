@@ -56,32 +56,39 @@ import {
     socialMediaIcons
 } from '../../../constants/socialMediaIcons';
 
+
+/**
+ * Types
+ */
+
+import * as Types from './blogListPostCardTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
 /**
  * BlogListPostCard component definition and export
  */
 
-export const BlogListPostCard = (props) => {
+export const BlogListPostCard: React.FC<Types.BlogListPostCardProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [isHoveringBlogCardDate, setIsHoveringBlogCardDate] = React.useState("init");
-    const [isHoveringBlogCardHeader, setIsHoveringBlogCardHeader] = React.useState("init");
-    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState("init");
-    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState("init");
-    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState("init");
-    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState("init");
-    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState("init");
-    const [cardWidth, setCardWidth] = React.useState(0);
+    const [isHoveringBlogCardDate, setIsHoveringBlogCardDate] = React.useState<string>("init");
+    const [isHoveringBlogCardHeader, setIsHoveringBlogCardHeader] = React.useState<string>("init");
+    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState<string>("init");
+    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState<string>("init");
+    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState<string>("init");
+    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState<string>("init");
+    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState<string>("init");
+    const [cardWidth, setCardWidth] = React.useState<number>(0);
     
     /**
      * Methods
      */
    
     React.useEffect(() => {
-
         //Set width of swiper
 
         let blogListPostCard = document.getElementById("blogListPostCard");
@@ -89,7 +96,7 @@ export const BlogListPostCard = (props) => {
 
     }, []);
 
-    const handleMouseEnter = (opt, key) => {
+    const handleMouseEnter = (opt: string, key: string) => {
         switch(opt){
             case 'blogCardDate': 
                 setIsHoveringBlogCardDate("on");
@@ -118,7 +125,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, key) => {
+    const handleMouseLeave = (opt: string, key: string) => {
         switch(opt){
             case 'blogCardDate': 
                 setIsHoveringBlogCardDate("off");
@@ -147,7 +154,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if([
             'blogCardDate',
             'blogCardLikes',
@@ -235,7 +242,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const loadImg = (imgKey) => {
+    const loadImg = (imgKey: string) => {
         switch(imgKey){
             case 'blogCardStandardPostCoverImg1':
                 return Images.BLOG_CARD_STANDARD_POST_COVER_IMG_1;
@@ -274,7 +281,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const onCardClickHandler = (e, path, key) => {
+    const onCardClickHandler = (e: React.MouseEvent, path: string, key: string) => {
 
         // Do nothing on right mouse click 
 
@@ -287,8 +294,8 @@ export const BlogListPostCard = (props) => {
              */ 
 
             props.clearState();
-            props.clearActivityOfMenuItems();
-            props.activateBlogItem("active", key);
+            props.clearActivityOfMenuItems(null);
+            props.activateBlogItem("active", key, null);
             props.activateBlogCategory("deactive", "");
             props.activateBlogTag("deactive", "");
             props.history.push(`/crypto-portfolio/${path}`);
@@ -305,7 +312,7 @@ export const BlogListPostCard = (props) => {
 
         if(!props.elData.userLikedThePost){
             // Icrease the number of likes
-
+            
             props.increaseTheNumberOfLikes(props.elData.key);
 
             let userLikedPosts = JSON.parse(localStorage.getItem("userLikedPostsHG")) !== null ? [...JSON.parse(localStorage.getItem("userLikedPostsHG"))] : [];
@@ -324,7 +331,7 @@ export const BlogListPostCard = (props) => {
         }
     }
     
-    const onCommentsClickHandler = (e) => {
+    const onCommentsClickHandler = (e: React.MouseEvent) => {
 
         // Do nothing on right mouse click 
 
@@ -347,7 +354,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const renderCardCover = (type) => {
+    const renderCardCover = (type: string) => {
         switch(type){
             case 'audioPost':
                 return(
@@ -410,7 +417,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const renderBlogCardMainBody = (type) => {
+    const renderBlogCardMainBody = (type: string) => {
         return(
             <>
                 {renderCardCover(type)}
@@ -441,7 +448,7 @@ export const BlogListPostCard = (props) => {
         )
     }
 
-    const onClickCategory = (key, path, e) => {
+    const onClickCategory = (key: string, path: string, e: React.MouseEvent) => {
 
         // Do nothing on right mouse click 
 
@@ -452,10 +459,10 @@ export const BlogListPostCard = (props) => {
              * Show filtered items on left mouse click 
              */
 
-            props.clearActivityOfMenuItems();
+            props.clearActivityOfMenuItems(null);
             props.activateBlogCategory("active", key);
             props.activateBlogTag("deactive", "");
-            props.activateBlogItem("deactive", "");
+            props.activateBlogItem("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-category/${key}`);
         }else{
             // Show filtered items on scroll wheel click
@@ -465,7 +472,7 @@ export const BlogListPostCard = (props) => {
         }
     }
 
-    const renderCategories = (arr) => {
+    const renderCategories = (arr: Array<GeneralTypes.CategoriesItem>) => {
         return(
             <>{arr.map((el, i) => {
                 return(
@@ -576,7 +583,7 @@ export const BlogListPostCard = (props) => {
         )
     }
 
-    const renderBlogCard = (type) => {
+    const renderBlogCard = (type: string) => {
         switch(type){
             case 'standardPost':
                 return (

@@ -54,7 +54,6 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export const BlogComment: React.FC<Types.BlogCommentsProps> = (props) => {
 
-
     const [isHoveringReplyButton, setIsHoveringReplyButton] = React.useState<string>("init");
     const [showReplyForm, setShowReplyForm] = React.useState<boolean>(false);
     const previousShowReplyFormVal = React.useRef(showReplyForm);
@@ -116,8 +115,8 @@ export const BlogComment: React.FC<Types.BlogCommentsProps> = (props) => {
             case 0: 
                 // Show reply form
                 // setShowReplyForm(true);
-                props.triggerCommentReplyButton();
                 previousShowReplyFormVal.current = true;
+                props.triggerCommentReplyButton();
                 return;
             case 1:
                 // Open the current page in a new window on scroll wheel click
