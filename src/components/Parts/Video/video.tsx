@@ -25,19 +25,26 @@ import {
 import * as Videos from'../../../constants/videos';
 
 /**
+ * Types
+ */
+
+import * as Types from './videoTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Video component definition and export
  */
 
-export const Video = (props) => {
+export const Video: React.FC<Types.VideoProps> = (props) => {
 
     /**
      * State
      */
 
     const videoRef = React.useRef(null);
-    const [url, setUrl] = React.useState("");
+    const [url, setUrl] = React.useState<string>("");
     const previousUrl = React.useRef(url);
-    const [videoIsPlaying, setVideoIsPlaying] = React.useState(false);
+    const [videoIsPlaying, setVideoIsPlaying] = React.useState<boolean>(false);
    
     /**
      * Methods
@@ -46,6 +53,7 @@ export const Video = (props) => {
     React.useEffect(() => {
         let video = (document.getElementById(`${props.videoKey}Video`) as HTMLVideoElement);
         
+        console.log("props", props)
         setUrl(loadVideo(props.videoKey));
 
         // Play video
@@ -80,7 +88,7 @@ export const Video = (props) => {
         setVideoIsPlaying(true);
     }
 
-    const loadVideo = (videoKey) => {
+    const loadVideo = (videoKey: string) => {
         switch(videoKey){
             case 'teamWorkMp4':
                 return Videos.TEAM_WORK;
