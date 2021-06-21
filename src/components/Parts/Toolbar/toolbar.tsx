@@ -91,10 +91,10 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
      */
 
     const size = useWindowSize();
-    const [menuDots, setMenuDots] = React.useState([1,2,3,4,5,6,7,8,9]);
-    const [isHovering, setIsHovering] = React.useState(null);
-    const [showOptions, setShowOptions] = React.useState(false);
-    const [toolbarItemData, setToolbarItemData] = React.useState({
+    const [menuDots, setMenuDots] = React.useState<Array<number>>([1,2,3,4,5,6,7,8,9]);
+    const [isHovering, setIsHovering] = React.useState<boolean>(null);
+    const [showOptions, setShowOptions] = React.useState<boolean>(false);
+    const [toolbarItemData, setToolbarItemData] = React.useState<GeneralTypes.MenuItemsItem>({
         active: false,
         hasSubOptions: false,
         id: 0,
@@ -105,7 +105,7 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
         path: "",
         text: ""
     });
-    const [showOptionsLessThan3Regular, setShowOptionsLessThan3Regular] = React.useState(false);
+    const [showOptionsLessThan3Regular, setShowOptionsLessThan3Regular] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -113,7 +113,7 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
 
     React.useEffect(() => {
         // Initialize menu items
-console.log("props", props)
+        
         props.initMenuItems(menuItemsArray);
 
         // Hide sidebar component
@@ -131,7 +131,7 @@ console.log("props", props)
         setIsHovering(false);
     }
 
-    const handleMouseEnterToolbarItem = (opt, data, id) => {
+    const handleMouseEnterToolbarItem = (opt: string, data: GeneralTypes.MenuItemsItem, id: number) => {
         props.setIsHoveringMenuItem("on", id);
         switch(opt){
             case 'regular':
@@ -152,7 +152,7 @@ console.log("props", props)
         }
     }
 
-    const handleMouseLeaveToolbarItem = (opt, data) => {
+    const handleMouseLeaveToolbarItem = (opt: string, data) => {
         props.setIsHoveringMenuItem("off", null);
         switch(opt){
             case 'regular':
@@ -169,9 +169,10 @@ console.log("props", props)
         }
     }
 
-    const itemOnClick = (opt, path, pathOfIds, e, idOfFirstObj, itemId) => {
+    const itemOnClick = (opt: string, path: string, pathOfIds: Array<number>, e: React.MouseEvent, idOfFirstObj: number | null, itemId: string | undefined) => {
+        
         // Do nothing on right mouse click
-
+        debugger
         if(e.button === 2) return;
 
         if(e.button !== 1){
@@ -200,21 +201,21 @@ console.log("props", props)
                             console.log("itemId",itemId);
                             if(itemId === "blogListStandard" && props.blogListStandardPage.activeCategory.activated === "active"){
                                 props.activateListStandardBlogCategory("deactive", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else if(itemId === "blogListStandard" && props.blogListStandardPage.activeItem.activated === "active"){
                                 props.activateListStandardBlogItem("deactive", "", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else if(itemId === "blogListStandard" && props.blogListStandardPage.activeTag.activated === "active"){
-                                props.activateListStandardBlogTag("deactive", "", "");
-                                props.setUnmountComponentValues(false, path);
+                                props.activateListStandardBlogTag("deactive", "");
+                                props.setUnmountComponentValues(false, path, null);
                             }
                             else{
-                                props.setUnmountComponentValues(true, path);
+                                props.setUnmountComponentValues(true, path, null);
                             }
                             props.setHistoryPopFromPortfolioItem("scrollToTop");
-                            props.clearActivityOfMenuItems();
+                            props.clearActivityOfMenuItems(null);
                             props.setActivityOfToolbarOptionItem(pathOfIds);
                         }
                     break;
@@ -237,9 +238,9 @@ console.log("props", props)
                     if(currentItemId === updatedPathOfIds[3]){
                         return;
                     }else{
-                        props.setUnmountComponentValues(true, path);
+                        props.setUnmountComponentValues(true, path, null);
                         props.setHistoryPopFromPortfolioItem("scrollToTop");
-                        props.clearActivityOfMenuItems();
+                        props.clearActivityOfMenuItems(null);
                         props.setActivityOfToolbarSubOptionItem(pathOfIds);
                     }
                     break;
@@ -247,7 +248,7 @@ console.log("props", props)
         }else{
             // Remember information of unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
@@ -266,7 +267,7 @@ console.log("props", props)
         props.setSidebarState("open");
     }
 
-    const menuDotsOnClick = (page) => {
+    const menuDotsOnClick = (page: string) => {
         // in progress...
         switch(page){
             case 'home':
@@ -329,7 +330,7 @@ console.log("props", props)
         }
     }
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean | null) => {
         if(opt === "arrow"){
             switch(isHovering){
                 case 'init':
@@ -399,7 +400,7 @@ console.log("props", props)
         )
     }
 
-    const logoOnClick = (e) => {      
+    const logoOnClick = (e: React.MouseEvent) => {      
         switch(e.button){
             case 0:
                 // Relode the page on left mouse click
@@ -416,7 +417,7 @@ console.log("props", props)
         }
     }
 
-    const renderToolbar = (option) => {
+    const renderToolbar = (option: string) => {
         // Different versions of the toolbar
 
         if(option === "regularScreen"){
@@ -698,7 +699,7 @@ console.log("props", props)
         )
     }
 
-    const renderToolbarOptionItems = (obj) => {
+    const renderToolbarOptionItems = (obj: GeneralTypes.OptionsItem) => {
         return(
             <>{obj.array.map((el, i) => {
                 let pathOfIds = [obj.id, el.id]

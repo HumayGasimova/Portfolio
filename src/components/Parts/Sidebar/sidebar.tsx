@@ -57,7 +57,7 @@ export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
      * State
      */
 
-    const [showOptions, setShowOptions] = React.useState(false);
+    const [showOptions, setShowOptions] = React.useState<boolean>(false);
 
     /**
      * Methods

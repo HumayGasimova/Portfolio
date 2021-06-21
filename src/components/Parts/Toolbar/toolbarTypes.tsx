@@ -17,6 +17,7 @@ export type ToolbarProps = {
     sidebarState: string,
     style: string,
     toolbarMainColor: string,
+    scrollingUp: boolean | null,
     unmountComp: GeneralTypes.UnmountComponent,
     history: History,
     location: Location,

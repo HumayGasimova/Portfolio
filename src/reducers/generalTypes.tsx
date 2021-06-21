@@ -367,10 +367,11 @@ export type MenuItemsItem = {
     active: boolean,
     isHover: string,
     hasSubOptions: boolean,
-    options: Array<OptionsItem>
+    options: Array<OptionsItem>,
+    length?: number
 }
 
-type OptionsItem = {
+export type OptionsItem = {
     id: number,
     active: boolean,
     header: string | null,

@@ -52,14 +52,6 @@ import {
 } from '../../UtilityComponents';
 
 /**
- * Hooks
- */
-
-import {
-    useWindowSize
-} from '../../../Hooks/useWindowSize';
-
-/**
  * Constants
  */
 
@@ -78,12 +70,6 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  */
 
 export const TeamInformation: React.FC<Types.TeamInformationProps> = (props) => {
-
-    /**
-     * State
-     */
-
-    const size = useWindowSize();
 
     /**
      * Methods

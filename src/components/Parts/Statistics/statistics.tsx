@@ -88,7 +88,7 @@ export const Statistics: React.FC<Types.StatisticsProps> = (props) => {
      */
 
     const size = useWindowSize();
-    const [showComponent, setShowComponent] = React.useState(false)
+    const [showComponent, setShowComponent] = React.useState<boolean>(false)
 
     /**
      * Methods
