@@ -121,7 +121,7 @@ export const BlogReplyForm: React.FC<Types.BlogReplyFormProps> = (props) => {
         });
     }
 
-    const postReplyFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem & Types.CardId>, cardIdFromPathname: number, info: Types.PostInfo) => {
+    const postReplyFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem>, cardIdFromPathname: number, info: Types.PostInfo) => {
         let postObj = fakeData.find(item => item.id === cardIdFromPathname);
         let replyInfo = info;
         if(replyInfo){

@@ -42,14 +42,21 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogCommentTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogComment component definition and export
  */
 
-export const BlogComment = (props) => {
+export const BlogComment: React.FC<Types.BlogCommentsProps> = (props) => {
 
 
-    const [isHoveringReplyButton, setIsHoveringReplyButton] = React.useState("init");
-    const [showReplyForm, setShowReplyForm] = React.useState(false);
+    const [isHoveringReplyButton, setIsHoveringReplyButton] = React.useState<string>("init");
+    const [showReplyForm, setShowReplyForm] = React.useState<boolean>(false);
     const previousShowReplyFormVal = React.useRef(showReplyForm);
 
     /**
@@ -65,7 +72,7 @@ export const BlogComment = (props) => {
         }
     },[props.triggerCommentReplyButtonVal])
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'replyButton':
                 setIsHoveringReplyButton("on");
@@ -73,7 +80,7 @@ export const BlogComment = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'replyButton':
                 setIsHoveringReplyButton("off");
@@ -81,7 +88,7 @@ export const BlogComment = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "replyButtonLine"){
             switch(isHovering){
                 case 'init':
@@ -104,7 +111,7 @@ export const BlogComment = (props) => {
         }
     }
 
-    const onReplyButtonClick = (e) => {
+    const onReplyButtonClick = (e: React.MouseEvent) => {
         switch(e.button){
             case 0: 
                 // Show reply form
@@ -122,7 +129,7 @@ export const BlogComment = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'Photo17':
                 return Images.PHOTO_17;
@@ -139,7 +146,7 @@ export const BlogComment = (props) => {
 
     const renderBlogReplyForm = () => {
         let pathOfIdsToComment = [...props.pathOfIdsToComment];
-        pathOfIdsToComment.push(props.data.id);
+        pathOfIdsToComment.push(props.data.id as number);
         return(
             <BlogReplyForm
                 inputFieldNameBold={false}

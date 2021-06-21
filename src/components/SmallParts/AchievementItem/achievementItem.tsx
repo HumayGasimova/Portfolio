@@ -43,8 +43,8 @@ export const AchievementItem: React.FC<Types.AchievementItemProps> = (props) => 
      * State
      */
 
-    const [value, setValue] = React.useState(0);
-    const [delay, setDelay] = React.useState(70);
+    const [value, setValue] = React.useState<number>(0);
+    const [delay, setDelay] = React.useState<number>(70);
 
     /**
      * Methods

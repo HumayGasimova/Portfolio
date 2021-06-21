@@ -35,7 +35,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export const BackToTop: React.FC<Types.BackToTopProps> = (props) => {
 
-    const [isHovering, setIsHovering] = React.useState("init");
+    const [isHovering, setIsHovering] = React.useState<string>("init");
 
     /**
      * Methods
