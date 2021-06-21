@@ -96,46 +96,39 @@ import {
     socialMediaIcons
 } from '../../../constants/socialMediaIcons';
 
-interface MapStateToPropsTypes {
-    // menuFullscreenItems: Array<MenuFullscreenItems>;
-}
+/**
+ * Types
+ */
 
-interface MapDispatchToPropsTypes {
-    // initMenuFullscreenItems: (array: Array<MenuFullscreenItems>) => void;
-    // setMenuDotsState: (val: string, page: string) => void;
-    // setIsHoveringMenuFullscreenItem: (val: string, id: number) => void;
-    // setActivityOfMenuFullscreenItem: (val: string, id: number) => void;
-    // setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => void;
-    // setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-    // unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-}
+import * as Types from './blogPostSingleItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * BlogPostSingleItem component definition and export
  */
 
-export const BlogPostSingleItem = (props) => {
+export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [showContent, setShowContent] = React.useState(false);
-    const [isHoveringBlogPostItemDate, setIsHoveringBlogPostItemDate] = React.useState("init");
-    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState("init");
-    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState("init");
-    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState("init");
-    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState("init");
-    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState("init");
-    const [cardWidth, setCardWidth] = React.useState(0);
+    const [showContent, setShowContent] = React.useState<boolean>(false);
+    const [isHoveringBlogPostItemDate, setIsHoveringBlogPostItemDate] = React.useState<string>("init");
+    const [isHoveringBlogCardLikes, setIsHoveringBlogCardLikes] = React.useState<string>("init");
+    const [isHoveringBlogCardComments, setIsHoveringBlogCardComments] = React.useState<string>("init");
+    const [isHoveringBlogCardShare, setIsHoveringBlogCardShare] = React.useState<string>("init");
+    const [isHoveringBlogCardLink, setIsHoveringBlogCardLink] = React.useState<string>("init");
+    const [isHoveringBlogCardQuote, setIsHoveringBlogCardQuote] = React.useState<string>("init");
+    const [cardWidth, setCardWidth] = React.useState<number>(0);
     
     /**
      * Methods
      */
    
     React.useEffect(() => {
-
+        
         // Init state for fading effect when component will unmount
         
         // props.setUnmountComponentValues(false, "");
@@ -441,7 +434,7 @@ export const BlogPostSingleItem = (props) => {
         }
     }
 
-    const onLikesClickHandler = (postData) => {
+    const onLikesClickHandler = (postData: GeneralTypes.BlogListStandardPageItem) => {
 
         let increasePostSingleItemLikesFunc;
         let decreasePostSingleItemLikesFunc;
@@ -887,7 +880,7 @@ export const BlogPostSingleItem = (props) => {
 }
  
 export default withRouter(
-    connect<MapStateToPropsTypes, MapDispatchToPropsTypes>(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
         (state) => {
             return {
                 blogListStandardPage: Selectors.getBlogListStandardPageState(state),

@@ -56,7 +56,6 @@ import {
     socialMediaIcons
 } from '../../../constants/socialMediaIcons';
 
-
 /**
  * Types
  */

@@ -34,7 +34,7 @@ export type BlogTagsContentProps = {
         transition: number, 
         rerender: boolean, 
         cardKey?: string
-    },
+    }
 }
 
 type SlidesItem = {
