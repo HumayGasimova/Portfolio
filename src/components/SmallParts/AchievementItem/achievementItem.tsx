@@ -27,10 +27,17 @@ import {
 } from '../../../Hooks/useInterval';
 
 /**
+ * Types
+ */
+
+import * as Types from './achievementItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * AchievementItem component definition and export
  */
 
-export const AchievementItem = (props) => {
+export const AchievementItem: React.FC<Types.AchievementItemProps> = (props) => {
 
     /**
      * State
