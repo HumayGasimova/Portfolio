@@ -24,16 +24,18 @@ export type BlogPostSingleItem = {
     clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => {prevLocationPathOfIds: Array<number>},
     clearBlogListSingleItemStateForBlogListStandardPage: () => void,
     decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: (cardKey: string) => {cardKey: string},
-    decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: (cardKey: string) => {cardKey: string}
-    fetchAudioPostBlogData: ƒ ()
-    fetchBlogNavigationForBlogListStandardPageDataSuccess: ƒ ()
-    fetchGalleryPostBlogData: ƒ ()
-    fetchLinkPostBlogData: ƒ ()
-    fetchPostBlogDataSuccess: ƒ ()
-    fetchPrevAndNextPostForBlogListItem: ƒ ()
-    fetchQuotePostBlogData: ƒ ()
-    fetchStandardPostBlogData: ƒ ()
-    fetchVideoPostBlogData: ƒ ()
+    decreaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: (cardKey: string) => {cardKey: string},
+
+    fetchAudioPostBlogData: ()=>{},
+    fetchBlogNavigationForBlogListStandardPageDataSuccess: ()=>{},
+    fetchGalleryPostBlogData: ()=>{},
+    fetchLinkPostBlogData: ()=>{},
+    fetchPostBlogDataSuccess: ()=>{},
+    fetchPrevAndNextPostForBlogListItem: ()=>{},
+    fetchQuotePostBlogData: ()=>{},
+    fetchStandardPostBlogData: ()=>{},
+    fetchVideoPostBlogData: ()=>{},
+
     increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: (cardKey: string) => {cardKey: string},
     increaseTheNumberOfLikesOfThePostSingleItemForBlogListStandardPage: (cardKey: string) => {cardKey: string},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
