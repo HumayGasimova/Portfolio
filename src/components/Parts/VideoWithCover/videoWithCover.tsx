@@ -23,17 +23,24 @@ import Video from '../Video/video';
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './videoWithCoverTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * VideoWithCover component definition and export
  */
 
-export const VideoWithCover = (props) => {
+export const VideoWithCover: React.FC<Types.VideoWithCoverProps> = (props) => {
 
     /**
      * State
      */
 
-    const [isHoveringPlayButton, setIsHoveringPlayButton] = React.useState("init");
-    const [videoShown, setVideoShown] = React.useState(false);
+    const [isHoveringPlayButton, setIsHoveringPlayButton] = React.useState<string>("init");
+    const [videoShown, setVideoShown] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -46,7 +53,7 @@ export const VideoWithCover = (props) => {
      * Markup
      */
 
-    const renderClassName = (isHovering) => {
+    const renderClassName = (isHovering: string) => {
         switch(isHovering){
             case 'init':
                 return "video-play-button";
@@ -58,14 +65,14 @@ export const VideoWithCover = (props) => {
     }
 
     const handleMouseEnter = () => {
-        setIsHoveringPlayButton("on")
+        setIsHoveringPlayButton("on");
     }
 
     const handleMouseLeave = () => {
-        setIsHoveringPlayButton("off")
+        setIsHoveringPlayButton("off");
     }
 
-    const loadImg = (imgKey) => {
+    const loadImg = (imgKey: string) => {
         switch(imgKey){
             case 'teamWorkImg':
                 return Images.VIDEO_COVER_IMG_1;
