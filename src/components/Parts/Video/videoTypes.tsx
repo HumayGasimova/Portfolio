@@ -1,6 +1,6 @@
 export type VideoProps = {
-    playVideo: boolean,
-    videoHeight: string,
-    videoKey: string,
-    videoOnFinish: (val: boolean) => {val: boolean}
+    playVideo: boolean | null,
+    videoHeight: string | null,
+    videoKey: string | null,
+    videoOnFinish: (val: boolean) => void | null
 }

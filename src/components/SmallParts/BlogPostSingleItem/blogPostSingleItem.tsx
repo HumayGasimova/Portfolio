@@ -389,7 +389,12 @@ export const BlogPostSingleItem = (props) => {
             case 'videoPost':
                 return(
                     <div className="blog-post-single-item-video-wrapper">
-                        <Video videoKey={props.blogListStandardPage.postBlogContent.item.videoKey}/>
+                        <Video 
+                            videoKey={props.blogListStandardPage.postBlogContent.item.videoKey}
+                            videoHeight={null}
+                            playVideo={null}
+                            videoOnFinish={null}
+                        />
                     </div>
                 );
             case 'galleryPost':

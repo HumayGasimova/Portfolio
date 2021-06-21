@@ -172,7 +172,7 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
     const itemOnClick = (opt: string, path: string, pathOfIds: Array<number>, e: React.MouseEvent, idOfFirstObj: number | null, itemId: string | undefined) => {
         
         // Do nothing on right mouse click
-        debugger
+        
         if(e.button === 2) return;
 
         if(e.button !== 1){

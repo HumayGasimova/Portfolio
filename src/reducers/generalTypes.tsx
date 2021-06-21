@@ -2,22 +2,22 @@
  * BlogListStandardPage
  */ 
 
-export interface BlogListStandardPage {
-    activeCategory: ActiveCategoryObj;
-    activeItem: ActiveItemObj;
-    activePageId: number;
-    activeTag: ActiveTagObj;
-    categoriesList: Array<CategoriesListItem>;
-    commentReplyInputForm: CommentReplyInputFormObj;
-    commentsIconCicked: boolean;
-    error: any;
-    items: Array<BlogListStandardPageItem>;
-    loading: boolean;
-    navigation: NavigationObj;
-    pagesArray: Array<PagesArrayItem>;
-    postBlogContent: PostBlogContentObj;
-    recentPosts: RecentPostsObj;
-    tagsList: Array<TagsListItem>;
+export type BlogListStandardPage = {
+    activeCategory: ActiveCategoryObj,
+    activeItem: ActiveItemObj,
+    activePageId: number,
+    activeTag: ActiveTagObj,
+    categoriesList: Array<CategoriesListItem>,
+    commentReplyInputForm: CommentReplyInputFormObj,
+    commentsIconCicked: boolean,
+    error: any,
+    items: Array<BlogListStandardPageItem>,
+    loading: boolean,
+    navigation: NavigationObj,
+    pagesArray: Array<PagesArrayItem>,
+    postBlogContent: PostBlogContentObj,
+    recentPosts: RecentPostsObj,
+    tagsList: Array<TagsItem>,
     triggerCommentReplyButtonVal: false
 }
 
@@ -50,6 +50,7 @@ type CommentReplyInputFormObj = {
 }
 
 export type BlogListStandardPageItem = {
+    cardId?: string,
     cardType: string,
     categories: Array<CategoriesItem>,
     comments: Array<CommentsItem>,
@@ -62,7 +63,7 @@ export type BlogListStandardPageItem = {
     numberOfLikes: number,
     path: string,
     tags: Array<TagsItem>,
-    text: string,
+    text: PostBlogContentItemObjText | string,
     userLikedThePost: boolean,
     imagesArray?: Array<ImagesArrayItem>,
     swiper?: SwiperObj,
@@ -70,7 +71,8 @@ export type BlogListStandardPageItem = {
     quoteText?: string,
     quoteAuthor?: string,
     audioKey?: string,
-    videoKey?: string
+    videoKey?: string,
+    loading?: boolean,
 }
 
 export type CategoriesItem = {
@@ -152,11 +154,13 @@ export type PagesArrayItem = {
 
 type PostBlogContentObj = {
     error: any,
-    item: PostBlogContentItemObj,
+    item: BlogListStandardPageItem,
     loading: boolean
 }
 
-type PostBlogContentItemObj = {
+type PostBlogContentItemObjText = {
+    textPart: string,
+    type: string
 }
 
 type RecentPostsObj = {
@@ -181,14 +185,6 @@ type RecentPostsItem = {
     path: string,
     text: string,
     userLikedThePost: boolean
-}
-
-type TagsListItem = {
-    active: string,
-    id: number,
-    isHover: string,
-    key: string,
-    tagName: string
 }
 
 /**
@@ -268,7 +264,7 @@ export type PortfoliItemObj = {
     id: number,
     imagesArray: Array<ImagesArrayItem>
     key: string,
-    tags: Array<TagsListItem>
+    tags: Array<TagsItem>
     text: string
 }
 

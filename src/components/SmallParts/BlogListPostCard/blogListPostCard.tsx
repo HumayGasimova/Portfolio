@@ -364,7 +364,12 @@ export const BlogListPostCard = (props) => {
             case 'videoPost':
                 return(
                     <div className="blog-list-post-card-video-wrapper">
-                        <Video videoKey={props.elData.videoKey}/>
+                        <Video 
+                            videoKey={props.elData.videoKey}
+                            videoHeight={null}
+                            playVideo={null}
+                            videoOnFinish={null}
+                        />
                     </div>
                 );
             case 'galleryPost':

@@ -43,7 +43,7 @@ export const Video: React.FC<Types.VideoProps> = (props) => {
 
     const videoRef = React.useRef(null);
     const [url, setUrl] = React.useState<string>("");
-    const previousUrl = React.useRef(url);
+    const previousUrl = React.useRef<string>(url);
     const [videoIsPlaying, setVideoIsPlaying] = React.useState<boolean>(false);
    
     /**
@@ -53,7 +53,6 @@ export const Video: React.FC<Types.VideoProps> = (props) => {
     React.useEffect(() => {
         let video = (document.getElementById(`${props.videoKey}Video`) as HTMLVideoElement);
         
-        console.log("props", props)
         setUrl(loadVideo(props.videoKey));
 
         // Play video
