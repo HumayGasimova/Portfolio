@@ -27,10 +27,17 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './bannerImageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BannerImage component definition and export
  */
 
-export const BannerImage = (props) => {
+export const BannerImage: React.FC<Types.BannerImageProps> = (props) => {
 
     /**
      * State
@@ -46,7 +53,7 @@ export const BannerImage = (props) => {
 
     React.useEffect(() => {
         // Event Listeners
-
+        
         const resize = () => {
             resizeRef.current();
         }
@@ -68,7 +75,7 @@ export const BannerImage = (props) => {
         setCardHeight(cardHeight);
     }
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -77,7 +84,7 @@ export const BannerImage = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -85,7 +92,7 @@ export const BannerImage = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'bannerPageCover1':
                 return Images.BANNER_PAGE_COVER_1;
@@ -102,7 +109,7 @@ export const BannerImage = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "curtain"){
             switch(isHovering){
                 case 'init':
@@ -155,7 +162,7 @@ export const BannerImage = (props) => {
         }
     }
 
-    const bannerImageOnClick = (e, path) => {
+    const bannerImageOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -175,7 +182,7 @@ export const BannerImage = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
 
@@ -185,11 +192,11 @@ export const BannerImage = (props) => {
             if(['bannerPageSection1','bannerPageSection2'].includes(props.page)){
                 // Open the template page on scroll wheel click 
 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click 
 
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 

@@ -119,7 +119,7 @@ type AuthorImageObj = {
     key: string
 }
 
-type CoverImageObj = {
+export type CoverImageObj = {
     alt: string,
     folderName?: string,
     id: number,
