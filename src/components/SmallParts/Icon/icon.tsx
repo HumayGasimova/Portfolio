@@ -46,10 +46,18 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 /**
+ * Types
+ */
+
+import * as Types from './iconTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+ 
+/**
  * Icon component definition and export
  */
 
-export const Icon = (props) => {
+export const Icon: React.FC<Types.IconProps> = (props) => {
 
     /**
      * State
@@ -62,18 +70,17 @@ export const Icon = (props) => {
      */
 
     React.useEffect(() => {
-        console.log("props", props)
     }, []);
     
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = () => {
         setIconIsHover("on")
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = () => {
         setIconIsHover("off");
     }
 
-    const renderClassName = (opt, isHovering, isActive) => {
+    const renderClassName = (opt: string, isHovering: string, isActive: string) => {
         if(opt === "plusIcon" && !props.hoverEffect){
             return "plus-icon";
         }
@@ -154,7 +161,7 @@ export const Icon = (props) => {
         if(opt === "section2ListsPage") return "icon-for-lists-page-section-2";
     }
 
-    const iconOnClick = (e, iconName, instaName) => {
+    const iconOnClick = (e: React.MouseEvent, iconName: string, instaName: string) => {
         switch(e.button){
             case 0:
                 // Open social media on left mouse click
@@ -179,7 +186,7 @@ export const Icon = (props) => {
         }
     }
 
-    const setIconName = (opt) => {
+    const setIconName = (opt: string) => {
         switch(opt){
             case 'faInstagramSquare':
                 return faInstagramSquare;
@@ -220,7 +227,7 @@ export const Icon = (props) => {
         }
     }
 
-    const renderIcon = (iconType) => {
+    const renderIcon = (iconType: string) => {
         if(iconType === "plusIcon"){
             return(
                 <div className={renderClassName(iconType, props.isHover, props.isActive)}>
@@ -233,10 +240,10 @@ export const Icon = (props) => {
             return(
                 <FontAwesomeIcon 
                     icon={setIconName(props.icon)} 
-                    size={props.iconSize}
+                    size={props.iconSize as any}
                     className={renderClassName(props.classNameOpt, props.isHover ? props.isHover : iconIsHover, null)}
-                    onMouseEnter={props.onMouseEnter ? () => handleMouseEnter(props.classNameOpt) : null} 
-                    onMouseLeave={props.onMouseLeave ? () => handleMouseLeave(props.classNameOpt) : null}
+                    onMouseEnter={props.onMouseEnter ? () => handleMouseEnter() : null} 
+                    onMouseLeave={props.onMouseLeave ? () => handleMouseLeave() : null}
                     onMouseDown={props.onMouseDown ? (e) => iconOnClick(e, props.iconName, props.instaName) : null}
                 />
             )
@@ -245,15 +252,15 @@ export const Icon = (props) => {
             return(
                 <div 
                     className={props.classNameBackground}
-                    onMouseEnter={props.onMouseEnter ? () => handleMouseEnter(props.classNameOpt) : null} 
-                    onMouseLeave={props.onMouseLeave ? () => handleMouseLeave(props.classNameOpt) : null}
+                    onMouseEnter={props.onMouseEnter ? () => handleMouseEnter() : null} 
+                    onMouseLeave={props.onMouseLeave ? () => handleMouseLeave() : null}
                     onMouseDown={props.onMouseDown ? (e) => iconOnClick(e, props.iconName, props.instaName) : null}
                 >
                     <div className={renderClassName("socialMediaBackgroundCurtain", iconIsHover, null)}/>
                     <div className="icon-wrapper">
                         <FontAwesomeIcon 
                             icon={setIconName(props.icon)} 
-                            size={props.iconSize}
+                            size={props.iconSize as any}
                             className={renderClassName(props.classNameOpt, iconIsHover, null)}
                         />
                     </div>
