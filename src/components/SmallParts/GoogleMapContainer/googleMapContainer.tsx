@@ -12,17 +12,18 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 import './googleMapContainer.scss';
 
-// type Props = {
-//     google: any,
-//     mapWidth: any,
-//     mapHeight: any
-// };
+/**
+ * Types
+ */
+
+import * as Types from './googleMapContainerTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * GoogleMapContainer component definition and export
  */
 
-export const GoogleMapContainer = (props) => {
+export const GoogleMapContainer: React.FC<Types.GoogleMapContainerProps> = (props) => {
 
     /**
      * Methods
