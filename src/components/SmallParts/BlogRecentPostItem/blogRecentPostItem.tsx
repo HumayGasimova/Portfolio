@@ -47,7 +47,6 @@ export const BlogRecentPostItem: React.FC<Types.BlogRecentPostItemProps> = (prop
      */
    
     React.useEffect(() => {
-        console.log("props", props)
     }, []);
 
     const handleMouseEnter = (opt: string) => {

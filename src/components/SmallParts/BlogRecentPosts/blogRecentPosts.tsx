@@ -29,10 +29,17 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './blogRecentPostsTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * BlogRecentPosts component definition and export
  */
 
-export const BlogRecentPosts = (props) => {
+export const BlogRecentPosts: React.FC<Types.BlogRecentPostsProps> = (props) => {
     
     /**
      * Methods
@@ -50,7 +57,7 @@ export const BlogRecentPosts = (props) => {
     }, [props.recentPostsArray.length]);
 
 
-    const renderRecentPosts = (arr) => {
+    const renderRecentPosts = (arr: Array<GeneralTypes.BlogListStandardPageItem>) => {
         return(
             <>
                 {arr.map((el, i) => {
