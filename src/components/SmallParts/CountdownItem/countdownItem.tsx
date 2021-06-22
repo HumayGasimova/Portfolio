@@ -32,17 +32,26 @@ import {
 } from '../../../Hooks/useInterval';
 
 /**
+ * Types
+ */
+
+import * as Types from './countdownItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * CountdownItem component definition and export
  */
 
-export const CountdownItem = (props) => {
+export const CountdownItem: React.FC<Types.CountdownItemProps> = (props) => {
 
     /**
      * Methods
      */
    
     React.useEffect(() => {
+        
         // Initialize state with current date and next month
+
         let currentDate = {
             day: Utility.getDateAndTime("day"),
             month: Utility.getDateAndTime("month"),
@@ -53,14 +62,14 @@ export const CountdownItem = (props) => {
             month: Utility.getNextMonth(Utility.getDateAndTime("month")),
             leapYear: Utility.isLeapYear(Utility.getDateAndTime("year"))
         };
-
+        
         props.setCurrentDateAndNextMonth(props.data.key, currentDate, nextMonth);
 
         // Get the current date and calculate how many months, days, hours, minutes and seconds are left before the specified end time. (set specified end date in setServer)
 
         let distance = new Date(`${props.data.endDate.month}, ${props.data.endDate.day}, ${props.data.endDate.year}`).getTime() - new Date().getTime();
-        var monthsLeft = Math.abs((props.data.endDate.year - +currentDate.year)*12 - (new Date().getMonth()) + Utility.getMonthId(props.data.endDate.month));
-        var daysLeft = Utility.getDaysInMonth(Utility.getDateAndTime("month"), null) - (Utility.getDateAndTime("day") as any - 1);
+        var monthsLeft = Math.abs((props.data.endDate.year as number - +currentDate.year)*12 - (new Date().getMonth()) + Utility.getMonthId(props.data.endDate.month));
+        var daysLeft = Utility.getDaysInMonth(Utility.getDateAndTime("month"), null) - (Utility.getDateAndTime("day") as number - 1);
         var hoursLeft = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutesLeft = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
@@ -106,7 +115,7 @@ export const CountdownItem = (props) => {
     props.data.countdownValue[3].val === 0 &&
     props.data.countdownValue[4].val === 0 ? null : 1000);
 
-    const renderClassName = (opt, color) => {
+    const renderClassName = (opt: string, color: string) => {
         if(opt === "countdownValue"){
             switch(color){
                 case 'white':
@@ -128,7 +137,7 @@ export const CountdownItem = (props) => {
      
     }
 
-    const setValue = (val) => {
+    const setValue = (val: number) => {
         // Add 0 at the beginning of the value if the value is less than 10
 
         if(val < 10) return val.toString().padStart(2, '0');
