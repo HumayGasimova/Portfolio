@@ -81,18 +81,25 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './headerImagesTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+ 
+/**
  * HeaderImages component definition and export
  */
 
-export const HeaderImages = (props) => {
+export const HeaderImages: React.FC<Types.HeaderImagesProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [imgShow, setImgShow] = React.useState(true);
-    const [img, setImg] = React.useState(
+    const [imgShow, setImgShow] = React.useState<boolean>(true);
+    const [img, setImg] = React.useState<Types.HeaderImagesItem>(
         {
             id: 1,
             imgName: "Image1",
@@ -103,7 +110,7 @@ export const HeaderImages = (props) => {
             alt: "Crypto"
         }
     );
-    const [switchButtons, setSwitchButtons] = React.useState([
+    const [switchButtons, setSwitchButtons] = React.useState<Array<Types.SwitchButtons>>([
         {
             id: 1, 
             active: true,
@@ -130,7 +137,7 @@ export const HeaderImages = (props) => {
 
     React.useEffect(() => {
         // Fetch data for the component
-
+        
         if(props.headerImages.items.length === 0){
             if(process.env.ENVIRONMENT === Environment.PRODUCTION){
                 // Fetch mock data (not required to run -> npm run server)
@@ -150,7 +157,7 @@ export const HeaderImages = (props) => {
         switchButtonOnClick(currentId === 3 ? 1 : currentId + 1);
     }, true ? 10000 : null);
 
-    const handleMouseEnter = (id) => {
+    const handleMouseEnter = (id: number) => {
         //Set isHovering property to button with id in order to activate animation
         
         let updatedSwitchButtons = [...switchButtons];
@@ -161,7 +168,7 @@ export const HeaderImages = (props) => {
         setSwitchButtons(updatedSwitchButtons);
     }
 
-    const handleMouseLeave = (id) => {
+    const handleMouseLeave = (id: number) => {
         //Set isHovering property to button with given id in order to deactivate animation
 
         let updatedSwitchButtons = [...switchButtons];
@@ -172,7 +179,7 @@ export const HeaderImages = (props) => {
         setSwitchButtons(updatedSwitchButtons);
     }
  
-    const loadImage = (opt) => {
+    const loadImage = (opt: string) => {
         switch(opt){
             case 'Image1':
                 return Images.HEADER_IMAGE_1;
@@ -185,7 +192,7 @@ export const HeaderImages = (props) => {
         }
     }
 
-    const switchButtonOnClick = (id) => {
+    const switchButtonOnClick = (id: number) => {
         // Set active property to button with given id
 
         let updatedSwitchButtons = [...switchButtons];
@@ -391,7 +398,7 @@ export const HeaderImages = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             headerImages: Selectors.getHeaderImagesState(state)

@@ -40,10 +40,10 @@ export const GoogleMapContainer: React.FC<Types.GoogleMapContainerProps> = (prop
         <Map
             google={props.google}
             zoom={14}
-            style={{
-                width: `${props.mapWidth}`,
-                height: `${props.mapHeight}`
-            }}
+            // style={{
+                // width: `${props.mapWidth}`,
+                // height: `${props.mapHeight}`
+            // }}
             initialCenter={
                 {
                     lat: -1.2884,
