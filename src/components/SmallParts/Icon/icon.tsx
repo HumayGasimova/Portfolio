@@ -62,6 +62,7 @@ export const Icon = (props) => {
      */
 
     React.useEffect(() => {
+        console.log("props", props)
     }, []);
     
     const handleMouseEnter = (opt) => {
