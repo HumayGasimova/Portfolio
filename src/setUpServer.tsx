@@ -19890,7 +19890,8 @@ app.get('/api/buttons-page/section1', (req, res) => {
             key: "buttonsPageSimple",
             header: "Simple.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "arrow"
+            buttonType: "arrow",
+            buttonText: null
         },
         {
             id: 2,
@@ -19905,14 +19906,16 @@ app.get('/api/buttons-page/section1', (req, res) => {
             key: "buttonsPageOutline",
             header: "Outline.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "buttonOutline"
+            buttonType: "buttonOutline",
+            buttonText: null
         },
         {
             id: 4,
             key: "buttonsPageSolid",
             header: "Solid.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "buttonSolid"
+            buttonType: "buttonSolid",
+            buttonText: null
         }
     ]
     res.json(buttonsPageSec1);
@@ -19925,21 +19928,24 @@ app.get('/api/buttons-page/section2', (req, res) => {
             key: "buttonsPageSmall",
             header: "Small.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "buttonSmall"
+            buttonType: "buttonSmall",
+            buttonText: null
         },
         {
             id: 2,
             key: "buttonsPageMedium",
             header: "Medium.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "buttonMedium"
+            buttonType: "buttonMedium",
+            buttonText: null
         },
         {
             id: 3,
             key: "buttonsPageLarge",
             header: "Large.",
             text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-            buttonType: "buttonLarge"
+            buttonType: "buttonLarge",
+            buttonText: null
         }
     ]
     res.json(buttonsPageSec2);

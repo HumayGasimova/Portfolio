@@ -30,16 +30,23 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './buttonsPageCardItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * ButtonsPageCardItem component definition and export
  */
 
-export const ButtonsPageCardItem = (props) => {
+export const ButtonsPageCardItem: React.FC<Types.ButtonsPageCardItemProps> = (props) => {
 
     /**
      * State
      */
 
-    const [isHovering, setIsHovering] = React.useState("init");
+    const [isHovering, setIsHovering] = React.useState<string>("init");
 
     /**
      * Methods
@@ -56,7 +63,7 @@ export const ButtonsPageCardItem = (props) => {
         setIsHovering("off");
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "arrow"){
             switch(isHovering){
                 case 'init':
@@ -69,7 +76,7 @@ export const ButtonsPageCardItem = (props) => {
         }
     }
 
-    const onMouseDownHandler = (e) => {
+    const onMouseDownHandler = (e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -81,7 +88,7 @@ export const ButtonsPageCardItem = (props) => {
         }else{
             // Open the template page on scroll wheel click  
 
-            props.setUnmountComponentValues(false, props.currentPagePathName);
+            props.setUnmountComponentValues(false, props.currentPagePathName, null);
 
             // Fire up unmountComponent epic
             
@@ -89,7 +96,7 @@ export const ButtonsPageCardItem = (props) => {
         }
     }
 
-    const renderButtons = (buttonType) => {
+    const renderButtons = (buttonType: string) => {
         switch(buttonType){
             case 'arrow': 
                 return(

@@ -4,7 +4,8 @@ export const buttonsPageSec1 = [
         key: "buttonsPageSimple",
         header: "Simple.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "arrow"
+        buttonType: "arrow",
+        buttonText: null
     },
     {
         id: 2,
@@ -19,14 +20,16 @@ export const buttonsPageSec1 = [
         key: "buttonsPageOutline",
         header: "Outline.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "buttonOutline"
+        buttonType: "buttonOutline",
+        buttonText: null
     },
     {
         id: 4,
         key: "buttonsPageSolid",
         header: "Solid.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "buttonSolid"
+        buttonType: "buttonSolid",
+        buttonText: null
     }
 ]
 
@@ -36,20 +39,23 @@ export const buttonsPageSec2 = [
         key: "buttonsPageSmall",
         header: "Small.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "buttonSmall"
+        buttonType: "buttonSmall",
+        buttonText: null
     },
     {
         id: 2,
         key: "buttonsPageMedium",
         header: "Medium.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "buttonMedium"
+        buttonType: "buttonMedium",
+        buttonText: null
     },
     {
         id: 3,
         key: "buttonsPageLarge",
         header: "Large.",
         text: "Lorem ipsum dolor sit amet, nam propriae atomorum sensibus ei sed errem populo.",
-        buttonType: "buttonLarge"
+        buttonType: "buttonLarge",
+        buttonText: null
     }
 ]
