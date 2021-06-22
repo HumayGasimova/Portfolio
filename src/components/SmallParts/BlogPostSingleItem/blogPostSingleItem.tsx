@@ -157,7 +157,10 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }else{
             // Fetch data (required to run -> npm run server)
             
-            setPageData(null, "fetchData", cardType)(cardIdFromPathname);
+            (setPageData(null, "fetchData", cardType) as (
+                id: number, 
+                info: GeneralTypes.PostBlogData
+                ) => void)(cardIdFromPathname, null);
         }
 
         // Show content after successful data fetch
@@ -168,12 +171,27 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
 
         let activePostPath = props.location.pathname.slice(18);
 
-        setPageData(props.page, "activateRecentPost", null)(null, activePostPath, true);
+        (setPageData(props.page, "activateRecentPost", null) as (
+            postKey: string, 
+            postPath: string, 
+            val: boolean) => {
+                postKey: string, 
+                postPath: string, 
+                val: boolean
+            })(null, activePostPath, true);
 
         return () =>  {
             // Cleaning the unmounted component
 
-            setPageData(props.page, "activateBlogItem", null)("deactive", "", "");
+            (setPageData(props.page, "activateBlogItem", null) as (
+                itemIsActive: string, 
+                itemKey: string, 
+                cardType: string
+                ) => {
+                    itemIsActive: string, 
+                    itemKey: string, 
+                    cardType: string
+                })("deactive", "", "");
         }
     }, []);
 
@@ -193,10 +211,18 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         });
 
         props.fetchPostBlogDataSuccess(updatedJson);
-        setPageData(props.page, "activateBlogItem", null)("active", updatedJson.cardId, updatedJson.cardType);
+        (setPageData(props.page, "activateBlogItem", null) as (
+            itemIsActive: string, 
+            itemKey: string, 
+            cardType: string) => 
+            {
+                itemIsActive: string, 
+                itemKey: string, 
+                cardType: string
+            })("active", updatedJson.cardId, updatedJson.cardType);
     }
 
-    const handleMouseEnter = (opt, key) => {
+    const handleMouseEnter = (opt: string, key: string) => {
         switch(opt){
             case 'blogPostItemDate': 
                 setIsHoveringBlogPostItemDate("on");
@@ -211,7 +237,13 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                 setIsHoveringBlogCardShare("on");
                 break;
             case 'blogCardCategories':
-                setPageData(props.page, "blogPostSingleItemCategoryIsHover", null)("on", key);
+                (setPageData(props.page, "blogPostSingleItemCategoryIsHover", null) as (
+                    val: string, 
+                    categoryKey: string
+                    ) => {
+                        val: string, 
+                        categoryKey: string
+                    })("on", key);
                 break;
             case 'blogCardLink': 
                 setIsHoveringBlogCardLink("on");
@@ -222,7 +254,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }
     }
 
-    const handleMouseLeave = (opt, key) => {
+    const handleMouseLeave = (opt: string, key: string) => {
         switch(opt){
             case 'blogPostItemDate': 
                 setIsHoveringBlogPostItemDate("off");
@@ -237,7 +269,13 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                 setIsHoveringBlogCardShare("off");
                 break;
             case 'blogCardCategories':
-                setPageData(props.page, "blogPostSingleItemCategoryIsHover", null)("off", key);
+                (setPageData(props.page, "blogPostSingleItemCategoryIsHover", null) as (
+                    val: string, 
+                    categoryKey: string
+                    ) => {
+                        val: string, 
+                        categoryKey: string
+                    })("off", key);
                 break;
             case 'blogCardLink': 
                 setIsHoveringBlogCardLink("off");
@@ -248,7 +286,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if([
             'blogPostItemDate',
             'blogCardLikes',
@@ -326,7 +364,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }
     }
 
-    const loadImg = (imgKey) => {
+    const loadImg = (imgKey: string) => {
         switch(imgKey){
             case 'blogCardStandardPostCoverImg1':
                 return Images.BLOG_CARD_STANDARD_POST_COVER_IMG_1;
@@ -365,7 +403,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }
     }
 
-    const renderCardCover = (type) => {
+    const renderCardCover = (type: string) => {
         switch(type){
             case 'audioPost':
                 return(
@@ -480,7 +518,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         }
     }
 
-    const setPageData = (page, opt, cardType) => {
+    const setPageData = (page: string, opt: string, cardType: string) => {
         switch(opt){
             case 'pageData':
                 switch(page){
@@ -571,17 +609,17 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                         className="blog-post-single-item-info-likes"
                         onMouseEnter={() => handleMouseEnter(`blogCardLikes`, null)} 
                         onMouseLeave={() => handleMouseLeave(`blogCardLikes`, null)}
-                        onClick={() => onLikesClickHandler(setPageData(props.page, "pageData", null).postBlogContent.item)}
+                        onClick={() => onLikesClickHandler((setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item)}
                     >
                         <Icon 
                             iconType="fontAwesome"
-                            icon={setPageData(props.page, "pageData", null).postBlogContent.item.userLikedThePost ? "faHeartSolid" : "faHeart"}
+                            icon={(setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item.userLikedThePost ? "faHeartSolid" : "faHeart"}
                             iconSize="1x"
                             isHover={isHoveringBlogCardLikes}
                             classNameOpt="blogCardLike"
                         />
                         &nbsp;
-                        <H15 className={renderClassName("blogCardLikes", isHoveringBlogCardLikes)}>{setPageData(props.page, "pageData", null).postBlogContent.item.numberOfLikes}</H15>
+                        <H15 className={renderClassName("blogCardLikes", isHoveringBlogCardLikes)}>{(setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item.numberOfLikes}</H15>
                     </div>
                     <EW10/>
                     <div 
@@ -597,7 +635,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                             classNameOpt="blogCardComment"
                         />
                         &nbsp;
-                        <H15 className={renderClassName("blogCardComments", isHoveringBlogCardComments)}>{setPageData(props.page, "pageData", null).postBlogContent.item.numberOfComments}</H15>
+                        <H15 className={renderClassName("blogCardComments", isHoveringBlogCardComments)}>{(setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item.numberOfComments}</H15>
                     </div>
                     <EW10/>
                     <div className="blog-post-single-item-info-categories">
@@ -608,14 +646,14 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                             classNameOpt="blogCardCategory"
                         />
                         &nbsp;
-                        {renderCategories(setPageData(props.page, "pageData", null).postBlogContent.item.categories)}
+                        {renderCategories((setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item.categories)}
                     </div>
                 </div>
             </div>
         )
     }
 
-    const onClickCategory = (key, path, e) => {
+    const onClickCategory = (key: string, path: string, e: React.MouseEvent) => {
        // Do nothing on right mouse click 
 
         if(e.button === 2) return;
@@ -625,20 +663,45 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
             * Show filtered items on left mouse click 
             */
 
-            props.clearActivityOfMenuItems();
-            setPageData(props.page, "activateBlogCategory", null)("active", key);
-            setPageData(props.page, "activateBlogTag", null)("deactive", "");
-            setPageData(props.page, "activateBlogItem", null)("deactive", "");
+            props.clearActivityOfMenuItems(null);
+            (setPageData(props.page, "activateBlogCategory", null) as (
+                categoryIsActive: string, 
+                categoryName: string
+                ) => {
+                    categoryIsActive: string, 
+                    categoryName: string
+                })("active", key);
+            (setPageData(props.page, "activateBlogTag", null) as (
+                tagIsActive: string, 
+                tagName: string
+                ) => {
+                    tagIsActive: string, 
+                    tagName: string
+                })("deactive", "");
+            (setPageData(props.page, "activateBlogItem", null) as (
+                itemIsActive: string, 
+                itemKey: string, 
+                cardType: string) => {
+                    itemIsActive: string, 
+                    itemKey: string, 
+                    cardType: string
+                })("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-category/${key}`);
         }else{
             // Show filtered items on scroll wheel click
 
-            setPageData(props.page, "activateBlogCategory", null)("active", key);
+            (setPageData(props.page, "activateBlogCategory", null) as (
+                categoryIsActive: string, 
+                categoryName: string
+                ) => {
+                    categoryIsActive: string, 
+                    categoryName: string
+                })("active", key);
             window.open(`/crypto-portfolio/list-standard-blog-category/${key}`, "_blank");
         }
     }
 
-    const renderCategories = (arr) => {
+    const renderCategories = (arr: Array<GeneralTypes.CategoriesItem>) => {
         return(
             <>{arr.map((el, i) => {
                 return(
@@ -655,7 +718,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         )
     }
 
-    const renderParagraphs = (arr) => {
+    const renderParagraphs = (arr: Array<GeneralTypes.PostBlogContentItemObjText>) => {
         return(
             <div className="blog-post-single-item-paragraphs">
                 {arr.map((el, i) => {
@@ -687,7 +750,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         return(
             <div className="blog-post-single-item-tags-and-soc-media-wrapper">
                 <div className="blog-post-single-item-tags-part-wrapper">
-                   {renderTags(setPageData(props.page, "pageData", null).postBlogContent.item.tags)}
+                   {renderTags((setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent.item.tags)}
                 </div>              
                 <div 
                     className="blog-post-single-item-soc-med-part-wrapper"
@@ -707,7 +770,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         )
     }
 
-    const onClickTag = (key, path, e) => {
+    const onClickTag = (key: string, path: string, e: React.MouseEvent) => {
 
         // Do nothing on right mouse click 
 
@@ -718,20 +781,46 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
              * Show filtered items on left mouse click 
              */
 
-            props.clearActivityOfMenuItems();
-            setPageData(props.page, "activateBlogTag", null)("active", key);
-            setPageData(props.page, "activateBlogCategory", null)("deactive", "");
-            setPageData(props.page, "activateBlogItem", null)("deactive", "");
+            props.clearActivityOfMenuItems(null);
+            (setPageData(props.page, "activateBlogTag", null) as (
+                tagIsActive: string, 
+                tagName: string
+                ) => {
+                    tagIsActive: string, 
+                    tagName: string
+                })("active", key);
+            (setPageData(props.page, "activateBlogCategory", null) as (
+                categoryIsActive: string, 
+                categoryName: string
+                ) => {
+                    categoryIsActive: string, 
+                    categoryName: string
+                })("deactive", "");
+            (setPageData(props.page, "activateBlogItem", null) as (
+                itemIsActive: string, 
+                itemKey: string, 
+                cardType: string
+                ) => {
+                    itemIsActive: string, 
+                    itemKey: string, 
+                    cardType: string
+                })("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-tag/${key}`);
         }else{
             // Show filtered items on scroll wheel click
 
-            setPageData(props.page, "activateBlogTag", null)("active", key);
+            (setPageData(props.page, "activateBlogTag", null) as (
+                tagIsActive: string, 
+                tagName: string
+                ) => {
+                    tagIsActive: string, 
+                    tagName: string
+                })("active", key);
             window.open(`/crypto-portfolio/list-standard-blog-tag/${key}`, "_blank");
         }
     }
 
-    const renderTags = (arr) => {
+    const renderTags = (arr: Array<GeneralTypes.TagsItem>) => {
         return(
             <>
                 {arr.map((el, i) => {
@@ -797,7 +886,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         )
     }
 
-    const renderBlogPostSingleItem = (data) => {
+    const renderBlogPostSingleItem = (data: GeneralTypes.BlogListStandardPageItem) => {
         return(
             <>
                 {renderCardCover(data.cardType)}
@@ -814,7 +903,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                 <EH20/>
                 {renderBlogCardInfo()}
                 <EH30/>
-                {renderParagraphs(data.text)}
+                {renderParagraphs(data.text as Array<GeneralTypes.PostBlogContentItemObjText>)}
                 <EH70/>
                 {renderTagsAndSocMedia()}
                 <EH70/>
@@ -822,11 +911,11 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
                 <EH70/>
                 <BlogNavigation
                     page={props.page}
-                    itemKey={setPageData(props.page, "pageData", null).activeItem.itemKey}
+                    itemKey={(setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).activeItem.itemKey}
                     fetchPrevAndNextPostForBlogListItem={props.fetchPrevAndNextPostForBlogListItem}
                     fakeData={setPageData(props.page, "fakeData", null)}
                     fetchBlogNavigationForBlogListStandardPageDataSuccess={props.fetchBlogNavigationForBlogListStandardPageDataSuccess}
-                    data={setPageData(props.page, "pageData", null).navigation}
+                    data={(setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).navigation}
                     setUnmountComponentValues={props.setUnmountComponentValues}
                     unmountComponent={props.unmountComponent}
                     clearState={setPageData(props.page, "clearState", null)}
@@ -838,7 +927,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
         )
     }
 
-    const renderBlogPostSingleItemDataContent = (data) => {
+    const renderBlogPostSingleItemDataContent = (data: GeneralTypes.PostBlogContentObj) => {
         if(data.loading && !data.error){
             return(
                 <div 
@@ -874,7 +963,7 @@ export const BlogPostSingleItem: React.FC<Types.BlogPostSingleItem> = (props) =>
 
     return(
         <div className="blog-post-single-item" id="blogPostSingleItem">
-            {showContent ? renderBlogPostSingleItemDataContent(setPageData(props.page, "pageData", null).postBlogContent) : null}
+            {showContent ? renderBlogPostSingleItemDataContent((setPageData(props.page, "pageData", null) as GeneralTypes.BlogListStandardPage).postBlogContent) : null}
         </div>
     );
 }
@@ -910,7 +999,7 @@ export default withRouter(
                 increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.increaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
                 decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage: bindActionCreators(Actions.decreaseTheNumberOfLikesOfThePostCardForBlogListStandardPage, dispatch),
                 clearActivityOfMenuItems: bindActionCreators(Actions.clearActivityOfMenuItems, dispatch),
-                activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch),
+                activateRecentPostForBlogListStandardPage: bindActionCreators(Actions.activateRecentPostForBlogListStandardPage, dispatch)
             };
         }
     )(BlogPostSingleItem)

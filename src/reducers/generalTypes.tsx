@@ -63,7 +63,7 @@ export type BlogListStandardPageItem = {
     numberOfLikes: number,
     path: string,
     tags: Array<TagsItem>,
-    text: PostBlogContentItemObjText | string,
+    text: Array<PostBlogContentItemObjText> | string,
     userLikedThePost: boolean,
     imagesArray?: Array<ImagesArrayItem>,
     swiper?: SwiperObj,
@@ -152,13 +152,13 @@ export type PagesArrayItem = {
     active: boolean
 }
 
-type PostBlogContentObj = {
+export type PostBlogContentObj = {
     error: any,
     item: BlogListStandardPageItem,
     loading: boolean
 }
 
-type PostBlogContentItemObjText = {
+export type PostBlogContentItemObjText = {
     textPart: string,
     type: string
 }
@@ -383,4 +383,18 @@ type MenuItemsArrayItem = {
     active: boolean,
     isHover: string,
     subOptions: Array<MenuItemsArrayItem>
+}
+
+/**
+ * Post Blog Data
+ */
+
+export type PostBlogData = {
+    id: string,
+    pathOfIds: Array<number | string>,
+    comment: string,
+    fullName: string,
+    email: string,
+    date: string,
+    website: string
 }
