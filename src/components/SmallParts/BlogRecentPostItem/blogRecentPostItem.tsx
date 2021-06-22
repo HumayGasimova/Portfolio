@@ -23,118 +23,34 @@ import {
     H17
 } from '../../UtilityComponents';
 
-type ActivateBlogCategory = {
-    type: string,
-    categoryIsActive: string, 
-    categoryName: string
-}
+/**
+ * Types
+ */
 
-type ActivateBlogItem = {
-    type: string,
-    itemIsActive: string,
-    itemKey: string,
-    cardType: string,
-}
-
-type ActivateBlogTag = {
-    type: string,
-    tagIsActive: string, 
-    tagName: string
-}
-
-type ActivateRecentPost = {
-    type: string,
-    postKey: string,
-    postPath: string,
-    val: boolean
-}
-
-type ClearActivityOfMenuItems = {
-    
-}
-type BlogRecentPostItemProps = {
-    activateBlogCategory: (categoryIsActive: string, categoryName: string) => ActivateBlogCategory,
-    activateBlogItem: (itemIsActive: string, itemKey: string, cardType: string) => ActivateBlogItem,
-    activateBlogTag: (tagIsActive: string, tagName: string) => ActivateBlogTag,
-    activateRecentPost: (postKey: string, postPath: string, val: boolean) => ActivateRecentPost,
-    clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => void,
-    clearState: () => void,
-    elData: RecentPostObj,
-    history: any,
-    location: any,
-    match: any
-}
-
-type RecentPostObj = {
-    active: boolean,
-    cardType: string,
-    categories: Array<CategoriesObj>,
-    comments: Array<CommentsObj>,
-    coverImage: Array<CoverImageObj>,
-    date: string,
-    header: string,
-    id: number,
-    key: string,
-    linkText: string,
-    numberOfComments: number,
-    numberOfLikes: number,
-    path: string,
-    text: string,
-    userLikedThePost: boolean
-}
-
-type CategoriesObj = {
-    id: number,
-    isHover: string,
-    key: string,
-    label: string,
-    path: string,
-}
-
-type CommentsObj = {
-    authorImage: Array<AuthorImage>,
-    authorName: string,
-    date: string,
-    id: number
-}
-
-type AuthorImage = {
-    alt: string,
-    id: string,
-    imageName: string,
-    isHover: string,
-    key: string,
-}
-
-type CoverImageObj = {
-    alt: string,
-    folderName:  string,
-    id: number,
-    imageName: string,
-    isHover: string,
-    key: string,
-}
-
+import * as Types from './blogRecentPostItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+ 
 /**
  * BlogRecentPostItem component definition and export
  */
 
-export const BlogRecentPostItem = (props: BlogRecentPostItemProps) => {
+export const BlogRecentPostItem: React.FC<Types.BlogRecentPostItemProps> = (props) => {
 
     /**
      * State
      */
 
-    const [recentPostDateIsHover, setRecentPostDateIsHover] = React.useState("init");
+    const [recentPostDateIsHover, setRecentPostDateIsHover] = React.useState<string>("init");
     
     /**
      * Methods
      */
    
     React.useEffect(() => {
+        console.log("props", props)
     }, []);
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'blogRecentPostDate': 
                 setRecentPostDateIsHover("on");
@@ -142,7 +58,7 @@ export const BlogRecentPostItem = (props: BlogRecentPostItemProps) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'blogRecentPostDate': 
                 setRecentPostDateIsHover("off");
@@ -150,7 +66,7 @@ export const BlogRecentPostItem = (props: BlogRecentPostItemProps) => {
         }
     }
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean) => {
         if(opt === "blogRecentPostHeader"){
             if(active){
                 return "blog-recent-post-header-active";
@@ -171,7 +87,7 @@ export const BlogRecentPostItem = (props: BlogRecentPostItemProps) => {
         }
     }
 
-    const onCardClickHandler = (e, path, key) => {
+    const onCardClickHandler = (e: React.MouseEvent, path: string, key: string) => {
 
         // Do nothing on right mouse click 
 

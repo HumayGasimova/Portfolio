@@ -73,6 +73,7 @@ export type BlogListStandardPageItem = {
     audioKey?: string,
     videoKey?: string,
     loading?: boolean,
+    active?: boolean
 }
 
 export type CategoriesItem = {
