@@ -26,18 +26,25 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './metroItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * MetroItem component definition and export
  */
 
-export const MetroItem = (props) => {
+export const MetroItem: React.FC<Types.MetroItemProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState({});
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
@@ -45,7 +52,7 @@ export const MetroItem = (props) => {
 
     React.useEffect(() => {
         // Event Listeners
-
+        
         const resize = () => {
             resizeRef.current();
         }
@@ -147,7 +154,7 @@ export const MetroItem = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -159,7 +166,7 @@ export const MetroItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -170,7 +177,7 @@ export const MetroItem = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'metroCover1':
                 return Images.METRO_PAGE_COVER_PIC_1;
@@ -199,7 +206,7 @@ export const MetroItem = (props) => {
         }
     }
 
-    const stoneWallWideItemOnClick = (e, path) => {
+    const stoneWallWideItemOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -214,18 +221,18 @@ export const MetroItem = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -249,18 +256,18 @@ export const MetroItem = (props) => {
              * information of the unmounted component on left mouse click 
              */ 
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "metroItemImage"){
             switch(isHovering){
                 case 'init':
@@ -303,7 +310,8 @@ export const MetroItem = (props) => {
         }
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: Types.MetroItemObj) => {
+        console.log("obj",obj)
         return(
             <div className="metro-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -312,8 +320,8 @@ export const MetroItem = (props) => {
                         key={i}
                         className="metro-item-category"
                         onMouseDown={(e) => onClickHandler(e, el.path, el.key)}
-                        onMouseEnter={() => handleMouseEnter(`metroItemCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`metroItemCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`metroItemCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`metroItemCategory`, pathOfIds)} 
                     >
                         <H17 className={renderClassName("metroItemCategory", el.isHover)}>{el.label}</H17>
                         {i !== obj.categories.length-1 ? <div className="metro-item-category-slash">/</div> : null}
@@ -330,8 +338,8 @@ export const MetroItem = (props) => {
     return(
         <div 
             className="metro-item"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain", isHovering)} 
+            onMouseLeave={() => handleMouseLeave("curtain", isHovering)}
             style={{marginBottom: `${props.page === "galleryPage" ? 0 : 30}px`}}
             id={`metroItemId${props.obj.id}`}
         >
