@@ -98,6 +98,7 @@ export const SearchResultPage = (props) => {
     const [scrollingUp, setScrollingUp] = React.useState(false);
     const [showComponent, setShowComponent] = React.useState(false);
     const [searchIsHover, setSearchIsHover] = React.useState("init");
+    const [fakeDataLoading, setFakeDataLoading] = React.useState(false);
     
     /**
      * Methods
@@ -131,7 +132,10 @@ export const SearchResultPage = (props) => {
             props.setMenuDotsState("init", "");
             props.setShowBackToTopComponent(false);
         }
-    }, [props.searchResultPage.searchInputFormResponse.loading]);
+    }, [
+        props.searchResultPage.searchInputFormResponse.loading,
+        fakeDataLoading
+    ]);
 
     const handleOnWheel = (e) => {
         let scrollHeight = document.body.scrollTop;
@@ -267,9 +271,9 @@ export const SearchResultPage = (props) => {
         // Search the information
         
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
-        // Fetch mock data (not required to run -> npm run server)
+            // Fetch mock data (not required to run -> npm run server)
 
-            // postReplyFakeData(props.fakeData, props.cardIdFromPathname, info);
+            fetchFakeData(FakeData.searchResultPage, props.searchResultPage.activePageId, info);
         }else{
             // Fetch data (required to run -> npm run server)
 
@@ -291,6 +295,31 @@ export const SearchResultPage = (props) => {
         });
     }
 
+    const fetchFakeData = (fakeData, activePageId, infoFromSearch) => {
+        let info = infoFromSearch;
+
+        let searchResultPage = [...fakeData];
+
+        let firstIndex = activePageId * 6 - 5;
+        let lastIndex = activePageId * 6 - 1;
+    
+        let updatedSearchResult = {
+            numberOfPages: !Number.isInteger(searchResultPage.length/6) ? Math.floor(searchResultPage.length/6) + 1 : Math.floor(searchResultPage.length/6),
+            searchResultData: searchResultPage.slice(firstIndex - 1, lastIndex + 1)
+        };
+
+        let updatedJson = {
+            searchInfo: info,
+            searchResult: updatedSearchResult
+        }      
+        
+        // Update the component only for fake data
+        setFakeDataLoading(!fakeDataLoading);
+
+        props.fetchSearchThroughWebsiteResutDataSuccess(updatedJson);
+        props.initSearchResultPagePagination(updatedJson.searchResult.numberOfPages);
+    }
+    
     const inputChangeHandler = (e, inputFieldId, inputForm) => {
         // Set input value and check validation
 
@@ -422,8 +451,8 @@ export const SearchResultPage = (props) => {
                         activePageNumber={props.searchResultPage.activePageId}
                         pagesArray={props.searchResultPage.pagesArray}
                         fetchPageData={props.fetchSearchThroughWebsiteResutData}
-                        // fakeData={FakeData.blogListStandardPage}
-                        // fetchFakeData={(fakeData, activePageId) => fetchFakeData(fakeData, activePageId)}
+                        fakeData={FakeData.searchResultPage}
+                        fetchFakeData={(fakeData, activePageId, infoFromSearch) => fetchFakeData(fakeData, activePageId, infoFromSearch)}
                         activatePageNumber={props.activatePageNumberForSearchResultPage}
                     />
                 </>
@@ -493,6 +522,8 @@ export default connect(
             activateListStandardBlogCategory: bindActionCreators(Actions.activateListStandardBlogCategory, dispatch),
             activateListStandardBlogTag: bindActionCreators(Actions.activateListStandardBlogTag, dispatch),
             activatePageNumberForSearchResultPage: bindActionCreators(Actions.activatePageNumberForSearchResultPage, dispatch),
+            fetchSearchThroughWebsiteResutDataSuccess:  bindActionCreators(Actions.fetchSearchThroughWebsiteResutDataSuccess, dispatch),
+            initSearchResultPagePagination: bindActionCreators(Actions.initSearchResultPagePagination, dispatch),
         };
     }
 )(SearchResultPage);

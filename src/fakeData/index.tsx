@@ -48,3 +48,4 @@ export * from './portfolioProjectShowcasePageData';
 export * from './blogListStandardPageData';
 export * from './blogPostSingleItemData';
 export * from './blogRecentPosts';
+export * from './searchPageData';

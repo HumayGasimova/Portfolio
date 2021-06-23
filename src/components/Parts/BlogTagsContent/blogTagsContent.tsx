@@ -283,7 +283,7 @@ export const BlogTagsContent: React.FC<Types.BlogTagsContentProps> = (props) => 
                         pagesArray={setPageData(props.page, "pagesArray") as Array<GeneralTypes.PagesArrayItem>}
                         fetchPageData={props.fetchBlogTagsContentData}
                         fakeData={setPageData(props.page, "fakeData") as Array<GeneralTypes.BlogListStandardPageItem>}
-                        fetchFakeData={(fakeData, activePageId, page, categoryName) => fetchFakeData(fakeData, activePageId, page, categoryName)}
+                        fetchFakeData={(fakeData, activePageId, page, categoryName) => fetchFakeData(fakeData, activePageId, page as string, categoryName)}
                         activatePageNumber={setPageData(props.page, "activatePageNumber") as (activePageId: number) => {activePageId: number}}
                         filterParam={setPageData(props.page, "tagName") as string}
                     />

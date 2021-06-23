@@ -29134,7 +29134,7 @@ app.get('/api/blog-recent-posts', (req, res) => {
 app.post('/api/search-result-through-website', (req, res) => {
     let info = req.body.info;
 
-    let searchResult = [
+    let searchResultPage = [
         {
             id: 1,
             key: "linkPostId3",
@@ -30306,8 +30306,8 @@ app.post('/api/search-result-through-website', (req, res) => {
     let updatedSearchResult;
 
     updatedSearchResult = {
-        numberOfPages: !Number.isInteger(searchResult.length/6) ? Math.floor(searchResult.length/6) + 1 : Math.floor(searchResult.length/6),
-        searchResultData: searchResult.slice(firstIndex - 1, lastIndex + 1)
+        numberOfPages: !Number.isInteger(searchResultPage.length/6) ? Math.floor(searchResultPage.length/6) + 1 : Math.floor(searchResultPage.length/6),
+        searchResultData: searchResultPage.slice(firstIndex - 1, lastIndex + 1)
     };
 
     let obj = {

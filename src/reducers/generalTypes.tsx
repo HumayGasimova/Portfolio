@@ -399,3 +399,24 @@ export type PostBlogData = {
     date: string,
     website: string
 }
+
+/**
+ * SearchThroughWebsite
+ */
+
+ export type SearchThroughWebsite = {
+    searchInfo: SearchInfoObj,
+    searchResult: SearchResultObj
+}
+
+type SearchInfoObj = {
+    id: string,
+    page: string,
+    searchValue: string
+}
+
+type SearchResultObj = {
+    numberOfPages: number,
+    searchResultData: Array<BlogListStandardPageItem>
+}
+
