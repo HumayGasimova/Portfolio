@@ -496,7 +496,7 @@ export const SearchResultPage = (props) => {
             </div>
             <Footer/>
             {props.showBackToTop ? <BackToTop/> : null}
-        </div>   
+        </div>
     );
 }
 

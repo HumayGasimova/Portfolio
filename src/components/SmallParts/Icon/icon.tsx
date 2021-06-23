@@ -51,7 +51,6 @@ import {
 
 import * as Types from './iconTypes';
 import * as GeneralTypes from '../../../reducers/generalTypes';
-
  
 /**
  * Icon component definition and export

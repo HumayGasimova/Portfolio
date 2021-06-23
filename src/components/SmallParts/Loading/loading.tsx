@@ -11,11 +11,17 @@ import * as React from 'react';
 import './loading.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './loadingTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Loading component definition and export
  */
 
-export const Loading = (props) => {
-
+export const Loading: React.FC<Types.LoadingProps> = (props) => {
     /**
      * Markup
      */

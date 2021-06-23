@@ -11,11 +11,18 @@ import * as React from 'react';
 import './loadingVersion3.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './loadingVersion3Types';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * LoadingVersion3 component definition and export
  */
 
-export const LoadingVersion3 = (props) => {
-
+export const LoadingVersion3: React.FC<Types.LoadingVersion3Props> = (props) => {
+    
     /**
      * Markup
      */
