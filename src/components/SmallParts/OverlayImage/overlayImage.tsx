@@ -45,9 +45,9 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
-    const [paddingTopBottom, setPaddingTopBottom] = React.useState(0);
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
+    const [paddingTopBottom, setPaddingTopBottom] = React.useState<number>(0);
  
     /**
      * Methods
@@ -79,7 +79,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         setPaddingTopBottom(paddingTopBottomVal);
     }
 
-    const setPadding = (page) => {
+    const setPadding = (page: string) => {
         // Set curtain padding value for different pages
 
         switch(page){
@@ -102,7 +102,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -114,7 +114,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -125,7 +125,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'id1SmallImages1':
                 return Images.SIMPLE_OVERLAY_COVER_PIC_1;
@@ -253,7 +253,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "curtain"){
             switch(isHovering){
                 case 'init':
@@ -306,7 +306,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const overlayImageOnClick = (e, path) => {
+    const overlayImageOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -348,7 +348,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         }
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -384,7 +384,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
         return(
             <div className="overlay-with-info-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -393,8 +393,8 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
                         key={i}
                         className="overlay-with-info-category"
                         onMouseDown={(e) => onClickHandler(e, el.path, el.key)}
-                        onMouseEnter={() => handleMouseEnter(`overlayWithInfoCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`overlayWithInfoCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`overlayWithInfoCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`overlayWithInfoCategory`, pathOfIds)} 
                     >
                         <H17 className={renderClassName("overlayWithInfoCategory", el.isHover)}>{el.label}</H17>
                         {i !== obj.categories.length-1 ? <div className="overlay-with-info-category-slash">/</div> : null}
@@ -411,8 +411,8 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
     return(
         <div 
             className="overlay-image"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain", null)} 
+            onMouseLeave={() => handleMouseLeave("curtain", null)}
             style={{marginBottom: `${['galleryPage',
                                         'twoColumnsWidePage',
                                         'threeColumnsWidePage',
