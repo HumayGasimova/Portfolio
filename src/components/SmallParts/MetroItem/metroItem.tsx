@@ -310,8 +310,7 @@ export const MetroItem: React.FC<Types.MetroItemProps> = (props) => {
         }
     }
 
-    const renderCategories = (obj: Types.MetroItemObj) => {
-        console.log("obj",obj)
+    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
         return(
             <div className="metro-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

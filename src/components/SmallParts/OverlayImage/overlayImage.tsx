@@ -28,10 +28,17 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './overlayImageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * OverlayImage component definition and export
  */
 
-export const OverlayImage = (props) => {
+export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
 
     /**
      * State
@@ -48,7 +55,7 @@ export const OverlayImage = (props) => {
 
     React.useEffect(() => {
         // Event Listeners
-
+        
         const resize = () => {
             resizeRef.current();
         }
@@ -319,7 +326,7 @@ export const OverlayImage = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
 
@@ -329,11 +336,11 @@ export const OverlayImage = (props) => {
             if(['bannerPageSection3','bannerPageSection4','bannerPageSection8'].includes(props.page)){
                 // Open the template page on scroll wheel click 
 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click 
 
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 
@@ -366,11 +373,11 @@ export const OverlayImage = (props) => {
              * information of the unmounted component on left mouse click 
              */ 
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
         
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
