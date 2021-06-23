@@ -47,10 +47,17 @@ import {
 import * as Actions from '../../../actions';
 
 /**
+ * Types
+ */
+
+import * as Types from './pictureBoardTextItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+ 
+/**
  * PictureBoardTextItem component definition and export
  */
 
-export const PictureBoardTextItem = (props) => {
+export const PictureBoardTextItem: React.FC<Types.PictureBoardTextItemProps> = (props) => {
 
     /**
      * State
@@ -70,7 +77,7 @@ export const PictureBoardTextItem = (props) => {
         setIsHovering(false);
     }
 
-    const iconOnClick = (array) => {
+    const iconOnClick = (array: Array<GeneralTypes.ImagesArrayItem>) => {
         props.photoViewerOpen('pictureBoardForTextItem', true, array);
     }
 
@@ -101,7 +108,7 @@ export const PictureBoardTextItem = (props) => {
     );
 }
 
-export default connect(
+export default connect<null, Types.MapDispatchToPropsTypes>(
    null,
     (dispatch) => {
         return {
