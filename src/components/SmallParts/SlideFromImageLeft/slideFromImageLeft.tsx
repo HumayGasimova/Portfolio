@@ -26,24 +26,32 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './slideFromImageLeftTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SlideFromImageLeft component definition and export
  */
 
-export const SlideFromImageLeft = (props) => {
+export const SlideFromImageLeft: React.FC<Types.SlideFromImageLeftProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        
         // Event Listeners
 
         const resize = () => {
@@ -67,7 +75,7 @@ export const SlideFromImageLeft = (props) => {
         setCardHeight(cardHeight - 80);
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -79,7 +87,7 @@ export const SlideFromImageLeft = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -90,7 +98,7 @@ export const SlideFromImageLeft = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'id1SmallImages1':
                 return Images.SIMPLE_OVERLAY_COVER_PIC_1;
@@ -133,7 +141,7 @@ export const SlideFromImageLeft = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "image"){
             switch(isHovering){
                 case 'init':
@@ -176,7 +184,7 @@ export const SlideFromImageLeft = (props) => {
         }
     }
 
-    const slideFromImageLeftOnClick = (e, path) => {
+    const slideFromImageLeftOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -199,7 +207,7 @@ export const SlideFromImageLeft = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
 
@@ -210,11 +218,11 @@ export const SlideFromImageLeft = (props) => {
             if(['bannerPageSection6'].includes(props.page)){
                 // Open the template page on scroll wheel click 
                 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click
             
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 
@@ -222,7 +230,7 @@ export const SlideFromImageLeft = (props) => {
         }
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -247,18 +255,18 @@ export const SlideFromImageLeft = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
         
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.ColumnsPageObjItem) => {
         return(
             <div className="slide-from-image-left-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -267,8 +275,8 @@ export const SlideFromImageLeft = (props) => {
                         key={i}
                         className="slide-from-image-left-category"
                         onMouseDown={(e) => onClickHandler(e, el.path, el.key)}
-                        onMouseEnter={() => handleMouseEnter(`slideFromImageLeftCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`slideFromImageLeftCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`slideFromImageLeftCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`slideFromImageLeftCategory`, pathOfIds)} 
                     >
                         <H17 className={renderClassName("slideFromImageLeftCategory", el.isHover)}>{el.label}</H17>
                         {i !== obj.categories.length-1 ? <div className="slide-from-image-left-category-slash">/</div> : null}
@@ -285,8 +293,8 @@ export const SlideFromImageLeft = (props) => {
     return(
         <div 
             className="slide-from-image-left"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain", null)} 
+            onMouseLeave={() => handleMouseLeave("curtain", null)}
             style={{marginBottom: `${['bannerPageSection6'].includes(props.page) ? 0 : 30}px`}}
         >
             <div 
