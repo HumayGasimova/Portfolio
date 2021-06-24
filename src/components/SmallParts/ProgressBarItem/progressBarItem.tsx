@@ -33,10 +33,17 @@ import {
 } from '../../../Hooks/useWindowSize';
 
 /**
+ * Types
+ */
+
+import * as Types from './progressBarItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * ProgressBarItem component definition and export
  */
 
-export const ProgressBarItem = (props) => {
+export const ProgressBarItem: React.FC<Types.ProgressBarItemProps> = (props) => {
 
     /**
      * State
@@ -57,7 +64,7 @@ export const ProgressBarItem = (props) => {
         setValue(value + 1);
     }, value === props.percent ? null : delay);
 
-    const renderProgressBarWidth = (component, screenWidth) => {
+    const renderProgressBarWidth = (component: string, screenWidth: number) => {
         switch(component){
             case 'statistics':
                 if(screenWidth > 1120){
