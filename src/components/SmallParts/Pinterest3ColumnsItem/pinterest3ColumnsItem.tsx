@@ -26,18 +26,25 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './pinterest3ColumnsItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+   
+/**
  * Pinterest3ColumnsItem component definition and export
  */
 
-export const Pinterest3ColumnsItem = (props) => {
+export const Pinterest3ColumnsItem: React.FC<Types.Pinterest3ColumnsItemProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState({});
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
@@ -176,7 +183,7 @@ export const Pinterest3ColumnsItem = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -188,7 +195,7 @@ export const Pinterest3ColumnsItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -199,7 +206,7 @@ export const Pinterest3ColumnsItem = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'pinterest3ColumnsCover1':
                 return Images.PINTEREST_3_COLUMNS_PAGE_COVER_PIC_1;
@@ -236,7 +243,7 @@ export const Pinterest3ColumnsItem = (props) => {
         }
     }
 
-    const pinterest3ColumnsItemOnClick = (e, path) => {
+    const pinterest3ColumnsItemOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -251,18 +258,18 @@ export const Pinterest3ColumnsItem = (props) => {
              * information of the unmounted component on left mouse click 
              */
             
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -286,11 +293,11 @@ export const Pinterest3ColumnsItem = (props) => {
              * information of the unmounted component on left mouse click 
              */ 
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click 
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
@@ -298,7 +305,7 @@ export const Pinterest3ColumnsItem = (props) => {
     }
 
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "pinterest3ColumnsItemImage"){
             switch(isHovering){
                 case 'init':
@@ -341,7 +348,7 @@ export const Pinterest3ColumnsItem = (props) => {
         }
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
         return(
             <div className="pinterest-3-columns-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -350,8 +357,8 @@ export const Pinterest3ColumnsItem = (props) => {
                         key={i}
                         className="pinterest-3-columns-item-category"
                         onMouseDown={(e) => onClickHandler(e, el.path, el.key)}
-                        onMouseEnter={() => handleMouseEnter(`pinterest3ColumnsItemCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`pinterest3ColumnsItemCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`pinterest3ColumnsItemCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`pinterest3ColumnsItemCategory`, pathOfIds)} 
                     >
                         <H17 className={renderClassName("pinterest3ColumnsItemCategory", el.isHover)}>{el.label}</H17>
                         {i !== obj.categories.length-1 ? <div className="pinterest-3-columns-item-category-slash">/</div> : null}
@@ -368,8 +375,8 @@ export const Pinterest3ColumnsItem = (props) => {
     return(
         <div 
             className="pinterest-3-columns-item"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain", null)} 
+            onMouseLeave={() => handleMouseLeave("curtain", null)}
             style={{marginBottom: `${props.page === "galleryPage" ? 0 : 30}px`}}
             id={`pinterest3ColumnsItemId${props.obj.id}`}
         >
