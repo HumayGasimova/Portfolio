@@ -6,7 +6,19 @@ import * as React from 'react';
 
 import { withRouter } from "react-router-dom";
 
-export const ScrollToTop = (props) => {
+
+/**
+ * Types
+ */
+
+import * as Types from './scrollToTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+ 
+/**
+ * ScrollToTop component definition and export
+ */
+
+export const ScrollToTop: React.FC<Types.ScrollToTopProps> = (props) => {
     /**
      * Methods
      */
@@ -20,7 +32,7 @@ export const ScrollToTop = (props) => {
      */
 
     return(
-        <React.Fragment /> 
+        <React.Fragment/> 
     );
 }
 
