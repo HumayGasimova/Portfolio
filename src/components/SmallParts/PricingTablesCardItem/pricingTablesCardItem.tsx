@@ -27,18 +27,18 @@ import {
     H65
 } from '../../UtilityComponents';
 
+/**
+ * Types
+ */
+
+import * as Types from './pricingTablesCardItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * PricingTablesCardItem component definition and export
  */
 
-export const PricingTablesCardItem = (props) => {
-
-    /**
-     * State
-     */
-
-    const [isHovering, setIsHovering] = React.useState("init");
+export const PricingTablesCardItem: React.FC<Types.PricingTablesCardItemProps> = (props) => {
 
     /**
      * Methods
@@ -47,7 +47,7 @@ export const PricingTablesCardItem = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const renderCurrency = (currency) => {
+    const renderCurrency = (currency: string) => {
         switch(currency){
             case 'AZE':
                 return "₼"
