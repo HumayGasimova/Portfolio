@@ -376,7 +376,7 @@ export type OptionsItem = {
     array: Array<MenuItemsArrayItem>
 }
 
-type MenuItemsArrayItem = {
+export type MenuItemsArrayItem = {
     id: number,
     text: string,
     itemId: string,

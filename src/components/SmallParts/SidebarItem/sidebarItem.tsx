@@ -22,16 +22,23 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './sidebarItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SidebarItem component definition and export
  */
 
-export const SidebarItem = (props) => {
-    
+export const SidebarItem: React.FC<Types.SearchItemProps> = (props) => {
+
     /**
      * Methods
      */
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean) => {
         if(opt === "sidebarArrow"){
             switch(isHovering){
                 case 'init':
@@ -85,7 +92,7 @@ export const SidebarItem = (props) => {
         )
     }
 
-    const renderOptionItems = (obj) => {
+    const renderOptionItems = (obj: GeneralTypes.OptionsItem) => {
         return(
             <>{obj.array.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -167,7 +174,7 @@ export const SidebarItem = (props) => {
         )
     }
 
-    const renderSubOptions = (subOptions, pathOfIds) => {
+    const renderSubOptions = (subOptions: Array<GeneralTypes.MenuItemsArrayItem>, pathOfIds: Array<number>) => {
         return(
             <>
                 <EH10/>
@@ -184,7 +191,7 @@ export const SidebarItem = (props) => {
                             <div 
                                 key={i} 
                                 className="sidebar-sub-option-item"
-                                onMouseDown={(e) => props.itemOnClick("subOptionItem", el.path, updatedPathOfIds, e, props.data.id)}
+                                onMouseDown={(e) => props.itemOnClick("subOptionItem", el.path, updatedPathOfIds, e, props.data.id, null)}
                             >
                                 {el.active ? 
                                 <div className="arrow-wrapper-active">
@@ -221,7 +228,6 @@ export const SidebarItem = (props) => {
      */
 
     return(
-     
         <div 
             className="sidebar-item-wrapper"
             onMouseEnter={props.onMouseEnter} 

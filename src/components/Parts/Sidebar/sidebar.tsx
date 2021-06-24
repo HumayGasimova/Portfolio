@@ -69,14 +69,16 @@ export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
     const handleMouseEnterSidebarItem = (id) => {
         props.setIsHoveringMenuItem("on", id);
         setShowOptions(true);
+        return;
     }
 
     const handleMouseLeaveSidebarItem = () => {
         props.setIsHoveringMenuItem("off", null);
         setShowOptions(false);
+        return;
     }
-
-    const itemOnClick = (opt, path, pathOfIds, e, idOfFirstObj, itemId) => {
+    
+    const itemOnClick = (opt: string, path: string, pathOfIds: Array<number>, e: React.MouseEvent, idOfFirstObj: number, itemId: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -161,6 +163,7 @@ export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
         // Fire up unmountComponent epic
 
         props.unmountComponent(null, null, null, e.button);
+        return;
     }
 
     const renderSidebarItems = () => {
@@ -183,7 +186,7 @@ export const Sidebar: React.FC<Types.SidebarProps> = (props) => {
         )
     }
     
-    const renderClassName = (state) => {
+    const renderClassName = (state: string) => {
        switch(state){
             case 'init':
                 return "sidebar";
