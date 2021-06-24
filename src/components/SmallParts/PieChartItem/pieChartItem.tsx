@@ -26,19 +26,25 @@ import {
     useInterval
 } from '../../../Hooks/useInterval';
 
+/**
+ * Types
+ */
 
+import * as Types from './pieChartItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+  
 /**
  * PieChartItem component definition and export
  */
 
-export const PieChartItem = (props) => {
+export const PieChartItem: React.FC<Types.PieChartItemProps> = (props) => {
 
     /**
      * State
      */
 
-    const [value, setValue] = React.useState(0);
-    const [delay, setDelay] = React.useState(30);
+    const [value, setValue] = React.useState<number>(0);
+    const [delay, setDelay] = React.useState<number>(30);
 
     /**
      * Methods
@@ -51,7 +57,7 @@ export const PieChartItem = (props) => {
         setValue(value + 1);
     }, value === props.percent ? null : delay)
 
-    const renderClassName = (opt, key) => {
+    const renderClassName = (opt: string, key: string) => {
         if(opt === "pieChart"){
             switch(key){
                 case 'pieChartsPageSection1Id1':
