@@ -50,8 +50,8 @@ export const ProgressBarItem: React.FC<Types.ProgressBarItemProps> = (props) => 
      */
 
     const size = useWindowSize();
-    const [value, setValue] = React.useState(0);
-    const [delay, setDelay] = React.useState(10);
+    const [value, setValue] = React.useState<number>(0);
+    const [delay, setDelay] = React.useState<number>(10);
 
     /**
      * Methods

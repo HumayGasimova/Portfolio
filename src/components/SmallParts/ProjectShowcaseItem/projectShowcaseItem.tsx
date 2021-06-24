@@ -39,10 +39,17 @@ import {
 } from '../../../Hooks/useWindowSize';
 
 /**
+ * Types
+ */
+
+import * as Types from './projectShowcaseItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * ProjectShowcaseItem component definition and export
  */
 
-export const ProjectShowcaseItem = (props) => {
+export const ProjectShowcaseItem: React.FC<Types.ProjectShowcaseItemProps> = (props) => {
 
     /**
      * State
@@ -69,14 +76,14 @@ export const ProjectShowcaseItem = (props) => {
         
         window.addEventListener('resize', resize);
         window.addEventListener('transitionend', smooth);
-        window.addEventListener('wheel', handleOnWheel);
+        window.addEventListener('wheel', () => handleOnWheel);
         
         return () =>  {
             // Cleaning the unmounted component
 
             window.removeEventListener('resize', resize);
             window.removeEventListener('transitionend', smooth);
-            window.removeEventListener('wheel', handleOnWheel);
+            window.removeEventListener('wheel', () => handleOnWheel);
         }
       
     }, [props.data.backgroundImage.animation]);
@@ -131,7 +138,7 @@ export const ProjectShowcaseItem = (props) => {
         }
     }
     
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: React.WheelEvent) => {
         let scrollHeight = document.body.scrollTop;
         let portfolioProjectShowcasePageId1BackgroundImg1 = document.getElementById("portfolioProjectShowcasePageId1BackgroundImg1");
         let portfolioProjectShowcasePageId2BackgroundImg1 = document.getElementById("portfolioProjectShowcasePageId2BackgroundImg1");
@@ -365,7 +372,7 @@ export const ProjectShowcaseItem = (props) => {
 
     }
 
-    const handleMouseEnter = (opt, key, id) => {
+    const handleMouseEnter = (opt: string, key: string, id: number) => {
         switch(opt){
             case 'projectShowcaseCategory': 
                 props.setProjectShowcaseIsHoveringCategory("on", key, id);
@@ -376,7 +383,7 @@ export const ProjectShowcaseItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, key, id) => {
+    const handleMouseLeave = (opt: string, key: string, id: number) => {
         switch(opt){
             case 'projectShowcaseCategory': 
                 props.setProjectShowcaseIsHoveringCategory("off", key, id);
@@ -387,7 +394,7 @@ export const ProjectShowcaseItem = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'portfolioProjectShowcasePageId1Img1':
                 return Images.ID_2_BIG_IMAGES_5;
@@ -412,33 +419,7 @@ export const ProjectShowcaseItem = (props) => {
         }
     }
 
-    // const stoneWallOnClick = (e, path) => {
-    //     // Do nothing on right mouse click
-
-    //     if(e.button === 2) return;
-
-    //     // Storing data in local storage
-
-    //     localStorage.setItem("pageHG", props.page);
-
-    //     if(e.button !== 1){
-    //         /**
-    //          * Add fading effect on the unmounted component and remember 
-    //          * information of the unmounted component on left mouse click 
-    //          */
-
-    //         props.setUnmountComponentValues(true, path);
-    //     }else{
-    //         // Remember information of the unmounted component on scroll wheel click
-
-    //         props.setUnmountComponentValues(false, path);
-    //     }
-    //     // Fire up unmountComponent epic
-        
-    //     props.unmountComponent(null, null,  props.page, e.button);
-    // }
-
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "projectShowcaseCategory"){
             switch(isHovering){
                 case 'init':
@@ -461,7 +442,7 @@ export const ProjectShowcaseItem = (props) => {
         }
     }
 
-    const loadBackgroundImage = (key) => {
+    const loadBackgroundImage = (key: string) => {
         let img;
         switch(key){
             case 'portfolioProjectShowcasePageId1BackgroundImg1':
@@ -511,8 +492,8 @@ export const ProjectShowcaseItem = (props) => {
             }
     }
 
-    const openPhotoViewer = (items, activeKey) => {
-
+    const openPhotoViewer = (items: Array<Types.ProjectShowcaseItemDataObj>, activeKey: string) => {
+        
         let array = [];
        
         items.map((el, i) => {
@@ -554,7 +535,7 @@ export const ProjectShowcaseItem = (props) => {
         props.photoViewerOpen(props.component, true, slidesForPhotoViewer);
     }
 
-    const renderProjectShowcaseImages = (imagesArray) => {
+    const renderProjectShowcaseImages = (imagesArray: Array<GeneralTypes.ImagesArrayItem>) => {
         return(
             <div className="project-showcase-images">{imagesArray.map((el, i) => {
                 return(
@@ -573,7 +554,7 @@ export const ProjectShowcaseItem = (props) => {
         )
     }
 
-    const renderCategories = (categories, key) => {
+    const renderCategories = (categories: Array<GeneralTypes.CategoriesItem>, key: string) => {
         return(
             <div className="project-showcase-categories">{categories.map((el, i) => {
                 return(
@@ -591,7 +572,7 @@ export const ProjectShowcaseItem = (props) => {
         )
     }
 
-    const renderTags = (tags, key) => {
+    const renderTags = (tags: Array<GeneralTypes.TagsItem>, key: string) => {
         return(
             <div className="project-showcase-tags">{tags.map((el, i) => {
                 return(
@@ -608,7 +589,7 @@ export const ProjectShowcaseItem = (props) => {
         )
     }
 
-    const setLeftAndRightPadding = (windowWidth) => {
+    const setLeftAndRightPadding = (windowWidth: number) => {
         if(windowWidth > 1120){
             return 260;
         }

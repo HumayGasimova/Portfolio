@@ -109,7 +109,7 @@ export type ImagesArrayItem = {
     isHover?: string,
     imageName: string,
     folderName?: string,
-    alt: string
+    alt?: string
 }
 
 type AuthorImageObj = {

@@ -21036,9 +21036,11 @@ app.get('/api/portfolio-project-showcase-page', (req, res) => {
             tags: [
                 {
                     id: 1,
-                    label: "Creative",
-                    isHover: "init"
-                }
+                    key: "creative",
+                    tagName: "Creative",
+                    isHover: "init",
+                    active: "init"
+                },
             ],
             imagesArray: [
                 {
@@ -21087,9 +21089,11 @@ app.get('/api/portfolio-project-showcase-page', (req, res) => {
             tags: [
                 {
                     id: 1,
-                    label: "Creative",
-                    isHover: "init"
-                }
+                    key: "creative",
+                    tagName: "Creative",
+                    isHover: "init",
+                    active: "init"
+                },
             ],
             imagesArray: [
                 {
@@ -21138,9 +21142,11 @@ app.get('/api/portfolio-project-showcase-page', (req, res) => {
             tags: [
                 {
                     id: 1,
-                    label: "Creative",
-                    isHover: "init"
-                }
+                    key: "creative",
+                    tagName: "Creative",
+                    isHover: "init",
+                    active: "init"
+                },
             ],
             imagesArray: [
                 {
