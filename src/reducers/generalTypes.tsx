@@ -427,11 +427,13 @@ type SearchResultObj = {
 export type PortfolioItemObj = {
     arrowIsHovering: string,
     categories: Array<CategoriesItem>,
-    coverImage: CoverImageObj,
-    header: string,
+    coverImage?: CoverImageObj,
+    header?: string,
     id: number,
     key: string,
     option: string,
     path: string,
-    portfolioType: string
+    portfolioType: string,
+    alt?: string,
+    pictures?: Array<ImagesArrayItem>
 }

@@ -28,16 +28,23 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './portfolioItemCardTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+   
+/**
  * PortfolioItemCard component definition and export
  */
 
-export const PortfolioItemCard = (props) => {
+export const PortfolioItemCard: React.FC<Types.PortfolioItemCardProps> = (props) => {
 
     /**
      * State
      */
 
-    const [isHovering, setIsHovering] = React.useState("init");
+    const [isHovering, setIsHovering] = React.useState<string>("init");
 
     /**
      * Methods
@@ -46,7 +53,7 @@ export const PortfolioItemCard = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'portfolioItemCategory': 
                 props.setIsHoveringCategory("on", pathOfIds);
@@ -57,7 +64,7 @@ export const PortfolioItemCard = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'portfolioItemCategory': 
                 props.setIsHoveringCategory("off", pathOfIds);
@@ -68,7 +75,7 @@ export const PortfolioItemCard = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "portfolioItemCategory"){
             switch(isHovering){
                 case 'init':
@@ -91,7 +98,7 @@ export const PortfolioItemCard = (props) => {
         }
     }
 
-    const onClickHandler = (path, key, e) => {
+    const onClickHandler = (path: string, key: string, e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -111,18 +118,18 @@ export const PortfolioItemCard = (props) => {
              * information of the unmounted component on left mouse click 
              */ 
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click 
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
         props.unmountComponent(key, path, props.component, e.button);
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
         return(
             <div className="portfolio-item-card-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -131,8 +138,8 @@ export const PortfolioItemCard = (props) => {
                         key={i}
                         className="portfolio-item-card-category"
                         onMouseDown={(e) => onClickHandler(el.path, el.key, e)}
-                        onMouseEnter={() => handleMouseEnter(`portfolioItemCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`portfolioItemCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`portfolioItemCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`portfolioItemCategory`, pathOfIds)} 
                     >
                         {i !== 0 ? <div className="portfolio-item-card-category-slash">/</div> : null}
                         <H15 className={renderClassName("portfolioItemCategory", el.isHover)}>{el.label}</H15>
@@ -168,8 +175,8 @@ export const PortfolioItemCard = (props) => {
             <H19 className="h19-nero-poppins">{props.obj.portfolioType}</H19>
             <div 
                 className={renderClassName("arrow", isHovering)}
-                onMouseEnter={() => handleMouseEnter("arrow", null, null)} 
-                onMouseLeave={() => handleMouseLeave("arrow", null, null)} 
+                onMouseEnter={() => handleMouseEnter("arrow", null)} 
+                onMouseLeave={() => handleMouseLeave("arrow", null)} 
                 onMouseDown={(e) => onClickHandler(props.obj.path, null, e)}
             >
                 <div className="arrow-horizontal-line"/>
