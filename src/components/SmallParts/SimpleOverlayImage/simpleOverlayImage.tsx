@@ -25,24 +25,32 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './simpleOverlayImageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SimpleOverlayImage component definition and export
  */
 
-export const SimpleOverlayImage = (props) => {
+export const SimpleOverlayImage: React.FC<Types.SimpleOverlayImageProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
      */
 
     React.useEffect(() => {
+
         // Event Listeners
 
         const resize = () => {
@@ -75,7 +83,7 @@ export const SimpleOverlayImage = (props) => {
         setIsHovering("off");
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'id1SmallImages1':
                 return Images.SIMPLE_OVERLAY_COVER_PIC_1;
@@ -118,7 +126,7 @@ export const SimpleOverlayImage = (props) => {
         }
     }
 
-    const simpleOverlayImageOnClick = (path, e) => {
+    const simpleOverlayImageOnClick = (path: string, e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -138,7 +146,7 @@ export const SimpleOverlayImage = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
 
@@ -150,11 +158,11 @@ export const SimpleOverlayImage = (props) => {
             if(['bannerPageSection5'].includes(props.page)){
                 // Open the template page on scroll wheel click 
                 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click
             
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 
@@ -163,7 +171,7 @@ export const SimpleOverlayImage = (props) => {
  
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "curtain"){
             switch(isHovering){
                 case 'init':
