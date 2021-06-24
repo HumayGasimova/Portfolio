@@ -27,18 +27,25 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './standardPortfolioItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * StandardPortfolioItem component definition and export
  */
 
-export const StandardPortfolioItem = (props) => {
+export const StandardPortfolioItem: React.FC<Types.StandardPortfolioItemProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
@@ -68,7 +75,7 @@ export const StandardPortfolioItem = (props) => {
         setCardHeight(cardHeight);
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -80,7 +87,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, pathOfIds: Array<number>) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -91,7 +98,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'id1SmallImages1':
                 return Images.SIMPLE_OVERLAY_COVER_PIC_1;
@@ -134,7 +141,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "curtain"){
             switch(isHovering){
                 case 'init':
@@ -157,7 +164,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
 
-    const standardPortfolioImageOnClick = (e, path) => {
+    const standardPortfolioImageOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -179,7 +186,7 @@ export const StandardPortfolioItem = (props) => {
                  * information of the unmounted component on left mouse click 
                  */
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
 
@@ -189,11 +196,11 @@ export const StandardPortfolioItem = (props) => {
             if(['bannerPageSection7'].includes(props.page)){
                 // Open the template page on scroll wheel click 
 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click 
 
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
 
@@ -201,7 +208,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -230,7 +237,7 @@ export const StandardPortfolioItem = (props) => {
                  * information of the unmounted component on left mouse click 
                  */ 
 
-                props.setUnmountComponentValues(true, path);
+                props.setUnmountComponentValues(true, path, null);
 
                 // Fire up unmountComponent epic
         
@@ -240,11 +247,11 @@ export const StandardPortfolioItem = (props) => {
             if(['bannerPageSection7'].includes(props.page)){
                 // Open the template page on scroll wheel click 
                 
-                props.setUnmountComponentValues(false, props.currentPagePathName);
+                props.setUnmountComponentValues(false, props.currentPagePathName, null);
             }else{
                 // Remember information of the unmounted component on scroll wheel click
             
-                props.setUnmountComponentValues(false, path);
+                props.setUnmountComponentValues(false, path, null);
             }
             // Fire up unmountComponent epic
         
@@ -252,7 +259,7 @@ export const StandardPortfolioItem = (props) => {
         }
     }
     
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.ColumnsPageObjItem) => {
         return(
             <div className="standard-portfolio-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -261,8 +268,8 @@ export const StandardPortfolioItem = (props) => {
                         key={i}
                         className="standard-portfolio-item-category"
                         onMouseDown={(e) => onClickHandler(e, el.path, el.key)}
-                        onMouseEnter={() => handleMouseEnter(`standardPortfolioItemCategory`, null, pathOfIds)} 
-                        onMouseLeave={() => handleMouseLeave(`standardPortfolioItemCategory`, null, pathOfIds)} 
+                        onMouseEnter={() => handleMouseEnter(`standardPortfolioItemCategory`, pathOfIds)} 
+                        onMouseLeave={() => handleMouseLeave(`standardPortfolioItemCategory`, pathOfIds)} 
                     >
                         <H22 className={renderClassName("standardPortfolioItemCategory", el.isHover)}>{el.label}</H22>
                         {i !== obj.categories.length-1 ? <div className="standard-portfolio-item-category-slash">/</div> : null}
@@ -279,8 +286,8 @@ export const StandardPortfolioItem = (props) => {
     return(
         <div 
             className="standard-portfolio-item"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain", null)} 
+            onMouseLeave={() => handleMouseLeave("curtain", null)}
         >
             <img 
                 id={`${props.obj.coverImage.key}Img`}
