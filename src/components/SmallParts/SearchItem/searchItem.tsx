@@ -31,16 +31,17 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './searchItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SearchItem component definition and export
  */
 
-export const SearchItem = (props) => {
-
-    /**
-     * State
-     */
-
-    const [infoText, setInfoText] = React.useState("init");
+export const SearchItem: React.FC<Types.SearchItemProps> = (props) => {
     
     /**
      * Methods
@@ -49,7 +50,7 @@ export const SearchItem = (props) => {
     React.useEffect(() => {
     }, []);
 
-    const loadImg = (imgKey) => {
+    const loadImg = (imgKey: string) => {
         switch(imgKey){
             case 'blogCardLinkPostCoverImg3':
                 return Images.SEARCH_RESULT_IMG_1;
@@ -70,7 +71,7 @@ export const SearchItem = (props) => {
         }
     }
 
-    const onClickHandler = (e, path, key) => {
+    const onClickHandler = (e: React.MouseEvent, path: string, key: string) => {
 
         // Do nothing on right mouse click 
 
@@ -83,8 +84,8 @@ export const SearchItem = (props) => {
              */ 
 
             props.clearState();
-            props.clearActivityOfMenuItems();
-            props.activateBlogItem("active", key);
+            props.clearActivityOfMenuItems(null);
+            props.activateBlogItem("active", key, null);
             props.activateBlogCategory("deactive", "");
             props.activateBlogTag("deactive", "");
             props.history.push(`/crypto-portfolio/${path}`);
@@ -112,7 +113,7 @@ export const SearchItem = (props) => {
                 >
                     <H19 className="h19-black-lustria">{props.elData.header}</H19>
                 </div>
-                <H15 className="h15-nobel-lustria">{`${props.elData.text[0].textPart.substring(0, 182)}...`}</H15>
+                <H15 className="h15-nobel-lustria">{`${(props.elData.text[0] as GeneralTypes.PostBlogContentItemObjText).textPart.substring(0, 182)}...`}</H15>
             </div>
         </div>
     );

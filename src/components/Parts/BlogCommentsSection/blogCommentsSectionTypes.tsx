@@ -17,7 +17,6 @@ export type BlogCommentsSectionProps = {
     setCommentsButtonClickedState: (val: boolean) => {val: boolean},
     setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
     triggerCommentReplyButton: () => void
-  
 }
 
 export type Data = {
