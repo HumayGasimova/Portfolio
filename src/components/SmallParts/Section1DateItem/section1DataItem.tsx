@@ -29,13 +29,22 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './section1DataItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Section1DataItem component definition and export
  */
 
-export const Section1DataItem = (props) => {
+export const Section1DataItem: React.FC<Types.Section1DataItemProps> = (props) => {
 
-    const [isHovering, setIsHovering] = React.useState(false);
+    const [isHovering, setIsHovering] = React.useState<boolean>(false);
 
+    React.useEffect(()=>{
+    },[])
     /**
      * Methods
      */
@@ -48,7 +57,7 @@ export const Section1DataItem = (props) => {
         setIsHovering(false);
     }
 
-    const arrowOnClick = (path, e) => {
+    const arrowOnClick = (path: string, e: React.MouseEvent) => {
         switch(e.button){
             case 0:
                 // Open the link on left mouse click
