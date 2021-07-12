@@ -26,18 +26,25 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './stoneWallItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * StoneWallItem component definition and export
  */
 
-export const StoneWallItem = (props) => {
+export const StoneWallItem: React.FC<Types.StoneWallItemProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
  
     /**
      * Methods
@@ -105,7 +112,7 @@ export const StoneWallItem = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("on");
@@ -114,7 +121,7 @@ export const StoneWallItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'curtain': 
                 setIsHovering("off");
@@ -122,7 +129,7 @@ export const StoneWallItem = (props) => {
         }
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'stoneWallCover1':
                 return Images.STONE_WALL_PAGE_COVER_PIC_1;
@@ -139,7 +146,7 @@ export const StoneWallItem = (props) => {
         }
     }
 
-    const stoneWallOnClick = (e, path) => {
+    const stoneWallOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -154,18 +161,18 @@ export const StoneWallItem = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
         
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "curtain"){
             switch(isHovering){
                 case 'init':
@@ -215,8 +222,8 @@ export const StoneWallItem = (props) => {
     return(
         <div 
             className="stone-wall-item"
-            onMouseEnter={() => handleMouseEnter("curtain", null, isHovering)} 
-            onMouseLeave={() => handleMouseLeave("curtain", null, isHovering)}
+            onMouseEnter={() => handleMouseEnter("curtain")} 
+            onMouseLeave={() => handleMouseLeave("curtain")}
             style={{marginBottom: `${props.page === "galleryPage" ? 0 : 30}px`}}
             id={`stoneWallItemId${props.obj.id}`}
         >
