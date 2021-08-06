@@ -35,10 +35,17 @@ import {
 import * as Images from '../../../constants/images';
 
 /**
+ * Types
+ */
+
+import * as Types from './stoneWallWideItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * StoneWallWideItem component definition and export
  */
 
-export const StoneWallWideItem = (props) => {
+export const StoneWallWideItem: React.FC<Types.StoneWallWideItemProps> = (props) => {
 
     /**
      * State
@@ -54,7 +61,7 @@ export const StoneWallWideItem = (props) => {
      * Methods
      */
 
-    React.useEffect(() => {   
+    React.useEffect(() => {
         const resize = () => {
             resizeRef.current();
         } 
@@ -215,9 +222,9 @@ export const StoneWallWideItem = (props) => {
         if(e.button === 2) return;
         localStorage.setItem("pageHG", props.page);
         if(e.button !== 1){
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         props.unmountComponent(null, null,  props.page, e.button);
     }
@@ -229,9 +236,9 @@ export const StoneWallWideItem = (props) => {
         localStorage.setItem("pageHG", props.page);
         props.clearArchiveData();
         if(e.button !== 1){
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         props.unmountComponent(null, null,  props.page, e.button);
     }
