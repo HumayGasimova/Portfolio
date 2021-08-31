@@ -43,19 +43,26 @@ import {
 } from '../../../constants/socialMediaIcons';
 
 /**
+ * Types
+ */
+
+import * as Types from './teamInformationCardTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * TeamInformationCard component definition and export
  */
 
-export const TeamInformationCard = (props) => {
+export const TeamInformationCard: React.FC<Types.TeamInformationCardProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [isHovering, setIsHovering] = React.useState("init");
-    const [cardHeight, setCardHeight] = React.useState(0);
-    const [infoCardPadding, setInfoCardPadding] = React.useState({
+    const [isHovering, setIsHovering] = React.useState<string>("init");
+    const [cardHeight, setCardHeight] = React.useState<number>(0);
+    const [infoCardPadding, setInfoCardPadding] = React.useState<Types.InfoCardPadding>({
         left: 0,
         right: 0
     });
@@ -115,7 +122,7 @@ export const TeamInformationCard = (props) => {
         setIsHovering("off");
     }
 
-    const loadPhoto = (img) => {
+    const loadPhoto = (img: string) => {
         switch(img){
             case 'Photo1':
                 return Images.PHOTO_1; 
@@ -164,7 +171,7 @@ export const TeamInformationCard = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "teamInfoCard"){
             switch(isHovering){
                 case 'init':
@@ -215,7 +222,7 @@ export const TeamInformationCard = (props) => {
         )
     }
 
-    const renderInformationAboutMemeber = (version) => {
+    const renderInformationAboutMemeber = (version: string) => {
        switch(version) {
             case 'version1':
                 return(
@@ -243,7 +250,7 @@ export const TeamInformationCard = (props) => {
                         {renderSocialMediaIcons()}
                         <EH40/>
                         <EH40/>
-                </>
+                    </>
                 );
        }
     }
