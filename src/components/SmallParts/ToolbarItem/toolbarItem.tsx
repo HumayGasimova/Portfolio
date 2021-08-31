@@ -17,19 +17,26 @@ import './toolbarItem.scss';
 import {
     H15,
     EH20
- } from '../../UtilityComponents';
+} from '../../UtilityComponents';
+
+/**
+ * Types
+ */
+
+import * as Types from './toolbarItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
 
 /**
  * ToolbarItem component definition and export
  */
 
-export const ToolbarItem = (props) => {
-    
+export const ToolbarItem: React.FC<Types.ToolbarItemProps> = (props) => {
+
     /**
      * Methods
      */
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: boolean) => {
         if(opt === "arrow"){
             switch(isHovering){
                 case 'init':
@@ -70,7 +77,8 @@ export const ToolbarItem = (props) => {
         )
     }
 
-    const renderOptionItems = (obj) => {
+    const renderOptionItems = (obj: GeneralTypes.OptionsItem) => {
+        console.log(obj)
         return(
             <>{obj.array.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
@@ -79,7 +87,7 @@ export const ToolbarItem = (props) => {
                         <div 
                             key={i} 
                             className="toolbar-option-item"
-                            onMouseDown={(e) => props.itemOnClick("optionItem", el.path, pathOfIds, e)}
+                            onMouseDown={(e) => props.itemOnClick("optionItem", el.path, pathOfIds, e, null, null)}
                         >
                             {el.active ? 
                             <div className="arrow-wrapper-active">
@@ -184,7 +192,7 @@ export const ToolbarItem = (props) => {
         )
     }
 
-    const renderSubOptions = (subOptions, pathOfIds) => {
+    const renderSubOptions = (subOptions: Array<GeneralTypes.MenuItemsArrayItem>, pathOfIds: Array<number>) => {
         return(
             <div 
                 className="toolbar-item-sub-options"
@@ -198,7 +206,7 @@ export const ToolbarItem = (props) => {
                         <div 
                             key={i} 
                             className="toolbar-sub-option-item"
-                            onMouseDown={(e) => props.itemOnClick("subOptionItem", el.path, updatedPathOfIds, e, props.data.id)}
+                            onMouseDown={(e) => props.itemOnClick("subOptionItem", el.path, updatedPathOfIds, e, props.data.id, null)}
                         >
                             <div 
                                 className={renderClassName("text", el.isHover, el.active)}
