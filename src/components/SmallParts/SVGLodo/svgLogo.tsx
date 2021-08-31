@@ -21,7 +21,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  * SVGLogo component definition and export
  */
 
-export const SVGLogo = (props) => {
+export const SVGLogo: React.FC<Types.SVGLogoProps> = (props) => {
 
     /**
      * State
@@ -34,7 +34,6 @@ export const SVGLogo = (props) => {
      */
 
     React.useEffect(() => {
-        console.log("props", props)
     }, []);
     
     const handleMouseEnter = () => {
