@@ -19,16 +19,23 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './tagItemTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * TagItem component definition and export
  */
 
-export const TagItem = (props) => {
+export const TagItem: React.FC<Types.TagItemProps> = (props) => {
 
     /**
      * State
      */
  
-    const [tagIsHover, setTagIsHover] = React.useState("init");
+    const [tagIsHover, setTagIsHover] = React.useState<string>("init");
 
     /**
      * Methods
@@ -37,7 +44,7 @@ export const TagItem = (props) => {
     React.useEffect(() => {
     }, []);
     
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'tagItem':
                 setTagIsHover("on")
@@ -45,7 +52,7 @@ export const TagItem = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'tagItem':
                 setTagIsHover("off")
@@ -54,7 +61,7 @@ export const TagItem = (props) => {
         }
     }
 
-    const renderClassName = (opt, isHovering, active) => {
+    const renderClassName = (opt: string, isHovering: string, active: string) => {
         if(opt === "tagItem"){
             if(active === "on") return "tag-item-active";
             switch(isHovering){
