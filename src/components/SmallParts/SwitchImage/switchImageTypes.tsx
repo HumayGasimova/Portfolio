@@ -13,15 +13,15 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type SwitchImageProps = {
     alt: string,
-    component: string
-    history: History,
+    component: string,
     id: number,
     imagesArray: Array<GeneralTypes.ImagesArrayItem>,
     imgCoordinateRange: GeneralTypes.ItemsCoordinateRange,
-    location: Location,
-    match: match,
     option: string,
     path: string,
+    history: History,
+    location: Location,
+    match: match,
     staticContext: undefined,
     rememberCoordinateRange: (id: number, coordinateRange: GeneralTypes.CoordinateRangeObj) => {id: number, coordinateRange: GeneralTypes.CoordinateRangeObj},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},

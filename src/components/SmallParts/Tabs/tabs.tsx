@@ -43,8 +43,8 @@ export const Tabs = (props) => {
     const section2Tab4 = React.useRef(null);
     const resizeRef = React.useRef(null);
     const transitionRef = React.useRef(null);
-    const [widthOfTab, setWidthOfTab] = React.useState(0);
-    const [relode, setRelode] = React.useState(false);
+    const [widthOfTab, setWidthOfTab] = React.useState<number>(0);
+    const [relode, setRelode] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -166,7 +166,7 @@ export const Tabs = (props) => {
         props.rememberCoordinateRange(props.tabsKey, headerHolderCoordinateRange);
     }
     
-    const evaluateCoordinates = (tabId) => {
+    const evaluateCoordinates = (tabId: number) => {
         // Calculate tabs header holder coordinates
         
         let tabHeaderHolder = setRef(`${props.tabsKey}Tab${tabId}`);
@@ -184,7 +184,7 @@ export const Tabs = (props) => {
         return updatedTabsHeaderCoordinateRange;
     }
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
         /**
          * Check if the coordinates of the cursor are inside which tab,
          * and move the underline under the corresponding tab.
@@ -214,7 +214,7 @@ export const Tabs = (props) => {
         })
     }
 
-    const handleMouseLeave = (opt, tabsKey) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'tabsHeader':
 
@@ -257,7 +257,7 @@ export const Tabs = (props) => {
         }
     }
 
-    const tabItemOnClick = (e, path, id) => {
+    const tabItemOnClick = (e: React.MouseEvent, path: string, id: number) => {
         switch(e.button){
             case 0:
                 // Show and remember data of chosen tab on left mouse click
@@ -277,7 +277,7 @@ export const Tabs = (props) => {
         }
     }
 
-    const setRef = (tabKey) => {
+    const setRef = (tabKey: string) => {
         switch(tabKey){
             case 'section1Column1Tab1':
                 return section1Column1Tab1;
@@ -306,7 +306,7 @@ export const Tabs = (props) => {
         return(
             <div 
                 className="tabs-header-items"
-                onMouseLeave={() => handleMouseLeave("tabsHeader", props.tabsKey)}
+                onMouseLeave={() => handleMouseLeave("tabsHeader")}
             >{props.array.map((el, i) => {
                 return(
                     <div
@@ -333,7 +333,7 @@ export const Tabs = (props) => {
         }
     }
 
-    const renderLinesStyle = (tabKey) => {
+    const renderLinesStyle = (tabKey: string) => {
         switch(tabKey){
             case 'section1Column1':
                 return {
