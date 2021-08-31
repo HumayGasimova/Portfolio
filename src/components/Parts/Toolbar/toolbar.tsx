@@ -200,7 +200,7 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
                         }else{
                             console.log("itemId",itemId);
                             if(itemId === "blogListStandard" && props.blogListStandardPage.activeCategory.activated === "active"){
-                                props.activateListStandardBlogCategory("deactive", "");
+                                // props.activateListStandardBlogCategory("deactive", "");
                                 props.setUnmountComponentValues(false, path, null);
                             }
                             else if(itemId === "blogListStandard" && props.blogListStandardPage.activeItem.activated === "active"){

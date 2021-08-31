@@ -153,6 +153,7 @@ export const BlogInfoBoard: React.FC<Types.BlogInfoBoardProps> = (props) => {
 
             props.clearActivityOfMenuItems(null);
             props.activateBlogTag("active", key);
+            props.activateBlogCategory("deactive", "");
             props.activateBlogItem("deactive", "", null);
             props.history.push(`/crypto-portfolio/list-standard-blog-tag/${key}`);
         }else{

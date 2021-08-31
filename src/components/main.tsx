@@ -124,6 +124,9 @@ export const Main = (props) => {
          * Set all necessary information when initializing the application 
          */
 
+        let blogCategory;
+        let blogTag;
+         
         // Check environment
 
         console.log("ENV", process.env.ENVIRONMENT);
@@ -137,7 +140,7 @@ export const Main = (props) => {
 
         // Activate blog category
 
-        let blogCategory = Utility.activateBlogCategory(path);
+        blogCategory = Utility.activateBlogCategory(path);
         
         if(blogCategory.page === "listStandardBlogCategory"){
             props.activateListStandardBlogCategory("active", blogCategory.categoryName);
@@ -145,7 +148,7 @@ export const Main = (props) => {
 
         // Activate blog tag
 
-        let blogTag = Utility.activateBlogTag(path);
+        blogTag = Utility.activateBlogTag(path);
 
         if(blogCategory.page === "listStandardBlogTag"){
             props.activateListStandardBlogTag("active", blogTag.tagName);
@@ -181,6 +184,22 @@ export const Main = (props) => {
           
             if (action !== "POP" && location.pathname === "/crypto-portfolio/blog-list-standard"){
                 window.location.reload();
+            }
+
+            // Activate blog category on page POP
+
+            blogCategory = Utility.activateBlogCategory(location.pathname.slice(18));
+            
+            if(action === "POP" && blogCategory.page === "listStandardBlogCategory"){
+                props.activateListStandardBlogCategory("active", blogCategory.categoryName);
+            }
+
+            // Activate blog tag on page POP
+
+            blogTag = Utility.activateBlogTag(location.pathname.slice(18));
+
+            if(action === "POP" && blogCategory.page === "listStandardBlogTag"){
+                props.activateListStandardBlogTag("active", blogTag.tagName);
             }
 
             // Activate menu item according to the location pathname
