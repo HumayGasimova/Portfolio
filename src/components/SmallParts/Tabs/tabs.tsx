@@ -23,10 +23,17 @@ import {
 } from '../../UtilityComponents';
 
 /**
+ * Types
+ */
+
+import * as Types from './tabsTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Tabs component definition and export
  */
 
-export const Tabs = (props) => {
+export const Tabs: React.FC<Types.TabsProps> = (props) => {
     /**
      * State
      */
@@ -51,6 +58,7 @@ export const Tabs = (props) => {
      */
 
     React.useEffect(() => {
+        console.log(props)
         // Set underline width for active tab
 
         if(props.tabsKey === "section1Column1" && props.array.length !== 0){
@@ -162,7 +170,7 @@ export const Tabs = (props) => {
                 return evaluateCoordinates(el.id)
             });
         }
-
+        
         props.rememberCoordinateRange(props.tabsKey, headerHolderCoordinateRange);
     }
     

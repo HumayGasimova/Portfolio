@@ -11,7 +11,7 @@ import {
 
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
-export type SwitchImageProps = {
+export type TabsProps = {
     array: Array<TabsItem>,
     page: string,
     tabsKey: string,
@@ -21,7 +21,7 @@ export type SwitchImageProps = {
     location: Location,
     match: match,
     staticContext: undefined,
-    rememberCoordinateRange: (id: number, coordinateRange: GeneralTypes.CoordinateRangeObj) => {id: number, coordinateRange: GeneralTypes.CoordinateRangeObj},
+    rememberCoordinateRange: (key: string, coordinatesRanges: Array<GeneralTypes.ItemsCoordinateRange>) => {id: number, coordinateRange: Array<GeneralTypes.ItemsCoordinateRange>},
     setActiveTab: (val: string, id: number) => {val: string, id: number}
     setIsHoverTab: (val: string, id: number) => {val: string, id: number}
     updateTabsUnderlinesStyleValues: (tabsKey: string, obj: GeneralTypes.ItemsStyleValuesObj) => {tabsKey: string, obj: GeneralTypes.ItemsStyleValuesObj}

@@ -339,7 +339,8 @@ export type ItemsCoordinateRange = {
     rightCoordinate: number,
     topCoordinate: number,
     updated: boolean,
-    width: number
+    width: number,
+    key?: string
 }
 
 /**
