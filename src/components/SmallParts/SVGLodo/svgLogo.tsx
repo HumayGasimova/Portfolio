@@ -11,6 +11,13 @@ import * as React from 'react';
 import './svgLogo.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './svgLogoTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SVGLogo component definition and export
  */
 
@@ -20,13 +27,14 @@ export const SVGLogo = (props) => {
      * State
      */
  
-    const [svgHover, setSvgHover] = React.useState("init");
+    const [svgHover, setSvgHover] = React.useState<string>("init");
 
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log("props", props)
     }, []);
     
     const handleMouseEnter = () => {
@@ -37,7 +45,7 @@ export const SVGLogo = (props) => {
         setSvgHover("off");
     }
 
-    const renderSvgColor = (opt, isHover) => {
+    const renderSvgColor = (opt: string, isHover: string) => {
         if(['clientsPageSection1Swiper1', 'clientsPageSection1Swiper2'].includes(opt)){
             switch(isHover) {
                 case 'init':
@@ -60,7 +68,7 @@ export const SVGLogo = (props) => {
         }
     }
 
-    const renderSvg = (key) => {
+    const renderSvg = (key: string) => {
         switch(key){
             case 'Health&Co':
                 return (
@@ -749,8 +757,6 @@ export const SVGLogo = (props) => {
                 );
         }
     }
-
-    
 
     /**
      * Markup
