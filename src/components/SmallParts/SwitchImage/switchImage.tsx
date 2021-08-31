@@ -21,6 +21,13 @@ import './switchImage.scss';
 import * as Utility from '../../../utility';
 
 /**
+ * Types
+ */
+
+import * as Types from '././switchImageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+ 
+/**
  * Images
  */
 
@@ -30,14 +37,14 @@ import * as Images from '../../../constants/images';
  * SwitchImage component definition and export
  */
 
-export const SwitchImage = (props) => {
+export const SwitchImage: React.FC<Types.SwitchImageProps> = (props) => {
 
     /**
      * State
      */
 
     const resizeRef = React.useRef(null);
-    const [imgToLoad, setImgToLoad] = React.useState({
+    const [imgToLoad, setImgToLoad] = React.useState<GeneralTypes.ImagesArrayItem>({
         key: '',
         alt: ''
     });
@@ -82,7 +89,7 @@ export const SwitchImage = (props) => {
         setImageCoordinateRange();
     }
    
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
 
         /**
          * Split the image holder into equal parts equal to the number of elements in imagesArray,
@@ -143,7 +150,7 @@ export const SwitchImage = (props) => {
         return updatedImgCoordinateRange;
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'bw1':
                 return Images.BW_1;
@@ -462,7 +469,7 @@ export const SwitchImage = (props) => {
         }
     }
 
-    const renderClassName = (opt) => {
+    const renderClassName = (opt: string) => {
         switch(opt) {
             case 'pictureBoard':
                 return 'picture-board-image-item';
@@ -473,7 +480,7 @@ export const SwitchImage = (props) => {
         }
     }
 
-    const pictureBoardItemOnClick = (e, path) => {
+    const pictureBoardItemOnClick = (e: React.MouseEvent, path: string) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -488,11 +495,11 @@ export const SwitchImage = (props) => {
              * information of the unmounted component on left mouse click 
              */
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click
 
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 

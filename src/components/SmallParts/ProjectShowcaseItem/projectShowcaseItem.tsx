@@ -138,7 +138,7 @@ export const ProjectShowcaseItem: React.FC<Types.ProjectShowcaseItemProps> = (pr
         }
     }
     
-    const handleOnWheel = (e: React.WheelEvent) => {
+    const handleOnWheel = () => {
         let scrollHeight = document.body.scrollTop;
         let portfolioProjectShowcasePageId1BackgroundImg1 = document.getElementById("portfolioProjectShowcasePageId1BackgroundImg1");
         let portfolioProjectShowcasePageId2BackgroundImg1 = document.getElementById("portfolioProjectShowcasePageId2BackgroundImg1");

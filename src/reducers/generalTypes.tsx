@@ -104,10 +104,10 @@ export type CommentsItem = {
 }
 
 export type ImagesArrayItem = {
-    id: number,
+    id?: number,
     key: string,
     isHover?: string,
-    imageName: string,
+    imageName?: string,
     folderName?: string,
     alt?: string
 }
@@ -436,4 +436,18 @@ export type PortfolioItemObj = {
     portfolioType: string,
     alt?: string,
     pictures?: Array<ImagesArrayItem>
+}
+
+/**
+ * CoordinateRangeObj
+ */
+
+export type CoordinateRangeObj = {
+    id: number,
+    topCoordinate: number,
+    bottomCoordinate: number,
+    leftCoordinate: number,
+    rightCoordinate: number,
+    width: number,
+    updated: boolean
 }
