@@ -85,20 +85,27 @@ import {
 } from '../../../constants/inputForm';
 
 /**
+ * Types
+ */
+
+import * as Types from './searchResultPageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * SearchResultPage component definition and export
  */
 
-export const SearchResultPage = (props) => {
+export const SearchResultPage: React.FC<Types.SearchResultPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
-    const [showComponent, setShowComponent] = React.useState(false);
-    const [searchIsHover, setSearchIsHover] = React.useState("init");
-    const [fakeDataLoading, setFakeDataLoading] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
+    const [showComponent, setShowComponent] = React.useState<boolean>(false);
+    const [searchIsHover, setSearchIsHover] = React.useState<string>("init");
+    const [fakeDataLoading, setFakeDataLoading] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -107,7 +114,7 @@ export const SearchResultPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Init imput forms
 
@@ -137,7 +144,7 @@ export const SearchResultPage = (props) => {
         fakeDataLoading
     ]);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("searchResultPage");
 
@@ -201,7 +208,7 @@ export const SearchResultPage = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt) => {
+    const handleMouseEnter = (opt: string) => {
         switch(opt){
             case 'searchIcon':
                 setSearchIsHover("on")
@@ -209,7 +216,7 @@ export const SearchResultPage = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt) => {
+    const handleMouseLeave = (opt: string) => {
         switch(opt){
             case 'searchIcon':
                 setSearchIsHover("off")
@@ -225,7 +232,7 @@ export const SearchResultPage = (props) => {
         }
     }
 
-    const onSearchClick = (e) => {
+    const onSearchClick = (e: React.MouseEvent) => {
         // Do nothing on right mouse click
 
         if(e.button === 2) return;
@@ -295,7 +302,7 @@ export const SearchResultPage = (props) => {
         });
     }
 
-    const fetchFakeData = (fakeData, activePageId, infoFromSearch) => {
+    const fetchFakeData = (fakeData: Array<GeneralTypes.BlogListStandardPageItem>, activePageId : number, infoFromSearch: GeneralTypes.SearchInfoObj) => {
         let info = infoFromSearch;
 
         let searchResultPage = [...fakeData];
@@ -320,19 +327,19 @@ export const SearchResultPage = (props) => {
         props.initSearchResultPagePagination(updatedJson.searchResult.numberOfPages);
     }
     
-    const inputChangeHandler = (e, inputFieldId, inputForm) => {
+    const inputChangeHandler = (e: React.MouseEvent, inputFieldId: number, inputForm: string) => {
         // Set input value and check validation
 
         props.setInputFiledValueAndCheckValidationThroughWebsite(props.searchResultPage.searchInputForm, e, inputFieldId, `${inputForm}`);
     }
 
-    const clearInputValue = (fieldId) => {
+    const clearInputValue = (fieldId: string) => {
         // Clear input value
 
         (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
-    const renderSearchForm = (searchInputForm) => {
+    const renderSearchForm = (searchInputForm: GeneralTypes.InputForm) => {
         if(searchInputForm.inputsArray){
             return(
                 <>{searchInputForm.inputsArray.map((el, i)=>{
@@ -376,7 +383,7 @@ export const SearchResultPage = (props) => {
         }
     }
 
-    const setPageData = (page, opt) => {
+    const setPageData = (page: string, opt: string) => {
         switch(opt){
             case 'clearState':
                 switch(page){
@@ -405,7 +412,7 @@ export const SearchResultPage = (props) => {
         }
     }
 
-    const renderResult = (arr) => {
+    const renderResult = (arr: Array<GeneralTypes.BlogListStandardPageItem>) => {
         return(
             <div className="search-result-page-result-wrapper">{arr.map((el, i) => {
                 return(
@@ -427,7 +434,7 @@ export const SearchResultPage = (props) => {
         )
     }
 
-    const renderSearchResultDataContent = (data) => {
+    const renderSearchResultDataContent = (data: GeneralTypes.SearchInputFormResponseObj) => {
         if(data.loading && !data.error){
             return(
                 <div 
@@ -452,7 +459,7 @@ export const SearchResultPage = (props) => {
                         pagesArray={props.searchResultPage.pagesArray}
                         fetchPageData={props.fetchSearchThroughWebsiteResutData}
                         fakeData={FakeData.searchResultPage}
-                        fetchFakeData={(fakeData, activePageId, infoFromSearch) => fetchFakeData(fakeData, activePageId, infoFromSearch)}
+                        fetchFakeData={(fakeData, activePageId, infoFromSearch) => fetchFakeData(fakeData, activePageId, infoFromSearch as GeneralTypes.SearchInfoObj)}
                         activatePageNumber={props.activatePageNumberForSearchResultPage}
                     />
                 </>
@@ -500,10 +507,11 @@ export const SearchResultPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             searchResultPage: Selectors.getSearchResultPageState(state),
+            showBackToTop: Selectors.getShowBackToTopState(state),
         };
     },
     (dispatch) => {

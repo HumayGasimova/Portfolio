@@ -27,12 +27,12 @@ export type BlogInfoBoardProps = {
     clearState: () => void,
     fetchBlogRecentPostsData: (page: string) => void,
     fetchFakeData: (array: Array<GeneralTypes.BlogListStandardPageItem & Active>) => {array: Array<GeneralTypes.BlogListStandardPageItem & Active>},
-    fetchSearchThroughWebsiteResutData: (info: Info, activePageId: number) => {info: Info, activePageId: number},
+    fetchSearchThroughWebsiteResutData: (info: GeneralTypes.SearchInfoObj, activePageId: number) => {info: GeneralTypes.SearchInfoObj, activePageId: number},
     search: () => void,
     activateBlogCategory: (categoryIsActive: string, categoryName: string) => {categoryIsActive: string, categoryName: string},
     activateBlogItem: (itemIsActive: string, itemKey: string, cardType: string) => {itemIsActive: string, itemKey: string, cardType: string},
     initSearchResultPagePagination: (numOfPages: number) => {numOfPages: number},
-    fetchSearchThroughWebsiteResutDataSuccess: (obj: GeneralTypes.SearchThroughWebsite) => {obj: GeneralTypes.SearchThroughWebsite},
+    fetchSearchThroughWebsiteResutDataSuccess: (obj: GeneralTypes.SearchThroughWebsiteObj) => {obj: GeneralTypes.SearchThroughWebsiteObj},
     activateBlogTag: (tagIsActive: string, tagName: string) => {tagIsActive: string, tagName: string},
     setInputFiledValueAndCheckValidation: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
@@ -47,12 +47,6 @@ type RecentPostsListObj = {
 
 type Active = {
     active: boolean
-}
-
-type Info = {
-    id: string,
-    searchValue: string,
-    page: string
 }
 
 // export interface match<P> {

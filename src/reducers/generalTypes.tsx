@@ -405,12 +405,12 @@ export type PostBlogData = {
  * SearchThroughWebsite
  */
 
- export type SearchThroughWebsite = {
+export type SearchThroughWebsiteObj = {
     searchInfo: SearchInfoObj,
     searchResult: SearchResultObj
 }
 
-type SearchInfoObj = {
+export type SearchInfoObj = {
     id: string,
     page: string,
     searchValue: string
@@ -451,4 +451,22 @@ export type CoordinateRangeObj = {
     rightCoordinate: number,
     width: number,
     updated: boolean
+}
+
+/**
+ * SearchResultPage
+ */
+
+export type SearchResultPageState = {
+    searchInputForm: InputForm,
+    searchInputFormResponse: SearchInputFormResponseObj,
+    activePageId: number,
+    pagesArray: Array<PagesArrayItem>,
+}
+
+
+export type SearchInputFormResponseObj = {
+    error: any,
+    item: SearchThroughWebsiteObj,
+    loading: boolean,
 }

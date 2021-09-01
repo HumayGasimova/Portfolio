@@ -11,10 +11,17 @@ import * as React from 'react';
 import './processPage.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './processPageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * ProcessPage component definition and export
  */
 
-export const ProcessPage = () => {
+export const ProcessPage: React.FC<Types.ProcessPageProps> = (props) => {
 
     /**
      * Methods
