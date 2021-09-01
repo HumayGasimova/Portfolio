@@ -11,10 +11,17 @@ import * as React from 'react';
 import './aboutUsPage.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './aboutUsPageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * AboutUsPage component definition and export
  */
 
-export const AboutUsPage = () => {
+export const AboutUsPage: React.FC<Types.AboutUsPageProps> = (props) => {
 
     /**
      * Methods
