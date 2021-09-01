@@ -110,16 +110,24 @@ import * as Selectors from '../reducers/selectors';
 import * as Utility from '../utility';
 
 /**
+ * Types
+ */
+
+import * as Types from './mainTypes';
+import * as GeneralTypes from '../reducers/generalTypes';
+
+/**
  * Main component definition and export
  */
 
-export const Main = (props) => {
+export const Main: React.FC<Types.MainProps> = (props) => {
    
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        
         /**
          * Set all necessary information when initializing the application 
          */
@@ -135,7 +143,7 @@ export const Main = (props) => {
         
         let path = props.location.pathname.slice(18);
         let pathOfIds = Utility.findPathOfIds(path);
-        props.clearActivityOfMenuItems();
+        props.clearActivityOfMenuItems(null);
         props.activateMenuItem(pathOfIds);
 
         // Activate blog category
