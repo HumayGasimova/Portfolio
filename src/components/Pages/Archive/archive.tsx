@@ -408,7 +408,6 @@ export const Archive = (props) => {
     }
 
     const renderCategories = (obj: GeneralTypes.ArchiveItem) => {
-        console.log(obj)
         return(
             <div className="archive-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
