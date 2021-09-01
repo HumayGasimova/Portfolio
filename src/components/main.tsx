@@ -127,7 +127,7 @@ export const Main: React.FC<Types.MainProps> = (props) => {
      */
 
     React.useEffect(() => {
-        
+
         /**
          * Set all necessary information when initializing the application 
          */
@@ -594,7 +594,7 @@ export const Main: React.FC<Types.MainProps> = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             unmountComp: Selectors.getUnmountComponentState(state),
