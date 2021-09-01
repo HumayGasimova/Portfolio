@@ -82,6 +82,13 @@ import * as FakeData from '../../../fakeData';
 import * as Environment from '../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './archiveTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * Archive component definition and export
  */
 
@@ -536,7 +543,7 @@ export const Archive = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             archive: Selectors.getArchiveState(state),

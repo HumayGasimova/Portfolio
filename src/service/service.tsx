@@ -309,6 +309,7 @@ export function fetchArchive(category, step) {
                     dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
                 }
                 else{
+                  
                     dispatch(Actions.loadMoreArchiveDataSuccess(json.archiveData));
                     dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
                 }
