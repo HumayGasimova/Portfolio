@@ -198,7 +198,6 @@ export const Toolbar: React.FC<Types.ToolbarProps> = (props) => {
                         if(currentItemId === pathOfIds[1]){
                             return;
                         }else{
-                            console.log("itemId",itemId);
                             if(itemId === "blogListStandard" && props.blogListStandardPage.activeCategory.activated === "active"){
                                 // props.activateListStandardBlogCategory("deactive", "");
                                 props.setUnmountComponentValues(false, path, null);

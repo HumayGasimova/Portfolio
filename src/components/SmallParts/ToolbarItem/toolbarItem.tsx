@@ -78,7 +78,6 @@ export const ToolbarItem: React.FC<Types.ToolbarItemProps> = (props) => {
     }
 
     const renderOptionItems = (obj: GeneralTypes.OptionsItem) => {
-        console.log(obj)
         return(
             <>{obj.array.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
