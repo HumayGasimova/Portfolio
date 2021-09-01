@@ -299,29 +299,29 @@ export function fetchArchive(category, step) {
                 step: step
             })
         })
-            // .then(handleErrors)
-            .then(res => res.json()) // to debug instead of json write text
-            .then(json => {
-                if(step === 1){
-                    dispatch(Actions.fetchArchiveSuccess(json.archiveData));
-                    dispatch(Actions.setArchiveCategory(json.category));
-                    dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
-                }
-                else{
-                  
-                    dispatch(Actions.loadMoreArchiveDataSuccess(json.archiveData));
-                    dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
-                }
-                // return json;
-            })
-            .catch(error => {
-                console.log("error",error)
-                if(step === 1){
-                    dispatch(Actions.fetchArchiveFailur(error))
-                }else{
-                    dispatch(Actions.loadMoreArchiveDataFailur(error))
-                }
-            });
+        // .then(handleErrors)
+        .then(res => res.json()) // to debug instead of json write text
+        .then(json => {
+            if(step === 1){
+                dispatch(Actions.fetchArchiveSuccess(json.archiveData));
+                dispatch(Actions.setArchiveCategory(json.category));
+                dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
+            }
+            else{
+                
+                dispatch(Actions.loadMoreArchiveDataSuccess(json.archiveData));
+                dispatch(Actions.loadMoreDisableButtonStateForArchive(json.disableLoadMoreButton));
+            }
+            // return json;
+        })
+        .catch(error => {
+            console.log("error",error)
+            if(step === 1){
+                dispatch(Actions.fetchArchiveFailur(error))
+            }else{
+                dispatch(Actions.loadMoreArchiveDataFailur(error))
+            }
+        });
     };
 }
 

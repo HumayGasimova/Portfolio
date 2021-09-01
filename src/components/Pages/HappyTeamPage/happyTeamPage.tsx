@@ -11,10 +11,17 @@ import * as React from 'react';
 import './happyTeamPage.scss';
 
 /**
+ * Types
+ */
+
+import * as Types from './happyTeamPageTypes';
+import * as GeneralTypes from '../../../reducers/generalTypes';
+
+/**
  * HappyTeamPage component definition and export
  */
 
-export const HappyTeamPage = () => {
+export const HappyTeamPage: React.FC<Types.HappyTeamPageProps> = (props) => {
 
     /**
      * Methods

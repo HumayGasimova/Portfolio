@@ -92,7 +92,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
  * Archive component definition and export
  */
 
-export const Archive = (props) => {
+export const Archive: React.FC<Types.AboutUsPageProps> = (props) => {
 
     /**
      * State
@@ -108,7 +108,7 @@ export const Archive = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
  
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -363,11 +363,11 @@ export const Archive = (props) => {
              * information of the unmounted component on left mouse click 
              */ 
 
-            props.setUnmountComponentValues(true, path);
+            props.setUnmountComponentValues(true, path, null);
         }else{
             // Remember information of the unmounted component on scroll wheel click 
             
-            props.setUnmountComponentValues(false, path);
+            props.setUnmountComponentValues(false, path, null);
         }
         // Fire up unmountComponent epic
 
