@@ -302,7 +302,6 @@ export function fetchArchive(category, step) {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                console.log("JSON",json)
                 if(step === 1){
                     dispatch(Actions.fetchArchiveSuccess(json.archiveData));
                     dispatch(Actions.setArchiveCategory(json.category));
