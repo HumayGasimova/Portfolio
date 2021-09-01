@@ -99,7 +99,7 @@ export const Archive = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
 
     /**
      * Methods
@@ -170,7 +170,7 @@ export const Archive = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("archive");
 
@@ -198,7 +198,7 @@ export const Archive = (props) => {
         return e.deltaY < 0;
     }
 
-    const loadImg = (key) => {
+    const loadImg = (key: string) => {
         switch(key) {
             case 'graphicDesignCover1':
             case 'designCover1':
@@ -260,7 +260,7 @@ export const Archive = (props) => {
         }
     }
 
-    const handleMouseEnter = (opt, id, pathOfIds) => {
+    const handleMouseEnter = (opt: string, id: number, pathOfIds: Array<number>) => {
         switch(opt){
             case 'image': 
                 props.setArchiveIsHoveringImage("on", id);
@@ -271,7 +271,7 @@ export const Archive = (props) => {
         }
     }
 
-    const handleMouseLeave = (opt, id, pathOfIds) => {
+    const handleMouseLeave = (opt: string, id: number, pathOfIds: Array<number>) => {
         switch(opt){
             case 'image': 
                 props.setArchiveIsHoveringImage("off", id);
@@ -282,7 +282,7 @@ export const Archive = (props) => {
         }
     }
     
-    const renderClassName = (opt, isHovering) => {
+    const renderClassName = (opt: string, isHovering: string) => {
         if(opt === "image"){
             switch(isHovering){
                 case 'init':
@@ -341,7 +341,7 @@ export const Archive = (props) => {
         }
     }
 
-    const onClickHandler = (opt, path, key, e) => {
+    const onClickHandler = (opt: string, path: string, key: string | null, e: React.MouseEvent) => {
         // Do nothing on right mouse click 
 
         if(e.button === 2) return;
@@ -374,7 +374,7 @@ export const Archive = (props) => {
         props.unmountComponent(key, path, "archive", e.button);
     }
    
-    const loadMoreDataOnClick = (categoryFromParam, step) => {
+    const loadMoreDataOnClick = (categoryFromParam: string, step: number) => {
         if(process.env.ENVIRONMENT === Environment.PRODUCTION){
             // Fetch mock data (not required to run -> npm run server)
 
@@ -407,7 +407,8 @@ export const Archive = (props) => {
         }
     }
 
-    const renderCategories = (obj) => {
+    const renderCategories = (obj: GeneralTypes.ArchiveItem) => {
+        console.log(obj)
         return(
             <div className="archive-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];
