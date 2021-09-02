@@ -53,10 +53,17 @@ import {
 } from '../../../../Hooks/useWindowSize';
 
 /**
+ * Types
+ */
+
+import * as Types from './homeTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * Home component definition and export
  */
 
-export const Home = (props) => {
+export const Home: React.FC<Types.HomeProps> = (props) => {
 
     /**
      * State
@@ -72,7 +79,7 @@ export const Home = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Scroll to the top of the screen
 
@@ -94,7 +101,7 @@ export const Home = (props) => {
 
 
 
-    const checkScrollDirection = (e) => {
+    const checkScrollDirection = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("home");
 
@@ -185,7 +192,7 @@ export const Home = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             photoViewerForPictureBoardTextItemOpen: Selectors.getPhotoViewerForPictureBoardTextItemOpenState(state),
