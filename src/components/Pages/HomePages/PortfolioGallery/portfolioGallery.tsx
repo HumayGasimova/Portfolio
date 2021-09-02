@@ -72,110 +72,18 @@ import {
 import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
-// interface PortfolioGalleryProps {
-//     archive: Archive;
-//     history: any;
-//     historyPopFromItem: string;
-//     location: any;
-//     match: any;
-//     menuDotsState: MenuDotsState;
-//     portfolioGalleryPage: PortfolioGalleryPage;
-//     showBackToTop: boolean;
-//     staticContext: any;
-//     clearArchiveData: () => void;
-//     fetchPortfolioGalleryPage: () => void;
-//     fetchPortfolioGalleryPageSuccess: (array: Array<PortfolioGalleryItems>) => void;
-//     forgetCoordinateRangeForPortfolioGalleryPage: (arr: Array<PortfolioGalleryItemsCoordinateRange>) => void;
-//     rememberCoordinateRangeForPortfolioGalleryPage: (id: number, coordinateRange: PortfolioGalleryItemsCoordinateRange) => void;
-//     setMenuDotsState: (val: string, page: string) => void;
-//     setPortfolioGalleryPageIsHoveringCategory: (val: string, pathOfIds: Array<number>) => void;
-//     setShowBackToTopComponent: (val: boolean) => void;
-//     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => void;
-//     unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => void;
-// }
+/**
+ * Types
+ */
 
-// interface Archive {
-//     category: string;
-//     disableLoadMoreButton: boolean;
-//     error: any;
-//     errorMoreData: any;
-//     items?: Array<PortfolioGalleryArchiveItems>;
-//     loading: boolean;
-//     loadingMoreData: boolean;
-// }
-
-// interface PortfolioGalleryPage {
-//     error: any;
-//     items?: Array<PortfolioGalleryItems>
-//     itemsCoordinateRange: Array<PortfolioGalleryItemsCoordinateRange>
-//     loading: boolean;
-// }
-
-// interface MenuDotsState {
-//     page: string;
-//     state: string;
-// }
-
-// interface PortfolioGalleryArchiveItems {
-//     categories: Array<Categories>;
-//     coverImage: PortfolioGalleryArchiveItemsCoverImage
-//     header: string;
-//     id: number;
-//     key: string;
-//     path: string;
-// }
-
-// interface PortfolioGalleryArchiveItemsCoverImage {
-//     alt: string;
-//     folderName: string;
-//     id: number;
-//     imageName: string;
-//     isHover: string;
-//     key: string;
-// }
-
-// interface PortfolioGalleryItems {
-//     arrowIsHovering: string;
-//     categories: Array<Categories>;
-//     id: number;
-//     key: string;
-//     option: string;
-//     path: string;
-//     pictures: Array<PortfolioGalleryItemsPictures>;
-//     portfolioType: string;
-// }
-
-// interface Categories {
-//     id: number;
-//     isHover: string;
-//     key: string;
-//     label: string;
-//     path: string;
-// }
-
-// interface PortfolioGalleryItemsPictures {
-//     alt: string;
-//     folderName: string;
-//     id: number;
-//     imageName: string;
-//     key: string;
-// }
-
-// interface PortfolioGalleryItemsCoordinateRange {
-//     id: number;
-//     leftCoordinate?: number;
-//     rightCoordinate?: number;
-//     topCoordinate?: number;
-//     bottomCoordinate?: number;
-//     updated: boolean;
-//     width?: number;
-// }
+import * as Types from './portfolioGalleryTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
 
 /**
  * PortfolioGallery component definition and export
  */
 
-export const PortfolioGallery = (props) => {
+export const PortfolioGallery: React.FC<Types.PortfolioGalleryProps> = (props) => {
 
     /**
      * State
@@ -184,7 +92,7 @@ export const PortfolioGallery = (props) => {
     const size = useWindowSize();
     const resizeRef = React.useRef(null);
   
-    const initCoordinateRange = [
+    const initCoordinateRange: Array<GeneralTypes.ItemsCoordinateRange> = [
         {
             id: 1,
             updated: false
@@ -265,7 +173,7 @@ export const PortfolioGallery = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-        console.log(props)
+        
         props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
@@ -321,7 +229,7 @@ export const PortfolioGallery = (props) => {
         props.forgetCoordinateRangeForPortfolioGalleryPage(initCoordinateRange);
     }
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
 
         // Show or hide BackToTop component
@@ -432,7 +340,7 @@ export const PortfolioGallery = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             portfolioGalleryPage: Selectors.getPortfolioGalleryPageState(state),

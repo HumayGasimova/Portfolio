@@ -333,13 +333,13 @@ export type ColumnsWidePageObj = {
 }
 
 export type ItemsCoordinateRange = {
-    bottomCoordinate: number,
+    bottomCoordinate?: number,
     id: number,
-    leftCoordinate: number,
-    rightCoordinate: number,
-    topCoordinate: number,
+    leftCoordinate?: number,
+    rightCoordinate?: number,
+    topCoordinate?: number,
     updated: boolean,
-    width: number,
+    width?: number,
     key?: string
 }
 
@@ -469,4 +469,24 @@ export type SearchInputFormResponseObj = {
     error: any,
     item: SearchThroughWebsiteObj,
     loading: boolean,
+}
+
+/**
+ * MenuDostsState
+ */
+
+export type MenuDotsStateObj = {
+    page: string,
+    state: string,
+}
+
+/**
+ * PortfolioGalleryPage state
+ */
+
+export type PortfolioGalleryPageState = {
+    items: Array<ColumnsPageObjItem>,
+    loading: boolean,
+    error: any,
+    itemsCoordinateRange: Array<ItemsCoordinateRange>
 }
