@@ -72,10 +72,17 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './accordionsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * AccordionsPage component definition and export
  */
 
-export const AccordionsPage = (props) => {
+export const AccordionsPage: React.FC<Types.AccordionsPageProps> = (props) => {
 
     /**
      * State
@@ -91,7 +98,7 @@ export const AccordionsPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -136,7 +143,7 @@ export const AccordionsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("accordionsPage");
 
@@ -200,7 +207,7 @@ export const AccordionsPage = (props) => {
         }
     }
 
-    const renderAccordionsPageSection1Data = (arr) => {
+    const renderAccordionsPageSection1Data = (arr: Array<GeneralTypes.AccordionItemObj>, opt: string) => {
         return(
             <div className="accordions-page-section1-items">{arr.map((el, i) => {
                 return(
@@ -208,10 +215,9 @@ export const AccordionsPage = (props) => {
                         <AccordionItem 
                             style="simple"
                             obj={el}
-                            hoverEffect={null}
-                            setIsHoverAccordionItem={null}
                             activateAccordionItem={props.setActivitySection1ItemAccordionsPage}
                             iconType="plusIcon"
+                            option={opt}
                         />
                     </div>
                 )
@@ -255,9 +261,9 @@ export const AccordionsPage = (props) => {
         if(!props.accordionsPage.section1Data.loading && !props.accordionsPage.section1Data.error){
             return(
                 <div className="accordions-page-section1-data-wrapper">
-                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsLeftColumn)}
+                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsLeftColumn, "leftColumn")}
                     <EW70/>
-                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsRightColumn)}
+                    {renderAccordionsPageSection1Data(props.accordionsPage.section1Data.itemsRightColumn, "rightColumn")}
                 </div>
             )
         }
@@ -328,7 +334,7 @@ export const AccordionsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             accordionsPage: Selectors.getAccordionsPageState(state),

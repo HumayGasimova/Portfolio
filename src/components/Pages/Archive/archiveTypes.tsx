@@ -47,7 +47,7 @@ export type MapDispatchToPropsTypes = {
     setArchiveIsHoveringImage: (val: string, id: number) => {val: string, id: number},
     setArchiveIsHoveringCategory: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
-    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number}
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number},
     clearArchiveData: () => void,
     setShowBackToTopComponent: (val: boolean) => {val: boolean}
 }

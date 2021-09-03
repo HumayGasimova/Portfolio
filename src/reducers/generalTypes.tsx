@@ -490,3 +490,34 @@ export type PortfolioGalleryPageState = {
     error: any,
     itemsCoordinateRange: Array<ItemsCoordinateRange>
 }
+
+/**
+ * AccordionsPage state
+ */
+
+export type AccordionsPageState = {
+    section1Data: Section1DataObj,
+    section2Data: Section2DataObj
+}
+
+type Section1DataObj = {
+    itemsLeftColumn: Array<AccordionItemObj>,
+    itemsRightColumn: Array<AccordionItemObj>,
+    loading: boolean,
+    error: any
+}
+
+type Section2DataObj = {
+    items: Array<AccordionItemObj>,
+    loading: boolean,
+    error: any
+}
+
+export type AccordionItemObj = {
+    active: string,
+    header: string,
+    id: number,
+    key: string,
+    text: string,
+    isHover?: string
+}
