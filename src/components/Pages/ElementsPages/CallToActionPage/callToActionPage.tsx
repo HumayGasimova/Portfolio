@@ -68,17 +68,24 @@ import {
 } from '../../../../Hooks/useWindowSize';
 
 /**
+ * Types
+ */
+
+import * as Types from './callToActionPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * CallToActionPage component definition and export
  */
 
-export const CallToActionPage = (props) => {
+export const CallToActionPage: React.FC<Types.CallToActionPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -87,7 +94,7 @@ export const CallToActionPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Scroll to the top of the screen
 
@@ -106,7 +113,7 @@ export const CallToActionPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("callToActionPage");
 
@@ -170,7 +177,7 @@ export const CallToActionPage = (props) => {
         }
     }
 
-    const onMouseDownHandler = (e, path) => {
+    const onMouseDownHandler = (e: React.MouseEvent, path: string) => {
         switch(e.button){
             case 0:
                 // Scroll to the top of the page on left mouse click
@@ -240,21 +247,23 @@ export const CallToActionPage = (props) => {
         </div>   
     );
 }
-
-export default connect(
-    (state) => {
-        return {
-            menuDotsState: Selectors.getMenuDotsStateState(state),
-            showBackToTop: Selectors.getShowBackToTopState(state),
-        };
-    },
-    (dispatch) => {
-        return {
-            setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
-            unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
-            setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
-            setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
-        };
-    }
-)(withRouter(CallToActionPage));
+ 
+export default withRouter(
+    connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
+        (state) => {
+            return {
+                menuDotsState: Selectors.getMenuDotsStateState(state),
+                showBackToTop: Selectors.getShowBackToTopState(state),
+            };
+        },
+        (dispatch) => {
+            return {
+                setUnmountComponentValues: bindActionCreators(Actions.setUnmountComponentValues, dispatch),
+                unmountComponent: bindActionCreators(Actions.unmountComponent, dispatch),
+                setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
+                setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch)
+            };
+        }
+    )(CallToActionPage)
+);
  
