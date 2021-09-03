@@ -1,7 +1,7 @@
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type MetroItemProps = {
-    obj: GeneralTypes.PortfolioItemObj,
+    obj: GeneralTypes.BannerItemObj,
     page: string,
     clearArchiveData: () => void,
     setIsHoveringCategory: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>}

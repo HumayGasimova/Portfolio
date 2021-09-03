@@ -259,7 +259,7 @@ export const StandardPortfolioItem: React.FC<Types.StandardPortfolioItemProps> =
         }
     }
     
-    const renderCategories = (obj: GeneralTypes.ColumnsPageObjItem) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="standard-portfolio-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

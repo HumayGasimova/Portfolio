@@ -1,7 +1,7 @@
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type SlideFromImageLeftProps = {
-    obj: GeneralTypes.ColumnsPageObjItem
+    obj: GeneralTypes.BannerItemObj
     page: string,
     currentPagePathName?: string,
     clearArchiveData: ()=> void,

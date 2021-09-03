@@ -1,7 +1,7 @@
 import * as GeneralTypes from '../../../reducers/generalTypes';
 
 export type OverlayImageProps = {
-    obj: GeneralTypes.PortfolioItemObj,
+    obj: GeneralTypes.BannerItemObj,
     page: string,
     currentPagePathName?: string,
     clearArchiveData?: () => void,

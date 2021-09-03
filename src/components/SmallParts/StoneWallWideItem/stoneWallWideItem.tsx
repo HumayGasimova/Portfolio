@@ -286,7 +286,7 @@ export const StoneWallWideItem: React.FC<Types.StoneWallWideItemProps> = (props)
         }
     }
 
-    const renderCategories = (obj: GeneralTypes.ColumnsPageObjItem) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="stone-wall-wide-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

@@ -70,7 +70,7 @@ export const Home: React.FC<Types.HomeProps> = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
 
     /**
      * Methods

@@ -129,7 +129,7 @@ export const PortfolioItemCard: React.FC<Types.PortfolioItemCardProps> = (props)
         props.unmountComponent(key, path, props.component, e.button);
     }
 
-    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="portfolio-item-card-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

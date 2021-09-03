@@ -253,12 +253,12 @@ export type ArchiveItem = {
 
 export type PortfoliObj = {
     error: any,
-    item: PortfoliItemObj,
+    item: PortfolioItemObj,
     loading: boolean,
     swiper?: SwiperObj
 }
 
-export type PortfoliItemObj = {
+export type PortfolioItemObj = {
     categories: Array<CategoriesItem>,
     date: string,
     header: string,
@@ -279,7 +279,7 @@ export type ColumnsPageObj = {
     disableLoadMoreButton: boolean,
     error: any,
     errorMoreData: any,
-    items: Array<ColumnsPageObjItem>,
+    items: Array<BannerItemObj>,
     itemsStyleValues: ItemsStyleValuesObj
     itemsTopPosition: Array<ItemsTopPositionItem>
     loadMoreStep: number,
@@ -290,19 +290,6 @@ export type ColumnsPageObj = {
 type ArrayOfDisappearAndAppearElementsItem= {
     id: number,
     disappear: boolean
-}
-
-export type ColumnsPageObjItem = {
-    arrowIsHovering: string,
-    categories: Array<CategoriesItem>,
-    coverImage?: CoverImageObj,
-    header?: string,
-    id: number,
-    key: string,
-    option: string,
-    path: string,
-    portfolioType: string,
-    pictures?: Array<ImagesArrayItem>
 }
 
 export type ItemsStyleValuesObj = {
@@ -328,7 +315,7 @@ export type ItemsTopPositionItem = {
 
 export type ColumnsWidePageObj = {
     error: any,
-    items: Array<ColumnsPageObjItem>,
+    items: Array<BannerItemObj>,
     loading: boolean,
 }
 
@@ -425,19 +412,7 @@ type SearchResultObj = {
  * Portfolio Item Obj
  */
 
-export type PortfolioItemObj = {
-    arrowIsHovering: string,
-    categories: Array<CategoriesItem>,
-    coverImage?: CoverImageObj,
-    header?: string,
-    id: number,
-    key: string,
-    option: string,
-    path: string,
-    portfolioType: string,
-    alt?: string,
-    pictures?: Array<ImagesArrayItem>
-}
+
 
 /**
  * CoordinateRangeObj
@@ -485,7 +460,7 @@ export type MenuDotsStateObj = {
  */
 
 export type PortfolioGalleryPageState = {
-    items: Array<ColumnsPageObjItem>,
+    items: Array<BannerItemObj>,
     loading: boolean,
     error: any,
     itemsCoordinateRange: Array<ItemsCoordinateRange>
@@ -520,4 +495,45 @@ export type AccordionItemObj = {
     key: string,
     text: string,
     isHover?: string
+}
+
+/**
+ * BannerPage state
+ */
+
+export type BannerPageState = {
+    section1Data: BannerPageSectionObj,
+    section2Data: BannerPageSectionObj,
+    section3Data: BannerPageSectionObj,
+    section4Data: BannerPageSectionObj,
+    section5Data: BannerPageSectionObj,
+    section6Data: BannerPageSectionObj,
+    section7Data: BannerPageSectionObj,
+    section8Data: BannerPageSectionObj
+}
+
+type BannerPageSectionObj = {
+    items: Array<BannerItemObj>,
+    loading: boolean,
+    error: any
+}
+
+export type BannerItemObj = {
+    id: number,
+    key: string,
+    path: string,
+    header?: string,
+    coverImage?: CoverImageObj,
+    active?: string,
+    text?: string,
+    isHover?: string,
+    curtainBackgroundColor?: string,
+    headerColor?: string,
+    textColor?: string,
+    arrowIsHovering?: string,
+    categories?: Array<CategoriesItem>,
+    option?: string,
+    portfolioType?: string,
+    pictures?: Array<ImagesArrayItem>,
+    alt?: string,
 }

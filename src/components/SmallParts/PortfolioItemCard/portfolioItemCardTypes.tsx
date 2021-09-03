@@ -3,7 +3,7 @@ import * as GeneralTypes from '../../../reducers/generalTypes';
 export type PortfolioItemCardProps = {
     component: string,
     imgCoordinateRange: GeneralTypes.ItemsCoordinateRange,
-    obj: GeneralTypes.PortfolioItemObj,
+    obj: GeneralTypes.BannerItemObj,
     rememberCoordinateRange: (id: number, coordinateRange: GeneralTypes.ItemsCoordinateRange) => {id: number, coordinateRange: GeneralTypes.ItemsCoordinateRange},
     clearArchiveData?: () => void,
     setIsHoveringCategory: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>}

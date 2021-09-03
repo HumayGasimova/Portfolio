@@ -89,7 +89,7 @@ export const AccordionsPage: React.FC<Types.AccordionsPageProps> = (props) => {
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods

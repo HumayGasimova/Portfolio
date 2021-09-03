@@ -266,7 +266,7 @@ export const SlideFromImageLeft: React.FC<Types.SlideFromImageLeftProps> = (prop
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderCategories = (obj: GeneralTypes.ColumnsPageObjItem) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="slide-from-image-left-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

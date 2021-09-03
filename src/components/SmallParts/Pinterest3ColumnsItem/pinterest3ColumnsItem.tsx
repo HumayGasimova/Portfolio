@@ -348,7 +348,7 @@ export const Pinterest3ColumnsItem: React.FC<Types.Pinterest3ColumnsItemProps> =
         }
     }
 
-    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="pinterest-3-columns-item-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

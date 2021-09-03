@@ -23,7 +23,7 @@ export type PortfolioGalleryProps = {
     staticContext: undefined,
     clearArchiveData: () => void,
     fetchPortfolioGalleryPage: () => void,
-    fetchPortfolioGalleryPageSuccess: (array: Array<GeneralTypes.ColumnsPageObjItem>) => {array: Array<GeneralTypes.ColumnsPageObjItem>},
+    fetchPortfolioGalleryPageSuccess: (array: Array<GeneralTypes.BannerItemObj>) => {array: Array<GeneralTypes.BannerItemObj>},
     forgetCoordinateRangeForPortfolioGalleryPage: (arr: Array<GeneralTypes.ItemsCoordinateRange>) => {arr: Array<GeneralTypes.ItemsCoordinateRange>},
     rememberCoordinateRangeForPortfolioGalleryPage: (id: number, coordinateRange: GeneralTypes.CoordinateRangeObj) => {id: number, coordinateRange: GeneralTypes.CoordinateRangeObj},
     setMenuDotsState: (val: string, page: string) => {val: string, page: string},
@@ -43,7 +43,7 @@ export type MapStateToPropsTypes = {
 
 export type MapDispatchToPropsTypes = {
     fetchPortfolioGalleryPage: () => void,
-    fetchPortfolioGalleryPageSuccess: (array: Array<GeneralTypes.ColumnsPageObjItem>) => {array: Array<GeneralTypes.ColumnsPageObjItem>},
+    fetchPortfolioGalleryPageSuccess: (array: Array<GeneralTypes.BannerItemObj>) => {array: Array<GeneralTypes.BannerItemObj>},
     rememberCoordinateRangeForPortfolioGalleryPage: (id: number, coordinateRange: GeneralTypes.CoordinateRangeObj) => {id: number, coordinateRange: GeneralTypes.CoordinateRangeObj},
     forgetCoordinateRangeForPortfolioGalleryPage: (arr: Array<GeneralTypes.ItemsCoordinateRange>) => {arr: Array<GeneralTypes.ItemsCoordinateRange>},
     setPortfolioGalleryPageIsHoveringCategory: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>},

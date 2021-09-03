@@ -384,7 +384,7 @@ export const OverlayImage: React.FC<Types.OverlayImageProps> = (props) => {
         props.unmountComponent(null, null,  props.page, e.button);
     }
 
-    const renderCategories = (obj: GeneralTypes.PortfolioItemObj) => {
+    const renderCategories = (obj: GeneralTypes.BannerItemObj) => {
         return(
             <div className="overlay-with-info-categories">{obj.categories.map((el, i) => {
                 let pathOfIds = [obj.id, el.id];

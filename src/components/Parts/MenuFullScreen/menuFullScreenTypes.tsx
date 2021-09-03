@@ -63,17 +63,17 @@ type SubOptionsItem = {
 }
 
 export type MapStateToPropsTypes = {
-    menuFullscreenItems: Array<MenuFullscreenItemsItem>,
+    menuFullscreenItems: Array<MenuFullscreenItemsItem>
 }
 
 export type MapDispatchToPropsTypes = {
-    initMenuFullscreenItems: (array: Array<MenuFullscreenItemsItem>) => {array: Array<MenuFullscreenItemsItem>}
-    setMenuDotsState: (val: string, page: string) => {val: string, page: string}
-    setIsHoveringMenuFullscreenItem: (val: string, id: number) => {val: string, id: number}
-    setActivityOfMenuFullscreenItem: (val: string, id: number) => {val: string, id: number}
-    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>}
+    initMenuFullscreenItems: (array: Array<MenuFullscreenItemsItem>) => {array: Array<MenuFullscreenItemsItem>},
+    setMenuDotsState: (val: string, page: string) => {val: string, page: string},
+    setIsHoveringMenuFullscreenItem: (val: string, id: number) => {val: string, id: number},
+    setActivityOfMenuFullscreenItem: (val: string, id: number) => {val: string, id: number},
+    setIsHoveringMenuFullscreenOptionItem: (val: string, pathOfIds: Array<number>) => {val: string, pathOfIds: Array<number>},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
-    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number},
+    unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number}
 }
 
 // export interface match<P> {
