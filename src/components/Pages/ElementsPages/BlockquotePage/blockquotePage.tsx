@@ -72,26 +72,34 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './blockquotePageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * BlockquotePage component definition and export
  */
 
-export const BlockquotePage = (props) => {
+export const BlockquotePage: React.FC<Types.BlockquotePageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log(props)
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -127,7 +135,7 @@ export const BlockquotePage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("blockquotePage");
 
@@ -191,7 +199,7 @@ export const BlockquotePage = (props) => {
         }
     }
     
-    const renderBlockquotePageData = (arr) => {
+    const renderBlockquotePageData = (arr: Array<GeneralTypes.BlockquoteItem>) => {
         return(
             <div className="blockquote-page-data-items">
                 {arr.map((el, i) => {
@@ -211,8 +219,8 @@ export const BlockquotePage = (props) => {
         )
     }
     
-    const renderBlockquotePageDataContent = (arr) => {
-        if(arr.loading && !arr.error){
+    const renderBlockquotePageDataContent = (data: GeneralTypes.BlockquotePageState) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="blockquote-page-loading-error" 
@@ -222,20 +230,20 @@ export const BlockquotePage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <div className="blockquote-page-data-wrapper">
-                    {renderBlockquotePageData(arr.items)}
+                    {renderBlockquotePageData(data.items)}
                 </div>
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="blockquote-page-loading-error" 
                     style={{height: `${size.height/2}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }

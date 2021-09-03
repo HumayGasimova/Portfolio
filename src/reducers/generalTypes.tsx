@@ -537,3 +537,20 @@ export type BannerItemObj = {
     pictures?: Array<ImagesArrayItem>,
     alt?: string,
 }
+
+/**
+ * BlockquotePage state
+ */
+
+export type BlockquotePageState= {
+    items: Array<BlockquoteItem>,
+    loading: boolean,
+    error: any,
+}
+
+export type BlockquoteItem = {
+    blockquote: string,
+    id: number,
+    key: string,
+    text: string
+}
