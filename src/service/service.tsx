@@ -1936,7 +1936,7 @@ export function fetchButtonsPageSection1Data() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log(json)
                 dispatch(Actions.fetchButtonsPageSection1DataSuccess(json));
                 // return json;
             })
@@ -1954,7 +1954,7 @@ export function fetchButtonsPageSection2Data() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log(json)
                 dispatch(Actions.fetchButtonsPageSection2DataSuccess(json));
                 // return json;
             })

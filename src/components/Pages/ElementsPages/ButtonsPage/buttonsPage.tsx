@@ -71,26 +71,34 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './buttonsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+ 
+/**
  * ButtonsPage component definition and export
  */
 
-export const ButtonsPage = (props) => {
+export const ButtonsPage: React.FC<Types.ButtonsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log(props)
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -199,7 +207,7 @@ export const ButtonsPage = (props) => {
         }
     }
 
-    const renderBackgroundColor = (section) => {
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'rgb(239, 239, 239)';
@@ -209,9 +217,9 @@ export const ButtonsPage = (props) => {
         }
     }
     
-    const renderButtonsPageSection1Data = (arr) => {
+    const renderButtonsPageSection1Data = (data: GeneralTypes.ButtonsPageSectionObj) => {
         return(
-            <div className="buttons-page-section1-data-items">{arr.items.map((el, i) => {
+            <div className="buttons-page-section1-data-items">{data.items.map((el, i) => {
                 return(
                     <div 
                         key={i}
@@ -230,9 +238,9 @@ export const ButtonsPage = (props) => {
         )
     }
 
-    const renderButtonsPageSection2Data = (arr) => {
+    const renderButtonsPageSection2Data = (data: GeneralTypes.ButtonsPageSectionObj) => {
         return(
-            <div className="buttons-page-section2-data-items">{arr.items.map((el, i) => {
+            <div className="buttons-page-section2-data-items">{data.items.map((el, i) => {
                 return(
                     <div 
                         key={i}
@@ -251,8 +259,8 @@ export const ButtonsPage = (props) => {
         )
     }
     
-    const renderButtonsPageDataContent = (section, arr) => {
-        if(arr.loading && !arr.error){
+    const renderButtonsPageDataContent = (section: string, data: GeneralTypes.ButtonsPageSectionObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="buttons-page-loading-error" 
@@ -265,23 +273,23 @@ export const ButtonsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             switch(section){
                 case 'section1':
                     return(
                         <div className="buttons-page-section1-data-wrapper">
-                            {renderButtonsPageSection1Data(arr)}
+                            {renderButtonsPageSection1Data(data)}
                         </div>
                     );
                 case 'section2':
                     return(
                         <div className="buttons-page-section2-data-wrapper">
-                            {renderButtonsPageSection2Data(arr)}
+                            {renderButtonsPageSection2Data(data)}
                         </div>
                     );
             }
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="buttons-page-loading-error" 
@@ -290,7 +298,7 @@ export const ButtonsPage = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -317,7 +325,7 @@ export const ButtonsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             buttonsPage: Selectors.getButtonsPageState(state),

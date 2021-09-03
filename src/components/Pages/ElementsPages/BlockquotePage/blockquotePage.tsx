@@ -269,7 +269,7 @@ export const BlockquotePage: React.FC<Types.BlockquotePageProps> = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             blockquotePage: Selectors.getBlockquotePageState(state),

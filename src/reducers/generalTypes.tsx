@@ -554,3 +554,27 @@ export type BlockquoteItem = {
     key: string,
     text: string
 }
+
+/**
+ * ButtonsPage state
+ */
+
+export type ButtonsPageState= {
+    section1Data: ButtonsPageSectionObj,
+    section2Data: ButtonsPageSectionObj
+}
+
+export type ButtonsPageSectionObj = {
+    items: Array<ButtonsItemObj>,
+    loading: boolean,
+    error: any
+}
+
+export type ButtonsItemObj = {
+    buttonText: string
+    buttonType: string,
+    header: string,
+    id: number,
+    key: string,
+    text: string
+}
