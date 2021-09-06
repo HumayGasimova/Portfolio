@@ -72,17 +72,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './clientsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * ClientsPage component definition and export
  */
 
-export const ClientsPage = (props) => {
+export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -91,7 +98,7 @@ export const ClientsPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -398,7 +405,7 @@ export const ClientsPage = (props) => {
 
     const renderCountdownPageDataContent = (section, obj) => {
         return(
-            <div className={renderClassName("sectionWrapper",section)}>
+            <div className={renderClassName("sectionWrapper", section)}>
                 {renderCountdownDataSectionContent(section, "swiper1", obj.swiper1)}
                 <EH90/>
                 {renderCountdownDataSectionContent(section, "swiper2", obj.swiper2)}
@@ -427,7 +434,7 @@ export const ClientsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             clientsPage: Selectors.getClientsPageState(state),
