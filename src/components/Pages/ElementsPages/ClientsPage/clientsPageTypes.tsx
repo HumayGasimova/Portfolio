@@ -11,7 +11,7 @@ import {
 
 import * as GeneralTypes from '../../../../reducers/generalTypes';
 
-export type CallToActionPageProps = { 
+export type ClientsPageProps = { 
     clientsPage: GeneralTypes.ClientsPageState,
     menuDotsState: GeneralTypes.MenuDotsStateObj,
     showBackToTop: boolean,

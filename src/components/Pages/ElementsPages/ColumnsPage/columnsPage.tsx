@@ -74,17 +74,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './columnsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * ColumnsPage component definition and export
  */
 
-export const ColumnsPage = (props) => {
+export const ColumnsPage: React.FC<Types.ColumnsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -93,7 +100,7 @@ export const ColumnsPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -129,7 +136,7 @@ export const ColumnsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("columnsPage");
 
@@ -193,7 +200,7 @@ export const ColumnsPage = (props) => {
         }
     }
 
-    const renderColumns = (arr, key) => {
+    const renderColumns = (arr: Array<GeneralTypes.ColumnsPageDataItem>, key: string) => {
         return(
             <div className="columns-page-columns-wrapper">
                 {arr.map((el, i) => {
@@ -235,7 +242,7 @@ export const ColumnsPage = (props) => {
         )
     }
     
-    const renderColumnsPageData = (arr) => {
+    const renderColumnsPageData = (arr: Array<GeneralTypes.ColumnsPageItem>) => {
         return(
             <div>
                 {arr.map((el, i) => {
@@ -256,8 +263,8 @@ export const ColumnsPage = (props) => {
         )
     }
     
-    const renderColumnsPageDataContent = (arr) => {
-        if(arr.loading && !arr.error){
+    const renderColumnsPageDataContent = (data: GeneralTypes.ColumnsPageState) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="columns-page-loading-error" 
@@ -267,20 +274,20 @@ export const ColumnsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <div className="columns-page-data-wrapper">
-                    {renderColumnsPageData(arr.items)}
+                    {renderColumnsPageData(data.items)}
                 </div>
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="columns-page-loading-error" 
                     style={{height: `${size.height/2}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -306,7 +313,7 @@ export const ColumnsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             columnsPage: Selectors.getColumnsPageState(state),

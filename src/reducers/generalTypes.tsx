@@ -583,17 +583,17 @@ export type ButtonsItemObj = {
  * ClientsPage state
  */
 
- export type ClientsPageState = {
+export type ClientsPageState = {
     section1Data: ClientsPageSectionDataObj,
     section2Data: ClientsPageSectionDataObj
 }
 
-type ClientsPageSectionDataObj = {
+export type ClientsPageSectionDataObj = {
     swiper1: ClientsPageSectionSwiperDataObj,
     swiper2: ClientsPageSectionSwiperDataObj
 }
 
-type ClientsPageSectionSwiperDataObj = {
+export type ClientsPageSectionSwiperDataObj = {
     items: Array<ClientsSectionSwiperItem>,
     loading: boolean,
     error: any,
@@ -605,4 +605,28 @@ export type ClientsSectionSwiperItem = {
     imageName: string,
     isHover: string,
     key: string
+}
+
+
+/**
+ * ColumnsPage state
+ */
+
+export type ColumnsPageState = {
+    items: Array<ColumnsPageItem>,
+    loading: boolean,
+    error: any,
+}
+
+export type ColumnsPageItem = {
+    data: Array<ColumnsPageDataItem>
+    header: string,
+    id: number,
+    key: string,
+}
+
+export type ColumnsPageDataItem = {
+    columnWidth: number,
+    id: number,
+    text: string
 }

@@ -82,7 +82,7 @@ import * as GeneralTypes from '../../../../reducers/generalTypes';
  * ClientsPage component definition and export
  */
 
-export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
+export const ClientsPage: React.FC<Types.ClientsPageProps> = (props) => {
 
     /**
      * State
@@ -167,7 +167,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("clientsPage");
 
@@ -231,7 +231,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
 
-    const renderClassName = (opt, section) => {
+    const renderClassName = (opt: string, section: string) => {
         if(opt === "sectionWrapper"){
             switch(section){
                 case 'section1':
@@ -243,7 +243,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
        
     }
     
-    const renderBackgroundColor = (section) => {
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'transparent';
@@ -254,7 +254,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
     
-    const renderLoadingBackgroundColor = (section) => {
+    const renderLoadingBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'black';
@@ -264,7 +264,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
 
-    const renderSwiperWidth = (size) => {
+    const renderSwiperWidth = (size: number) => {
         if(size <= 1410){
             return 80;
         }else{
@@ -272,7 +272,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
 
-    const renderSlidesNumber = (size) => {
+    const renderSlidesNumber = (size: number) => {
         if(size > 950){
             return 5;
         } else if(size <= 950 && size > 530){
@@ -282,7 +282,7 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
 
-    const renderClientsPageSwiperData = (section, swiper, arr) => {
+    const renderClientsPageSwiperData = (section: string, swiper: string, data: GeneralTypes.ClientsPageSectionSwiperDataObj) => {
         let paddingLeftRight = renderSwiperWidth(size.width);
         let numberOfSlides = renderSlidesNumber(size.width);
         if(section === "section1"){
@@ -294,12 +294,12 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                             process.env.ENVIRONMENT === Environment.PRODUCTION && props.clientsPage.section1Data.swiper1.items.length !== 0 ? 
                             <Swiper
                                 component="clientsPageSection1Swiper1"
-                                contentArray={arr.items}
-                                content={arr}
+                                contentArray={data.items}
+                                content={data}
                                 translateWidth={(size.width-paddingLeftRight)/numberOfSlides}
                                 showNumbersOfSlides={numberOfSlides}
                                 setSwiperState={props.setSwiperStateForClientsPageSection1Swiper1}
-                                swiperData={arr.swiper}
+                                swiperData={data.swiper}
                                 onlyImages
                                 // autoPlay
                             /> : null}
@@ -312,12 +312,12 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                             process.env.ENVIRONMENT === Environment.PRODUCTION && props.clientsPage.section1Data.swiper2.items.length !== 0 ? 
                             <Swiper
                                 component="clientsPageSection1Swiper2"
-                                contentArray={arr.items}
-                                content={arr}
+                                contentArray={data.items}
+                                content={data}
                                 translateWidth={(size.width-paddingLeftRight)/numberOfSlides}
                                 showNumbersOfSlides={numberOfSlides}
                                 setSwiperState={props.setSwiperStateForClientsPageSection1Swiper2}
-                                swiperData={arr.swiper}
+                                swiperData={data.swiper}
                                 onlyImages
                                 // autoPlay
                             /> : null}
@@ -334,12 +334,12 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                             process.env.ENVIRONMENT === Environment.PRODUCTION && props.clientsPage.section2Data.swiper1.items.length !== 0 ? 
                             <Swiper
                                 component="clientsPageSection2Swiper1"
-                                contentArray={arr.items}
-                                content={arr}
+                                contentArray={data.items}
+                                content={data}
                                 translateWidth={(size.width-paddingLeftRight)/numberOfSlides}
                                 showNumbersOfSlides={numberOfSlides}
                                 setSwiperState={props.setSwiperStateForClientsPageSection2Swiper1}
-                                swiperData={arr.swiper}
+                                swiperData={data.swiper}
                                 onlyImages
                                 autoPlay
                             /> : null} 
@@ -352,12 +352,12 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                             process.env.ENVIRONMENT === Environment.PRODUCTION && props.clientsPage.section2Data.swiper2.items.length !== 0 ? 
                             <Swiper
                                 component="clientsPageSection2Swiper2"
-                                contentArray={arr.items}
-                                content={arr}
+                                contentArray={data.items}
+                                content={data}
                                 translateWidth={(size.width-paddingLeftRight)/numberOfSlides}
                                 showNumbersOfSlides={numberOfSlides}
                                 setSwiperState={props.setSwiperStateForClientsPageSection2Swiper2}
-                                swiperData={arr.swiper}
+                                swiperData={data.swiper}
                                 onlyImages
                                 autoPlay
                             /> : null} 
@@ -367,8 +367,8 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
         }
     }
 
-    const renderCountdownDataSectionContent = (section, swiper, arr) => {
-        if(arr.loading && !arr.error){
+    const renderCountdownDataSectionContent = (section: string, swiper: string, data: GeneralTypes.ClientsPageSectionSwiperDataObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="clients-page-loading-error" 
@@ -381,14 +381,14 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <>
-                    {renderClientsPageSwiperData(section, swiper, arr)}
+                    {renderClientsPageSwiperData(section, swiper, data)}
                 </>
             );
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="clients-page-loading-error" 
@@ -397,13 +397,13 @@ export const ClientsPage: React.FC<Types.CallToActionPageProps> = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
     }
 
-    const renderCountdownPageDataContent = (section, obj) => {
+    const renderCountdownPageDataContent = (section: string, obj: GeneralTypes.ClientsPageSectionDataObj) => {
         return(
             <div className={renderClassName("sectionWrapper", section)}>
                 {renderCountdownDataSectionContent(section, "swiper1", obj.swiper1)}
