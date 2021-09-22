@@ -27,12 +27,12 @@ export function initSearchInputFormThroughWebsite(obj) {
     };
 };
 
-export function setInputFiledValueAndCheckValidationThroughWebsite(obj, e, id, formName) {
+export function setInputFiledValueAndCheckValidationThroughWebsite(obj, _event, inputFieldId, formName) {
     return { 
         type: actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION_THROUGH_WEBSITE,
         obj: obj,
-        event: e,
-        inputFieldId: id,
+        _event: _event,
+        inputFieldId: inputFieldId,
         formName: formName
     };
 };

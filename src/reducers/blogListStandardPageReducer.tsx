@@ -446,8 +446,8 @@ const setInputFiledValueAndCheckValidationForBlogListStandardPage = (state, acti
     let inputFieldIndex = updatedInputFieldObj.inputsArray.findIndex(x => x.id === action.inputFieldId);
     inputField = {
         ...inputField, 
-        value: action.event.target.value,
-        validation: Utility.checkValidity(action.event.target.value, inputField.validation),
+        value: action._event.target.value,
+        validation: Utility.checkValidity(action._event.target.value, inputField.validation),
         touched: true
     };
 

@@ -8,12 +8,12 @@ export function initInputFormForContactFormPage(opt, obj) {
     };
 };
 
-export function setInputFiledValueAndCheckValidationForContactFormPage(obj, e, id, formName) {
+export function setInputFiledValueAndCheckValidationForContactFormPage(obj, _event, inputFieldId, formName) {
     return { 
         type: actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION_FOR_CONTACT_FORM_PAGE,
         obj: obj,
-        event: e,
-        inputFieldId: id,
+        _event: _event,
+        inputFieldId: inputFieldId,
         formName: formName
     };
 };

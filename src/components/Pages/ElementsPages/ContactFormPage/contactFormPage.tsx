@@ -356,7 +356,6 @@ export const ContactFormPage: React.FC<Types.ContactFormPageProps> = (props) => 
         // Set input value and check validation
 
         props.setInputFiledValueAndCheckValidationForContactFormPage(props.contactFormPage[opt][inputForm], e, inputFieldId, `${opt}${updatedInputForm}`);
-        console.log(props.contactFormPage[opt][inputForm], e, inputFieldId, `${opt}${updatedInputForm}`)
     }
 
     const clearInputValue = (fieldId: string) => {

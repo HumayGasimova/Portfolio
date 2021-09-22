@@ -19,7 +19,7 @@ export type SearchResultPageProps = {
     match: match,
     staticContext: undefined
     searchThroughWebsite: () => void,
-    setInputFiledValueAndCheckValidationThroughWebsite: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
+    setInputFiledValueAndCheckValidationThroughWebsite: (obj: GeneralTypes.InputForm, _event: React.MouseEvent, inputFieldId: number, formName?: string) => {obj: GeneralTypes.InputForm, _event: React.MouseEvent, inputFieldId: number, formName?: string},
     setMenuDotsState: (val: string, page: string) => {val: string, page: string},
     setShowBackToTopComponent: (val: boolean) => {val: boolean},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
@@ -46,7 +46,7 @@ export type MapDispatchToPropsTypes = {
     setShowBackToTopComponent: (val: boolean) => {val: boolean},
     initSearchInputFormThroughWebsite: (obj: GeneralTypes.InputForm) => {obj: GeneralTypes.InputForm},
     fetchSearchThroughWebsiteResutData: (info: GeneralTypes.SearchInfoObj, activePageId: number) => void,
-    setInputFiledValueAndCheckValidationThroughWebsite: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => void,
+    setInputFiledValueAndCheckValidationThroughWebsite: (obj: GeneralTypes.InputForm, _event: React.MouseEvent, inputFieldId: number, formName?: string) => {obj: GeneralTypes.InputForm, _event: React.MouseEvent, inputFieldId: number, formName?: string},
     searchThroughWebsite: () => void,
     clearActivityOfMenuItems: (prevLocationPathOfIds: Array<number>) => {prevLocationPathOfIds: Array<number>},
     clearBlogListSingleItemStateForBlogListStandardPage: () => void,
