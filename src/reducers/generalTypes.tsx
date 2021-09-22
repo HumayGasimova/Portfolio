@@ -1,3 +1,5 @@
+import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
+
 /**
  * BlogListStandardPage
  */ 
@@ -220,8 +222,9 @@ type ElementConfigObj = {
 }
 
 type ValidationItem = {
-    required: boolean,
-    valid: boolean
+    required?: boolean,
+    valid?: boolean,
+    isEmail?: boolean
 }
 
 /**
@@ -607,7 +610,6 @@ export type ClientsSectionSwiperItem = {
     key: string
 }
 
-
 /**
  * ColumnsPage state
  */
@@ -629,4 +631,74 @@ export type ColumnsPageDataItem = {
     columnWidth: number,
     id: number,
     text: string
+}
+
+/**
+ * ContactFormPage state
+ */
+
+export type ContactFormPageState = {
+    section1: ContactFormPageSection1,
+    section2: ContactFormPageSection2, 
+    section3: ContactFormPageSection3
+}
+
+type ContactFormPageSection1 = {
+    inputForm: InputForm,
+    getDirectionResponse: DirectionResponseObj
+}
+
+type ContactFormPageSection2 = {
+    inputForm: InputForm,
+    subscribeResponse: SubscribeResponseObj
+}
+
+type ContactFormPageSection3 = {
+    inputForm: InputForm,
+    submitResponse: SubmitResponseObj   
+}
+
+type DirectionResponseObj = {
+    item: DirectionResponseItemObj,
+    loading: boolean,
+    error: any
+}
+
+export type DirectionResponseItemObj = {
+    company: string,
+    email: string,
+    fullName: string,
+    id: string,
+    phone: string
+}
+
+type SubscribeResponseObj = {
+    item: SubscribeResponseItemObj,
+    loading: boolean,
+    error: any
+}
+
+export type SubscribeResponseItemObj = {
+    config: AxiosRequestConfig,
+    data: SubscribeResponseItemDataObj,
+    headers: any,
+    request: any
+    status: number,
+    statusText: string
+}
+
+type SubscribeResponseItemDataObj = {
+    id: string,
+    email: string,
+}
+
+type SubmitResponseObj = {
+    item: SubmitResponseItemObj,
+    loading: boolean,
+    error: any
+}
+
+export type SubmitResponseItemObj = {
+    id: string,
+    email: string
 }

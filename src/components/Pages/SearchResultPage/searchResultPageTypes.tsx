@@ -19,7 +19,7 @@ export type SearchResultPageProps = {
     match: match,
     staticContext: undefined
     searchThroughWebsite: () => void,
-    setInputFiledValueAndCheckValidationThroughWebsite:  (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
+    setInputFiledValueAndCheckValidationThroughWebsite: (obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string) => {obj: GeneralTypes.InputForm, e: React.MouseEvent, id: number, formName?: string},
     setMenuDotsState: (val: string, page: string) => {val: string, page: string},
     setShowBackToTopComponent: (val: boolean) => {val: boolean},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},

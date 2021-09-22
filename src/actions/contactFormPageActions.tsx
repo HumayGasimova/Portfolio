@@ -8,9 +8,9 @@ export function initInputFormForContactFormPage(opt, obj) {
     };
 };
 
-export function setInputFiledValueAndCheckValidation(obj, e, id, formName) {
+export function setInputFiledValueAndCheckValidationForContactFormPage(obj, e, id, formName) {
     return { 
-        type: actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION,
+        type: actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION_FOR_CONTACT_FORM_PAGE,
         obj: obj,
         event: e,
         inputFieldId: id,

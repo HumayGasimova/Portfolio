@@ -73,7 +73,7 @@ const initInputFormForContactFormPage = (state, action) => {
     }
 } 
 
-const setInputFiledValueAndCheckValidation = (state, action) => {
+const setInputFiledValueAndCheckValidationForContactFormPage = (state, action) => {
     let updatedInputFieldObj = {...action.obj, inputsArray: [...action.obj.inputsArray]};
     let inputField = updatedInputFieldObj.inputsArray.find(x => x.id === action.inputFieldId);
     let inputFieldIndex = updatedInputFieldObj.inputsArray.findIndex(x => x.id === action.inputFieldId);
@@ -436,8 +436,8 @@ const contactFormPageReducer = (state = initialState, action) => {
     switch(action.type){
         case actionTypes.INIT_INPUT_FORM_FOR_CONTACT_FORM_PAGE:
             return initInputFormForContactFormPage (state, action);
-        case actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION:
-            return setInputFiledValueAndCheckValidation (state, action);
+        case actionTypes.SET_INPUT_FIELD_VALUE_AND_CHECK_VALIDATION_FOR_CONTACT_FORM_PAGE:
+            return setInputFiledValueAndCheckValidationForContactFormPage (state, action);
         case actionTypes.GET_DIRECTION_CONTACT_FORM_PAGE:
             return getDirectionContactFormPage (state, action);
         case actionTypes.SUBSCRIBE_CONTACT_FORM_PAGE:

@@ -12,6 +12,8 @@ import {
     connect
 } from 'react-redux';
 
+import { useHistory } from 'react-router';
+
 import * as uuid from "uuid";
 
 /**
@@ -85,21 +87,29 @@ import {
 
 import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
-import { useHistory } from 'react-router';
+
+
+/**
+ * Types
+ */
+
+ import * as Types from './contactFormPageTypes';
+ import * as GeneralTypes from '../../../../reducers/generalTypes';
 
 /**
  * ContactFormPage component definition and export
  */
 
-export const ContactFormPage = (props) => {
+export const ContactFormPage: React.FC<Types.ContactFormPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
-    const history = useHistory()
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
+    const history = useHistory();
+
     /**
      * Methods
      */
@@ -107,7 +117,7 @@ export const ContactFormPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
         
         // Init imput forms
 
@@ -132,7 +142,7 @@ export const ContactFormPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("contactFormPage");
 
@@ -196,7 +206,7 @@ export const ContactFormPage = (props) => {
         }
     }
 
-    const onClickHandler = (opt) => {
+    const onClickHandler = (opt: string) => {
         let info;
         switch(opt){
             case 'section1InputForm':
@@ -338,22 +348,23 @@ export const ContactFormPage = (props) => {
         }
     }
 
-    const inputChangeHandler = (e, inputFieldId, opt, inputForm) => {
+    const inputChangeHandler = (e: React.MouseEvent, inputFieldId: number, opt: string, inputForm: string) => {
         // Uppercase first letter of the input form name
 
         let updatedInputForm = inputForm.charAt(0).toUpperCase() + inputForm.slice(1);
 
         // Set input value and check validation
 
-        props.setInputFiledValueAndCheckValidation(props.contactFormPage[opt][inputForm], e, inputFieldId, `${opt}${updatedInputForm}`);
+        props.setInputFiledValueAndCheckValidationForContactFormPage(props.contactFormPage[opt][inputForm], e, inputFieldId, `${opt}${updatedInputForm}`);
+        console.log(props.contactFormPage[opt][inputForm], e, inputFieldId, `${opt}${updatedInputForm}`)
     }
 
-    const clearInputValue = (fieldId) => {
+    const clearInputValue = (fieldId: string) => {
         // Clear input value
         (document.getElementById(fieldId) as HTMLInputElement).value = '';
     }
 
-    const loadingOnButtonClick = (opt) => {
+    const loadingOnButtonClick = (opt: string) => {
         if(opt === "getDirection"){
             if(props.contactFormPage.section1.getDirectionResponse.loading && !props.contactFormPage.section1.getDirectionResponse.error){
                 return(
@@ -596,7 +607,7 @@ export const ContactFormPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             contactFormPage: Selectors.getContactFormPageState(state),
@@ -611,7 +622,7 @@ export default connect(
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
             initInputFormForContactFormPage: bindActionCreators(Actions.initInputFormForContactFormPage, dispatch),
-            setInputFiledValueAndCheckValidation: bindActionCreators(Actions.setInputFiledValueAndCheckValidation, dispatch),
+            setInputFiledValueAndCheckValidationForContactFormPage: bindActionCreators(Actions.setInputFiledValueAndCheckValidationForContactFormPage, dispatch),
             getDirectionContactFormPage: bindActionCreators(Actions.getDirectionContactFormPage, dispatch),
             subscribeContactFormPage: bindActionCreators(Actions.subscribeContactFormPage, dispatch),
             submitContactFormPage: bindActionCreators(Actions.submitContactFormPage, dispatch),
