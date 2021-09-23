@@ -834,3 +834,25 @@ type HighlightsPageTextItem = {
     highlightsColor: string,
     normalText: string
 }
+
+/**
+ * IconWithPage state
+ */
+
+export type IconWithPageState = {
+    section1Data: IconWithPageSectionObj,
+    section2Data: IconWithPageSectionObj
+}
+
+type IconWithPageSectionObj = {
+    error: any
+    items: Array<IconWithPageSectionitem>
+    loading: boolean
+}
+
+export type IconWithPageSectionitem = {
+    id: number,
+    header: string,
+    img: string,
+    text?: string
+}

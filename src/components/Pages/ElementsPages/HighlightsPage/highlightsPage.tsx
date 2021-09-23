@@ -95,7 +95,6 @@ export const HighlightsPage: React.FC<Types.HightlightsPageProps> = (props) => {
      */
 
     React.useEffect(() => {
-        console.log(props)
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "", null);

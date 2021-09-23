@@ -77,17 +77,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './iconWithTextPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * IconWithTextPage component definition and export
  */
 
-export const IconWithTextPage = (props) => {
+export const IconWithTextPage: React.FC<Types.IconWithTextPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -96,7 +103,7 @@ export const IconWithTextPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
         
         // Fetch data for the component
 
@@ -141,7 +148,7 @@ export const IconWithTextPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("iconWithTextPage");
 
@@ -248,7 +255,7 @@ export const IconWithTextPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             iconWithTextPage: Selectors.getIconWithTextPageState(state),
