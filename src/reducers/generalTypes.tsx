@@ -744,3 +744,27 @@ export type CountdownPageNextMonthObj = {
     month: string,
     leapYear: boolean   
 }
+
+/**
+ * CountersPage state
+ */
+
+export type CountersPageState = {
+    section1Data: CountersPageSectionObj,
+    section2Data: CountersPageSectionObj,
+    section3Data: CountersPageSectionObj
+}
+
+export type CountersPageSectionObj = {
+    items: Array<CountersPageSectionItem>,
+    loading: boolean,
+    error: any
+}
+
+export type CountersPageSectionItem = {
+    achievement: string,
+    id: number,
+    key: string,
+    number:  number,
+    text?: string
+}

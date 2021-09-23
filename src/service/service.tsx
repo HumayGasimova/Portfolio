@@ -2080,7 +2080,7 @@ export function fetchCountersPageSection3Data() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log(json)
                 dispatch(Actions.fetchCountersPageSection3DataSuccess(json));
                 // return json;
             })
@@ -2116,7 +2116,7 @@ export function fetchCountdownPageSection2Data() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                console.log("fetchCountdownPageSection2Data",json)
+                // console.log(json)
                 dispatch(Actions.fetchCountdownPageSection2DataSuccess(json));
                 // return json;
             })
