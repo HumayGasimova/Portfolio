@@ -768,3 +768,28 @@ export type CountersPageSectionItem = {
     number:  number,
     text?: string
 }
+
+/**
+ * DropcapsPage state
+ */
+
+export type DropcapsPageState = {
+    error: any,
+    items: Array<DropcapsPageItem>,
+    loading: boolean
+}
+
+export type DropcapsPageItem = {
+    id: number,
+    key: string,
+    text: Array<DropcapsPageTextItem>
+}
+
+export type DropcapsPageTextItem = {
+    dropcapsBackground: string,
+    dropcapsColor: string,
+    dropcapsFontSize: number,
+    dropcapsStyle: string,
+    id: number,
+    text: string
+}

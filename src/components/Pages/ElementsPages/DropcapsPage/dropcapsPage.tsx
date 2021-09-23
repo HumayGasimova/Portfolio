@@ -72,17 +72,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './dropcapsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * DropcapsPage component definition and export
  */
 
-export const DropcapsPage = (props) => {
+export const DropcapsPage: React.FC<Types.DropcapsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -91,7 +98,7 @@ export const DropcapsPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -127,7 +134,7 @@ export const DropcapsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("dropcapsPage");
 
@@ -191,7 +198,7 @@ export const DropcapsPage = (props) => {
         }
     }
 
-    const renderParagraph = (obj) => {
+    const renderParagraph = (obj: GeneralTypes.DropcapsPageTextItem) => {
         let firstLetter = obj.text[0];
         let remainingText = obj.text.substring(1);
         
@@ -212,7 +219,7 @@ export const DropcapsPage = (props) => {
         )
     }
     
-    const renderDropcapsPageStyleSection = (arr) => {
+    const renderDropcapsPageStyleSection = (arr: Array<GeneralTypes.DropcapsPageTextItem>) => {
         return(
             <>
                 {arr.map((el, i) => {
@@ -232,7 +239,7 @@ export const DropcapsPage = (props) => {
         )
     }
 
-    const renderDropcapsPageData = (arr) => {
+    const renderDropcapsPageData = (arr: Array<GeneralTypes.DropcapsPageItem>) => {
         return(
             <div>
                 {arr.map((el, i) => {
@@ -249,8 +256,8 @@ export const DropcapsPage = (props) => {
         )
     }
     
-    const renderDropcapsPageDataContent = (arr) => {
-        if(arr.loading && !arr.error){
+    const renderDropcapsPageDataContent = (data: GeneralTypes.DropcapsPageState) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="dropcaps-page-loading-error" 
@@ -260,20 +267,20 @@ export const DropcapsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <div className="dropcaps-page-data-wrapper">
-                    {renderDropcapsPageData(arr.items)}
+                    {renderDropcapsPageData(data.items)}
                 </div>
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="dropcaps-page-loading-error" 
                     style={{height: `${size.height/2}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -299,7 +306,7 @@ export const DropcapsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             dropcapsPage: Selectors.getDropcapsPageState(state),
