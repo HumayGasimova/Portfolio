@@ -65,27 +65,36 @@ import {
     useWindowSize
 } from '../../../../Hooks/useWindowSize';
 
+
+/**
+ * Types
+ */
+
+import * as Types from './googleMapsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
 /**
  * GoogleMapsPage component definition and export
  */
 
-export const GoogleMapsPage = (props) => {
+export const GoogleMapsPage: React.FC<Types.GoogelMapsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log(props)
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Scroll to the top of the screen
 
@@ -104,7 +113,7 @@ export const GoogleMapsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("googleMapsPage");
 
@@ -220,7 +229,7 @@ export const GoogleMapsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             menuDotsState: Selectors.getMenuDotsStateState(state),
