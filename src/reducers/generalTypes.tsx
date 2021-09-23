@@ -810,3 +810,27 @@ export type HeadingsPageItem = {
     key: string,
     text: string
 }
+
+/**
+ * HighlightsPage state
+ */
+
+export type HighlightsPageState = {
+    error: any,
+    items: Array<HighlightsPageItem>,
+    loading: boolean
+}
+
+export type HighlightsPageItem = {
+    id: number,
+    key: string,
+    text: Array<HighlightsPageTextItem>
+}
+
+type HighlightsPageTextItem = {
+    id: number,
+    highlightedText: string,
+    highlightsBackground: string,
+    highlightsColor: string,
+    normalText: string
+}

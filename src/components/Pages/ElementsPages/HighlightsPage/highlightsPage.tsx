@@ -71,26 +71,34 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './highlightsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * HighlightsPage component definition and export
  */
 
-export const HighlightsPage = (props) => {
+export const HighlightsPage: React.FC<Types.HightlightsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log(props)
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -126,7 +134,7 @@ export const HighlightsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("highlightsPage");
 
@@ -190,7 +198,7 @@ export const HighlightsPage = (props) => {
         }
     }
 
-    const renderParagraph = (obj) => {
+    const renderParagraph = (obj: GeneralTypes.HighlightsPageItem) => {
         return(
             <>
                 {obj.text.map((el, i) => {
@@ -268,7 +276,7 @@ export const HighlightsPage = (props) => {
         // )
     }
 
-    const renderHighlightsPageData = (arr) => {
+    const renderHighlightsPageData = (arr: Array<GeneralTypes.HighlightsPageItem>) => {
         return(
             <div>
                 {arr.map((el, i) => {
@@ -288,8 +296,8 @@ export const HighlightsPage = (props) => {
         )
     }
     
-    const renderHighlightsPageDataContent = (arr) => {
-        if(arr.loading && !arr.error){
+    const renderHighlightsPageDataContent = (data: GeneralTypes.HighlightsPageState) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="highlights-page-loading-error" 
@@ -299,20 +307,20 @@ export const HighlightsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <div className="highlights-page-data-wrapper">
-                    {renderHighlightsPageData(arr.items)}
+                    {renderHighlightsPageData(data.items)}
                 </div>
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="highlights-page-loading-error" 
                     style={{height: `${size.height/2}px`}}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -338,7 +346,7 @@ export const HighlightsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             highlightsPage: Selectors.getHighlightsPageState(state),
