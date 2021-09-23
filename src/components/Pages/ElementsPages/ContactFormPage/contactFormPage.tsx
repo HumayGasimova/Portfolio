@@ -93,8 +93,8 @@ import * as Environment from '../../../../constants/environments';
  * Types
  */
 
- import * as Types from './contactFormPageTypes';
- import * as GeneralTypes from '../../../../reducers/generalTypes';
+import * as Types from './contactFormPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
 
 /**
  * ContactFormPage component definition and export

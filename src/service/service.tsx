@@ -2116,7 +2116,7 @@ export function fetchCountdownPageSection2Data() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log("fetchCountdownPageSection2Data",json)
                 dispatch(Actions.fetchCountdownPageSection2DataSuccess(json));
                 // return json;
             })

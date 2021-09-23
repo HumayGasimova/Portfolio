@@ -71,17 +71,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './countdownPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * CountdownPage component definition and export
  */
 
-export const CountdownPage = (props) => {
+export const CountdownPage: React.FC<Types.CountdownPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -90,7 +97,7 @@ export const CountdownPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
         
@@ -135,7 +142,7 @@ export const CountdownPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("countdownPage");
 
@@ -199,7 +206,7 @@ export const CountdownPage = (props) => {
         }
     }
     
-    const renderBackgroundColor = (section) => {
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'rgb(239, 239, 239)';
@@ -210,7 +217,7 @@ export const CountdownPage = (props) => {
         }
     }
     
-    const renderLoadingBackgroundColor = (section) => {
+    const renderLoadingBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'black';
@@ -220,9 +227,9 @@ export const CountdownPage = (props) => {
         }
     }
 
-    const renderCountdownPageSection1Data = (arr) => {
+    const renderCountdownPageSection1Data = (data: GeneralTypes.CountdownPageSectionObj) => {
         return(
-            <div className="countdown-page-section1-data-items">{arr.items.map((el, i) => {
+            <div className="countdown-page-section1-data-items">{data.items.map((el, i) => {
                 return(
                     <CountdownItem
                         page="countdownPage"
@@ -238,9 +245,9 @@ export const CountdownPage = (props) => {
         )
     }
 
-    const renderCountdownPageSection2Data = (arr) => {
+    const renderCountdownPageSection2Data = (data: GeneralTypes.CountdownPageSectionObj) => {
         return(
-            <div className="countdown-page-section2-data-items">{arr.items.map((el, i) => {
+            <div className="countdown-page-section2-data-items">{data.items.map((el, i) => {
                 return(
                     <CountdownItem
                         page="countdownPage"
@@ -256,8 +263,8 @@ export const CountdownPage = (props) => {
         )
     }
 
-    const renderCountdownPageDataContent = (section, arr) => {
-        if(arr.loading && !arr.error){
+    const renderCountdownPageDataContent = (section: string, data: GeneralTypes.CountdownPageSectionObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="countdown-page-loading-error" 
@@ -270,23 +277,23 @@ export const CountdownPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             switch(section){
                 case 'section1':
                     return(
                         <>
-                            {renderCountdownPageSection1Data(arr)}
+                            {renderCountdownPageSection1Data(data)}
                         </>
                     );
                 case 'section2':
                     return(
                         <>
-                            {renderCountdownPageSection2Data(arr)}
+                            {renderCountdownPageSection2Data(data)}
                         </>
                     );
             }
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="countdown-page-loading-error" 
@@ -295,7 +302,7 @@ export const CountdownPage = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -322,7 +329,7 @@ export const CountdownPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             countdownPage: Selectors.getCountdownPageState(state),

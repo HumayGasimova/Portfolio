@@ -702,3 +702,45 @@ export type SubmitResponseItemObj = {
     id: string,
     email: string
 }
+
+/**
+ * CountdownPage state
+ */
+
+export type CountdownPageState = {
+    section1Data: CountdownPageSectionObj,
+    section2Data: CountdownPageSectionObj
+}
+ 
+export type CountdownPageSectionObj = {
+    items: Array<CountdownPageSectionItem>,
+    loading: boolean,
+    error: any
+}
+
+export type CountdownPageSectionItem = {
+    id: number,
+    key: string,
+    countdownValue: Array<CountdownValueItem>,
+    startDate: CountdownPageDateObj,
+    endDate: CountdownPageDateObj,
+    nextMonth: CountdownPageNextMonthObj    
+}
+
+type CountdownValueItem = {
+    id: number,
+    key: string
+    name: string
+    val: number
+}
+
+export type CountdownPageDateObj = {
+    day: string,
+    month: string,
+    year: string
+}
+
+export type CountdownPageNextMonthObj = {
+    month: string,
+    leapYear: boolean   
+}
