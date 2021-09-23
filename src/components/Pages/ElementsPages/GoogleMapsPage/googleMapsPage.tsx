@@ -65,7 +65,6 @@ import {
     useWindowSize
 } from '../../../../Hooks/useWindowSize';
 
-
 /**
  * Types
  */
@@ -91,7 +90,7 @@ export const GoogleMapsPage: React.FC<Types.GoogelMapsPageProps> = (props) => {
      */
 
     React.useEffect(() => {
-        console.log(props)
+   
         // Init state for fading effect when component will unmount
 
         props.setUnmountComponentValues(false, "", null);

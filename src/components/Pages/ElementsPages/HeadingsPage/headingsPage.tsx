@@ -76,10 +76,17 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './headingsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * HeadingsPage component definition and export
  */
 
-export const HeadingsPage = (props) => {
+export const HeadingsPage: React.FC<Types.HeadingsPageProps> = (props) => {
 
     /**
      * State
@@ -94,8 +101,8 @@ export const HeadingsPage = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-
-        props.setUnmountComponentValues(false, "");
+        
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -128,7 +135,7 @@ export const HeadingsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("googleMapsPage");
 
@@ -192,7 +199,7 @@ export const HeadingsPage = (props) => {
         }
     }
 
-    const renderHeadings = (key, heading) => {
+    const renderHeadings = (key: string, heading: string) => {
         switch(key){
             case 'headingsPageHeading1':
                 return <H70 className="h70-black-lustria">{heading}</H70>
@@ -209,7 +216,7 @@ export const HeadingsPage = (props) => {
         }
     }
 
-    const renderHeadingsPageDate = (arr) => {
+    const renderHeadingsPageDate = (arr: Array<GeneralTypes.HeadingsPageItem>) => {
         return(
             <>{arr.map((el,i) => {
                 return(
@@ -276,7 +283,7 @@ export const HeadingsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             headingsPage: Selectors.getHeadingsPageState(state),

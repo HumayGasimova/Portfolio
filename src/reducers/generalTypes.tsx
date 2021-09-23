@@ -793,3 +793,20 @@ export type DropcapsPageTextItem = {
     id: number,
     text: string
 }
+
+/**
+ * HeadingsPage state
+ */
+
+export type HeadingsPageState = {
+    error: any,
+    items: Array<HeadingsPageItem>,
+    loading: boolean
+}
+
+export type HeadingsPageItem = {
+    id: number,
+    header: string,
+    key: string,
+    text: string
+}

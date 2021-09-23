@@ -2260,7 +2260,7 @@ export function fetchHeadingsPageData() {
             // .then(handleErrors)
             .then(res => res.json()) // to debug instead of json write text
             .then(json => {
-                // console.log(json)
+                console.log("fetchHeadingsPageData",json)
                 dispatch(Actions.fetchHeadingsPageDataSuccess(json));
                 // return json;
             })
