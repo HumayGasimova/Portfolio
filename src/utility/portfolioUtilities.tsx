@@ -640,7 +640,7 @@ const calculateTranslateYForFourColumnsPageSmallScreen = (page, i, screenWidth) 
     }
 }
 
-export function getOffset( el ) {
+export function getOffset(el){
     var _x = 0;
     var _y = 0;
     while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
@@ -649,4 +649,31 @@ export function getOffset( el ) {
         el = el.offsetParent;
     }
     return { top: _y, left: _x };
+}
+
+export const setAndRunTime = () => {
+    let time;
+    // Call current date every sec
+
+    // this.timeInterval = setInterval(()=>{
+    //   time = new Date().toString().split(" ")[4];
+    // }, 1000);
+
+    // Custom time
+    
+    let date = new Date().toString().split(" ")[4].split(":");
+    console.log(date)
+    let hour = +date[0];
+    let min = +date[1];
+    let sec = +date[2];
+
+    setInterval(()=>{
+      let date = new Date().toString().split(" ")[4].split(":");
+      sec = sec === 59 ? 0 : sec + 1;
+      min = sec === 0 && min !== 59 ? min + 1 : (sec === 0 && min === 59) ? 0 : min;
+      hour = sec === 0 && min === 0 && hour !== 23 ? hour + 1 : (min === 0 && hour === 23) ? 0 : hour;
+      
+      time = `${hour < 10 ? hour.toString().padStart(2, '0') : hour} : ${min < 10 ? min.toString().padStart(2, '0') : min} : ${sec < 10 ? sec.toString().padStart(2, '0') : sec}`
+      console.log(min)
+    }, 300);
 }
