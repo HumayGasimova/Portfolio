@@ -677,3 +677,49 @@ export const setAndRunTime = () => {
       console.log(min)
     }, 300);
 }
+
+export const setAndRunTimeWithDate = (dateObj) => {
+    // Custom time
+    let time = dateObj.time;        
+    let date = time.split(":");
+
+    let day = dateObj.day;
+    let month = dateObj.month;
+    let year = dateObj.year;
+    let leapYear = Utility.leapYear(year)
+    let daysInMonth = Utility.getDaysInMonth(month, dateObj.leapYear);
+ 
+    let hour = +date[0];
+    let min = +date[1];
+    let sec = +date[2];
+
+    setInterval(()=>{
+        // let date = new Date().toString().split(" ")[4].split(":");
+        if(month === 2){
+            leapYear = Utility.leapYear(year);
+            daysInMonth = Utility.getDaysInMonth(month, leapYear);
+        }
+     
+        sec = sec === 59 ? 0 : sec + 1;
+        min = sec === 0 && min !== 59 ? min + 1 : (sec === 0 && min === 59) ? 0 : min;
+        hour = sec === 0 && min === 0 && hour !== 23 ? hour + 1 : (min === 0 && hour === 23) ? 0 : hour;
+        day = sec === 0 && min === 0 && hour === 0 && day !== daysInMonth ? day + 1 : (sec === 0 && min === 0 && hour === 0 && day === daysInMonth) ? 1 : day;
+        month = sec === 0 && min === 0 && hour === 0 && month !== 12 ? month + 1 : (sec === 0 && min === 0 && hour === 0 && month === 12) ? 1 : month;
+        year = sec === 0 && min === 0 && hour === 0 && month === 1 ? year + 1 : year;
+        // dayWeek = sec === 0 && min === 0 && hour === 0 && day !== 7 ? day + 1 : (sec === 0 && min === 0 && hour === 0 && day === 7) ? 1 : day;
+       
+        daysInMonth = Utility.getDaysInMonth(month, leapYear);
+        time = `${hour < 10 ? hour.toString().padStart(2, '0') : hour} : ${min < 10 ? min.toString().padStart(2, '0') : min} : ${sec < 10 ? sec.toString().padStart(2, '0') : sec} ${day}/${day}/${year}`
+        // ${Utility.getMonth(month)}
+        console.log(time)
+    }, 1000);
+
+    // this.time = new Date().toString().split(" ")[4];
+    // this.timeInterval = setInterval(()=>{
+    //   this.time = new Date().toString().split(" ")[4];d
+    // }, 1000);
+}
+
+export const leapYear = (year) => {
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
