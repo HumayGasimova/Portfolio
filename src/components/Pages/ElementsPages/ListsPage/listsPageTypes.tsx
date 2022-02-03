@@ -9,18 +9,18 @@ import {
 
 import * as GeneralTypes from '../../../../reducers/generalTypes';
 
-export type IconWithTextPageProps = {
-    iconWithTextPage: GeneralTypes.IconWithPageState,
+export type ListsPageProps = {
+    listsPage: GeneralTypes.ListsPageState,
     menuDotsState: GeneralTypes.MenuDotsStateObj,
     showBackToTop: boolean,
     history: History,
     location: Location,
     match: match,
     staticContext: undefined,
-    fetchIconWithTextPageSection1Data: () => void,
-    fetchIconWithTextPageSection1DataSuccess: (array: Array<GeneralTypes.IconWithPageSectionItem>) => {array: Array<GeneralTypes.IconWithPageSectionItem>},
-    fetchIconWithTextPageSection2Data: () => void,
-    fetchIconWithTextPageSection2DataSuccess: (array: Array<GeneralTypes.IconWithPageSectionItem>) => {array: Array<GeneralTypes.IconWithPageSectionItem>},
+    fetchListsPageSection1Data: () => void,
+    fetchListsPageSection1DataSuccess: (array: Array<GeneralTypes.ListsPageSectionItem>) => {array: Array<GeneralTypes.ListsPageSectionItem>},
+    fetchListsPageSection2Data: () => void,
+    fetchListsPageSection2DataSuccess: (array: Array<GeneralTypes.ListsPageSectionItem>) => {array: Array<GeneralTypes.ListsPageSectionItem>},
     setMenuDotsState: (val: string, page: string) => {val: string, page: string},
     setShowBackToTopComponent: (val: boolean) => {val: boolean},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
@@ -28,18 +28,18 @@ export type IconWithTextPageProps = {
 }
 
 export type MapStateToPropsTypes = {
-    iconWithTextPage: GeneralTypes.IconWithPageState,
+    listsPage: GeneralTypes.ListsPageState,
     menuDotsState: GeneralTypes.MenuDotsStateObj,
-    showBackToTop: boolean,
+    showBackToTop: boolean
 }
 
 export type MapDispatchToPropsTypes = {
-    fetchIconWithTextPageSection1Data: () => void,
-    fetchIconWithTextPageSection1DataSuccess: (array: Array<GeneralTypes.IconWithPageSectionItem>) => {array: Array<GeneralTypes.IconWithPageSectionItem>},
-    fetchIconWithTextPageSection2Data: () => void,
-    fetchIconWithTextPageSection2DataSuccess: (array: Array<GeneralTypes.IconWithPageSectionItem>) => {array: Array<GeneralTypes.IconWithPageSectionItem>},
-    setMenuDotsState: (val: string, page: string) => {val: string, page: string},
-    setShowBackToTopComponent: (val: boolean) => {val: boolean},
+    fetchListsPageSection1Data: () => void,
+    fetchListsPageSection1DataSuccess: (array: Array<GeneralTypes.ListsPageSectionItem>) => {array: Array<GeneralTypes.ListsPageSectionItem>},
+    fetchListsPageSection2Data: () => void,
+    fetchListsPageSection2DataSuccess: (array: Array<GeneralTypes.ListsPageSectionItem>) => {array: Array<GeneralTypes.ListsPageSectionItem>},
     setUnmountComponentValues: (val: boolean, path: string, prevPage: string) => {val: boolean, path: string, prevPage: string},
     unmountComponent: (repeatedKey: string, repeatedPath: string, page: string, button: number) => {repeatedKey: string, repeatedPath: string, page: string, button: number}
+    setMenuDotsState: (val: string, page: string) => {val: string, page: string},
+    setShowBackToTopComponent: (val: boolean) => {val: boolean}
 }

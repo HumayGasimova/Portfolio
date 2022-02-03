@@ -846,13 +846,40 @@ export type IconWithPageState = {
 
 type IconWithPageSectionObj = {
     error: any
-    items: Array<IconWithPageSectionitem>
+    items: Array<IconWithPageSectionItem>
     loading: boolean
 }
 
-export type IconWithPageSectionitem = {
+export type IconWithPageSectionItem = {
     id: number,
     header: string,
     img: string,
     text?: string
+}
+
+/**
+ * ListsPage state
+ */
+
+export type ListsPageState = {
+    section1Data: ListsPageSectionObj,
+    section2Data: ListsPageSectionObj
+}
+
+export type ListsPageSectionObj = {
+    error: any
+    items: Array<ListsPageSectionItem>
+    loading: boolean
+}
+
+export type ListsPageSectionItem = {
+    id: number,
+    listsArr: Array<ListsPageListsArrItem>
+}
+
+export type ListsPageListsArrItem = {
+    id: number,
+    key: string,
+    iconType: string,
+    text: string
 }

@@ -73,17 +73,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './listsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * ListsPage component definition and export
  */
 
-export const ListsPage = (props) => {
+export const ListsPage: React.FC<Types.ListsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -91,8 +98,8 @@ export const ListsPage = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-
-        props.setUnmountComponentValues(false, "");
+        console.log("props",props)
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -140,7 +147,7 @@ export const ListsPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("listsPage");
 
@@ -161,7 +168,14 @@ export const ListsPage = (props) => {
         }
     }
 
-    const renderBackgroundColor = (section) => {
+    const checkScrollDirectionIsUp = (e)  => {
+        if (e.wheelDelta) {
+          return e.wheelDelta > 0;
+        }
+        return e.deltaY < 0;
+    }
+
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'rgb(239, 239, 239)';
@@ -170,14 +184,6 @@ export const ListsPage = (props) => {
                 return 'white';
         }
     }
-
-    const checkScrollDirectionIsUp = (e)  => {
-        if (e.wheelDelta) {
-          return e.wheelDelta > 0;
-        }
-        return e.deltaY < 0;
-    }
-
     const renderToolbars = () => {
         if(size.width < 1120){
             return(
@@ -214,7 +220,7 @@ export const ListsPage = (props) => {
         }
     }
 
-    const renderListsPageDataLists = (section, arr) => {
+    const renderListsPageDataLists = (section: string, arr: Array<GeneralTypes.ListsPageListsArrItem>) => {
         return(
             <>{arr.map((el, i) => {
                 return(
@@ -237,10 +243,10 @@ export const ListsPage = (props) => {
         )
     }
 
-    const renderListsPageData = (section, arr) => {
+    const renderListsPageData = (section: string, arr: Array<GeneralTypes.ListsPageSectionItem>) => {
         return(
             <div className={`lists-page-${section}-data-items`}>
-                {arr.items.map((el, i) => {
+                {arr.map((el, i) => {
                     return(
                         <div 
                             key={i}
@@ -254,8 +260,8 @@ export const ListsPage = (props) => {
         )
     }
     
-    const renderListsPageDataContent = (section, arr) => {
-        if(arr.loading && !arr.error){
+    const renderListsPageDataContent = (section: string, data: GeneralTypes.ListsPageSectionObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="lists-page-loading-error" 
@@ -268,14 +274,14 @@ export const ListsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             return(
                 <div className="lists-page-section2-data-wrapper">
-                    {renderListsPageData(section, arr)}
+                    {renderListsPageData(section, data.items)}
                 </div>
             )
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="lists-page-loading-error" 
@@ -284,7 +290,7 @@ export const ListsPage = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -311,7 +317,7 @@ export const ListsPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             listsPage: Selectors.getListsPageState(state),
