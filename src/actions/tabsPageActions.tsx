@@ -132,7 +132,7 @@ export function initUnderlinesStyleStateForTabsPage(arr) {
 
 export function updateTabsUnderlinesStyleValuesForTabsPage(tabsKey, obj) {
     return { 
-        type: actionTypes.UPDATED_TABS_UNDERLINES_STYLE_VALUES_TABS_PAGE,
+        type: actionTypes.UPDATED_TABS_UNDERLINES_STYLE_VALUES_FOR_TABS_PAGE,
         tabsKey: tabsKey,
         obj: obj
     };

@@ -453,7 +453,7 @@ const tabsPageReducer = (state = initialState, action) => {
             return rememberCoordinateRangeForTabsPage(state, action);
         case actionTypes.INIT_UNDERLINES_STYLE_STATE_FOR_TABS_PAGE:
             return initUnderlinesStyleStateForTabsPage(state, action);
-        case actionTypes.UPDATED_TABS_UNDERLINES_STYLE_VALUES_TABS_PAGE:
+        case actionTypes.UPDATED_TABS_UNDERLINES_STYLE_VALUES_FOR_TABS_PAGE:
             return updateTabsUnderlinesStyleValuesForTabsPage(state, action);
         default: 
             return state;

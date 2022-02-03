@@ -58,7 +58,6 @@ export const Tabs: React.FC<Types.TabsProps> = (props) => {
      */
 
     React.useEffect(() => {
-        console.log(props)
         // Set underline width for active tab
 
         if(props.tabsKey === "section1Column1" && props.array.length !== 0){
@@ -170,7 +169,7 @@ export const Tabs: React.FC<Types.TabsProps> = (props) => {
                 return evaluateCoordinates(el.id)
             });
         }
-        
+        console.log("headerHolderCoordinateRange",props.array)
         props.rememberCoordinateRange(props.tabsKey, headerHolderCoordinateRange);
     }
     
