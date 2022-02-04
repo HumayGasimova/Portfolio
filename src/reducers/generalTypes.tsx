@@ -905,3 +905,39 @@ export type PieChartsPageSectionItem = {
     key: string,
     percent: number
 }
+
+/**
+ * Portfolio Project Showcase Page state
+ */
+
+export type PortfolioProjectShowcasePageState = {
+    error: any
+    items: Array<PortfolioProjectShowcaseItem>
+    loading: boolean
+}
+
+export type PortfolioProjectShowcaseItem = {
+    backgroundImage: PortfolioProjectShowcaseItemBgImageObj,
+    categories: Array<CategoriesItem>,
+    date: string,
+    header: string,
+    id: number,
+    imagesArray: Array<ImagesArrayItem>,
+    key: string,
+    tags: Array<TagsItem>,
+    text: string,
+}
+
+type PortfolioProjectShowcaseItemBgImageObj = {
+    animation: boolean,
+    id: number,
+    imageName: string,
+    key: string,
+    style: PortfolioProjectShowcaseItemBgImageStyleObj
+}
+
+export type PortfolioProjectShowcaseItemBgImageStyleObj = {
+    rendered: boolean,
+    transition: number,
+    width: number
+}

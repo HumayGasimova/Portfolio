@@ -531,7 +531,7 @@ export const ProjectShowcaseItem: React.FC<Types.ProjectShowcaseItemProps> = (pr
         
 
         // Open photo viewer for the component
-
+console.log("eeed",slidesForPhotoViewer)
         props.photoViewerOpen(props.component, true, slidesForPhotoViewer);
     }
 

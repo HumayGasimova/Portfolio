@@ -77,17 +77,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './portfolioProjectShowcaseTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * PortfolioProjectShowcase component definition and export
  */
 
-export const PortfolioProjectShowcase = (props) => {
+export const PortfolioProjectShowcase: React.FC<Types.PortfolioProjectShowcasePageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -95,8 +102,8 @@ export const PortfolioProjectShowcase = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-
-        props.setUnmountComponentValues(false, "");
+        
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -129,7 +136,7 @@ export const PortfolioProjectShowcase = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("portfolioProjectShowcasePage");
 
@@ -193,7 +200,7 @@ export const PortfolioProjectShowcase = (props) => {
         }
     }
 
-    const renderPortfolioProjectShowcasePageDate = (arr) => {
+    const renderPortfolioProjectShowcasePageDate = (arr: Array<GeneralTypes.PortfolioProjectShowcaseItem>) => {
         return(
             <>{arr.map((el,i) => {
                 return(
