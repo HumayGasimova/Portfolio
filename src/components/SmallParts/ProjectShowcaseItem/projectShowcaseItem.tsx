@@ -76,14 +76,14 @@ export const ProjectShowcaseItem: React.FC<Types.ProjectShowcaseItemProps> = (pr
         
         window.addEventListener('resize', resize);
         window.addEventListener('transitionend', smooth);
-        window.addEventListener('wheel', () => handleOnWheel);
+        window.addEventListener('wheel', handleOnWheel);
         
         return () =>  {
             // Cleaning the unmounted component
 
             window.removeEventListener('resize', resize);
             window.removeEventListener('transitionend', smooth);
-            window.removeEventListener('wheel', () => handleOnWheel);
+            window.removeEventListener('wheel', handleOnWheel);
         }
       
     }, [props.data.backgroundImage.animation]);
@@ -531,7 +531,7 @@ export const ProjectShowcaseItem: React.FC<Types.ProjectShowcaseItemProps> = (pr
         
 
         // Open photo viewer for the component
-console.log("eeed",slidesForPhotoViewer)
+        
         props.photoViewerOpen(props.component, true, slidesForPhotoViewer);
     }
 
