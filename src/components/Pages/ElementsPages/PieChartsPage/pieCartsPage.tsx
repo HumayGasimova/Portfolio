@@ -71,18 +71,25 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './pieChartsPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+ 
+/**
  * PieCartsPage component definition and export
  */
 
-export const PieCartsPage = (props) => {
+export const PieCartsPage: React.FC<Types.PieChartsPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
-    const [showComponentSection2, setShowComponentSection2] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
+    const [showComponentSection2, setShowComponentSection2] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -91,7 +98,7 @@ export const PieCartsPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -139,7 +146,7 @@ export const PieCartsPage = (props) => {
         }
     }, [props.pieChartsPage.section2Data.items.length]);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("pieChartsPage");
         let pieChartsPageSection2 = document.getElementById("pieChartsPageSection2");
@@ -177,7 +184,14 @@ export const PieCartsPage = (props) => {
         }
     }
 
-    const renderBackgroundColor = (section) => {
+    const checkScrollDirectionIsUp = (e)  => {
+        if (e.wheelDelta) {
+          return e.wheelDelta > 0;
+        }
+        return e.deltaY < 0;
+    }
+
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'rgb(239, 239, 239)';
@@ -185,13 +199,6 @@ export const PieCartsPage = (props) => {
             default:
                 return 'white';
         }
-    }
-
-    const checkScrollDirectionIsUp = (e)  => {
-        if (e.wheelDelta) {
-          return e.wheelDelta > 0;
-        }
-        return e.deltaY < 0;
     }
 
     const renderToolbars = () => {
@@ -230,9 +237,9 @@ export const PieCartsPage = (props) => {
         }
     }
 
-    const renderPieChartsPageSection1Data = (arr) => {
+    const renderPieChartsPageSection1Data = (arr: Array<GeneralTypes.PieChartsPageSectionItem>) => {
         return(
-            <div className="pie-charts-page-section1-data-items">{arr.items.map((el, i) => {
+            <div className="pie-charts-page-section1-data-items">{arr.map((el, i) => {
                 return(
                     <div 
                         key={i}
@@ -250,11 +257,9 @@ export const PieCartsPage = (props) => {
         )
     }
 
-    const renderPieChartsPageSection2Data = (arr) => {
+    const renderPieChartsPageSection2Data = (arr: Array<GeneralTypes.PieChartsPageSectionItem>) => {
         return(
-            <div 
-                className="pie-charts-page-section2-data-items"
-            >{arr.items.map((el, i) => {
+            <div className="pie-charts-page-section2-data-items">{arr.map((el, i) => {
                 if(showComponentSection2){
                     return(
                         <div 
@@ -274,8 +279,8 @@ export const PieCartsPage = (props) => {
         )
     }
     
-    const renderPieChartsPageDataContent = (section, arr) => {
-        if(arr.loading && !arr.error){
+    const renderPieChartsPageDataContent = (section: string, data: GeneralTypes.PieChartsPageSectionObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="pie-charts-page-loading-error" 
@@ -288,7 +293,7 @@ export const PieCartsPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             switch(section){
                 case 'section1':
                     return(
@@ -296,7 +301,7 @@ export const PieCartsPage = (props) => {
                             id="pieChartsPageSection1"
                             className="pie-charts-page-section1-data-wrapper"
                         >
-                            {renderPieChartsPageSection1Data(arr)}
+                            {renderPieChartsPageSection1Data(data.items)}
                         </div>
                     );
                 case 'section2':
@@ -305,12 +310,12 @@ export const PieCartsPage = (props) => {
                             id="pieChartsPageSection2"
                             className="pie-charts-page-section2-data-wrapper"
                         >
-                            {renderPieChartsPageSection2Data(arr)}
+                            {renderPieChartsPageSection2Data(data.items)}
                         </div>
                     );
             }
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="pie-charts-page-loading-error" 
@@ -319,7 +324,7 @@ export const PieCartsPage = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }

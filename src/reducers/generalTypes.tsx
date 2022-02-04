@@ -883,3 +883,25 @@ export type ListsPageListsArrItem = {
     iconType: string,
     text: string
 }
+
+/**
+ * Pie Charts Page state
+ */
+
+export type PieChartsPageState = {
+    section1Data: PieChartsPageSectionObj,
+    section2Data: PieChartsPageSectionObj
+}
+
+export type PieChartsPageSectionObj = {
+    error: any
+    items: Array<PieChartsPageSectionItem>
+    loading: boolean
+}
+
+export type PieChartsPageSectionItem = {
+    header: string,
+    id: number,
+    key: string,
+    percent: number
+}

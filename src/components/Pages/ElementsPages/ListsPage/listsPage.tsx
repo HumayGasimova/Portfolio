@@ -98,7 +98,7 @@ export const ListsPage: React.FC<Types.ListsPageProps> = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-        console.log("props",props)
+        
         props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
