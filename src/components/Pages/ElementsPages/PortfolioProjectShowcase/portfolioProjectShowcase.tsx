@@ -216,7 +216,7 @@ export const PortfolioProjectShowcase: React.FC<Types.PortfolioProjectShowcasePa
                             photoViewerForProjectShowcaseItemOpen={props.photoViewerForPortfolioProjectShowcaseOpen}
                             photoViewerOpen={props.photoViewerOpen}
                         />
-                    </React.Fragment >
+                    </React.Fragment>
                 )
             })}</>
         )

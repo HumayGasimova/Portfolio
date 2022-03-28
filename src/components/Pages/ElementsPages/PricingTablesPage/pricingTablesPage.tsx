@@ -71,17 +71,24 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './pricingTablesPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+ 
+/**
  * PricingTablesPage component definition and export
  */
 
-export const PricingTablesPage = (props) => {
+export const PricingTablesPage: React.FC<Types.PricingTablesPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -89,8 +96,8 @@ export const PricingTablesPage = (props) => {
 
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
-
-        props.setUnmountComponentValues(false, "");
+        
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -135,7 +142,7 @@ export const PricingTablesPage = (props) => {
         }
     }, []);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("pricingTablesPage");
 
@@ -199,7 +206,7 @@ export const PricingTablesPage = (props) => {
         }
     }
     
-    const renderBackgroundColor = (section) => {
+    const renderBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'rgb(239, 239, 239)';
@@ -210,7 +217,7 @@ export const PricingTablesPage = (props) => {
         }
     }
     
-    const renderLoadingBackgroundColor = (section) => {
+    const renderLoadingBackgroundColor = (section: string) => {
         switch(section) {
             case 'section1':
                 return 'black';
@@ -220,9 +227,9 @@ export const PricingTablesPage = (props) => {
         }
     }
 
-    const renderPricingTablePageSection1Data = (arr) => {
+    const renderPricingTablePageSection1Data = (data: GeneralTypes.PricingTablesSectionObj) => {
         return(
-            <div className="pricing-tables-page-section1-data-items">{arr.items.map((el, i) => {
+            <div className="pricing-tables-page-section1-data-items">{data.items.map((el, i) => {
                 return(
                     <div 
                         key={i}
@@ -236,14 +243,14 @@ export const PricingTablesPage = (props) => {
                             currentPagePathName="pricing-tables"
                         />
                     </div>
-                )
+                );
             })}</div>
         )
     }
 
-    const renderPricingTablePageSection2Data = (arr) => {
+    const renderPricingTablePageSection2Data = (data: GeneralTypes.PricingTablesSectionObj) => {
         return(
-            <div className="pricing-tables-page-section2-data-items">{arr.items.map((el, i) => {
+            <div className="pricing-tables-page-section2-data-items">{data.items.map((el, i) => {
                 return(
                     <div 
                         key={i}
@@ -257,13 +264,13 @@ export const PricingTablesPage = (props) => {
                             currentPagePathName="pricing-tables"
                         />
                     </div>
-                )
+                );
             })}</div>
         )
     }
     
-    const renderPricingTablePageDataContent = (section, arr) => {
-        if(arr.loading && !arr.error){
+    const renderPricingTablePageDataContent = (section: string, data: GeneralTypes.PricingTablesSectionObj) => {
+        if(data.loading && !data.error){
             return(
                 <div 
                     className="pricing-tables-page-loading-error" 
@@ -276,23 +283,23 @@ export const PricingTablesPage = (props) => {
                 </div>
             )
         }
-        if(!arr.loading && !arr.error){
+        if(!data.loading && !data.error){
             switch(section){
                 case 'section1':
                     return(
                         <div className="pricing-tables-page-section1-data-wrapper">
-                            {renderPricingTablePageSection1Data(arr)}
+                            {renderPricingTablePageSection1Data(data)}
                         </div>
                     );
                 case 'section2':
                     return(
                         <div className="pricing-tables-page-section2-data-wrapper">
-                            {renderPricingTablePageSection2Data(arr)}
+                            {renderPricingTablePageSection2Data(data)}
                         </div>
                     );
             }
         }
-        if(!arr.loading && arr.error){
+        if(!data.loading && data.error){
             return(
                 <div 
                     className="pricing-tables-page-loading-error" 
@@ -301,7 +308,7 @@ export const PricingTablesPage = (props) => {
                         background: `${renderBackgroundColor(section)}`
                     }}
                 >
-                    <H15 className="h19-nobel-lora">{`${arr.error}`}</H15>
+                    <H15 className="h19-nobel-lora">{`${data.error}`}</H15>
                 </div>
             )
         }
@@ -328,7 +335,7 @@ export const PricingTablesPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             pricingTablesPage: Selectors.getPricingTablesPageState(state),

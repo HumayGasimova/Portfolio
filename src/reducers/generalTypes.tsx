@@ -941,3 +941,34 @@ export type PortfolioProjectShowcaseItemBgImageStyleObj = {
     transition: number,
     width: number
 }
+
+/**
+ * Pricing Tables Page state
+ */
+
+export type PricingTablesPageState = {
+    section1Data: PricingTablesSectionObj
+    section2Data: PricingTablesSectionObj
+}
+
+export type PricingTablesSectionObj = {
+    error: any
+    items: Array<PricingTablesItem>
+    loading: boolean
+}
+
+export type PricingTablesItem = {
+    buttonText: string,
+    buttonType: string,
+    header: string,
+    id: number,
+    key: string,
+    price: PricingTablesItemObj,
+    text: string
+}
+
+type PricingTablesItemObj = {
+    currency: string,
+    option: string
+    value: number
+}
