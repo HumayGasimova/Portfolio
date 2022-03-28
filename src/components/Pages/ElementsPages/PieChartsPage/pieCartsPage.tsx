@@ -351,7 +351,7 @@ export const PieCartsPage: React.FC<Types.PieChartsPageProps> = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             pieChartsPage: Selectors.getPieChartsPageState(state),

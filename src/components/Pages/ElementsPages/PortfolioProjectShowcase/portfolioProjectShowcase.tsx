@@ -272,7 +272,7 @@ export const PortfolioProjectShowcase: React.FC<Types.PortfolioProjectShowcasePa
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             portfolioProjectShowcasePage: Selectors.getPortfolioProjectShowcasePageState(state),
