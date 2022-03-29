@@ -972,3 +972,25 @@ type PricingTablesItemObj = {
     option: string
     value: number
 }
+
+/**
+ * Progress Bar Page state
+ */
+
+export type ProgressBarPageState = {
+    section1Column1Data: ProgressBarSectionObj,
+    section1Column2Data: ProgressBarSectionObj,
+    section2Data: ProgressBarSectionObj
+}
+
+type ProgressBarSectionObj = {
+    error: any
+    items: Array<ProgressBarItem>
+    loading: boolean
+}
+
+export type ProgressBarItem = {
+    id: number,
+    label: string,
+    percent: number,
+}

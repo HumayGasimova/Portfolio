@@ -73,18 +73,25 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './progressBarPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * ProgressBarPage component definition and export
  */
 
-export const ProgressBarPage = (props) => {
+export const ProgressBarPage: React.FC<Types.ProgressBarPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
-    const [showComponentSection2, setShowComponentSection2] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
+    const [showComponentSection2, setShowComponentSection2] = React.useState<boolean>(false);
     
     /**
      * Methods
@@ -93,7 +100,7 @@ export const ProgressBarPage = (props) => {
     React.useEffect(() => {
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -150,7 +157,7 @@ export const ProgressBarPage = (props) => {
         }
     }, [props.progressBarPage.section2Data.items.length]);
 
-    const handleOnWheel = (e) => {
+    const handleOnWheel = (e: MouseEvent) => {
         let scrollHeight = document.body.scrollTop;
         let el = document.getElementById("progressBarPage");
         let progressBarPageSection2 = document.getElementById("progressBarPageSection2");
@@ -231,7 +238,7 @@ export const ProgressBarPage = (props) => {
         }
     }
 
-    const renderProgressBarPageDate = (arr, component) => {
+    const renderProgressBarPageDate = (arr: Array<GeneralTypes.ProgressBarItem>, component: string) => {
         return(
             <>{arr.map((el,i) => {
                 return(
@@ -370,7 +377,7 @@ export const ProgressBarPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             progressBarPage: Selectors.getProgressBarPageState(state),
