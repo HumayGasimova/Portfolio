@@ -173,7 +173,7 @@ export const ScrollSlider = (props) => {
         //Remember slider container coordinates
 
         let sliderContainerCoordinateRange = evaluateCoordinates();
-
+        
         props.rememberCoordinateRange(props.sliderKey, sliderContainerCoordinateRange);
     }
 

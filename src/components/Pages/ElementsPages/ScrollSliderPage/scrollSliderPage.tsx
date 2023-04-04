@@ -71,29 +71,37 @@ import * as FakeData from '../../../../fakeData';
 import * as Environment from '../../../../constants/environments';
 
 /**
+ * Types
+ */
+
+import * as Types from './scrollSliderPageTypes';
+import * as GeneralTypes from '../../../../reducers/generalTypes';
+
+/**
  * ScrollSliderPage component definition and export
  */
 
-export const ScrollSliderPage = (props) => {
+export const ScrollSliderPage: React.FC<Types.ScrollSliderPageProps> = (props) => {
 
     /**
      * State
      */
 
     const size = useWindowSize();
-    const [scrollingUp, setScrollingUp] = React.useState(false);
-    const [mouseOnSlider, setMouseOnSlider] = React.useState(false);
+    const [scrollingUp, setScrollingUp] = React.useState<boolean>(false);
+    const [mouseOnSlider, setMouseOnSlider] = React.useState<boolean>(false);
     
     /**
      * Methods
      */
 
     React.useEffect(() => {
+        console.log('props', props)
         let timeout;
 
         // Init state for fading effect when component will unmount
 
-        props.setUnmountComponentValues(false, "");
+        props.setUnmountComponentValues(false, "", null);
 
         // Fetch data for the component
 
@@ -280,7 +288,7 @@ export const ScrollSliderPage = (props) => {
     );
 }
 
-export default connect(
+export default connect<Types.MapStateToPropsTypes, Types.MapDispatchToPropsTypes>(
     (state) => {
         return {
             scrollSliderPage: Selectors.getScrollSliderPageState(state),
@@ -297,7 +305,7 @@ export default connect(
             setMenuDotsState: bindActionCreators(Actions.setMenuDotsState, dispatch),
             setShowBackToTopComponent: bindActionCreators(Actions.setShowBackToTopComponent, dispatch),
             rememberCoordinateRangeOfScrollSliderForScrollSliderPage: bindActionCreators(Actions.rememberCoordinateRangeOfScrollSliderForScrollSliderPage, dispatch),
-            forgetCoordinateRangeOfScrollSliderForScrollSliderPage: bindActionCreators(Actions.forgetCoordinateRangeOfScrollSliderForScrollSliderPage, dispatch),
+            // forgetCoordinateRangeOfScrollSliderForScrollSliderPage: bindActionCreators(Actions.forgetCoordinateRangeOfScrollSliderForScrollSliderPage, dispatch),
             updateScrollSlidersStyleValuesScrollSliderPage: bindActionCreators(Actions.updateScrollSlidersStyleValuesScrollSliderPage, dispatch),
         };
     }

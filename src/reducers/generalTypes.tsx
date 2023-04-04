@@ -330,7 +330,8 @@ export type ItemsCoordinateRange = {
     topCoordinate?: number,
     updated: boolean,
     width?: number,
-    key?: string
+    key?: string,
+    rendered?: boolean
 }
 
 /**
@@ -993,4 +994,28 @@ export type ProgressBarItem = {
     id: number,
     label: string,
     percent: number,
+}
+
+/**
+ * Scroll Slider Page state
+ */
+
+export type ScrollSliderPageState = {
+    error: any
+    items: Array<ScrollSliderItem>
+    loading: boolean
+    scrollSlidersStyleValues: ItemsStyleValuesObj
+    sliderContainersCoordinateRange: Array<ItemsCoordinateRange>
+}
+
+export type ScrollSliderItem = {
+    buttonPath?: string,
+    header1?: string,
+    header2?: string,
+    id: number
+    key: string,
+    option: string,
+    text?: string,
+    alt?: string,
+    imageName?: string
 }
